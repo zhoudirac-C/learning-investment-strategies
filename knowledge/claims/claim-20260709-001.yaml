@@ -573,6 +573,23 @@ claims:
   - 中报
   - 个股
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 600793.SH
+    rationale: 业绩风险压制短线表现，看空宜宾纸业
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600793.SH
+    t0_date: 2026-07-09
+    t5_date: 2026-07-16
+    t0_close: 16.67
+    t5_close: 14.03
+    fwd_return_pct: -15.84
 - id: claim-20260709-004-c-dup1
   source_path: sources/original/bilibili/2026-07-09-0856-图片-周三又是一个被韩股拆成上下半场的交易日：创业板指冲高回落收跌.md
   up_id: '1420210197'
@@ -1065,6 +1082,23 @@ claims:
   - 净利润
   - 同比增长
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000977.SZ
+    rationale: 业绩大幅预增验证AI服务器高景气，利好股价
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000977.SZ
+    t0_date: 2026-07-09
+    t5_date: 2026-07-16
+    t0_close: 85.99
+    t5_close: 85
+    fwd_return_pct: -1.15
 - id: claim-20260709-007-b
   source_path: sources/original/bilibili/2026-07-09-0856-图片-周三又是一个被韩股拆成上下半场的交易日：创业板指冲高回落收跌.md
   up_id: '1420210197'

@@ -32,6 +32,23 @@ claims:
   - 恢复期
   - 耐心持仓
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性最坏已过、恢复期护盘，隐含看多但需耐心
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-12
+    t5_date: 2026-10-19
+    t0_close: 4287.98
+    t5_close: 4174.53
+    fwd_return_pct: -2.65
 - id: claim-20261012-003-b
   source_path: sources/original/bilibili/2026-10-12-1049-图片-现阶段就像是刚经历过一场大病，已经抢救过来脱离生命危险，但是.md
   source_date: '2026-10-12'
@@ -64,6 +81,13 @@ claims:
   - 受迫盘
   - 方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论模型，非方向判断，用于判断市场出清阶段
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261012-003-c
   source_path: sources/original/bilibili/2026-10-12-1049-图片-现阶段就像是刚经历过一场大病，已经抢救过来脱离生命危险，但是.md
   source_date: '2026-10-12'
@@ -98,6 +122,13 @@ claims:
   - 保险年金
   - 资金结构
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 归因分析出清周期拉长，属方法论而非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261012-003-d
   source_path: sources/original/bilibili/2026-10-12-1049-图片-现阶段就像是刚经历过一场大病，已经抢救过来脱离生命危险，但是.md
   source_date: '2026-10-12'
@@ -131,3 +162,21 @@ claims:
   - 逆向买入
   - 受迫盘
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: A股整体受迫盘出清阶段建议坚守加仓，属看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-12
+    t5_date: 2026-10-19
+    t0_close: 4287.98
+    t5_close: 4174.53
+    fwd_return_pct: -2.65

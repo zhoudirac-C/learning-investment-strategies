@@ -363,6 +363,23 @@ claims:
     cases: []
   topic: 7月21日复盘：九安医疗AI投资版图及股权价值兑现逻辑
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002432.SZ
+    rationale: 看多九安医疗，AI股权投资收益兑现带来估值弹性
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002432.SZ
+    t0_date: 2026-07-21
+    t5_date: 2026-07-28
+    t0_close: 79.75
+    t5_close: 67.03
+    fwd_return_pct: -15.95
 - id: claim-20260721-025
   source_path: sources/original/bilibili/2026-07-21-2237-图片-今日市场走出真正意义上的探底回升行情，科技股全线反攻带动指数.md
   up_id: '1420210197'
@@ -399,6 +416,23 @@ claims:
     cases: []
   topic: 7月21日复盘：共进股份ODM交换机受益国产超节点短期弹性标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603118.SH
+    rationale: 看好共进股份短期弹性，受益国产超节点交换机需求
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603118.SH
+    t0_date: 2026-07-21
+    t5_date: 2026-07-28
+    t0_close: 14.93
+    t5_close: 17.31
+    fwd_return_pct: 15.94
 - id: claim-20260721-026
   source_path: sources/original/bilibili/2026-07-21-2237-图片-今日市场走出真正意义上的探底回升行情，科技股全线反攻带动指数.md
   up_id: '1420210197'
@@ -441,6 +475,23 @@ claims:
     cases: []
   topic: 7月21日复盘：托伦斯国产半导体设备扩产周期强阿尔法标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301583.SZ
+    rationale: 明确看多托伦斯，深度绑定设备龙头受益扩产周期
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301583.SZ
+    t0_date: 2026-07-21
+    t5_date: 2026-07-28
+    t0_close: 132.26
+    t5_close: 175.1
+    fwd_return_pct: 32.39
 - id: claim-20260721-027
   source_path: sources/original/bilibili/2026-07-21-2237-图片-今日市场走出真正意义上的探底回升行情，科技股全线反攻带动指数.md
   up_id: '1420210197'

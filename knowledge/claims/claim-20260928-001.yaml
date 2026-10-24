@@ -35,6 +35,13 @@ claims:
   - 修复高度
   - 外部环境
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式判断修复持续性，锚定量能与广度，未给明确多空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-001-b
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -70,6 +77,13 @@ claims:
   - 全天承接
   - 国庆前
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 节前定价方法论，非方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-001-c
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -105,6 +119,23 @@ claims:
   - 估值约束
   - 通胀
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 高利率压制成长股估值扩张，对科技方向保持警惕
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-09-28
+    t5_date: 2026-10-12
+    t0_close: 3139.82
+    t5_close: 2963.82
+    fwd_return_pct: -5.61
 - id: claim-20260928-001-d
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -138,6 +169,13 @@ claims:
   - 产业影响
   - 落实进度
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性为政策背景而非可交易利好，属非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-001-e
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -172,6 +210,13 @@ claims:
   - 证据标准
   - 跨市场联动
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，质疑单因子归因，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-001-f
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -207,6 +252,23 @@ claims:
   - 弱平衡
   - 科技权重
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 缩量下跌显示买盘缺位，指数弱平衡未企稳，偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-28
+    t5_date: 2026-10-12
+    t0_close: 4340.76
+    t5_close: 4287.98
+    fwd_return_pct: -1.22
 - id: claim-20260928-001-g
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -242,6 +304,13 @@ claims:
   - 缩量
   - 左侧判断
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 量能方法论提示，非方向判断，仅警示勿以接近前低量作见底依据
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-001-h
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -277,6 +346,13 @@ claims:
   - 情绪指标
   - 交叉验证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 看盘方法论框架，无方向判断，涉及沪指与大金融权重
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-001-i
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -311,6 +387,13 @@ claims:
   - 回暖判据
   - 上涨宽度
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 阐述市场范围回暖的判据，属方法论而非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-001-j
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -353,6 +436,13 @@ claims:
   - 修复成色
   - 板块合力
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论判据：观察科技修复成色，非方向性判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-001-k
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -388,6 +478,13 @@ claims:
   - 项目订单
   - 概念外推
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，强调政策文本不等于个股收入，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-001-l
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -421,6 +518,13 @@ claims:
   - 情绪样本
   - 海外映射
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论提示：海外个股映射仅为情绪参照，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-001-m
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -457,6 +561,13 @@ claims:
   - 网络安全
   - 业绩验证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002439.SZ
+    rationale: 方法论判断：需求逻辑成立但不可直接推导业绩，无方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-001-n
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -496,6 +607,13 @@ claims:
   - 商业化验证
   - 系统工程
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603019.SH
+    rationale: 方法论框架，无买卖方向，基准取关联标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-001-o
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -531,6 +649,13 @@ claims:
   - 客户采用
   - 数据中心电力
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论观点，仅跟踪验证框架，无方向判断，关联新技术板块
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-001-p
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -565,6 +690,13 @@ claims:
   - 阶段性回补
   - 扩散宽度
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判别框架，条件式非方向判断，基准取大盘指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-001-q
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -599,3 +731,11 @@ claims:
   - 跟踪变量
   - 时间维度
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论提示：开盘样本不足以推断周度趋势，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

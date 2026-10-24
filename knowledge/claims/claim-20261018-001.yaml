@@ -27,6 +27,21 @@
   - 阶段定性
   - 胜率
   - 市场周期
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 明确判断大盘处于底部区域且上涨概率大，看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-10-19
+    t0_close: 3730.92
 - id: claim-20261018-001-b
   source_path: sources/original/bilibili/2026-10-18-1027-图片-昨天的复盘视频发完怎么感觉有些人要疯掉了。 总结一下 这里就.md
   source_date: '2026-10-18'
@@ -56,6 +71,13 @@
   - 选股判据
   - 强趋势
   - 底部布局
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论选股判据，无具体标的，抗跌筛选逻辑非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-001-c
   source_path: sources/original/bilibili/2026-10-18-1027-图片-昨天的复盘视频发完怎么感觉有些人要疯掉了。 总结一下 这里就.md
   source_date: '2026-10-18'
@@ -85,6 +107,21 @@
   - 国产GPU
   - 超跌反弹
   - 方向比较
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603308.SH
+    rationale: 看多燃气轮机反弹优于国产GPU，选应流股份作主题基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603308.SH
+    t0_date: 2026-10-19
+    t0_close: 32.72
 - id: claim-20261018-001-d
   source_path: sources/original/bilibili/2026-10-18-1027-图片-昨天的复盘视频发完怎么感觉有些人要疯掉了。 总结一下 这里就.md
   source_date: '2026-10-18'
@@ -114,6 +151,21 @@
   - 燃气轮机
   - 日线级别
   - 周线级别
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 行情级别判断属市场状态类，两主题均定性为上行行情，看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-19
+    t0_close: 4174.53
 - id: claim-20261018-001-e
   source_path: sources/original/bilibili/2026-10-18-1027-图片-昨天的复盘视频发完怎么感觉有些人要疯掉了。 总结一下 这里就.md
   source_date: '2026-10-18'
@@ -143,3 +195,11 @@
   - 超额收益
   - 结构先稳
   - 方法论
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 底部方法论，非方向判断，默认沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

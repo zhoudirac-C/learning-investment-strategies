@@ -35,3 +35,21 @@ claims:
   - CPO
   - 800G
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002396.SZ
+    rationale: 看多星网锐捷AI交换机卡位，建议右侧跟踪关注
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002396.SZ
+    t0_date: 2026-07-20
+    t5_date: 2026-07-27
+    t0_close: 28.74
+    t5_close: 31.3
+    fwd_return_pct: 8.91

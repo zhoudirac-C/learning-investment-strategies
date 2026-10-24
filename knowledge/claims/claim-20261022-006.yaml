@@ -32,6 +32,21 @@
   - 拐点渐显
   - 试多
   - 右侧信号
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 市场底拐点渐显，建议试多，方向看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-006-b
   source_path: sources/original/wechat/2026-10-22-股市：绝望出拐点（2026.10.22）.md
   source_date: '2026-10-22'
@@ -63,6 +78,13 @@
   - 二选一纪律
   - 销户论
   - 护盘信仰
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论纪律观点，非方向判断，默认沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-006-c
   source_path: sources/original/wechat/2026-10-22-股市：绝望出拐点（2026.10.22）.md
   source_date: '2026-10-22'
@@ -92,6 +114,13 @@
   - 交易纪律
   - 体系内利润
   - 幸存者偏差
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 交易纪律方法论，无方向判断，仅涉及做空讨论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-006-d
   source_path: sources/original/wechat/2026-10-22-股市：绝望出拐点（2026.10.22）.md
   source_date: '2026-10-22'
@@ -123,6 +152,21 @@
   - 护盘
   - 无量响应
   - 四真定性
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 护盘无量响应、跟风资金枯竭，右侧信号未现，看空大盘
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-006-e
   source_path: sources/original/wechat/2026-10-22-股市：绝望出拐点（2026.10.22）.md
   source_date: '2026-10-22'
@@ -154,3 +198,19 @@
   - 情绪钟摆
   - 做空态度翻转
   - 孤独交易者
+
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 钟摆摆至恐惧端佐证看空；大盘4100点指上证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-10-22
+    t0_close: 3658.03

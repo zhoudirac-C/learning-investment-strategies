@@ -36,6 +36,23 @@ claims:
   - 长下影
   - 放量
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 承认反弹质量超预期，短期看反弹延续，但非趋势反转
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-12
+    t5_date: 2026-10-19
+    t0_close: 4287.98
+    t5_close: 4174.53
+    fwd_return_pct: -2.65
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -71,6 +88,13 @@ claims:
   - 业绩兑现
   - 持续溢价
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 可证伪验证清单属方法论，未给出方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -105,6 +129,13 @@ claims:
   - 资金性质
   - 承接持续性
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 对护盘资金性质的推断与观察判据，非方向性判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -139,6 +170,13 @@ claims:
   - 技术性回补
   - 反弹条件
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论界定长下影信号强度，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -173,6 +211,13 @@ claims:
   - 风险偏好
   - 产业景气
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，否定单一信号外推，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -209,6 +254,13 @@ claims:
   - 承接判断
   - 抛压收敛
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 量能解读方法论，无方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -244,6 +296,13 @@ claims:
   - 新增开户
   - 证据口径
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论口径纪律，非方向判断，基准取宽基ETF对应沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -280,6 +339,13 @@ claims:
   - 科技
   - 权重托举
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判断：金融管指数、科技管赚钱效应，非方向性观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -315,6 +381,13 @@ claims:
   - 撬板
   - 双线跟踪
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情绪周期方法论，双线跟踪非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -348,6 +421,13 @@ claims:
   - 政策落地
   - 增量资金
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 政策预期处理纪律，非方向判断，方法论口径
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -382,6 +462,13 @@ claims:
   - 事件节奏
   - 科技估值
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 事件节奏与方法论提示，无方向判断，关联A股整体
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -421,6 +508,23 @@ claims:
   - 换手承接
   - AI硬件
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603228.SH
+    rationale: 预期业绩兑现带动PCB板块重新定价，倾向看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603228.SH
+    t0_date: 2026-10-12
+    t5_date: 2026-10-19
+    t0_close: 96.09
+    t5_close: 86.9
+    fwd_return_pct: -9.56
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -456,6 +560,13 @@ claims:
   - 资本开支
   - 国产订单
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002371.SZ
+    rationale: 条件式验证框架，未给出明确方向，以北方华创为设备板块参照
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -491,6 +602,23 @@ claims:
   - 操作预案
   - 收盘确认
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情形A为修复延续看多预案，聚焦核心持仓，属市场阶段判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-12
+    t5_date: 2026-10-19
+    t0_close: 4287.98
+    t5_close: 4174.53
+    fwd_return_pct: -2.65
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -529,6 +657,13 @@ claims:
   - 收缩试错
   - 失效判断
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情形B为风控预案，非方向判断，属震荡应对方法论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -564,6 +699,13 @@ claims:
   - 换手活跃
   - 趋势突破
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性题材热度扩散与趋势背离，属方法论判断，非明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -600,6 +742,13 @@ claims:
   - 稀土
   - 政策题材
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 轮动定位方法论，无明确方向判断，仅给筛选纪律
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -634,6 +783,13 @@ claims:
   - 首次回流
   - 盈亏比
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 轮动方法论，无方向判断，仅观察框架
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -673,6 +829,23 @@ claims:
   - 半导体硬件
   - 板块广度
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002912.SZ
+    rationale: 看多AI应用修复扩散，样本股作短线承接线索
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002912.SZ
+    t0_date: 2026-10-12
+    t5_date: 2026-10-19
+    t0_close: 29.83
+    t5_close: 26.06
+    fwd_return_pct: -12.64
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -709,6 +882,13 @@ claims:
   - 席位口径
   - AI短剧
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 601929.SH
+    rationale: 龙虎榜数据解读口径纪律，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -743,6 +923,13 @@ claims:
   - 算力投入
   - 现金流
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 产业链关系与方法论分析，非方向性判断；AI应用主题关联创业板
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -813,6 +1000,13 @@ claims:
   - 网络安全
   - 商业化兑现
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300369.SZ
+    rationale: 方法论框架表述，未给明确方向；重点观察样本绿盟科技
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -855,6 +1049,13 @@ claims:
   - 利润传导
   - 永磁材料
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600111.SH
+    rationale: 调价解读为方法论分析，明确称边际线索而非趋势信号，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -940,6 +1141,13 @@ claims:
   - 传导路径
   - 智能终端
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603236.SH
+    rationale: 产业传导框架属方法论，无明确方向判断，选端侧模组龙头移远通信作基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -988,6 +1196,13 @@ claims:
   - 内容出海
   - 市场规模口径
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603598.SH
+    rationale: 产业链阶段判断与口径纠偏，非方向性观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -1032,6 +1247,13 @@ claims:
   - 工作流程
   - 付费转化
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: LLM 响应解析失败，降级 neutral
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -1071,6 +1293,13 @@ claims:
   - 数据授权
   - 支付机制
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688246.SH
+    rationale: 方法论判断：阐述AI医疗商业化四环节框架，非明确买卖方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -1107,3 +1336,11 @@ claims:
   - 产业研究
   - 交易确认
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 操作纪律总结，非方向判断，属方法论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

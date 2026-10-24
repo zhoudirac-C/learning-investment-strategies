@@ -27,6 +27,13 @@
   - 做T套利
   - 流动性
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 描述大资金做T套利行为模式，属方法论观察，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-009-b
   source_path: sources/original/wechat/2026-10-21-10.21最有希望的一天。.md
   source_date: '2026-10-21'
@@ -65,6 +72,21 @@
   - 繁花博弈
   - 越跌越买
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 大资金低位吸筹布局，预期科创50右侧行情启动
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000688
+    t0_date: 2026-10-21
+    t0_close: 1343.28
 - id: claim-20261021-009-c
   source_path: sources/original/wechat/2026-10-21-10.21最有希望的一天。.md
   source_date: '2026-10-21'
@@ -98,6 +120,21 @@
   - 国际对比
   - 政策背离
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 国际对比论证科创50跌过头，预期政策修复上涨
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000688
+    t0_date: 2026-10-21
+    t0_close: 1343.28
 - id: claim-20261021-009-d
   source_path: sources/original/wechat/2026-10-21-10.21最有希望的一天。.md
   source_date: '2026-10-21'
@@ -130,3 +167,19 @@
   - 政策底
   - 创业板
   school: gator
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 明确看多创业板3000点下方不慌，指向创业板指
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-21
+    t0_close: 2694.71

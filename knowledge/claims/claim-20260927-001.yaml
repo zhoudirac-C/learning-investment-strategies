@@ -34,6 +34,23 @@ claims:
   - 结构轮动
   - 基准判断
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "节前基准为弱势震荡、无指数级行情，偏谨慎"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-28
+    t5_date: 2026-10-12
+    t0_close: 4340.76
+    t5_close: 4287.98
+    fwd_return_pct: -1.22
 - id: claim-20260927-001-b
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -70,6 +87,13 @@ claims:
   - 核心止跌
   - 承接改善
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论框架，无方向判断，仅给出确认条件"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-c
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -105,6 +129,13 @@ claims:
   - 风险偏好
   - 市场定性
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "描述调整压力分布的方法论判断，非方向性观点"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-d
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -139,6 +170,23 @@ claims:
   - 修复确认
   - 定性方法
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "定性午后抵抗为换手而非修复，否认新增资金转势，偏谨慎看空"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-28
+    t5_date: 2026-10-12
+    t0_close: 4340.76
+    t5_close: 4287.98
+    fwd_return_pct: -1.22
 - id: claim-20260927-001-e
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -175,6 +223,13 @@ claims:
   - 缩量解读
   - 方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论警示，非方向判断，默认沪深300"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-f
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -210,6 +265,13 @@ claims:
   - 承接薄弱
   - 量价分析
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "缩量判读方法论，无方向；最相关为上证大盘量价"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-g
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -246,6 +308,13 @@ claims:
   - 科技核心
   - 方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "方法论观点，讲修复确认标准，非方向判断；3900指上证"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-h
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -283,6 +352,13 @@ claims:
   - 防御偏好
   - 资金行为
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "定性描述高股息占优现象，非明确方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-i
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -320,6 +396,23 @@ claims:
   - 科技权重
   - 赚钱效应
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "预期券商科技参与带动风险偏好修复，指数改善传导至赚钱效应"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-28
+    t5_date: 2026-10-12
+    t0_close: 4340.76
+    t5_close: 4287.98
+    fwd_return_pct: -1.22
 - id: claim-20260927-001-j
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -356,6 +449,13 @@ claims:
   - 短线资金
   - 容错率
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "定性存量资金低位轮动，非方向性买卖判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-k
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -391,6 +491,13 @@ claims:
   - 回封质量
   - 情绪验证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "方法论判据，无方向；关联A股情绪，以上证为基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-l
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -425,6 +532,13 @@ claims:
   - 产业催化
   - 博弈
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "博弈型定调，未给出单边方向，属市场节奏判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-m
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -461,6 +575,24 @@ claims:
   - 竞价
   - 操作框架
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "条件触发看多框架，3900指上证指数，确认承接后分步参与"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.69%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-09-28
+    t5_date: 2026-10-12
+    t0_close: 3823.62
+    t5_close: 3797.24
+    fwd_return_pct: -0.69
 - id: claim-20260927-001-n
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -498,6 +630,23 @@ claims:
   - 后排补涨
   - 锚定思维
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "条件触发防守策略，压缩情绪溢价敞口、回避补涨，属看空风控"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-28
+    t5_date: 2026-10-12
+    t0_close: 4340.76
+    t5_close: 4287.98
+    fwd_return_pct: -1.22
 - id: claim-20260927-001-o
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -534,6 +683,13 @@ claims:
   - 利空落地
   - 持仓安排
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "长假风险管理方法论，无方向判断，节后集中定价涉及A股整体"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-p
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -569,6 +725,13 @@ claims:
   - 新主线
   - 低位方向
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "轮动验证方法论，非方向判断，基准取大盘指数"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-q
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -604,6 +767,23 @@ claims:
   - 高开兑现
   - 指数偏弱
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "暗示指数延续偏弱，高股息仅防守、政策题材兑现，无反转信号"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-28
+    t5_date: 2026-10-12
+    t0_close: 4340.76
+    t5_close: 4287.98
+    fwd_return_pct: -1.22
 - id: claim-20260927-001-r
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -638,6 +818,13 @@ claims:
   - 授权运营
   - 选股判据
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399971
+    rationale: "方法论筛选判据，非方向判断；最相关基准为中证传媒指数"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-s
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -672,6 +859,13 @@ claims:
   - 核心强度
   - 板块宽度
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002463.SZ
+    rationale: "方法论判据，非方向判断；以PCB核心股沪电股份作验证基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-t
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -713,6 +907,13 @@ claims:
   - 量价承接
   - 产业链联动
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603773.SH
+    rationale: "方法论观察框架，非方向判断，关联标的沃格光电"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-u
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -756,6 +957,23 @@ claims:
   - 消息定性
   - 研发导入
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603773.SH
+    rationale: "消息提升玻璃基板关注度，按预期炒作对待，利好沃格光电"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603773.SH
+    t0_date: 2026-09-28
+    t5_date: 2026-10-12
+    t0_close: 99.99
+    t5_close: 71.19
+    fwd_return_pct: -28.8
 - id: claim-20260927-001-v
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -826,6 +1044,13 @@ claims:
   - 小批量出货
   - 订单转化
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603773.SH
+    rationale: "方法论观点，非方向判断，仅涉及阶段划分框架"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-x
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -865,6 +1090,23 @@ claims:
   - 精密零部件
   - 检测
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301583.SZ
+    rationale: "设备投资向上游传导利好零部件检测环节，看多托伦斯"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301583.SZ
+    t0_date: 2026-09-28
+    t5_date: 2026-10-12
+    t0_close: 137.13
+    t5_close: 117.95
+    fwd_return_pct: -13.99
 - id: claim-20260927-001-y
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -900,6 +1142,13 @@ claims:
   - 设备导入
   - 研究纪律
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论观点，强调紧缺需交期订单验证，无方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-z
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -934,6 +1183,13 @@ claims:
   - 整机交付
   - 订单跟踪
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "研究方法论无方向判断，基准取沪深300"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-aa
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -968,6 +1224,13 @@ claims:
   - 待证实
   - 风险纪律
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "媒体消息处理纪律，非方向判断，无具体标的"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-ab
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -1007,6 +1270,13 @@ claims:
   - 利润质量
   - 康强电子
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002119.SZ
+    rationale: "方法论观点，非方向判断，仅提供补涨验证框架"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260927-001-ac
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -1049,3 +1319,11 @@ claims:
   - 产业依据
   - 资金确认
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603773.SH
+    rationale: "执行纪律类方法论，无明确方向判断，选最相关标的沃格光电"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

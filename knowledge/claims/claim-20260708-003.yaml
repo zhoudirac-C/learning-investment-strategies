@@ -197,6 +197,23 @@ claims:
   - CDN
   - 网络安全
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300017.SZ
+    rationale: 借Cloudflare创新映射A股CDN标的，属关注性质
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300017.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 14.66
+    t5_close: 14.35
+    fwd_return_pct: -2.11
 - id: claim-20260708-003-g
   source_path: sources/original/bilibili/2026-07-08-1055-图片-【浙商计算机 刘雯蜀】Cloudflare内容交易服务：互联.md
   up_id: '1420210197'

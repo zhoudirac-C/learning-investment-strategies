@@ -404,6 +404,23 @@ claims:
   - 钨精矿
   - PCB微钻
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000657.SZ
+    rationale: 业绩预增261%-298%，钨价上涨+刀具订单增长，明确看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000657.SZ
+    t0_date: 2026-08-06
+    t5_date: 2026-08-13
+    t0_close: 62.5
+    t5_close: 66.7
+    fwd_return_pct: 6.72
 - id: claim-20260806-012
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
   up_id: '1420210197'
@@ -440,6 +457,23 @@ claims:
   - 资产注入
   - 钨制品
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600397.SH
+    rationale: 钨制品资产注入属利好，预期股价上涨
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600397.SH
+    t0_date: 2026-08-06
+    t5_date: 2026-08-13
+    t0_close: 16.89
+    t5_close: 17.5
+    fwd_return_pct: 3.61
 - id: claim-20260806-013
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
   up_id: '1420210197'
@@ -476,6 +510,23 @@ claims:
   - 磷化铟晶片
   - 大单
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002428.SZ
+    rationale: 磷化铟大单落地增厚业绩，属利好催化看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002428.SZ
+    t0_date: 2026-08-06
+    t5_date: 2026-08-13
+    t0_close: 90.98
+    t5_close: 100.21
+    fwd_return_pct: 10.15
 - id: claim-20260806-014
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
   up_id: '1420210197'
@@ -513,6 +564,23 @@ claims:
   - 磷化铟衬底
   - 江苏光铟
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603065.SH
+    rationale: 磷化铟衬底项目布局，反制主线新增标的，看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603065.SH
+    t0_date: 2026-08-06
+    t5_date: 2026-08-13
+    t0_close: 15.77
+    t5_close: 16.01
+    fwd_return_pct: 1.52
 - id: claim-20260806-015
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
   up_id: '1420210197'
@@ -550,6 +618,23 @@ claims:
   - 集溢半导体
   - 磷化铟产能
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300720.SZ
+    rationale: 收购磷化铟晶片产能属利好扩产，看多该股。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300720.SZ
+    t0_date: 2026-08-06
+    t5_date: 2026-08-13
+    t0_close: 72.7
+    t5_close: 86.3
+    fwd_return_pct: 18.71
 - id: claim-20260806-016
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
   up_id: '1420210197'
@@ -1152,6 +1237,13 @@ claims:
   - 泛微网络B端Agent入
   - 口场景数量是叙事付费转化
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603039.SH
+    rationale: 核心为应用侧投资判据：场景数量是叙事，付费转化率才是拐点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260806-033
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
   up_id: '1420210197'
@@ -1247,6 +1339,13 @@ claims:
   - 风华高科MLCC龙头已导
   - 入AI服务器供应链
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000636.SZ
+    rationale: 产业链跟踪记录，明确非推荐，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260806-036
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
   up_id: '1420210197'
@@ -1281,6 +1380,23 @@ claims:
   - 海星股份电极箔机构净买2
   - .39亿非AI箔提价周期
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603115.SH
+    rationale: 机构净买入叠加非AI箔提价周期，看多盈利上行
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603115.SH
+    t0_date: 2026-08-06
+    t5_date: 2026-08-13
+    t0_close: 79.93
+    t5_close: 77.68
+    fwd_return_pct: -2.81
 - id: claim-20260806-037
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
   up_id: '1420210197'
@@ -1348,6 +1464,23 @@ claims:
   - 云南锗业磷化铟唯一合同落
   - 地确定性最高
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002428.SZ
+    rationale: 合同落地确定性最高，看多但提示追高风险
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002428.SZ
+    t0_date: 2026-08-06
+    t5_date: 2026-08-13
+    t0_close: 90.98
+    t5_close: 100.21
+    fwd_return_pct: 10.15
 - id: claim-20260806-039
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
   up_id: '1420210197'
@@ -1381,6 +1514,23 @@ claims:
   - 光智科技并购先锐科技亏损
   - 样品标的测算不可当事实
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 300489.SZ
+    rationale: 警示标的亏损且股价已涨551%，防炒作，偏回避
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300489.SZ
+    t0_date: 2026-08-06
+    t5_date: 2026-08-13
+    t0_close: 202
+    t5_close: 242.63
+    fwd_return_pct: 20.11
 - id: claim-20260806-040
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
   up_id: '1420210197'
@@ -1414,6 +1564,23 @@ claims:
   - 海川智能磷化铟传闻与澄清
   - 正面冲突是传闻非预期差
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 300720.SZ
+    rationale: 澄清否认磷化铟传闻，警示炒作，建议回避
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300720.SZ
+    t0_date: 2026-08-06
+    t5_date: 2026-08-13
+    t0_close: 72.7
+    t5_close: 86.3
+    fwd_return_pct: 18.71
 - id: claim-20260806-041
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
   up_id: '1420210197'
@@ -1551,6 +1718,13 @@ claims:
   - 中际旭创H股外资同向增持
   - 是情绪窗口非基本面结论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300308.SZ
+    rationale: 明确界定为情绪/流动性观察窗口而非基本面结论，属方法论判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260806-045
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
   up_id: '1420210197'

@@ -34,6 +34,13 @@
     name: 协创数据
     role: 参考标的
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300857.SZ
+    rationale: 高风险高收益双面表述，明言胜负未分，无明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260420-006
   topic: 宏景科技是算力租赁第一阶段核心标的
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
@@ -71,6 +78,23 @@
     name: 宏景科技
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301396.SZ
+    rationale: 看好算力租赁卡资源与大客户订单，属看多观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301396.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 166
+    t5_close: 222.97
+    fwd_return_pct: 34.32
 - id: claim-20260420-007
   topic: 网宿科技是AI算力第四阶段（CDN）核心
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
@@ -109,6 +133,23 @@
     name: 网宿科技
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300017.SZ
+    rationale: 博主明确看多网宿科技，认为AI重启增长曲线，锁仓不卖
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300017.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 14.05
+    t5_close: 14.88
+    fwd_return_pct: 5.91
 - id: claim-20260420-008
   topic: 润泽科技从去年12月底开始推荐
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
@@ -143,6 +184,23 @@
     name: 润泽科技
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300442.SZ
+    rationale: 明确看多润泽科技，预期5月行情，建议中长期持有。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300442.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 74.02
+    t5_close: 85.18
+    fwd_return_pct: 15.08
 - id: claim-20260426-008
   topic: 网宿科技一季报正常非爆雷
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
@@ -178,6 +236,23 @@
     name: 网宿科技
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300017.SZ
+    rationale: 一季报非爆雷，AI驱动毛利率改善，基本面看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300017.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 14.05
+    t5_close: 14.88
+    fwd_return_pct: 5.91
 - id: claim-20260426-009
   topic: 烽火通信炒两个逻辑
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
@@ -215,6 +290,23 @@
     name: 烽火通信
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600498.SH
+    rationale: 看好身份重估与AI算力转型，短期光纤涨价催化
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600498.SH
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 60.99
+    t5_close: 75.31
+    fwd_return_pct: 23.48
 - id: claim-20260426-010
   topic: 英维克液冷赛道内卷已来
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
@@ -252,6 +344,23 @@
     name: 英维克
     role: 参考标的
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 002837.SZ
+    rationale: 看空英维克：短期无业绩、内卷加剧，反弹勿买入
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002837.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 67.14
+    t5_close: 74.37
+    fwd_return_pct: 10.77
 - id: claim-20260426-011
   topic: 智微智能是算力租赁方向的卖铲子模式
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
@@ -289,6 +398,23 @@
     name: 智微智能
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 001339.SZ
+    rationale: 看好智微智能算力租赁弹性，二三季度业绩释放
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 001339.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 96.7
+    t5_close: 126.93
+    fwd_return_pct: 31.26
 - id: claim-20260426-012
   topic: 润和软件是CANN+鸿蒙+国产算力
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
@@ -325,3 +451,21 @@
     name: 润和软件
     role: 参考标的
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300339.SZ
+    rationale: 看多国产算力生态受益逻辑，业绩滞后但方向仍偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300339.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 39.39
+    t5_close: 40.21
+    fwd_return_pct: 2.08

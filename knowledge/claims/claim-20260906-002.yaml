@@ -342,6 +342,23 @@ claims:
   - 机器人
   - 跨周期
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688836.SH
+    rationale: 核心判断为长期看多终局市值，短期下跌不改多头方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688836.SH
+    t0_date: 2026-09-07
+    t5_date: 2026-09-14
+    t0_close: 536.35
+    t5_close: 470
+    fwd_return_pct: -12.37
 - id: claim-20260906-002-011
   source_path: sources/original/bilibili/2026-09-06-1937-视频-风急天高猿啸哀，渚清沙白鸟飞回。（周复盘） 感谢观看，一键三.md
   source_date: '2026-09-06'

@@ -331,6 +331,23 @@ claims:
   - 个股分析
   - 永鼎股份CW光芯片光纤涨价与超导远期题材
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600105.SH
+    rationale: 看多永鼎股份，光芯片与光纤涨价有业绩支撑
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600105.SH
+    t0_date: 2026-06-16
+    t5_date: 2026-06-24
+    t0_close: 58.83
+    t5_close: 68.705
+    fwd_return_pct: 16.79
 - id: claim-20260616-012
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
   up_id: '1420210197'
@@ -481,6 +498,23 @@ claims:
   - 个股分析
   - 博迁新材：80nm超细镍粉受益于MLCC超薄化趋势
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 605376.SH
+    rationale: 明确看多博迁新材，80nm镍粉受益MLCC超薄化
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 605376.SH
+    t0_date: 2026-06-16
+    t5_date: 2026-06-24
+    t0_close: 212.9
+    t5_close: 224.4
+    fwd_return_pct: 5.4
 - id: claim-20260616-017
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
   up_id: '1420210197'
@@ -511,6 +545,23 @@ claims:
   - 炬光科技：CPO边缘耦合IP授权，从器件商向技术标准定义者跃迁
   - 个股分析
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688167.SH
+    rationale: 看多炬光科技CPO边缘耦合IP授权前景，但需验证台积电采用
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688167.SH
+    t0_date: 2026-06-16
+    t5_date: 2026-06-24
+    t0_close: 413
+    t5_close: 375
+    fwd_return_pct: -9.2
 - id: claim-20260616-018
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
   up_id: '1420210197'
@@ -544,6 +595,23 @@ claims:
   - 个股分析
   - 福光股份：切入Coherent产业链，估值对比腾景存安全边际
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688010.SH
+    rationale: 新订单+低估值安全边际，明确看多福光股份
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688010.SH
+    t0_date: 2026-06-16
+    t5_date: 2026-06-24
+    t0_close: 44.41
+    t5_close: 45.7
+    fwd_return_pct: 2.9
 - id: claim-20260616-019
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
   up_id: '1420210197'
@@ -574,6 +642,23 @@ claims:
   - 东山精密12亿美元光芯片扩产
   - 个股分析
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002384.SZ
+    rationale: 12亿美元光芯片扩产规模顶级，利好东山精密股价
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002384.SZ
+    t0_date: 2026-06-16
+    t5_date: 2026-06-24
+    t0_close: 249.06
+    t5_close: 257.13
+    fwd_return_pct: 3.24
 - id: claim-20260616-020
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
   up_id: '1420210197'
@@ -604,6 +689,23 @@ claims:
   - 个股分析
   - 通富微电：AMD产业链纯度最高的A股标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002156.SZ
+    rationale: 看多通富微电，AMD AI投资利好其封装业务
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002156.SZ
+    t0_date: 2026-06-16
+    t5_date: 2026-06-24
+    t0_close: 62.93
+    t5_close: 74.64
+    fwd_return_pct: 18.61
 - id: claim-20260616-021
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
   up_id: '1420210197'
@@ -661,6 +763,23 @@ claims:
   - 个股分析
   - 强力新材：PSPI国产替代迎旭化成限供窗口期
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300429.SZ
+    rationale: 旭化成限供打开替代窗口，商业订单落地，方向看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300429.SZ
+    t0_date: 2026-06-16
+    t5_date: 2026-06-24
+    t0_close: 15.72
+    t5_close: 17.08
+    fwd_return_pct: 8.65
 - id: claim-20260616-023
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
   up_id: '1420210197'
@@ -692,3 +811,21 @@ claims:
   - 茂莱光学半导体量检测光通信ARVR三线并进
   - 个股分析
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688502.SH
+    rationale: 三线业务高景气，FSO供货Google Taara，整体看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688502.SH
+    t0_date: 2026-06-16
+    t5_date: 2026-06-24
+    t0_close: 489.99
+    t5_close: 570
+    fwd_return_pct: 16.33

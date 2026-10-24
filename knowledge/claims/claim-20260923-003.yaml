@@ -34,6 +34,23 @@ claims:
   - 弹性博弈
   - 节前效应
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 资金回流科技轻盘细分，结构性看多但属弹性博弈
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 3379.61
+    t5_close: 3036.66
+    fwd_return_pct: -10.15
 - id: claim-20260923-003-b
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -70,6 +87,13 @@ claims:
   - 拉升
   - 方向确认
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 操作纪律类方法论，非方向判断，节前效应针对大盘
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260923-003-c
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -106,6 +130,23 @@ claims:
   - 情绪
   - 节前降仓
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性调整为正常内生回落、非转弱信号，隐含看多后市
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 4517.28
+    t5_close: 4310.28
+    fwd_return_pct: -4.58
 - id: claim-20260923-003-d
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -140,6 +181,13 @@ claims:
   - 量能
   - 不追高
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 双情形操作预案，无量观望有量再评估，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260923-003-e
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -176,6 +224,13 @@ claims:
   - 节后
   - 观察记录
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 风格切换确认方法论，非方向判断，仅观察记录
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260923-003-f
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -212,6 +267,23 @@ claims:
   - 上涨结构
   - 小盘炒作
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 定性涨价链结构不健康、持续性打折，偏空小盘题材炒作
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 3379.61
+    t5_close: 3036.66
+    fwd_return_pct: -10.15
 - id: claim-20260923-003-g
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -251,6 +323,23 @@ claims:
   - 修复空间
   - 定价逻辑
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603636.SH
+    rationale: 看多AI软件修复，以南威软件承接为验证信号
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603636.SH
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 8.81
+    t5_close: 7.46
+    fwd_return_pct: -15.32
 - id: claim-20260923-003-h
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -286,6 +375,19 @@ claims:
   - 电梯新政
   - 反复活跃
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399393
+    rationale: 看多地产板块政策博弈，以国证地产指数为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 sz399393 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399393
 - id: claim-20260923-003-i
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -321,6 +423,23 @@ claims:
   - 需求确定性
   - AI硬件
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 大厂直锁算力强化AIDC需求确定性，利好AI硬件链
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 4517.28
+    t5_close: 4310.28
+    fwd_return_pct: -4.58
 - id: claim-20260923-003-j
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -356,6 +475,23 @@ claims:
   - 商业化闭环
   - 人形机器人
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 看多具身智能数据采集环节，无个股标的，以创业板指作科技成长代理
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 3379.61
+    t5_close: 3036.66
+    fwd_return_pct: -10.15
 - id: claim-20260923-003-k
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -393,6 +529,23 @@ claims:
   - AI服务器电源
   - 竞争壁垒
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301251.SZ
+    rationale: 看好威尔高技术壁垒与台达客户绑定护城河
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301251.SZ
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 90.8
+    t5_close: 78.75
+    fwd_return_pct: -13.27
 - id: claim-20260923-003-l
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -436,3 +589,21 @@ claims:
   - 预期差
   - 市值差距
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301123.SZ
+    rationale: 看多双标的，奕东弹性更大且市值差收窄，基准取奕东
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301123.SZ
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 80.48
+    t5_close: 64.47
+    fwd_return_pct: -19.89

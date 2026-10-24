@@ -32,6 +32,21 @@
   - 游资点火
   - 护盘见效
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 明确以上证指数为主心骨，判断止血后进入上涨阶段，方向看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-10-19
+    t0_close: 3730.92
 - id: claim-20261019-003-b
   source_path: sources/original/wechat/2026-10-19-股市：右侧信号有哪些？（2026.10.19）.md
   source_date: '2026-10-19'
@@ -64,6 +79,13 @@
   - 上证指数
   - 科创创业
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论观点，核心参照为上证指数，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-003-c
   source_path: sources/original/wechat/2026-10-19-股市：右侧信号有哪些？（2026.10.19）.md
   source_date: '2026-10-19'
@@ -96,6 +118,21 @@
   - 情绪风向标
   - 风偏回升
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 资金拉科技=风偏回升情绪回暖，看多市场整体而非科技本身
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-19
+    t0_close: 4174.53
 - id: claim-20261019-003-d
   source_path: sources/original/wechat/2026-10-19-股市：右侧信号有哪些？（2026.10.19）.md
   source_date: '2026-10-19'
@@ -131,6 +168,21 @@
   - KTV
   - 杠杆接力
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 预判反弹路径为磨底后轮动上涨再加速，整体看多后市
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-19
+    t0_close: 4174.53
 - id: claim-20261019-003-e
   source_path: sources/original/wechat/2026-10-19-股市：右侧信号有哪些？（2026.10.19）.md
   source_date: '2026-10-19'
@@ -162,6 +214,21 @@
   - '2026'
   - 年度定位
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 判断当前为年内最后阶段底部，配套试多，属看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-19
+    t0_close: 4174.53
 - id: claim-20261019-003-f
   source_path: sources/original/wechat/2026-10-19-股市：右侧信号有哪些？（2026.10.19）.md
   source_date: '2026-10-19'
@@ -194,6 +261,13 @@
   - 称重机
   - 逆势买入
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论类买入纪律，无具体标的，仅提及大盘4100点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-003-g
   source_path: sources/original/wechat/2026-10-19-股市：右侧信号有哪些？（2026.10.19）.md
   source_date: '2026-10-19'
@@ -230,6 +304,21 @@
   - 追高风险
   - 银行电信神华
   school: gator
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 601728.SH
+    rationale: 看空护盘品种，认为市场转好后将回落，建议回避不追高
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601728.SH
+    t0_date: 2026-10-19
+    t0_close: 6.8
 - id: claim-20261019-003-h
   source_path: sources/original/wechat/2026-10-19-股市：右侧信号有哪些？（2026.10.19）.md
   source_date: '2026-10-19'
@@ -260,6 +349,21 @@
   - 泡沫挤压
   - 产业暴雷
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 认为A股AI杀估值已充分，反对恐慌看跌，隐含看多科技成长
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-19
+    t0_close: 2746.29
 - id: claim-20261019-003-i
   source_path: sources/original/wechat/2026-10-19-股市：右侧信号有哪些？（2026.10.19）.md
   source_date: '2026-10-19'
@@ -292,6 +396,13 @@
   - 融资余额
   - 风偏回升
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 可证伪信号清单属方法论，信号未确认，非当前方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-003-j
   source_path: sources/original/wechat/2026-10-19-股市：右侧信号有哪些？（2026.10.19）.md
   source_date: '2026-10-19'
@@ -324,6 +435,21 @@
   - 聪明钱
   - 点火
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 预期聪明杠杆回流点火，确认右侧上涨行情可期
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-19
+    t0_close: 4174.53
 - id: claim-20261019-003-k
   source_path: sources/original/wechat/2026-10-19-股市：右侧信号有哪些？（2026.10.19）.md
   source_date: '2026-10-19'
@@ -356,3 +482,19 @@
   - 试多
   - 右侧信号
   school: gator
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 市场底形成可试多，默认沪深300基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-19
+    t0_close: 4174.53

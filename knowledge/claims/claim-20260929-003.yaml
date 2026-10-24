@@ -35,6 +35,13 @@ claims:
   - 重新定价
   - Anthropic
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 定调非单边多空，属增长与估值匹配方法论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-003-b
   source_path: sources/original/bilibili/2026-09-29-0923-图片-围绕人工智能商业化，最近出现了一场值得关注的争论：即使模型越.md
   source_date: '2026-09-29'
@@ -70,6 +77,13 @@ claims:
   - 按用量收费
   - 方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论口径判据，无方向判断，关联AI算力链创业板标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-003-c
   source_path: sources/original/bilibili/2026-09-29-1016-图片-梦想选手这两天要考虑一下布局十一期间可能会发酵的点了，目前有.md
   source_date: '2026-09-29'
@@ -105,6 +119,23 @@ claims:
   - VNA
   - 梦想选手
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 节前布局假期发酵主题，属看多建议；无个股，以沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-29
+    t5_date: 2026-10-13
+    t0_close: 4345.21
+    t5_close: 4275.68
+    fwd_return_pct: -1.6
 - id: claim-20260929-003-d
   source_path: sources/original/bilibili/2026-09-29-1435-图片-基本上也就昨天一天能加仓的，今天没什么好加仓的点，今天是节前.md
   source_date: '2026-09-29'
@@ -138,3 +169,21 @@ claims:
   - 仓位管理
   - 节前操作
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 建议持股过节且仓位6-8成，隐含对节后行情偏多预期
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-29
+    t5_date: 2026-10-13
+    t0_close: 4345.21
+    t5_close: 4275.68
+    fwd_return_pct: -1.6

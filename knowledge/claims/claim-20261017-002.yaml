@@ -31,3 +31,19 @@ claims:
   - 韩国暴跌
   - CoreWeave
   - 股债双杀
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 归因外部冲击而非国内基本面，隐含A股看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-19
+    t0_close: 4174.53

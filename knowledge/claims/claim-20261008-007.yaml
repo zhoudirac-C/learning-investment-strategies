@@ -34,6 +34,23 @@ claims:
     cases: []
   topic: 定性=风险偏好下降后的结构性调整，两分支验证阴跌或抛压衰减
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性为结构性调整，风险偏好下降压制高估值成长，偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 4310.28
+    t5_close: 4166.01
+    fwd_return_pct: -3.35
 - id: claim-20261008-007-b
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -68,6 +85,13 @@ claims:
     cases: []
   topic: 放量=抛压集中释放+新增买盘不足；承接偏弱是信号非结论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 量价解读纪律，信号非结论，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-c
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -104,6 +128,13 @@ claims:
     cases: []
   topic: 量能有效性看价格：放量+下移=抛压释放，缩量探底回升不破前低=承接改善
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 量能判读方法论，无方向结论，基准取沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-d
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -139,6 +170,13 @@ claims:
     cases: []
   topic: 银行护盘≠整体修复：需券商保险协同+科技止跌
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 结构性分化观察，修复需三条件确认，非明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-e
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -180,6 +218,13 @@ claims:
     cases: []
   topic: 反核冲高=先手兑现窗口；情绪指数分离需高位承接带动中低位
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情绪与指数分离的方法论观察，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-f
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -213,6 +258,13 @@ claims:
     cases: []
   topic: 明日三重点：科技止跌/电池承接/题材溢价；3800不预设支撑
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论观察框架，无方向判断，围绕上证3800观察区
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-g
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -247,6 +299,13 @@ claims:
     cases: []
   topic: 情形A：四要素齐备则从全面防守转为观察结构性修复
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 条件确认式方法论，非方向判断；最相关标的为创业板指
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-h
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -282,6 +341,13 @@ claims:
     cases: []
   topic: 情形B：核心新低+量缩价移+电池炸板则降暴露，放弃无承接抄底
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论预案与分界规则，非方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-i
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -322,6 +388,13 @@ claims:
     cases: []
   topic: 题材未停摆但向少数集中；次日看晋级失败反馈与封板溢价
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600825.SH
+    rationale: 方法论式情绪观测框架，无明确方向判断，以龙头股为参照
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-j
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -359,6 +432,23 @@ claims:
     cases: []
   topic: 电池承接最直接；三线驱动不同；次日看分歧后核心保留
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600241.SH
+    rationale: 看多电池线承接科技资金，以时代万恒为核心标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600241.SH
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 10.69
+    t5_close: 13.99
+    fwd_return_pct: 30.87
 - id: claim-20261008-007-k
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -398,6 +488,13 @@ claims:
     cases: []
   topic: 陆家嘴=资产证券化逻辑单独跟踪；局部走强≠行业反转
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600663.SH
+    rationale: 定性边界划分属方法论判断，非明确方向；以陆家嘴为最相关标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-l
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -434,6 +531,13 @@ claims:
     cases: []
   topic: 三季报窗口科技分化：找盈利覆盖估值压力+盘面率先稳定的品种
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 分化选股方法论，非方向判断；科技主题参考创业板指
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-m
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -471,6 +575,13 @@ claims:
     cases: []
   topic: 光互联层级：CPO架构/可插拔模块/FAU等部件不可混同
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 知识型层级澄清，无方向判断，仅作分类基础
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-n
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -504,6 +615,13 @@ claims:
     cases: []
   topic: PCB回落区分β与α；科技修复先内部纠偏后板块联动
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 归因方法论，非方向判断；科技板块以创业板指为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-o
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -538,6 +656,13 @@ claims:
     cases: []
   topic: FCC四重校准：交易参数≠生效限制，暂未限制≠永久豁免
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300308.SZ
+    rationale: 政策预期校准方法论，非方向判断，以光模块龙头为参照
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-p
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -572,6 +697,13 @@ claims:
     cases: []
   topic: CPO映射A股三要素：产品+客户+阶段（送样还是量产）
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论框架，无买卖方向；CPO映射标的多在创业板
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-q
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -608,6 +740,13 @@ claims:
     cases: []
   topic: 低成本模型承担高频任务，Agent单位成本下降；算力影响=效率×调用双向计算
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 产业传导框架非方向判断，算力影响多空对冲未定
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-r
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -650,6 +789,13 @@ claims:
     cases: []
   topic: 机器人链：可拓展方向与研发储备均不等于量产采购
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600577.SH
+    rationale: 方法论提示：可拓展方向与研发储备不等于量产订单，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-s
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -686,6 +832,13 @@ claims:
     cases: []
   topic: AI服务登记≠采购金额；科翔氮化硅仍处试制导入阶段
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300903.SZ
+    rationale: 跟踪提示且明确防过度解读，无方向判断，以科翔股份为验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-t
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -722,6 +875,13 @@ claims:
     cases: []
   topic: 陆家嘴REIT认购≠出售资产；机构测算≠归母承诺
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600663.SH
+    rationale: 口径纪律与方法论提示，无明确方向判断，仅提示重估需经营验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-u
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -760,6 +920,13 @@ claims:
     cases: []
   topic: 大金重工造船订单已验证（24艘120亿），但船型以散货为主须拆开看
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002487.SZ
+    rationale: 属跟踪方法论，强调拆解订单结构，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-v
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -798,6 +965,13 @@ claims:
     cases: []
   topic: 厄尔尼诺≠单一公司盈利；金健公告原料价未变、先观察题材资金反馈
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600127.SH
+    rationale: 观点强调气候判断不等于公司盈利，仅提示观察验证，无明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-w
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -833,6 +1007,13 @@ claims:
     cases: []
   topic: 汇率不预设目标不线性映射；观察外资偏好/出口结算/外币负债
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 汇率政策解读方法论，无方向判断，仅提示传导路径
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-007-x
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -869,3 +1050,11 @@ claims:
     cases: []
   topic: 无承接不因跌幅大摊低成本，一根急拉不放大预期
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 交易纪律方法论，无方向判断，取大盘指数作基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

@@ -13,7 +13,7 @@
 | M2 影子双轨 | ✅ 完成 | 每日盲判→到期结算→归因→状态报告全链路；2026-08-07 首日 e2e 真实跑通；cron 已挂 |
 | M3 前置（patterns 回填） | ✅ 完成 | 5 个模式写入 M1 实测命中率 + 分环境段明细；technical_timing/operation_strategy 保持 M0 回测值 0.5182；3 个未使用模式保持 pending-m1；提案制机制（生成→人审→应用）落地（`framework/proposals/20260809-pattern-validation-m1.yaml`） |
 | M4 预备（毕业判分器） | ✅ 完成 | 8 周窗口聚合判定可用；首期报告 verdict=insufficient_data（`logs/graduation-2026-08-09.md`） |
-| M3 剩余 | 分桶+eval 基建 ✅（2026-08-16）：`claim_buckets.py` + `evaluate_vs_market.py`，存量 3719 张归位（up 3699 / research 20，命中率列待回写出数）；回写置信度/UP 画像 ⏳ 等影子 ~4 周数据 | 研报管线 ✅；回写机制预计 2026-09 初 |
+| M3 剩余 | ✅ 完成（2026-10-24）：回写机制落地（`claim_direction` LLM 判向 1499 条 → `claim_outcome` 5 日 forward 结算 689 条 → `up_hit_profile` 画像 + evaluate_vs_market 出数）。存量口径：up 桶命中率 42.1%(n=518)；青枫浦上Q 总览 40.6%（stock-view 45.6%/market-cycle 34.6%/sector-theme 27.7%/operation 9.1%）；鳄鱼派样本不足（观点多在 pending 窗口）。109 条 pending_data 窗口到点重跑 settle 转终态。30 条判向人审错向 3.3%（<10% 门槛）。confidence 原字段未动，调整规则待画像积累后另定 | 下次毕业判决（11 月初）数据源就绪 |
 | M4 本体（prompt 拆锚定） | ⏳ 等毕业判决 | 连续 8 周达标后才允许动 `src/qing_investment/agent/prompts/` |
 | M5 校准常态化 | ⏳ 毕业后 | 季度分桶校准 + 产业链保鲜巡检（巡检器未写，可随时提前补） |
 

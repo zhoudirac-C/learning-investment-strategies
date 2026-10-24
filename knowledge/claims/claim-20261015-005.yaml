@@ -29,6 +29,23 @@
   - 仓位纪律
   - 低位
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 主张当前位置不可割肉离场，隐含持有待修复的看多倾向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-15
+    t5_date: 2026-10-22
+    t0_close: 4166.01
+    t5_close: 4036.3
+    fwd_return_pct: -3.11
 - id: claim-20261015-005-b
   source_path: sources/raw/财经/2026-10-15-1510-图片-最近频繁的发动态，发视频，因为我担心你们会扛不住割掉。你们扛.md
   source_date: '2026-10-15'
@@ -59,3 +76,11 @@
   - ETF
   - 应对框架
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论类观点，无方向判断，默认沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

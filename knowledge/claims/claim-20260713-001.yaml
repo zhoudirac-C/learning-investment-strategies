@@ -581,6 +581,13 @@ claims:
   - 兆易创新
   - 反弹质量
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688981.SH
+    rationale: 仅提示观察量价与换手，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260713-018-r
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-0857-图片-上周五午后的突袭式调整，基本打断了本轮原有的主升节奏。量化主.md
   up_id: '1420210197'
@@ -861,6 +868,23 @@ claims:
   - 航天工程
   - 海兰信
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600118.SH
+    rationale: 看多商业航天主线，以中军中国卫星为核心锚定标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600118.SH
+    t0_date: 2026-07-13
+    t5_date: 2026-07-20
+    t0_close: 91.248
+    t5_close: 59.468
+    fwd_return_pct: -34.83
 - id: claim-20260713-026-z
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-0857-图片-上周五午后的突袭式调整，基本打断了本轮原有的主升节奏。量化主.md
   up_id: '1420210197'
@@ -900,3 +924,21 @@ claims:
   - 众生药业
   - 医药前排
   school: qing
+
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 002317.SZ
+    rationale: 提示资金分歧、不追情绪高点，短期回避追涨
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002317.SZ
+    t0_date: 2026-07-13
+    t5_date: 2026-07-20
+    t0_close: 31.6
+    t5_close: 26.89
+    fwd_return_pct: -14.91

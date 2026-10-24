@@ -466,6 +466,23 @@ claims:
   - 亏损收窄
   - 年会不能停2
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 000802.SZ
+    rationale: "票房不及预期且业绩无承接，基本面偏空"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000802.SZ
+    t0_date: 2026-08-11
+    t5_date: 2026-08-18
+    t0_close: 5.17
+    t5_close: 4.84
+    fwd_return_pct: -6.38
 - id: claim-20260811-013
   source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
   up_id: '1420210197'
@@ -508,6 +525,23 @@ claims:
   - 无业绩承接
   - 急跌不接飞刀
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 002739.SZ
+    rationale: "由盈转亏、无业绩承接，急跌不接飞刀，回避"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002739.SZ
+    t0_date: 2026-08-11
+    t5_date: 2026-08-18
+    t0_close: 10.12
+    t5_close: 8.81
+    fwd_return_pct: -12.94
 - id: claim-20260811-014
   source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
   up_id: '1420210197'
@@ -1206,6 +1240,23 @@ claims:
   - 前道设备
   - 单机价值量
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688409.SH
+    rationale: "看多富创精密，7nm量产突破+一站式平台，跟踪海外占比与单机价值量。"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688409.SH
+    t0_date: 2026-08-11
+    t5_date: 2026-08-18
+    t0_close: 206.88
+    t5_close: 230.04
+    fwd_return_pct: 11.19
 - id: claim-20260811-032
   source_path: sources/original/bilibili/2026-08-11-0005-图片-更新一下半导体设备零部件，图片发评论里了。.md
   up_id: '1420210197'
@@ -1242,6 +1293,23 @@ claims:
   - 刻蚀设备
   - 稼动率
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688233.SH
+    rationale: "定位耗材型标的，强调一体化优势与稼动率驱动，偏看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688233.SH
+    t0_date: 2026-08-11
+    t5_date: 2026-08-18
+    t0_close: 114.14
+    t5_close: 134.2
+    fwd_return_pct: 17.57
 - id: claim-20260811-033
   source_path: sources/original/bilibili/2026-08-11-0005-图片-更新一下半导体设备零部件，图片发评论里了。.md
   up_id: '1420210197'
@@ -1278,6 +1346,19 @@ claims:
   - 高纯石英砂
   - 验证放量
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 920179.SH
+    rationale: "看好12英寸验证放量与原料保障，属看多关注"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: "kline 缓存无 920179.SH 日线"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 920179.SH
 - id: claim-20260811-034
   source_path: sources/original/bilibili/2026-08-11-0005-图片-更新一下半导体设备零部件，图片发评论里了。.md
   up_id: '1420210197'
@@ -1314,6 +1395,23 @@ claims:
   - OPEX
   - 抗周期
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688596.SH
+    rationale: "强调OPEX占比提升抗周期，属看多逻辑"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688596.SH
+    t0_date: 2026-08-11
+    t5_date: 2026-08-18
+    t0_close: 69.98
+    t5_close: 70.95
+    fwd_return_pct: 1.39
 - id: claim-20260811-035
   source_path: sources/original/bilibili/2026-08-11-0005-图片-更新一下半导体设备零部件，图片发评论里了。.md
   up_id: '1420210197'
@@ -1354,6 +1452,23 @@ claims:
   - 第二增长曲线
   - 台积电
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300666.SZ
+    rationale: "UP定位江丰电子，看好零部件第二增长曲线"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300666.SZ
+    t0_date: 2026-08-11
+    t5_date: 2026-08-18
+    t0_close: 253.99
+    t5_close: 278.28
+    fwd_return_pct: 9.56
 - id: claim-20260811-036
   source_path: sources/original/bilibili/2026-08-11-0005-图片-更新一下半导体设备零部件，图片发评论里了。.md
   up_id: '1420210197'
@@ -1392,6 +1507,23 @@ claims:
   - 海外供应链
   - 收入结构
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300260.SZ
+    rationale: "看多表述：闸阀批量供货、隔膜阀放量并进入海外龙头供应链"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300260.SZ
+    t0_date: 2026-08-11
+    t5_date: 2026-08-18
+    t0_close: 58.05
+    t5_close: 62.27
+    fwd_return_pct: 7.27
 - id: claim-20260811-037
   source_path: sources/original/bilibili/2026-08-11-0005-图片-更新一下半导体设备零部件，图片发评论里了。.md
   up_id: '1420210197'
@@ -1430,6 +1562,23 @@ claims:
   - 预期差
   - 验证周期
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301611.SZ
+    rationale: "强调静电卡盘最大预期差与高弹性，属看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301611.SZ
+    t0_date: 2026-08-11
+    t5_date: 2026-08-18
+    t0_close: 103.5
+    t5_close: 113.58
+    fwd_return_pct: 9.74
 - id: claim-20260811-038
   source_path: sources/original/bilibili/2026-08-11-0005-图片-更新一下半导体设备零部件，图片发评论里了。.md
   up_id: '1420210197'
@@ -1466,6 +1615,23 @@ claims:
   - 28nm
   - 客户集中度
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688785.SH
+    rationale: "UP定位看多恒运昌，跟踪先进制程验证进展"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688785.SH
+    t0_date: 2026-08-11
+    t5_date: 2026-08-18
+    t0_close: 277
+    t5_close: 294.23
+    fwd_return_pct: 6.22
 - id: claim-20260811-039
   source_path: sources/original/bilibili/2026-08-11-0005-图片-更新一下半导体设备零部件，图片发评论里了。.md
   up_id: '1420210197'
@@ -1502,6 +1668,13 @@ claims:
   - 业务拆分
   - 景气周期
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300820.SZ
+    rationale: "分析纪律类观点，要求拆分业务结构，未给出方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260811-040
   source_path: sources/original/bilibili/2026-08-11-0005-图片-更新一下半导体设备零部件，图片发评论里了。.md
   up_id: '1420210197'
@@ -1539,6 +1712,23 @@ claims:
   - 上海微电子
   - DUV
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688502.SH
+    rationale: "UP定位看多茂莱光学，押注光刻机产业化进展"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688502.SH
+    t0_date: 2026-08-11
+    t5_date: 2026-08-18
+    t0_close: 385.3
+    t5_close: 472
+    fwd_return_pct: 22.5
 - id: claim-20260811-041
   source_path: sources/original/bilibili/2026-08-11-2156-图片-今日指数冲高回落，午后多头动能进一步减弱，量能相较上一交易日.md
   up_id: '1420210197'
@@ -1894,6 +2084,23 @@ claims:
   - 涨价
   - 三重共振
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603188.SH
+    rationale: "看多还原物涨价驱动业绩修复拐点，基准为个股603188"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603188.SH
+    t0_date: 2026-08-11
+    t5_date: 2026-08-18
+    t0_close: 4.88
+    t5_close: 4.69
+    fwd_return_pct: -3.89
 - id: claim-20260811-051
   source_path: sources/original/bilibili/2026-08-11-2156-图片-今日指数冲高回落，午后多头动能进一步减弱，量能相较上一交易日.md
   up_id: '1420210197'
@@ -1933,6 +2140,23 @@ claims:
   - 交换机
   - 互连效率
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301165.SZ
+    rationale: "上海智算集群规划利好交换机龙头，互连需求非线性增长"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301165.SZ
+    t0_date: 2026-08-11
+    t5_date: 2026-08-18
+    t0_close: 127.7
+    t5_close: 136.99
+    fwd_return_pct: 7.27
 - id: claim-20260811-052
   source_path: sources/original/bilibili/2026-08-11-2156-图片-今日指数冲高回落，午后多头动能进一步减弱，量能相较上一交易日.md
   up_id: '1420210197'
@@ -1969,6 +2193,24 @@ claims:
   - IIb期
   - 临床风险
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002317.SZ
+    rationale: "IIb数据积极、支持推进III期，风险仅为提示性补充"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.21%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002317.SZ
+    t0_date: 2026-08-11
+    t5_date: 2026-08-18
+    t0_close: 28.43
+    t5_close: 28.49
+    fwd_return_pct: 0.21
 - id: claim-20260811-053
   source_path: sources/original/bilibili/2026-08-11-2156-图片-今日指数冲高回落，午后多头动能进一步减弱，量能相较上一交易日.md
   up_id: '1420210197'

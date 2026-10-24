@@ -27,3 +27,11 @@
   - 行情罕见度
   - 市场状态
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 仅定性描述行情罕见度，未明确看多或看空方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

@@ -255,6 +255,23 @@ claims:
     name: 润泽科技
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300442.SZ
+    rationale: 75元买入策略，中长期看多，跌破止损等黄金坑回补
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300442.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 74.02
+    t5_close: 85.18
+    fwd_return_pct: 15.08
 - id: claim-20260607-003-i
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   up_id: '1420210197'
@@ -289,6 +306,23 @@ claims:
     name: 利通电子
     role: 回填-正文提及
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603629.SH
+    rationale: B300稀缺利好持卡厂商，回调即黄金坑，结构看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603629.SH
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 99.21
+    t5_close: 125.876
+    fwd_return_pct: 26.88
 - id: claim-20260607-003-j
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   up_id: '1420210197'

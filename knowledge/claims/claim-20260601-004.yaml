@@ -111,6 +111,23 @@ claims:
     name: 软通动力
     role: 回填-正文提及
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603890.SH
+    rationale: 看多AIPC换机潮，核心逻辑指向春秋电子卖铲属性
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603890.SH
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 22.8
+    t5_close: 25.75
+    fwd_return_pct: 12.94
 - id: claim-20260601-004-d
   topic: MLCC是AI服务器第三大成本项
   source_path: sources/raw/财经/复盘：26-06-01：指数冲高回落，大小票分化，AIPC相对占优.md

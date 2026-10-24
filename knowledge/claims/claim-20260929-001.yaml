@@ -33,6 +33,23 @@ claims:
   - 底部结构
   - 技术信号
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: "创业板日线底部钝化，属偏多观察信号，待收线确认"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-09-29
+    t5_date: 2026-10-13
+    t0_close: 3142.56
+    t5_close: 2958.34
+    fwd_return_pct: -5.86
 - id: claim-20260929-001-b
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -67,6 +84,13 @@ claims:
   - 仓位纪律
   - 指数方向
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "不预判方向、等待市场给出答案，属方法论立场"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-c
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -102,6 +126,13 @@ claims:
   - 数据口径
   - 方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论提示，非方向判断；油价口径核对，与大盘无直接关联"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-d
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -138,6 +169,13 @@ claims:
   - 海外变量
   - 验证条件
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "操作方法论：修复需先验证资金承接，非方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-e
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -173,6 +211,13 @@ claims:
   - 风险偏好
   - 方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: "方法论观点，无方向判断；韩股锚定A股科技风险偏好，关联创业板指"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-f
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -209,6 +254,13 @@ claims:
   - 内因优先
   - 量价结构
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论重申：外盘仅为开盘线索，无方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-g
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -245,6 +297,13 @@ claims:
   - 买盘接力
   - 方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "量价分析方法论，非方向判断，默认沪深300"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-h
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -280,6 +339,13 @@ claims:
   - 修复可信度
   - 开盘半小时
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "量价宽度三情形观察框架，方法论无方向结论"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-i
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -314,6 +380,13 @@ claims:
   - 阶段判断
   - 昨日复盘
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "仅定性卖压收敛，明确修复待买盘确认，非方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-j
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -349,6 +422,13 @@ claims:
   - 市场宽度
   - 权重护盘
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "条件式观察判断，多空情形并存，非方向性结论；明确指向上证"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-k
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -382,6 +462,23 @@ claims:
   - 亏钱效应
   - 情绪降温
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "情绪宽度、效率、亏钱效应三维共振恶化，属看空降温信号"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-29
+    t5_date: 2026-10-13
+    t0_close: 4345.21
+    t5_close: 4275.68
+    fwd_return_pct: -1.6
 - id: claim-20260929-001-l
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -420,6 +517,13 @@ claims:
   - 亏钱效应收敛
   - 沈鼓集团
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 601091.SH
+    rationale: "情绪观察方法论清单，无方向判断，关联样本股沈鼓集团"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-m
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -456,6 +560,13 @@ claims:
   - 接力梯队
   - 经验参数
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "方法论：晋级率换算框架，非方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-n
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -489,6 +600,24 @@ claims:
   - 收线确认
   - 情形A
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "上证90分钟底部结构确认窗口，属看多技术信号"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.77%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-09-29
+    t5_date: 2026-10-13
+    t0_close: 3830.45
+    t5_close: 3800.86
+    fwd_return_pct: -0.77
 - id: claim-20260929-001-o
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -523,6 +652,13 @@ claims:
   - 收盘确认
   - 情形B
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "条件性技术验证规则，非方向判断，指向上证指数"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-p
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -557,6 +693,23 @@ claims:
   - 样本纪律
   - 结构确认
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: "连阴后预期超跌修复，倾向看多但需结构确认"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-09-29
+    t5_date: 2026-10-13
+    t0_close: 3142.56
+    t5_close: 2958.34
+    fwd_return_pct: -5.86
 - id: claim-20260929-001-q
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -606,6 +759,13 @@ claims:
   - 以点带面
   - 光模块
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300502.SZ
+    rationale: "方法论观点，无方向判断；以核心股新易盛为验证基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-r
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -641,6 +801,13 @@ claims:
   - 板块扩散
   - 持续性验证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论式风格判断，无明确方向，验证基准为大盘指数"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-s
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -681,6 +848,13 @@ claims:
   - 二次启动
   - 量价信号
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301080.SZ
+    rationale: "未确认方向，仅给出量价验证方法论，待核心股信号"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-t
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -724,6 +898,13 @@ claims:
   - 资金分流
   - 观察顺序
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600418.SH
+    rationale: "操作顺序方法论，非方向判断；观察江淮汽车承接"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-u
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -772,6 +953,24 @@ claims:
   - 主题催化
   - 受益验证
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002912.SZ
+    rationale: "承认AI安全主题催化利好相关标的，但要求逐项验证业绩"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.14%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002912.SZ
+    t0_date: 2026-09-29
+    t5_date: 2026-10-13
+    t0_close: 29.12
+    t5_close: 29.16
+    fwd_return_pct: 0.14
 - id: claim-20260929-001-v
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -814,6 +1013,13 @@ claims:
   - 招标订单兑现
   - HBM
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688825.SH
+    rationale: "方法论定调：跟踪招标-验证-订单链条，非方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-001-w
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -857,6 +1063,23 @@ claims:
   - 商业化验证
   - 主题催化
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 001330.SZ
+    rationale: "判断定档事件带来主题催化、方向值得跟踪，偏看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 001330.SZ
+    t0_date: 2026-09-29
+    t5_date: 2026-10-13
+    t0_close: 6.63
+    t5_close: 7.4
+    fwd_return_pct: 11.61
 - id: claim-20260929-001-x
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -897,3 +1120,11 @@ claims:
   - A股映射
   - 竞争预期
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002773.SZ
+    rationale: "方法论观点，强调逐项核对而非方向判断，映射核心标的为康弘药业"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

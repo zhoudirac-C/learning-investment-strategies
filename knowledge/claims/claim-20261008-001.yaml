@@ -35,6 +35,13 @@ claims:
     cases: []
   topic: 调整尾声观察阶段，基准=震荡消化或温和修复
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 调整尾声观察阶段，基准情形为震荡消化或温和修复，未给明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-b
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -70,6 +77,23 @@ claims:
     cases: []
   topic: 下行空间或已收窄，时间消化分歧；科技抛压待两条件验证
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 下行空间收窄偏多倾向，市场周期观点默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 4310.28
+    t5_close: 4166.01
+    fwd_return_pct: -3.35
 - id: claim-20261008-001-c
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -105,6 +129,13 @@ claims:
     cases: []
   topic: 外盘映射须分支化，单一指数不代替全部判断
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论观点，分支化观察纪律，无方向判断，以创业板指作科技分支代理
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-d
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -141,6 +172,13 @@ claims:
     cases: []
   topic: 利率缓和非农放缓均不足以确认反转或转向
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 宏观双重不确认、降预期基调，非方向性判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-e
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -175,6 +213,13 @@ claims:
     cases: []
   topic: 10年期拍卖需求强；今晚30年期四指标两情形验证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论验证框架，非方向判断；结果作为A股外部输入
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-f
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -211,6 +256,13 @@ claims:
     cases: []
   topic: 1.44万亿为低量参照，首日回补须区分信息释放与新增买盘
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 量能判读方法论，非方向判断；1.44万亿为沪市成交锚
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-g
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -247,6 +299,13 @@ claims:
     cases: []
   topic: 量能三分类：缩量守=消化时间，放量+宽度=修复升级
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 量能判读方法论框架，非方向性判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-h
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -283,6 +342,13 @@ claims:
     cases: []
   topic: 红盘靠权重=结构分化，修复范围看双创与科技核心
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 定性方法论：判断红盘质量与修复范围，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-i
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -319,6 +385,13 @@ claims:
     cases: []
   topic: 跌停减少+晋级率降幅放缓=收敛线索，今日6家二板参照
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情绪收敛观察，方向待验证，非明确看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-j
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -353,6 +426,13 @@ claims:
     cases: []
   topic: 盘中三时点：信息释放消化→换手后稳定→午后强度与承接
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 盘中观察方法论，无方向判断，涉及上证等指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-k
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -389,6 +469,13 @@ claims:
     cases: []
   topic: 情形A=企稳+放量+宽度同步则提评价；B=放量无承接收敛冲动
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论推演框架，A/B情形均未下方向结论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-l
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -424,6 +511,13 @@ claims:
     cases: []
   topic: 持股或做T为主；结构破坏即调整，风险收益比好≠无条件持有
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 持仓纪律方法论，无方向判断，默认沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-m
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -459,6 +553,19 @@ claims:
     cases: []
   topic: 医药=防守与轮动候选，主线需连续强度+容量承接+产业进展
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000933
+    rationale: 医药防守+轮动候选，倾向关注但需三验证确认主线
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 sh000933 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000933
 - id: claim-20261008-001-n
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -505,6 +612,13 @@ claims:
     cases: []
   topic: AI4S医药独立行情看订单反馈，兑现验证五环节
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688222.SH
+    rationale: 观察框架与方法论，条件验证非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-o
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -548,6 +662,13 @@ claims:
     cases: []
   topic: 地产低开有承接vs电池强兑现；万科A承接三要素分开看
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000002.SZ
+    rationale: 核心为承接检验方法论，方向待验证，非明确看多看空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-p
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -584,6 +705,13 @@ claims:
     cases: []
   topic: 科技全面修复需大市值放量+回落承接+扩散到业绩环节
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 三条件确认框架属方法论，非方向判断；科技板块基准取创业板指
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-q
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -619,6 +747,13 @@ claims:
     cases: []
   topic: 大模型商业化以年为单位（约两年研究预期），融资≠利润增量
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论判断：融资到利润需传导检验，无方向性结论，创业板指科技权重最相关
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-r
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -655,6 +790,13 @@ claims:
     cases: []
   topic: BD三分法：规模看付款条件、趋势看资产来源、AI另证联系
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600276.SH
+    rationale: BD解读方法论，非方向判断，仅提示股价反应不等于业务增量
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-s
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -695,6 +837,13 @@ claims:
     cases: []
   topic: 专利协议≠订单：设备受益须工艺采用到验收收入逐段验证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688072.SH
+    rationale: 方法论提示：防专利协议直推设备股，未给方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-t
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -737,6 +886,23 @@ claims:
     cases: []
   topic: 覆铜板升级利好低介电树脂，兑现看验证导入规模毛利率
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601208.SH
+    rationale: 看多高速覆铜板升级带动低介电树脂需求，首选东材科技
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601208.SH
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 50.92
+    t5_close: 43.15
+    fwd_return_pct: -15.26
 - id: claim-20261008-001-u
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -777,6 +943,13 @@ claims:
     cases: []
   topic: AI终端研究顺序：功能→生态→销售→零部件增量
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 605268.SH
+    rationale: 方法论观点，无方向判断；相关标的中王力安防代码最完整
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-v
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -811,6 +984,13 @@ claims:
     cases: []
   topic: 存储涨价≠利润改善，需供需+合同+产能三验证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，非方向判断；无具体标的，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-001-w
   source_path: sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   source_date: '2026-10-08'
@@ -845,3 +1025,11 @@ claims:
     cases: []
   topic: 竞价不下结论；服从结构承接与量价确认，双向修正
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 盘前交易纪律方法论，无方向判断，挂钩大盘竞价与宽度
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

@@ -32,6 +32,13 @@
   - 杠杆资金
   - 散户接力
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "资金接力方法论，非明确方向判断，默认沪深300"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-004-b
   source_path: sources/original/wechat/2026-10-16-股市：按照流程上涨（2026.10.16）.md
   source_date: '2026-10-16'
@@ -65,6 +72,13 @@
   - 杀杠杆
   - 投机情绪
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论判断：融资余额拐头是大涨前置条件，非直接方向"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-004-c
   source_path: sources/original/wechat/2026-10-16-股市：按照流程上涨（2026.10.16）.md
   source_date: '2026-10-16'
@@ -95,6 +109,13 @@
   - 波动放大
   - 极端行情
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "波动机制方法论，无方向判断，默认沪深300为基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-004-d
   source_path: sources/original/wechat/2026-10-16-股市：按照流程上涨（2026.10.16）.md
   source_date: '2026-10-16'
@@ -133,6 +154,24 @@
   - 猪肉
   - 保险
   school: gator
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601318.SH
+    rationale: "跌到平台支撑位建议捡便宜买入，属看多操作方法"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.23%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601318.SH
+    t0_date: 2026-10-16
+    t5_date: 2026-10-23
+    t0_close: 51.88
+    t5_close: 51.76
+    fwd_return_pct: -0.23
 - id: claim-20261016-004-e
   source_path: sources/original/wechat/2026-10-16-股市：按照流程上涨（2026.10.16）.md
   source_date: '2026-10-16'
@@ -163,6 +202,13 @@
   - 技术面
   - 决策框架
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论观点，无方向判断，默认沪深300为基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-004-f
   source_path: sources/original/wechat/2026-10-16-股市：按照流程上涨（2026.10.16）.md
   source_date: '2026-10-16'
@@ -193,6 +239,13 @@
   - 低估错杀
   - A股特征
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "长期定性为结构性机会常态化，非指数方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-004-g
   source_path: sources/original/wechat/2026-10-16-股市：按照流程上涨（2026.10.16）.md
   source_date: '2026-10-16'
@@ -225,6 +278,23 @@
   - 去魅
   - 护盘
   school: gator
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: "科技降级为指数稳定器，弹性持续性打折，追高性价比下降"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-16
+    t5_date: 2026-10-23
+    t0_close: 2772.38
+    t5_close: 2684.1
+    fwd_return_pct: -3.18
 - id: claim-20261016-004-h
   source_path: sources/original/wechat/2026-10-16-股市：按照流程上涨（2026.10.16）.md
   source_date: '2026-10-16'
@@ -257,3 +327,21 @@
   - 右侧信号
   - 左侧试仓
   school: gator
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "市场底形成、可左侧试多，属看多方向；market-cycle默认沪深300"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-16
+    t5_date: 2026-10-23
+    t0_close: 4170.61
+    t5_close: 4105.33
+    fwd_return_pct: -1.57

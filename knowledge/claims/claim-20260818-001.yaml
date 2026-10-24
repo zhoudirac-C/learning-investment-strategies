@@ -814,6 +814,23 @@ claims:
   - 波段参与
   - 海外大客户
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002957.SZ
+    rationale: 肯定其赚设备钱的逻辑，逢低跟踪参与，偏看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002957.SZ
+    t0_date: 2026-08-18
+    t5_date: 2026-08-25
+    t0_close: 43.78
+    t5_close: 41.01
+    fwd_return_pct: -6.33
 - id: claim-20260818-022
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-18-0911-专栏-隔夜外盘的关键不在方向而在结构：三大指数收盘普跌、微软与Me.md
   up_id: '1420210197'
@@ -857,6 +874,13 @@ claims:
   - 首日换手
   - 估值敏感
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688836.SH
+    rationale: 方法论观点：强调首日换手筹码性质与估值优先，未给出明确涨跌方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260818-023
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-18-0911-专栏-隔夜外盘的关键不在方向而在结构：三大指数收盘普跌、微软与Me.md
   up_id: '1420210197'
@@ -936,6 +960,23 @@ claims:
   - 买阴不买阳
   - FAU
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300620.SZ
+    rationale: 业绩兑现且毛利率改善，明确建议逢低买入跟踪
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300620.SZ
+    t0_date: 2026-08-18
+    t5_date: 2026-08-25
+    t0_close: 323.88
+    t5_close: 290.68
+    fwd_return_pct: -10.25
 - id: claim-20260818-025
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-18-0911-专栏-隔夜外盘的关键不在方向而在结构：三大指数收盘普跌、微软与Me.md
   up_id: '1420210197'

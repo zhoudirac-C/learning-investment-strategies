@@ -373,6 +373,23 @@ claims:
   - 连板穿越
   - 金健米业
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000931.SZ
+    rationale: 博弈中关村连板穿越，回流预期下看多，但需板块配合
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000931.SZ
+    t0_date: 2026-08-24
+    t5_date: 2026-08-31
+    t0_close: 5.6
+    t5_close: 4.94
+    fwd_return_pct: -11.79
 - id: claim-20260824-003-l
   source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
   up_id: '1420210197'
@@ -417,6 +434,23 @@ claims:
   - 光通信
   - 索尔思
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300862.SZ
+    rationale: 看好重组收购TFF镀膜设备资产，上下游协同预期差，看多蓝盾光电。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300862.SZ
+    t0_date: 2026-08-24
+    t5_date: 2026-08-31
+    t0_close: 55.1
+    t5_close: 50.33
+    fwd_return_pct: -8.66
 - id: claim-20260824-003-m
   source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
   up_id: '1420210197'
@@ -487,6 +521,23 @@ claims:
   - 加密资产
   - 题材突破口
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 003040.SZ
+    rationale: 定性楚天龙为板块旗帜题材突破口，预期上涨
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 003040.SZ
+    t0_date: 2026-08-24
+    t5_date: 2026-08-31
+    t0_close: 14.07
+    t5_close: 17.8
+    fwd_return_pct: 26.51
 - id: claim-20260824-003-o
   source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
   up_id: '1420210197'

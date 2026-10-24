@@ -314,6 +314,23 @@ claims:
   - 低吸
   topic: 兆易创新风险大于半导体上游材料零部件
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 603986.SH
+    rationale: 认为兆易创新风险大、需充分调整后才有低吸点，当前回避
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603986.SH
+    t0_date: 2026-07-02
+    t5_date: 2026-07-09
+    t0_close: 694.81
+    t5_close: 663.49
+    fwd_return_pct: -4.51
 - id: claim-20260702-004-j
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
   up_id: '1420210197'

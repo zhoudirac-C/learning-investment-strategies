@@ -32,6 +32,23 @@ claims:
   - 震荡磨底
   - 鳄鱼派
   related_stocks: []
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 底部区域已现、向下空间有限，属偏多阶段定性
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-15
+    t5_date: 2026-10-22
+    t0_close: 4166.01
+    t5_close: 4036.3
+    fwd_return_pct: -3.11
 - id: claim-20261015-002-b
   claim_type: operation
   subject: 试多节奏与右侧信号缺失
@@ -64,6 +81,23 @@ claims:
   - 试多
   - 右侧信号
   related_stocks: []
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 试多操作口径，方向看多但仓位克制，属市场节奏判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-15
+    t5_date: 2026-10-22
+    t0_close: 4166.01
+    t5_close: 4036.3
+    fwd_return_pct: -3.11
 - id: claim-20261015-002-c
   claim_type: methodology
   subject: 护盘假设与假设更新机制
@@ -96,6 +130,13 @@ claims:
   - 护盘
   - 可证伪
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论类观点，无方向判断；护盘假设最相关基准为上证指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-002-d
   claim_type: operation
   subject: 捡便宜播种红鳄的次数纪律
@@ -128,6 +169,13 @@ claims:
   - 纪律
   - 有限次
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 左侧播种纪律属方法论，无具体标的，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-002-e
   claim_type: methodology
   subject: 护盘只起引导作用
@@ -160,6 +208,13 @@ claims:
   - 资金响应
   - 引导作用
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论观点，讨论护盘机制而非方向判断，护盘常指上证市场
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-002-f
   claim_type: methodology
   subject: 做空的生态位选择
@@ -192,6 +247,13 @@ claims:
   - 生态位
   - 情绪高位
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 做空时机方法论，非方向判断，基准取大盘指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-002-g
   claim_type: sector-theme
   subject: 科技回归普通板块
@@ -224,6 +286,13 @@ claims:
   - 降格
   - 普通板块
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 对科技板块定性降级为普通板块，属方法论判断，非方向观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-002-h
   claim_type: risk
   subject: 高股息上涨触发抛售的阈值
@@ -256,6 +325,19 @@ claims:
   - 抛压阈值
   - 大资金
   related_stocks: []
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000922
+    rationale: 高股息涨至阈值将遭大资金抛售，隐含回避该方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 sh000922 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000922
 - id: claim-20261015-002-i
   claim_type: methodology
   subject: 救市三板斧流程
@@ -289,6 +371,13 @@ claims:
   - 大金融
   - 中字头
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论总结救市流程，无方向判断，基准取沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-002-j
   claim_type: methodology
   subject: 人性与利益优先于基本面技术面
@@ -322,6 +411,13 @@ claims:
   - 利益驱动
   - 方法论
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，无方向判断，仅阐述人性与利益分析框架
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-002-k
   claim_type: methodology
   subject: 左侧右侧的群体行为纪律
@@ -354,3 +450,11 @@ claims:
   - 左侧右侧
   - 行为纪律
   related_stocks: []
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，刻画群体行为时序纪律，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

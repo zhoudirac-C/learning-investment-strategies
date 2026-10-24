@@ -958,6 +958,23 @@ claims:
   - 良率爬坡
   - 跟踪验证
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688629.SH
+    rationale: 切换期业绩坑定性，关注Q3-Q4良率爬坡修复，属跟踪关注型
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688629.SH
+    t0_date: 2026-08-31
+    t5_date: 2026-09-07
+    t0_close: 136.174
+    t5_close: 127.344
+    fwd_return_pct: -6.48
 - id: claim-20260831-027-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
   up_id: '1420210197'

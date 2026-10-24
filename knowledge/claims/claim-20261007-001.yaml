@@ -35,6 +35,23 @@ claims:
   - 美联储
   - 量能
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 预期节后A股开盘小幅补涨上行，未指定具体指数，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 4310.28
+    t5_close: 4166.01
+    fwd_return_pct: -3.35
 - id: claim-20261007-001-b
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -70,6 +87,23 @@ claims:
   - 利空跌不下去
   - 情绪出清
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 核心判断为调整中继、非企稳，无锚定则不参与，短期偏空。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 4310.28
+    t5_close: 4166.01
+    fwd_return_pct: -3.35
 - id: claim-20261007-001-c
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -105,6 +139,23 @@ claims:
   - 节前布局
   - 量能基础
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 地量观望+末日放量+利空反转，构成止跌看多锚定
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 4310.28
+    t5_close: 4166.01
+    fwd_return_pct: -3.35
 - id: claim-20261007-001-d
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -146,6 +197,23 @@ claims:
   - 亏钱效应
   - 先于指数变盘
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 反核为情绪改善前瞻信号，情绪先于指数变盘，偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 4310.28
+    t5_close: 4166.01
+    fwd_return_pct: -3.35
 - id: claim-20261007-001-e
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -180,6 +248,13 @@ claims:
   - 事件密度
   - 不确定性
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点：止跌信号需经事件周检验，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261007-001-f
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -217,6 +292,13 @@ claims:
   - 轮动
   - 资金争夺
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 风格再平衡框架属方法论推演，无明确多空方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261007-001-g
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -258,6 +340,13 @@ claims:
   - 元件指数
   - 抱团博弈
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600641.SH
+    rationale: 科技分层筛选方法论，个股仅列入观察，无明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261007-001-h
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -301,6 +390,23 @@ claims:
   - 催化节奏
   - 业绩验证
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603533.SH
+    rationale: AI应用商业化催化，建议按节奏关注观察标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603533.SH
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 23.13
+    t5_close: 29.01
+    fwd_return_pct: 25.42
 - id: claim-20261007-001-i
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -346,6 +452,13 @@ claims:
   - 对外授权
   - CXO
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688137.SH
+    rationale: 双路径条件判断，方向未定，需观察板块突破与否
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261007-001-j
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -384,6 +497,13 @@ claims:
   - 兑现盘
   - 检验
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000002.SZ
+    rationale: 方法论观点，明示无法定性给建议，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261007-001-k
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -424,6 +544,23 @@ claims:
   - 量能
   - 持续性
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300207.SZ
+    rationale: 条件化看多：量能回升则扩散成立，欣旺达为观察样本
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300207.SZ
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 21.5
+    t5_close: 18.42
+    fwd_return_pct: -14.33
 - id: claim-20261007-001-l
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -465,6 +602,23 @@ claims:
   - 逻辑硬度
   - 位置
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301190.SZ
+    rationale: 方法论但倾向看多染料供给收缩逻辑，首选善水科技
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301190.SZ
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 39.52
+    t5_close: 48
+    fwd_return_pct: 21.46
 - id: claim-20261007-001-m
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -502,3 +656,11 @@ claims:
   - 降低频率
   - 确定性
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 全篇为操作纪律与信号等待方法论，非方向判断，锚定大势基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

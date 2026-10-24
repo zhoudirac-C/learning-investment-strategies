@@ -872,6 +872,23 @@ claims:
   - 8月业绩披露
   topic: 浪潮软件政务AI观察池Tier1
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600756.SH
+    rationale: 观察池Tier1标的，触发条件指向买入关注，方向看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600756.SH
+    t0_date: 2026-07-31
+    t5_date: 2026-08-07
+    t0_close: 16.33
+    t5_close: 15.56
+    fwd_return_pct: -4.72
 - id: claim-20260731-024
   source_path: sources/raw/财经/2026-07-31-盘中三条动态-科创结构加仓-留余地-观察池.md
   up_id: '1420210197'
@@ -912,3 +929,21 @@ claims:
   - 浪潮软件联动
   topic: 久其软件报表软件观察池Tier2联动标的
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002279.SZ
+    rationale: 看多久其软件，绑定浪潮涨停触发跟随买点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002279.SZ
+    t0_date: 2026-07-31
+    t5_date: 2026-08-07
+    t0_close: 6.9
+    t5_close: 6.83
+    fwd_return_pct: -1.01

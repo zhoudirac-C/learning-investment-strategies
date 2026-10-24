@@ -982,6 +982,13 @@ claims:
   - AIDC
   - 字节跳动
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300442.SZ
+    rationale: 观点兼具看多与看空要素，属定性评估非明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260706-029
   source_path: sources/original/bilibili/2026-07-06-0902-图片-一、隔夜与开盘预判：无外盘之夜，看量能与日韩 今天是一个特殊.md
   up_id: '1420210197'
@@ -1019,6 +1026,23 @@ claims:
   - 数据港
   - 代建型
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300738.SZ
+    rationale: 看好代建托管型IDC稳健受益涨价逻辑，建议关注奥飞数据。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300738.SZ
+    t0_date: 2026-07-06
+    t5_date: 2026-07-13
+    t0_close: 19.8
+    t5_close: 21.15
+    fwd_return_pct: 6.82
 - id: claim-20260706-030
   source_path: sources/original/bilibili/2026-07-06-0902-图片-一、隔夜与开盘预判：无外盘之夜，看量能与日韩 今天是一个特殊.md
   up_id: '1420210197'
@@ -1052,6 +1076,23 @@ claims:
   - 光环新网
   - 零售型IDC
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 300383.SZ
+    rationale: 看空光环新网：零售型IDC客户分散、毛利率下行，涨价逻辑中相对弱势。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300383.SZ
+    t0_date: 2026-07-06
+    t5_date: 2026-07-13
+    t0_close: 12.45
+    t5_close: 13.27
+    fwd_return_pct: 6.59
 - id: claim-20260706-031
   source_path: sources/original/bilibili/2026-07-06-0902-图片-一、隔夜与开盘预判：无外盘之夜，看量能与日韩 今天是一个特殊.md
   up_id: '1420210197'
@@ -1087,6 +1128,23 @@ claims:
   - 交换机
   - 业绩超预期
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301165.SZ
+    rationale: Q2业绩大超预期，明确看多并建议关注买入
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301165.SZ
+    t0_date: 2026-07-06
+    t5_date: 2026-07-13
+    t0_close: 102
+    t5_close: 104.88
+    fwd_return_pct: 2.82
 - id: claim-20260706-032
   source_path: sources/original/bilibili/2026-07-06-0902-图片-一、隔夜与开盘预判：无外盘之夜，看量能与日韩 今天是一个特殊.md
   up_id: '1420210197'
@@ -1121,6 +1179,23 @@ claims:
   - 新华三
   - 估值低
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000938.SZ
+    rationale: 称紫光股份为估值洼地、适合左侧布局，属看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000938.SZ
+    t0_date: 2026-07-06
+    t5_date: 2026-07-13
+    t0_close: 33.31
+    t5_close: 38.4
+    fwd_return_pct: 15.28
 - id: claim-20260706-033
   source_path: sources/original/bilibili/2026-07-06-0902-图片-一、隔夜与开盘预判：无外盘之夜，看量能与日韩 今天是一个特殊.md
   up_id: '1420210197'
@@ -1155,6 +1230,23 @@ claims:
   - 小弹性
   - 交换机
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301191.SZ
+    rationale: 定位小盘弹性补充，倾向关注，但确定性弱于锐捷
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301191.SZ
+    t0_date: 2026-07-06
+    t5_date: 2026-07-13
+    t0_close: 134.93
+    t5_close: 129
+    fwd_return_pct: -4.39
 - id: claim-20260706-034
   source_path: sources/original/bilibili/2026-07-06-0902-图片-一、隔夜与开盘预判：无外盘之夜，看量能与日韩 今天是一个特殊.md
   up_id: '1420210197'
@@ -1189,6 +1281,13 @@ claims:
   - 交换芯片
   - 稀缺
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688702.SH
+    rationale: 稀缺但亏损估值高，仅仓位建议，方向不明确
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260706-035
   source_path: sources/original/bilibili/2026-07-06-0902-图片-一、隔夜与开盘预判：无外盘之夜，看量能与日韩 今天是一个特殊.md
   up_id: '1420210197'
@@ -1223,6 +1322,13 @@ claims:
   - 裕太微
   - 交换芯片上游
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688515.SH
+    rationale: 属交易方法论建议，非明确看多看空方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260706-036
   source_path: sources/original/bilibili/2026-07-06-0902-图片-一、隔夜与开盘预判：无外盘之夜，看量能与日韩 今天是一个特殊.md
   up_id: '1420210197'
@@ -1258,6 +1364,23 @@ claims:
   - 存储
   - 业绩预增
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301308.SZ
+    rationale: 业绩预增叠加DRAM涨价，明确看多江波龙
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301308.SZ
+    t0_date: 2026-07-06
+    t5_date: 2026-07-13
+    t0_close: 681.8
+    t5_close: 522.04
+    fwd_return_pct: -23.43
 - id: claim-20260706-037
   source_path: sources/original/bilibili/2026-07-06-0902-图片-一、隔夜与开盘预判：无外盘之夜，看量能与日韩 今天是一个特殊.md
   up_id: '1420210197'
@@ -1293,6 +1416,23 @@ claims:
   - 忆阻器
   - 亿铸科技
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002990.SZ
+    rationale: 题材映射看多盛视科技，关联忆阻器概念
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002990.SZ
+    t0_date: 2026-07-06
+    t5_date: 2026-07-13
+    t0_close: 71.51
+    t5_close: 59.01
+    fwd_return_pct: -17.48
 - id: claim-20260706-038
   source_path: sources/original/bilibili/2026-07-06-0902-图片-一、隔夜与开盘预判：无外盘之夜，看量能与日韩 今天是一个特殊.md
   up_id: '1420210197'
@@ -1327,6 +1467,23 @@ claims:
   - 奔图科技
   - 相变存储器
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002180.SZ
+    rationale: 表述强调量产成功与题材关联，属看多关注型股票观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002180.SZ
+    t0_date: 2026-07-06
+    t5_date: 2026-07-13
+    t0_close: 16.47
+    t5_close: 15.8
+    fwd_return_pct: -4.07
 - id: claim-20260706-039
   source_path: sources/original/bilibili/2026-07-06-0902-图片-一、隔夜与开盘预判：无外盘之夜，看量能与日韩 今天是一个特殊.md
   up_id: '1420210197'
@@ -1364,6 +1521,23 @@ claims:
   - 先进封装
   - 封测
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002185.SZ
+    rationale: 看好先进封装升级催化，预期华天科技受益上涨
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002185.SZ
+    t0_date: 2026-07-06
+    t5_date: 2026-07-13
+    t0_close: 19.94
+    t5_close: 24.13
+    fwd_return_pct: 21.01
 - id: claim-20260706-040
   source_path: sources/original/bilibili/2026-07-06-0902-图片-一、隔夜与开盘预判：无外盘之夜，看量能与日韩 今天是一个特殊.md
   up_id: '1420210197'
@@ -1401,6 +1575,23 @@ claims:
   - TSV
   - 先进封装
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603005.SH
+    rationale: 表述强调TSV封装领先优势与新兴应用拓展，属看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603005.SH
+    t0_date: 2026-07-06
+    t5_date: 2026-07-13
+    t0_close: 42.59
+    t5_close: 41.18
+    fwd_return_pct: -3.31
 - id: claim-20260706-041
   source_path: sources/original/bilibili/2026-07-06-0902-图片-一、隔夜与开盘预判：无外盘之夜，看量能与日韩 今天是一个特殊.md
   up_id: '1420210197'

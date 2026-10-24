@@ -330,6 +330,23 @@ claims:
   - IPv6
   topic: 天融信AI安全+智能交换机双轮驱动
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002212.SZ
+    rationale: "看好天融信AI安全与智能交换机双轮驱动，属看多观点"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002212.SZ
+    t0_date: 2026-07-29
+    t5_date: 2026-08-05
+    t0_close: 6.6
+    t5_close: 6.69
+    fwd_return_pct: 1.36
 - id: claim-20260729-030
   source_path: sources/original/bilibili/2026-07-29-2205-图片-今天是一根需要拆开看的阳线。指数收红、超四千两百只个股上涨，.md
   up_id: '1420210197'
@@ -367,6 +384,23 @@ claims:
   - 待验证
   topic: 传智教育具身智能新学科，人才培养瓶颈期逻辑但待验证
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 003032.SZ
+    rationale: "看好具身智能人才培训受益逻辑，建议关注，待招生数据验证"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 003032.SZ
+    t0_date: 2026-07-29
+    t5_date: 2026-08-05
+    t0_close: 7.28
+    t5_close: 11.73
+    fwd_return_pct: 61.13
 - id: claim-20260729-031
   source_path: sources/original/bilibili/2026-07-29-2205-图片-今天是一根需要拆开看的阳线。指数收红、超四千两百只个股上涨，.md
   up_id: '1420210197'
@@ -405,6 +439,24 @@ claims:
   - 涨价链
   topic: 长裕集团氧化锆涨价受益，全球产能7.5万吨居前
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603407.SH
+    rationale: "看多氧化锆涨价受益龙头，直接以个股定价"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.29%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603407.SH
+    t0_date: 2026-07-29
+    t5_date: 2026-08-05
+    t0_close: 62.81
+    t5_close: 62.63
+    fwd_return_pct: -0.29
 - id: claim-20260729-032
   source_path: sources/original/bilibili/2026-07-29-2205-图片-今天是一根需要拆开看的阳线。指数收红、超四千两百只个股上涨，.md
   up_id: '1420210197'
@@ -441,6 +493,23 @@ claims:
   - 数据中心
   topic: 顺络电子光模块上游元器件受益1.6T放量
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002138.SZ
+    rationale: "看多顺络电子，受益1.6T光模块放量与数据中心需求"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002138.SZ
+    t0_date: 2026-07-29
+    t5_date: 2026-08-05
+    t0_close: 43.15
+    t5_close: 49.6
+    fwd_return_pct: 14.95
 - id: claim-20260729-033
   source_path: sources/original/bilibili/2026-07-29-2205-图片-今天是一根需要拆开看的阳线。指数收红、超四千两百只个股上涨，.md
   up_id: '1420210197'
@@ -478,6 +547,23 @@ claims:
   - 小批量
   topic: 国瓷赛创光模块陶瓷基板TEC小批量销售
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300285.SZ
+    rationale: "提及子公司陶瓷基板/TEC技术储备与小批量销售，属早期受益看多逻辑"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300285.SZ
+    t0_date: 2026-07-29
+    t5_date: 2026-08-05
+    t0_close: 59.12
+    t5_close: 67.27
+    fwd_return_pct: 13.79
 - id: claim-20260729-034
   source_path: sources/original/bilibili/2026-07-29-2205-图片-今天是一根需要拆开看的阳线。指数收红、超四千两百只个股上涨，.md
   up_id: '1420210197'
@@ -515,6 +601,23 @@ claims:
   - 估值飙升
   topic: 九安医疗投资月之暗面3000万美元
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002432.SZ
+    rationale: "参股月之暗面估值上调，属主题性看多催化"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002432.SZ
+    t0_date: 2026-07-29
+    t5_date: 2026-08-05
+    t0_close: 66.81
+    t5_close: 69.69
+    fwd_return_pct: 4.31
 - id: claim-20260729-035
   source_path: sources/original/bilibili/2026-07-29-2205-图片-今天是一根需要拆开看的阳线。指数收红、超四千两百只个股上涨，.md
   up_id: '1420210197'
@@ -551,6 +654,23 @@ claims:
   - 估值联动
   topic: 米奥会展参股基金持有月之暗面4.233%股权
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300795.SZ
+    rationale: "参股月之暗面构成AI估值弹性催化，看多米奥会展"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300795.SZ
+    t0_date: 2026-07-29
+    t5_date: 2026-08-05
+    t0_close: 14.22
+    t5_close: 16.54
+    fwd_return_pct: 16.32
 - id: claim-20260729-036
   source_path: sources/original/bilibili/2026-07-29-2205-图片-今天是一根需要拆开看的阳线。指数收红、超四千两百只个股上涨，.md
   up_id: '1420210197'

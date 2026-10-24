@@ -31,6 +31,21 @@ claims:
   - 上证50
   - 30分钟
   - 底部结构
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 权重指数形成30分钟底部结构，预期反弹修复，方向看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-23
+    t0_close: 4105.33
 - id: claim-20261023-003-b
   source_path: sources/raw/财经/2026-10-23-1105-动态-沪深300上证50形成30分钟底部结构.md
   source_type: 图片
@@ -63,3 +78,19 @@ claims:
   - 关键节点
   - 下周三
   - 下周四
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 市场强度修复、反弹前段，倾向看多但待下周确认
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-23
+    t0_close: 4105.33

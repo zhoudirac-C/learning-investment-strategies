@@ -30,6 +30,13 @@ claims:
   - 日线低点
   - 底部结构
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 低10仅为观察窗口，底部未确认，属方法论提示
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-002-b
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -61,6 +68,13 @@ claims:
   - 破冰龙
   - 阶段定性
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 周期定性为混沌试错，非明确多空方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-002-c
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -92,6 +106,13 @@ claims:
   - 开盘承接
   - 相对强弱
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论表述，外盘仅影响开盘，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-002-d
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -123,6 +144,13 @@ claims:
   - 信用市场
   - AI融资
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件性框架判断，未给出明确涨跌方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-002-e
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -154,6 +182,13 @@ claims:
   - 抛压传导
   - 缩量不跌
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论定义科技股脱敏概念，非方向判断，关联科技板块指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-002-f
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -185,6 +220,13 @@ claims:
   - 权重托底
   - 筹码出清
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论拆解企稳条件，非方向判断，关联上证指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-002-g
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -216,6 +258,13 @@ claims:
   - 跌停收敛
   - 底部确认
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 描述底部确认的情绪指标方法论，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-002-h
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -247,6 +296,13 @@ claims:
   - 市值门槛
   - 板块联动
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 条件式方法论，判断科技反弹强度而非方向；科技主题以创业板指为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-002-i
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -278,6 +334,13 @@ claims:
   - 多日主线
   - 题材阶段
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 题材阶段方法论，非方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-002-j
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -315,6 +378,13 @@ claims:
   - code: '002579'
     name: 中京电子
     role: HDI与PCB-主板可交易
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 605058.SH
+    rationale: 抱团与板块扩散的判别方法论，未含方向判断，基准取相关PCB股
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-002-k
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -358,6 +428,21 @@ claims:
   - code: '603348'
     name: 文灿股份
     role: 一体化压铸-主板可交易
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603197.SH
+    rationale: 短线看低位发动延续性，倾向看多，以保隆科技为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603197.SH
+    t0_date: 2026-10-20
+    t0_close: 31.05
 - id: claim-20261020-002-l
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -389,6 +474,21 @@ claims:
   - 发动位置
   - 持续性溢价
   related_stocks: []
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 风险偏好下移、反弹持续性溢价减少，对市场偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11
 - id: claim-20261020-002-m
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -426,6 +526,13 @@ claims:
   - code: '301313'
     name: 凡拓数创
     role: 数字孪生与物理AI-创业板不可交易
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603859.SH
+    rationale: 多题材资金竞争的优选方法论，未给出明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-002-n
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -466,6 +573,13 @@ claims:
   - code: '603859'
     name: 能科科技
     role: 工业软件与物理AI-主板可交易
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603466.SH
+    rationale: 研究框架无方向判断，选相关标的作基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-002-o
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -497,6 +611,13 @@ claims:
   - 现金流匹配
   - GPU利用率
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论拆解，多空因素并存，未给出方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-002-p
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -528,6 +649,13 @@ claims:
   - 确认后行动
   - 失效条件
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 操作纪律与方法论，无方向判断，基准取大盘指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-002-q
   source_path: sources/original/bilibili/2026-10-20-0834-专栏-周一指数探底回升，但全市场仍有超过3100只个股下跌，银行托.md
   source_date: '2026-10-20'
@@ -559,3 +687,11 @@ claims:
   - 三条件合力
   - 放量
   related_stocks: []
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论：加仓依据为三变量合取，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

@@ -209,6 +209,23 @@ claims:
   - 情绪龙头
   - 兑现度低
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603601.SH
+    rationale: "定位SpaceX情绪第一波龙头，发射催化驱动短线情绪行情"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603601.SH
+    t0_date: 2026-06-17
+    t5_date: 2026-06-25
+    t0_close: 15.77
+    t5_close: 12.26
+    fwd_return_pct: -22.26
 - id: claim-20260617-019-s
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
   up_id: '1420210197'
@@ -245,6 +262,23 @@ claims:
   - 参股情绪
   - 0.82%
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600783.SH
+    rationale: "定位为可回收火箭情绪支点，预期第二波上涨"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600783.SH
+    t0_date: 2026-06-17
+    t5_date: 2026-06-25
+    t0_close: 19.865
+    t5_close: 18.815
+    fwd_return_pct: -5.29
 - id: claim-20260617-020-s
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
   up_id: '1420210197'
@@ -278,6 +312,23 @@ claims:
   - 设计单位
   - 双重逻辑
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603017.SH
+    rationale: "参股+合作双重逻辑，视为致航一号核心博弈标的，倾向看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603017.SH
+    t0_date: 2026-06-17
+    t5_date: 2026-06-25
+    t0_close: 10.873
+    t5_close: 9.863
+    fwd_return_pct: -9.29
 - id: claim-20260617-021-s
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
   up_id: '1420210197'
@@ -313,6 +364,24 @@ claims:
   - 应收账款
   - 基本面瑕疵
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 001270.SZ
+    rationale: "明确看多铖昌科技，星网量产受益逻辑，仅提示应收账款瑕疵"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.81%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 001270.SZ
+    t0_date: 2026-06-17
+    t5_date: 2026-06-25
+    t0_close: 127.78
+    t5_close: 126.75
+    fwd_return_pct: -0.81
 - id: claim-20260617-022-s
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
   up_id: '1420210197'
@@ -346,6 +415,23 @@ claims:
   - 半年涨300%
   - 实控人减持
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 300136.SZ
+    rationale: "基本面虽兑现但涨300%透支预期，减持警示，倾向回避"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300136.SZ
+    t0_date: 2026-06-17
+    t5_date: 2026-06-25
+    t0_close: 105.56
+    t5_close: 116.73
+    fwd_return_pct: 10.58
 - id: claim-20260617-023-s
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
   up_id: '1420210197'
@@ -379,6 +465,23 @@ claims:
   - 低位博弈
   - 未发酵题材
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688010.SH
+    rationale: "定位低位博弈标的，有催化与安全边际，倾向看多关注"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688010.SH
+    t0_date: 2026-06-17
+    t5_date: 2026-06-25
+    t0_close: 47.88
+    t5_close: 46.15
+    fwd_return_pct: -3.61
 - id: claim-20260617-024-c
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
   up_id: '1420210197'

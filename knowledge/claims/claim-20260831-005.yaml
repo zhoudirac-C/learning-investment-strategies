@@ -150,6 +150,23 @@ claims:
   links: {}
   topic: 浪潮信息合同负债是硬件行情与题材分界线
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000977.SZ
+    rationale: "合同负债高增视为交付前置信号，看多浪潮信息"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000977.SZ
+    t0_date: 2026-08-31
+    t5_date: 2026-09-07
+    t0_close: 85.18
+    t5_close: 74.74
+    fwd_return_pct: -12.26
 - id: claim-20260831-005-f
   source_path: sources/original/bilibili/2026-08-31-2322-专栏-今日是8月最后一个交易日。外围集体低开、午前逐步企稳、午后资.md
   up_id: '1420210197'
@@ -381,6 +398,24 @@ claims:
   links: {}
   topic: 吉视传媒算力内容渠道四环闭环壁垒
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601929.SH
+    rationale: "看好算力+大模型+内容+渠道闭环壁垒，看多吉视传媒"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.39%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601929.SH
+    t0_date: 2026-08-31
+    t5_date: 2026-09-07
+    t0_close: 2.57
+    t5_close: 2.56
+    fwd_return_pct: -0.39
 - id: claim-20260831-005-n
   source_path: sources/original/bilibili/2026-08-31-2322-专栏-今日是8月最后一个交易日。外围集体低开、午前逐步企稳、午后资.md
   up_id: '1420210197'
@@ -412,6 +447,23 @@ claims:
   links: {}
   topic: 锐捷网络RoCE交换机量价齐升IPv6双击
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301165.SZ
+    rationale: "看多锐捷网络：超节点交换机配比抬升量价齐升，IPv6叠加受益"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301165.SZ
+    t0_date: 2026-08-31
+    t5_date: 2026-09-07
+    t0_close: 127.33
+    t5_close: 111.99
+    fwd_return_pct: -12.05
 - id: claim-20260831-005-o
   source_path: sources/original/bilibili/2026-08-31-2322-专栏-今日是8月最后一个交易日。外围集体低开、午前逐步企稳、午后资.md
   up_id: '1420210197'
@@ -445,6 +497,23 @@ claims:
   links: {}
   topic: 新朋股份液冷储能回购三重共振
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002328.SZ
+    rationale: "看多新朋股份液冷+储能+回购三重共振转型逻辑"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002328.SZ
+    t0_date: 2026-08-31
+    t5_date: 2026-09-07
+    t0_close: 8.5
+    t5_close: 9.56
+    fwd_return_pct: 12.47
 - id: claim-20260831-005-p
   source_path: sources/original/bilibili/2026-08-31-2322-专栏-今日是8月最后一个交易日。外围集体低开、午前逐步企稳、午后资.md
   up_id: '1420210197'
@@ -475,6 +544,23 @@ claims:
   links: {}
   topic: 优利德光通信测试仪器受益速率演进
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688628.SH
+    rationale: "看多优利德，收购切入光通信测试受益800G/1.6T"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688628.SH
+    t0_date: 2026-08-31
+    t5_date: 2026-09-07
+    t0_close: 81.08
+    t5_close: 83.42
+    fwd_return_pct: 2.89
 - id: claim-20260831-005-q
   source_path: sources/original/bilibili/2026-08-31-2322-专栏-今日是8月最后一个交易日。外围集体低开、午前逐步企稳、午后资.md
   up_id: '1420210197'
@@ -504,6 +590,23 @@ claims:
   links: {}
   topic: 潞安环能喷吹煤龙头煤价环比上涨EPS上调
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601699.SH
+    rationale: "卖方上调EPS、Q2煤价环比上涨，明确看多潞安环能"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601699.SH
+    t0_date: 2026-08-31
+    t5_date: 2026-09-07
+    t0_close: 17.95
+    t5_close: 16
+    fwd_return_pct: -10.86
 - id: claim-20260831-005-r
   source_path: sources/original/bilibili/2026-08-31-2322-专栏-今日是8月最后一个交易日。外围集体低开、午前逐步企稳、午后资.md
   up_id: '1420210197'

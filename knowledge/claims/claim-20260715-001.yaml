@@ -206,6 +206,19 @@ claims:
   - AI支出
   - 传统IT
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: IBM
+    rationale: "业绩miss致股价暴跌，传统IT被AI挤出预算，看空IBM。"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: "kline 缓存无 IBM 日线"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: IBM
 - id: claim-20260715-006-b
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
   up_id: '1420210197'
@@ -776,6 +789,24 @@ claims:
   - 真空泵
   - 存储扩产
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688012.SH
+    rationale: "看好中微受益存储扩产，属看多股票观点"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.43%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688012.SH
+    t0_date: 2026-07-15
+    t5_date: 2026-07-22
+    t0_close: 391.29
+    t5_close: 392.99
+    fwd_return_pct: 0.43
 - id: claim-20260715-018-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
   up_id: '1420210197'

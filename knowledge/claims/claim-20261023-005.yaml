@@ -32,6 +32,13 @@ claims:
   - A股极端行情
   - 宏观
   - 市场阶段
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 宏观框架性归因判断，解释行情成因，非方向预测
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-005-b
   source_path: sources/original/bilibili/ASR_BV1dpn86hEHZ_opt.md
   source_date: '2026-10-23'
@@ -65,6 +72,21 @@ claims:
   - 贸易壁垒
   - 各化阵营
   - 地缘政治
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 逆全球化、贸易壁垒与地缘动荡利空风险偏好，压制大盘
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-23
+    t0_close: 4105.33
 - id: claim-20261023-005-c
   source_path: sources/original/bilibili/ASR_BV1dpn86hEHZ_opt.md
   source_date: '2026-10-23'
@@ -98,6 +120,13 @@ claims:
   - 贫富分化
   - 总需求
   - 宏观
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 宏观结构性逻辑阐述，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-005-d
   source_path: sources/original/bilibili/ASR_BV1dpn86hEHZ_opt.md
   source_date: '2026-10-23'
@@ -131,6 +160,13 @@ claims:
   - 产业链脱钩
   - 地缘冲突
   - 大国博弈
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 宏观格局判断，无明确市场方向，默认沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-005-e
   source_path: sources/original/bilibili/ASR_BV1dpn86hEHZ_opt.md
   source_date: '2026-10-23'
@@ -164,6 +200,13 @@ claims:
   - 贸易阵营
   - GDP损失
   - 贸易壁垒
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 引用IMF测算的情景分析，属风险提示非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-005-f
   source_path: sources/original/bilibili/ASR_BV1dpn86hEHZ_opt.md
   source_date: '2026-10-23'
@@ -197,6 +240,21 @@ claims:
   - 战争
   - 金融危机
   - 资本复利
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 预判战争或危机出清，属系统性利空，基准沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-23
+    t0_close: 4105.33
 - id: claim-20261023-005-g
   source_path: sources/original/bilibili/ASR_BV1dpn86hEHZ_opt.md
   source_date: '2026-10-23'
@@ -230,6 +288,13 @@ claims:
   - 机器人
   - 生产率
   - 全球不平衡
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 宏观论述技术加剧不平等，无方向性判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-005-h
   source_path: sources/original/bilibili/ASR_BV1dpn86hEHZ_opt.md
   source_date: '2026-10-23'
@@ -263,6 +328,21 @@ claims:
   - 土地财政
   - 住房需求
   - 地方财政
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 宏观观点看空地产需求与土地财政，默认以沪深300为定价基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-23
+    t0_close: 4105.33
 - id: claim-20261023-005-i
   source_path: sources/original/bilibili/ASR_BV1dpn86hEHZ_opt.md
   source_date: '2026-10-23'
@@ -296,6 +376,13 @@ claims:
   - 股权财政
   - 合肥模式
   - 财政体制
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 政策转型建议，非直接方向判断，关联科创主题
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-005-j
   source_path: sources/original/bilibili/ASR_BV1dpn86hEHZ_opt.md
   source_date: '2026-10-23'
@@ -329,6 +416,13 @@ claims:
   - 因果倒置
   - 生产优先
   - 消费是目的
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论类观点，讨论消费与生产因果关系，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-005-k
   source_path: sources/original/bilibili/ASR_BV1dpn86hEHZ_opt.md
   source_date: '2026-10-23'
@@ -362,6 +456,13 @@ claims:
   - 支付能力
   - 安全感
   - 社保
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 消费归因方法论，无买卖方向，取宽基指数作宏观代理
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-005-l
   source_path: sources/original/bilibili/ASR_BV1dpn86hEHZ_opt.md
   source_date: '2026-10-23'
@@ -395,6 +496,13 @@ claims:
   - 仓位管理
   - 半仓轮动
   - 持股数量
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 仓位管理方法论，无方向判断，默认沪深300作基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-005-m
   source_path: sources/original/bilibili/ASR_BV1dpn86hEHZ_opt.md
   source_date: '2026-10-23'
@@ -428,3 +536,11 @@ claims:
   - 生存优先
   - 低位抄底
   - 高位不追
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论交易心态，非方向判断，基准取沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

@@ -35,6 +35,13 @@ claims:
   - 修复可信度
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 量能解读方法论，定性未确认底部，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-b
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -71,6 +78,13 @@ claims:
   - 失效条件
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论验证框架，非方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-c
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -106,6 +120,13 @@ claims:
   - 主线承接
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 量能判读方法论，无方向性结论，关联大盘量价结构
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-d
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -141,6 +162,13 @@ claims:
   - 结构稳定
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式方法论，双分支无单一方向，默认沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-e
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -177,6 +205,23 @@ claims:
     name: C沈鼓
     role: 近端次新-沪主板可交易(601前缀)
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 风险警示：次新过热或经强势股传导至主线，警惕回落
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-21
+    t5_date: 2026-09-29
+    t0_close: 4539.57
+    t5_close: 4345.21
+    fwd_return_pct: -4.28
 - id: claim-20260921-001-f
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -211,6 +256,13 @@ claims:
   - 高波动
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，区分情绪退潮与指数修复，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-g
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -247,6 +299,13 @@ claims:
     name: 燧原科技-U
     role: 国产算力链高辨识度核心-科创板不可交易
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688801.SH
+    rationale: 盯盘顺序与交叉验证方法论，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-h
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -283,6 +342,13 @@ claims:
   - 价量确认
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情形化处置方法论，非方向判断，默认沪深300基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-i
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -317,6 +383,13 @@ claims:
   - 价格信号
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 条件式防守纪律，非方向预测；表述明确提及沪指
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-j
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -350,6 +423,13 @@ claims:
   - 前强后稳
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 交易日历节奏方法论，无方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-k
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -384,6 +464,13 @@ claims:
   - 估值约束
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论限定与日期纠错，非方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-l
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -417,6 +504,13 @@ claims:
   - 路径推演
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论型转折窗口推演，带触发与撤回条件，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-m
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -453,6 +547,13 @@ claims:
   - 美元日元
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 跨资产观察清单，无方向判断，仅跟踪表
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-n
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -491,6 +592,13 @@ claims:
     name: 万科A
     role: 地产政策催化标的-主板可交易
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000002.SZ
+    rationale: 条件式观察框架，不预设方向，待量价验证后再定
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-o
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -525,6 +633,13 @@ claims:
   - 个体差异
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，无方向判断，无具体标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-p
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -563,6 +678,19 @@ claims:
     name: 燧原科技-U
     role: 国产算力链核心-科创板不可交易
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688801.SH
+    rationale: 明确看多国产算力链进攻方向，燧原为核心验证标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 688801.SH 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688801.SH
 - id: claim-20260921-001-q
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -599,6 +727,13 @@ claims:
   - 补涨逻辑
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，否定落后必补涨，给出条件判据，无明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-r
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -634,6 +769,13 @@ claims:
   - 美股分化
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，外盘仅为背景变量，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-s
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -671,6 +813,13 @@ claims:
     name: 华天科技
     role: 先进封装/FOPLP跟踪-主板可交易
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002185.SZ
+    rationale: 方法论条目，区分产业线索与已兑现订单，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-t
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -706,6 +855,13 @@ claims:
   - 合约价
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，非方向判断，无具体标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-u
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -743,6 +899,13 @@ claims:
     name: 华盛昌
     role: 光通信测试/伽蓝特并表-主板可交易
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002980.SZ
+    rationale: 方法论观点，强调订单不等于并表利润，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-v
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -785,6 +948,13 @@ claims:
     name: 斯迪克
     role: MLCC离型膜-创业板不可交易
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000636.SZ
+    rationale: 方法论证伪框架，非方向判断，关联风华高科
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-w
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -827,6 +997,13 @@ claims:
     name: 协创数据
     role: 算力租赁-创业板不可交易
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301085.SZ
+    rationale: 政策解读为观察方向，非利好结论，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-x
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -862,6 +1039,13 @@ claims:
   - 盈亏平衡
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，无方向判断，无相关标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-y
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -896,6 +1080,13 @@ claims:
   - 资本开支
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论框架，无方向判断；算力链相关以创业板指为参照
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-z
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -931,6 +1122,13 @@ claims:
   - 节前敞口
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 操作纪律方法论，无方向判断，涉及大盘量能与上涨家数检查
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-aa
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -966,6 +1164,13 @@ claims:
   - 撤回条件
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论纪律表述，无方向判断，无具体标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-001-ab
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -1001,3 +1206,11 @@ claims:
   - 预案
   related_stocks: []
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 节前风险预案与盘中规则，属方法论，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

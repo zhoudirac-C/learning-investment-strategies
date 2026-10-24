@@ -30,3 +30,17 @@ claims:
   - 军工
   - 飞行汽车
   - 风电
+
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sz399967
+    rationale: 看淡军工板块整体行情，以中证军工指数为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 sz399967 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399967

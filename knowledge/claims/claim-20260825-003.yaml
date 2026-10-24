@@ -576,6 +576,23 @@ claims:
   - 重组
   - 液氨运输船
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603268.SH
+    rationale: 重组转型造船+订单排至2030+业绩承诺超额兑现，明确看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603268.SH
+    t0_date: 2026-08-25
+    t5_date: 2026-09-01
+    t0_close: 191.2
+    t5_close: 183.48
+    fwd_return_pct: -4.04
 - id: claim-20260825-048-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
   up_id: '1420210197'
@@ -614,6 +631,23 @@ claims:
   - 康宁
   - 光连接
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300570.SZ
+    rationale: 明确看多：CPO渗透拉动MPO量价，直接受益标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300570.SZ
+    t0_date: 2026-08-25
+    t5_date: 2026-09-01
+    t0_close: 202.7
+    t5_close: 193.81
+    fwd_return_pct: -4.39
 - id: claim-20260825-049-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
   up_id: '1420210197'
@@ -651,6 +685,23 @@ claims:
   - 量价齐升
   - 业绩
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600508.SH
+    rationale: 明确看多焦煤涨价业绩释放，量价齐升逻辑成立
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600508.SH
+    t0_date: 2026-08-25
+    t5_date: 2026-09-01
+    t0_close: 10.87
+    t5_close: 12.17
+    fwd_return_pct: 11.96
 - id: claim-20260825-050-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
   up_id: '1420210197'
@@ -689,6 +740,23 @@ claims:
   - 保偏光纤
   - 算力网
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601869.SH
+    rationale: 看多长飞光纤，强调高端产品壁垒与算力网建设关联
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601869.SH
+    t0_date: 2026-08-25
+    t5_date: 2026-09-01
+    t0_close: 394.5
+    t5_close: 400.03
+    fwd_return_pct: 1.4
 - id: claim-20260825-051-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
   up_id: '1420210197'
@@ -730,6 +798,23 @@ claims:
   - 半导体设备
   - GasBox
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688596.SH
+    rationale: 看多半导体设备上游，正帆科技为首选标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688596.SH
+    t0_date: 2026-08-25
+    t5_date: 2026-09-01
+    t0_close: 70.6
+    t5_close: 66.6
+    fwd_return_pct: -5.67
 - id: claim-20260825-052-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
   up_id: '1420210197'

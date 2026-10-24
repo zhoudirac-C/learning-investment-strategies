@@ -36,3 +36,21 @@ claims:
   - 视觉AI
   - 中报超预期
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301536.SZ
+    rationale: 明确看多星宸科技，业绩大超预期、端侧AI景气印证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301536.SZ
+    t0_date: 2026-07-20
+    t5_date: 2026-07-27
+    t0_close: 106.65
+    t5_close: 130
+    fwd_return_pct: 21.89

@@ -33,6 +33,13 @@ claims:
   - 预期消化
   topic: CPI核心检验点=能源涨价是否扩散至非能源领域
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 宏观CPI解读框架，条件式判断非明确方向，默认沪深300作基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-004-b
   source_path: sources/original/bilibili/2026-10-14-1429-图片-今天问题不大，基本上是按剧本在走了，虽然我最近不强调外盘，但.md
   source_date: '2026-10-14'
@@ -68,6 +75,13 @@ claims:
   - 债市结构
   topic: 数据后收益率反应模式比数据本身更重要
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000012
+    rationale: 方法论观点，判断债市反应模式而非方向，关联国债指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-004-c
   source_path: sources/original/bilibili/2026-10-14-1429-图片-今天问题不大，基本上是按剧本在走了，虽然我最近不强调外盘，但.md
   source_date: '2026-10-14'
@@ -102,3 +116,11 @@ claims:
   - 见顶纪律
   topic: 一次数据只检验不确认长期收益率趋势见顶
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论判断：单次CPI仅作检验，非方向性观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

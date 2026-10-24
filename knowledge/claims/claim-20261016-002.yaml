@@ -28,3 +28,21 @@
   - 共振
   - 操作取向
   school: qing
+
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 量能不足预期冲高回落，建议不参与追高，偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-16
+    t5_date: 2026-10-23
+    t0_close: 4170.61
+    t5_close: 4105.33
+    fwd_return_pct: -1.57

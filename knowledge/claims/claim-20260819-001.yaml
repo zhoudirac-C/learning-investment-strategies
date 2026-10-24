@@ -460,6 +460,23 @@ claims:
   - 高标
   - 追高风险
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 603330.SH
+    rationale: "风险提示口径：连亏且新业务占比<1%，警示回避追高"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603330.SH
+    t0_date: 2026-08-19
+    t5_date: 2026-08-26
+    t0_close: 10.07
+    t5_close: 11.18
+    fwd_return_pct: 11.02
 - id: claim-20260819-013
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-19-0901-专栏-一、隔夜：坏数据救了债，没救股 据隔夜行情，美股全线下跌，道琼斯指数跌0.22%，标普500指数跌0.69%，纳斯达克指数跌1.33%.md
   up_id: '1420210197'
@@ -649,6 +666,24 @@ claims:
   - 开源鸿蒙
   - 核心标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301236.SZ
+    rationale: "看多鸿蒙链核心标的软通动力，建议提前跟踪关注"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.97%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301236.SZ
+    t0_date: 2026-08-19
+    t5_date: 2026-08-26
+    t0_close: 37.29
+    t5_close: 36.93
+    fwd_return_pct: -0.97
 - id: claim-20260819-018
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-19-0901-专栏-一、隔夜：坏数据救了债，没救股 据隔夜行情，美股全线下跌，道琼斯指数跌0.22%，标普500指数跌0.69%，纳斯达克指数跌1.33%.md
   up_id: '1420210197'

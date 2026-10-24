@@ -31,6 +31,13 @@ claims:
   - 承接
   - 开盘定价
   topic: 外盘科技压力进入A股后的承接验证
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式观察框架，非方向判断；默认沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-001-b
   claim_type: macro
   subject: 科技股重新定价约束
@@ -63,6 +70,21 @@ claims:
   - 科技重定价
   - 通胀预期
   topic: 利率回落与油价上行对科技估值的约束
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 通胀与能源成本仍压制科技股重定价，否定利率下行即修复
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-23
+    t0_close: 2684.1
 - id: claim-20261023-001-c
   claim_type: market-cycle
   subject: 指数稳定条件
@@ -95,6 +117,13 @@ claims:
   - 普通个股
   - 指数稳定
   topic: ETF放量不等于指数稳定
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判断：ETF放量非反转证据，无方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-001-d
   claim_type: technical-signal
   subject: 上证指数底部结构模型
@@ -127,6 +156,21 @@ claims:
   - '3708'
   - '3627'
   topic: 上证指数日线与60分钟底部结构阈值
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 上证底部结构确认模型，突破3708即看多信号
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-10-23
+    t0_close: 3690.48
 - id: claim-20261023-001-e
   claim_type: methodology
   subject: 多周期结构印证判读
@@ -159,6 +203,13 @@ claims:
   - 60分钟
   - 下跌动能
   topic: 多周期结构形成与传递的判读方法
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判读规则，非方向性观点，默认用沪深300作验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-001-f
   claim_type: technical-signal
   subject: 创业板指低位承接质量
@@ -191,6 +242,13 @@ claims:
   - 承接质量
   - 抛压
   topic: 创业板低位承接质量判据
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 条件式承接判定框架，未给出方向性预测
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-001-g
   claim_type: market-cycle
   subject: 短线情绪扩散能力
@@ -223,6 +281,21 @@ claims:
   - 跌停
   - 首板
   topic: 短线情绪扩散能力收缩与修复条件
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情绪扩散收缩、反弹仅局部，短线偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-23
+    t0_close: 4105.33
 - id: claim-20261023-001-h
   claim_type: sector-theme
   subject: AI硬件修复条件
@@ -255,6 +328,13 @@ claims:
   - 细分扩散
   - 资金参与
   topic: AI硬件修复需要权重止跌至细分扩散
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式方法论，阐述修复前提而非明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-001-i
   claim_type: sector-theme
   subject: 机器人与AI应用扩散验证
@@ -287,6 +367,13 @@ claims:
   - 相对抗跌
   - 市值响应
   topic: 机器人与AI应用需扩大响应范围
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式扩散验证框架，未给方向判断；以沪深300验证修复
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-001-j
   claim_type: market-cycle
   subject: 防守稳定后的成长参与
@@ -319,6 +406,13 @@ claims:
   - 成长参与
   - 热点切换
   topic: 防守稳定后资金回流成长决定结构改善
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式结构判据，非明确方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-001-k
   claim_type: catalyst
   subject: 大模型融资产业传导
@@ -351,6 +445,21 @@ claims:
   - 采购订单
   - 商业收入
   topic: 大模型融资向产业订单传导
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 融资落地利好AI产业链投入，创业板指作科技代理基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-23
+    t0_close: 2684.1
 - id: claim-20261023-001-l
   claim_type: methodology
   subject: 具身智能部署验证指标
@@ -383,6 +492,13 @@ claims:
   - 人工接管
   - 作业成本
   topic: 具身智能持续部署的验证指标
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论框架，无买卖方向；机器人成长主题参考创业板指
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-001-m
   claim_type: sector-theme
   subject: 网络安全需求扩张
@@ -415,6 +531,21 @@ claims:
   - 项目签约
   - 回款
   topic: 网络安全需求扩张与经营验证链条
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 看多网络安全需求扩张，无相关个股，默认沪深300基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-23
+    t0_close: 4105.33
 - id: claim-20261023-001-n
   claim_type: sector-theme
   subject: 军工多年采购可预见性
@@ -447,6 +578,13 @@ claims:
   - 订单
   - 业绩确认
   topic: 军工长期采购可预见性与国内验证
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399967
+    rationale: 条件句表述未给明确多空，方向待国内订单业绩验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-001-o
   claim_type: methodology
   subject: 今日盘面三线索验证框架
@@ -479,3 +617,11 @@ claims:
   - 情绪
   - 结构确认
   topic: 今日盘面量能大金融情绪三线索框架
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论验证框架，非方向判断，基准取大盘指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

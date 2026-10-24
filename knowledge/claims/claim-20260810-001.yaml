@@ -399,6 +399,23 @@ claims:
   - 指引上调
   - 创新药
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688235.SH
+    rationale: "中报业绩大增并上调指引，看多百济神州"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688235.SH
+    t0_date: 2026-08-10
+    t5_date: 2026-08-17
+    t0_close: 299.79
+    t5_close: 289.9
+    fwd_return_pct: -3.3
 - id: claim-20260810-012
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
   up_id: '1420210197'
@@ -434,6 +451,23 @@ claims:
   - 禁令
   - 高开承接
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603259.SH
+    rationale: "禁令获批为实质利好，但涨幅已大，定性为高开考验承接"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603259.SH
+    t0_date: 2026-08-10
+    t5_date: 2026-08-17
+    t0_close: 160.83
+    t5_close: 166.38
+    fwd_return_pct: 3.45
 - id: claim-20260810-013
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
   up_id: '1420210197'
@@ -645,6 +679,24 @@ claims:
   - 探针台
   - 设备出海
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688012.SH
+    rationale: "中微ICP刻蚀量产销售、长川探针台验证，国产设备进展利好"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.56%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688012.SH
+    t0_date: 2026-08-10
+    t5_date: 2026-08-17
+    t0_close: 389.99
+    t5_close: 387.82
+    fwd_return_pct: -0.56
 - id: claim-20260810-018
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
   up_id: '1420210197'
@@ -1428,6 +1480,23 @@ claims:
   - Micro-TEC
   - 光模块
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600641.SH
+    rationale: "看多铋-TEC价值跃迁逻辑，跟踪送样转订单兑现"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600641.SH
+    t0_date: 2026-08-10
+    t5_date: 2026-08-17
+    t0_close: 34.41
+    t5_close: 36.06
+    fwd_return_pct: 4.8
 - id: claim-20260810-039
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
   up_id: '1420210197'
@@ -1464,6 +1533,23 @@ claims:
   - Marvell
   - 重组
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603306.SH
+    rationale: "重组注入光模块PCBA资产，市占率与订单支撑扩产逻辑，看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603306.SH
+    t0_date: 2026-08-10
+    t5_date: 2026-08-17
+    t0_close: 78
+    t5_close: 76.6
+    fwd_return_pct: -1.79
 - id: claim-20260810-040
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
   up_id: '1420210197'
@@ -1574,6 +1660,23 @@ claims:
   - 票房
   - 一字涨停
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000802.SZ
+    rationale: "点映逆跌+高评分强催化，明确看多北京文化"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000802.SZ
+    t0_date: 2026-08-10
+    t5_date: 2026-08-17
+    t0_close: 4.7
+    t5_close: 5.33
+    fwd_return_pct: 13.4
 - id: claim-20260810-043
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
   up_id: '1420210197'

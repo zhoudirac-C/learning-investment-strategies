@@ -32,6 +32,13 @@ claims:
   - '3627'
   - 加仓T出
   - 交易纪律
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 收盘结构决策纪律，非方向判断；点位指向上证指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261023-004-b
   source_path: sources/raw/财经/2026-10-23-1359-动态-日线结构标准与政策市.md
   source_date: '2026-10-23'
@@ -64,6 +71,21 @@ claims:
   - 大机会
   - 近一个月行情
   - 结构确认
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件性看多，共振信号指向约一个月阶段上涨行情
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-23
+    t0_close: 4105.33
 - id: claim-20261023-004-c
   source_path: sources/raw/财经/2026-10-23-1359-动态-日线结构标准与政策市.md
   source_date: '2026-10-23'
@@ -96,3 +118,11 @@ claims:
   - 行情结束条件
   - 主要矛盾
   - 方法论
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，判断政策市终结条件，非方向性判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

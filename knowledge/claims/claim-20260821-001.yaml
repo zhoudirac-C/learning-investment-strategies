@@ -576,6 +576,13 @@ claims:
   - 已定价
   - 分化
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: LLM 响应解析失败，降级 neutral
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260821-017
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
   up_id: '1420210197'

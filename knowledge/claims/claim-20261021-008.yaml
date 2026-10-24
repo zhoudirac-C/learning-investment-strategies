@@ -30,6 +30,13 @@
   - 龙哥
   - 普涨转普跌
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架解读磨底博弈，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-008-b
   source_path: sources/original/wechat/2026-10-21-股市：一收一放，滴灌（2026.10.21）.md
   source_date: '2026-10-21'
@@ -63,6 +70,21 @@
   - 业绩预期
   - 价值回归
   school: gator
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300750.SZ
+    rationale: 定性为预期内下滑非暴雷，暗示恐慌抛售后可买便宜筹码
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300750.SZ
+    t0_date: 2026-10-21
+    t0_close: 227.9
 - id: claim-20261021-008-c
   source_path: sources/original/wechat/2026-10-21-股市：一收一放，滴灌（2026.10.21）.md
   source_date: '2026-10-21'
@@ -96,6 +118,21 @@
   - 弹药管理
   - 海外风险
   school: gator
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 暗示海外风险未出清、指数或再探底，护盘托而不举
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-21
+    t0_close: 4111.93
 - id: claim-20261021-008-d
   source_path: sources/original/wechat/2026-10-21-股市：一收一放，滴灌（2026.10.21）.md
   source_date: '2026-10-21'
@@ -127,6 +164,13 @@
   - 多机构协同
   - 别猜心思
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 护盘资金构成与应对方法论，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-008-e
   source_path: sources/original/wechat/2026-10-21-股市：一收一放，滴灌（2026.10.21）.md
   source_date: '2026-10-21'
@@ -160,6 +204,13 @@
   - 磨底盯盘
   - 个股融资特性
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 磨底盯盘方法论，讲融资余额指标用法，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-008-f
   source_path: sources/original/wechat/2026-10-21-股市：一收一放，滴灌（2026.10.21）.md
   source_date: '2026-10-21'
@@ -193,6 +244,13 @@
   - 真假破位
   - 南下资金
   school: gator
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 00700
+    rationale: 核心是破位确认方法论，未给出明确涨跌方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-008-g
   source_path: sources/original/wechat/2026-10-21-股市：一收一放，滴灌（2026.10.21）.md
   source_date: '2026-10-21'
@@ -226,6 +284,13 @@
   - 信心消磨
   - 让子弹飞
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 护盘机制描述与应对纪律，属方法论非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-008-h
   source_path: sources/original/wechat/2026-10-21-股市：一收一放，滴灌（2026.10.21）.md
   source_date: '2026-10-21'
@@ -260,3 +325,19 @@
   - 试多
   - 右侧信号
   school: gator
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 市场底形成可试多，趋势级看多观点，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-21
+    t0_close: 4111.93

@@ -30,6 +30,21 @@ claims:
   - 市场阶段
   - 企稳条件
   - 承接
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 企稳条件增加、低点抬升偏多，但非反转确认
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11
 - id: claim-20261020-003-b
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -61,6 +76,13 @@ claims:
   - 方法论
   - 承接与推动
   - 资金条件
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，区分承接与推动资金条件，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-003-c
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -92,6 +114,21 @@ claims:
   - 情绪修复
   - 产业方向
   - 扩散
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 赚钱效应集中未扩散，全面转强未确认，对大盘谨慎
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11
 - id: claim-20261020-003-d
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -126,6 +163,13 @@ claims:
   - 财报窗口
   - 个股归因
   - 预期修正
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301190.SZ
+    rationale: 归因方法论，区分个股与市场情绪，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-003-e
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -160,6 +204,21 @@ claims:
   - 科技扩散
   - 物理AI
   - 产业连接
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300466.SZ
+    rationale: 看多科技扩散主题，机器人/端侧AI/智驾方向，标的赛摩智能
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300466.SZ
+    t0_date: 2026-10-20
+    t0_close: 8.64
 - id: claim-20261020-003-f
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -194,6 +253,13 @@ claims:
   - 人形机器人
   - 量产验证
   - 交付
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: TSLA
+    rationale: 方法论型观点，非方向判断，最相关标的为特斯拉
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-003-g
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -228,6 +294,13 @@ claims:
   - 机器人应用
   - 物流场景
   - 商业验证
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688360.SH
+    rationale: 方法论观点，无方向判断，以德马科技为相关标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-003-h
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -262,6 +335,21 @@ claims:
   - 端侧AI
   - 通信模组
   - 物理AI
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603236.SH
+    rationale: 端侧AI驱动模组升级，模组厂受益，看多移远通信
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603236.SH
+    t0_date: 2026-10-20
+    t0_close: 76.11
 - id: claim-20261020-003-i
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -299,6 +387,21 @@ claims:
   - 数据要素
   - 商业模式
   - 前置条件
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 002368.SZ
+    rationale: 提示概念炒作先于业务兑现，短期利好不足以支撑股价
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002368.SZ
+    t0_date: 2026-10-20
+    t0_close: 13.34
 - id: claim-20261020-003-j
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -336,6 +439,13 @@ claims:
   - AI医疗
   - 付费验证
   - 监管
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000503.SZ
+    rationale: 方法论框架讨论，无明确方向判断，关联标的国新健康
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-003-k
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -370,6 +480,13 @@ claims:
   - AI应用
   - 收入利润时差
   - 费用效率
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 001323.SZ
+    rationale: 方法论观点，非方向判断；以慕思股份为案例标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-003-l
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -404,6 +521,13 @@ claims:
   - 自动化设备
   - 在手订单
   - 收入确认
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688097.SH
+    rationale: 方法论提醒，非方向判断；以博众精工订单口径为例
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-003-m
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -435,6 +559,13 @@ claims:
   - 粘胶短纤
   - 供需
   - 利润传导
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399995
+    rationale: 方法论框架：供需信号需三因素共振，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-003-n
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -466,6 +597,21 @@ claims:
   - 银行
   - 资产质量
   - 指数广度
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 银行盈利支撑权重行业，助指数修复扩展，偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11
 - id: claim-20261020-003-o
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -497,6 +643,13 @@ claims:
   - 可持续航空燃料
   - 政策约束
   - 产业链分配
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688196.SH
+    rationale: 观点为产业链利润分配方法论，非单一方向判断，选SAF相关标的卓越新能作基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-003-p
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -528,6 +681,13 @@ claims:
   - 复盘方法论
   - 消息驱动
   - 经营驱动
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，无方向判断，仅区分消息与经营两条时间尺度
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-003-q
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -562,6 +722,13 @@ claims:
   - 修复延续
   - 情形判定
   - 操作
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 双向情形判定框架，未给出单一方向，属市场状态方法论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-003-r
   source_path: sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md
   source_date: '2026-10-20'
@@ -593,3 +760,11 @@ claims:
   - 次日观察
   - 量能
   - 三季报
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 观察清单方法论，无方向判断，挂钩大盘量能与广度
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

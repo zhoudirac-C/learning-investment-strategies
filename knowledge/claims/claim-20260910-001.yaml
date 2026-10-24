@@ -644,6 +644,13 @@ claims:
   - 情绪回流
   - 预订数据口径
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000978.SZ
+    rationale: 自述观察样本非推荐标的，属方法论视角，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260910-019-a
   source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
   up_id: '1420210197'
@@ -680,6 +687,13 @@ claims:
   - 利润验证
   - 周期
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600792.SH
+    rationale: 方法论辨析提涨≠利润，强调验证要素，无明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260910-020-a
   source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
   up_id: '1420210197'
@@ -716,6 +730,13 @@ claims:
   - 秋季施工
   - 供需线索
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002377.SZ
+    rationale: 跟踪线索与口径提示，未给出明确买卖方向，涨价与盈利关联存疑
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260910-021-a
   source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
   up_id: '1420210197'
@@ -825,6 +846,13 @@ claims:
   - CPO
   - 光无源器件
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300757.SZ
+    rationale: 仅跟踪观察表述，无明确买卖方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260910-024-a
   source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
   up_id: '1420210197'
@@ -899,6 +927,23 @@ claims:
   - PCB
   - 配套需求
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002916.SZ
+    rationale: 看多配套需求，深南为PCB方向核心标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002916.SZ
+    t0_date: 2026-09-10
+    t5_date: 2026-09-17
+    t0_close: 392.31
+    t5_close: 383.68
+    fwd_return_pct: -2.2
 - id: claim-20260910-026-a
   source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
   up_id: '1420210197'

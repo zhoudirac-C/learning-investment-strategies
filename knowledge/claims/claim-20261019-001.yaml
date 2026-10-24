@@ -31,6 +31,13 @@ claims:
   - 底部结构
   - 情绪冰点
   - 板块共振
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 底部结构验证周，先防守观察后跟随强度，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-b
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -64,6 +71,13 @@ claims:
   - CPO
   - AI硬件
   - 低开预案
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式观察框架，方向取决于日韩开盘验证结果，非定论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-c
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -96,6 +110,13 @@ claims:
   - 油价
   - 风险偏好
   - 霍尔木兹
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式方法论判断，无明确方向，仅设定确认条件
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-d
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -128,6 +149,13 @@ claims:
   - 低开承接
   - GDP数据
   - 盘面阅读
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 盘面阅读方法论，无方向判断，观察对象为A股大盘
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-e
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -160,6 +188,13 @@ claims:
   - 稳定力量
   - 修复持续性
   - 护盘
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性护盘力量但否认见底，属中性纠偏判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-f
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -192,6 +227,13 @@ claims:
   - 承接质量
   - 量价配合
   - ETF净流入
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论纠偏，无方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-g
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -225,6 +267,13 @@ claims:
   - 创业板
   - 科创50
   - 局部修复
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论判据：分化未消除则翻红仅局部修复，非方向性看多看空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-h
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -258,6 +307,13 @@ claims:
   - 晋级率
   - 炸板率
   - 接力质量
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 宽度回暖与接力偏弱并存，属情绪诊断，方向不明确
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-i
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -290,6 +346,13 @@ claims:
   - 二板8家
   - 晋级率
   - 亏钱效应
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 情绪修复量化观察方法论，非方向判断，锚定上证量能
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-j
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -322,6 +385,21 @@ claims:
   - 强势股补跌
   - 底部钝化
   - 阶段底
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 推演阶段底形成后止跌回升，属看多预案
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-19
+    t0_close: 4174.53
 - id: claim-20261019-001-k
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -354,6 +432,13 @@ claims:
   - 反弹条件
   - 资金验证
   - 底部区域
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 中间立场，不做提前定性，方向待资金验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-l
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -386,6 +471,21 @@ claims:
   - 反弹确认
   - 量价配合
   - 带头个股
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式看多：多信号确认后指数反弹可信度上升
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-19
+    t0_close: 4174.53
 - id: claim-20261019-001-m
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -418,6 +518,21 @@ claims:
   - 磨底
   - 无量冲高
   - 见底信号
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 磨底延续信号，警告勿提前抄底，短期偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-19
+    t0_close: 4174.53
 - id: claim-20261019-001-n
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -450,6 +565,13 @@ claims:
   - GDP数据
   - 数据与股价
   - 承接延续
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 日内验证方法论，非方向判断，默认沪深300作观察基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-o
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -492,6 +614,13 @@ claims:
   - AI硬件
   - 业绩承接
   - 交易共识
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301282.SZ
+    rationale: 属验证方法论，非方向判断；以金禄电子止跌承接为观察基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-p
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -524,6 +653,13 @@ claims:
   - AI应用
   - 算力需求
   - 模型效率
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 明确否定单一事件定方向，需订单/收入/盘面验证，属方法论判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-q
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -557,6 +693,13 @@ claims:
   - 低空经济
   - 医药
   - 板块强度
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论筛选框架，无明确多空方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-r
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -590,6 +733,13 @@ claims:
   - 能源
   - 食品饮料
   - 轮动
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判断：轮动非风格切换，无方向性结论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-s
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -628,6 +778,13 @@ claims:
   - 特斯拉Roadster
   - 飞行汽车
   - 话题催化
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603197.SH
+    rationale: 定性为话题催化非产业拐点，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-t
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -666,6 +823,13 @@ claims:
   - OpenAI
   - 仿真训练
   - 数据服务
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603466.SH
+    rationale: 划清演示与收入、概念与供应链边界，属方法论提示而非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-u
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -703,6 +867,13 @@ claims:
   - 电影体育
   - 促消费政策
   - 跨场景消费
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 001368.SZ
+    rationale: 政策解读边界类方法论观点，明确不做利好外推，仅观察方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-v
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -741,6 +912,13 @@ claims:
   - CRO
   - 出口管制
   - 政策解读
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600721.SH
+    rationale: 方法论纠偏为主，方向待缩量止跌与订单验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-w
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -779,6 +957,13 @@ claims:
   - 可口可乐
   - 渠道
   - 海外映射
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600882.SH
+    rationale: 否定海外合作映射A股，属方法论提示，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-001-x
   source_path: sources/original/bilibili/2026-10-19-0906-专栏-上周五，A股在宽基ETF尾盘放量后有所回稳，但科技股和接力情.md
   source_date: '2026-10-19'
@@ -811,3 +996,11 @@ claims:
   - 仓位调整
   - 结构确认
   - 磨底
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 仓位纪律方法论，非方向判断；默认沪深300为观察基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

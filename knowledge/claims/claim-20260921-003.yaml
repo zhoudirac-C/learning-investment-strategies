@@ -34,6 +34,23 @@ claims:
   - 普涨修复
   - 轮动主旋律
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 确认普涨修复与情绪回暖，偏多但提示趋势待验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-21
+    t5_date: 2026-09-29
+    t0_close: 4539.57
+    t5_close: 4345.21
+    fwd_return_pct: -4.28
 - id: claim-20260921-003-b
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -67,6 +84,13 @@ claims:
   - 主升验证
   - 风险纪律
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 普涨降温的纪律性方法论，非方向判断，验证看大盘承接
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-c
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -100,6 +124,13 @@ claims:
   - 技术修复
   - 持续性验证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 条件性技术判断，非明确看多看空，指向沪指
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-d
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -135,6 +166,13 @@ claims:
   - 当日限定
   - 复盘方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 复盘方法论，无方向判断；量价语境针对大盘普涨
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-e
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -169,6 +207,13 @@ claims:
   - 科技回流
   - 验证指标
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 方法论观点，验证科技回流质量，基准选科创50
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-f
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -205,6 +250,13 @@ claims:
   - 题材扩散
   - 指数支撑
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论区分题材情绪与权重合力，条件式判断无方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-g
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -240,6 +292,13 @@ claims:
   - 短线验证
   - 打板
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 短线情绪观察方法论，无方向判断，关联大盘情绪
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-h
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -275,6 +334,13 @@ claims:
   - 基本面幻觉
   - 风控
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性纪律类方法论，无方向判断，默认沪深300作观察基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-i
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -310,6 +376,13 @@ claims:
   - 资金争夺
   - 轮动
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 市场周期观察，条件式验证资金回流，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-j
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -346,6 +419,13 @@ claims:
   - 科技共振
   - 操作应对
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式情形框架，非明确方向判断，需三条件共振才升级
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-k
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -382,6 +462,13 @@ claims:
   - 收缩暴露
   - 预设纪律
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 条件式风控预案，非方向判断，针对沪指情绪退潮情形
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-l
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -415,6 +502,13 @@ claims:
   - 发布会
   - 预期边界
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 事件预期降温方法论，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-m
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -452,6 +546,13 @@ claims:
   - 医药情绪
   - 封单降权
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600664.SH
+    rationale: 方法论判断：首板扩容非方向信号，封单被降权，无明确看多看空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-n
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -486,6 +587,13 @@ claims:
   - 趋势修复
   - 验证指标
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 新高家数属市场宽度验证方法论，条件式观察，未直接定方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-o
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -522,6 +630,13 @@ claims:
   - 政策映射
   - 选股标准
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000933
+    rationale: 分化筛选方法论，非方向判断，基准取中证医药指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-p
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -561,6 +676,13 @@ claims:
   - RWA
   - 分项拆解
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600606.SH
+    rationale: 认可持续性但拒绝线性外推，属验证框架非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-q
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -595,6 +717,13 @@ claims:
   - 情绪标的
   - 退出条件
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 操作性轮动纪律警示，非方向判断，无具体标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-r
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -631,6 +760,13 @@ claims:
   - 抱团主升
   - 分支轮动
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论定位观点，禁止单分支升级主升叙事，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-s
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -666,6 +802,13 @@ claims:
   - 三条件判据
   - 产业链跟随
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论判据清单，非方向判断；科技主题以创业板指为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-t
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -702,6 +845,13 @@ claims:
   - 风格判别
   - 跷跷板
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判别框架，无方向性判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-u
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -743,6 +893,23 @@ claims:
   - 扩产
   - 产业跟踪
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688361.SH
+    rationale: HBM扩产支撑先进封装链景气，看多映射标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688361.SH
+    t0_date: 2026-09-21
+    t5_date: 2026-09-29
+    t0_close: 386.99
+    t5_close: 354.72
+    fwd_return_pct: -8.34
 - id: claim-20260921-003-v
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -780,6 +947,23 @@ claims:
   - 精密刀具
   - 产业跟踪
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300488.SZ
+    rationale: 海外刀具涨价催化国产替代，看多恒锋工具
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300488.SZ
+    t0_date: 2026-09-21
+    t5_date: 2026-09-29
+    t0_close: 38.3
+    t5_close: 36.04
+    fwd_return_pct: -5.9
 - id: claim-20260921-003-w
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -816,6 +1000,13 @@ claims:
   - 国资变更
   - 风控
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002172.SZ
+    rationale: 风控定性：区分传闻与确定安排，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-x
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -852,6 +1043,13 @@ claims:
   - 持仓纪律
   - 防FOMO
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 轮动操作纪律与方法论，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-003-y
   source_path: sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md
   source_date: '2026-09-21'
@@ -888,3 +1086,11 @@ claims:
   - 交易纪律
   - 风控
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 通用交易纪律，非方向判断；涉及行情持续性，基准取沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

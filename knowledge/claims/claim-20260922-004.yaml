@@ -32,6 +32,23 @@ claims:
   - 高低切换
   - 退潮判别
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性为良性分化而非退潮，情绪高标未断，偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-22
+    t5_date: 2026-09-30
+    t0_close: 4544.59
+    t5_close: 4357.62
+    fwd_return_pct: -4.11
 - id: claim-20260922-004-b
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -66,6 +83,23 @@ claims:
   - 节前效应
   - 内生性回调
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 预判明后两日指数延续回调，短期方向偏空但幅度有限
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-22
+    t5_date: 2026-09-30
+    t0_close: 4544.59
+    t5_close: 4357.62
+    fwd_return_pct: -4.11
 - id: claim-20260922-004-c
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -100,6 +134,13 @@ claims:
   - 跟踪变量
   - 情绪周期
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 明确不下结论，属待验证命题，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-004-d
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -139,6 +180,23 @@ claims:
   - 叙事切换
   - 南威软件
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603636.SH
+    rationale: 看多AI应用主题，预期震荡向上，标的南威软件
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603636.SH
+    t0_date: 2026-09-22
+    t5_date: 2026-09-30
+    t0_close: 8.01
+    t5_close: 7.67
+    fwd_return_pct: -4.24
 - id: claim-20260922-004-e
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -175,6 +233,23 @@ claims:
   - 换手
   - 中期趋势
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 硬科技调整定性为换手而非退潮，中期趋势看多，科创50代表硬科技
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000688
+    t0_date: 2026-09-22
+    t5_date: 2026-09-30
+    t0_close: 1665.04
+    t5_close: 1530.01
+    fwd_return_pct: -8.11
 - id: claim-20260922-004-f
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -216,6 +291,23 @@ claims:
   - 推理侧需求
   - 机构审美
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603629.SH
+    rationale: 看多算力租赁主题，优先跟踪利通电子
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603629.SH
+    t0_date: 2026-09-22
+    t5_date: 2026-09-30
+    t0_close: 115.791
+    t5_close: 95.791
+    fwd_return_pct: -17.27
 - id: claim-20260922-004-g
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -253,6 +345,23 @@ claims:
   - 需求拐点
   - 禾盛新材
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002290.SZ
+    rationale: 看多国产AI CPU需求拐点，标的为禾盛新材
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002290.SZ
+    t0_date: 2026-09-22
+    t5_date: 2026-09-30
+    t0_close: 77.85
+    t5_close: 68.08
+    fwd_return_pct: -12.55
 - id: claim-20260922-004-h
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -293,6 +402,23 @@ claims:
   - 前排晋级
   - 后排出清
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000504.SZ
+    rationale: 方向未坏，前排仍有晋级预期，属偏多但难度上升
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000504.SZ
+    t0_date: 2026-09-22
+    t5_date: 2026-09-30
+    t0_close: 12.11
+    t5_close: 12.42
+    fwd_return_pct: 2.56
 - id: claim-20260922-004-i
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -328,6 +454,23 @@ claims:
   - 防御方向
   - 超跌修复
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 否定地产新主线与煤炭防御延续，属防御板块回避判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-22
+    t5_date: 2026-09-30
+    t0_close: 4544.59
+    t5_close: 4357.62
+    fwd_return_pct: -4.11
 - id: claim-20260922-004-j
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -364,6 +507,13 @@ claims:
   - 负面信号
   - 过渡方向
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论盘面解读规则，无方向判断，默认沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-004-k
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -401,6 +551,13 @@ claims:
   - 赚钱效应
   - 情绪分化
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301618.SZ
+    rationale: 定性分析赚钱效应外溢性质，非明确买卖方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-004-l
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -441,6 +598,23 @@ claims:
   - 业绩释放
   - 招商证券
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 001232.SZ
+    rationale: 看多AI PCB景气延续与业绩释放，选嘉立创作基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 001232.SZ
+    t0_date: 2026-09-22
+    t5_date: 2026-09-30
+    t0_close: 197.43
+    t5_close: 184.73
+    fwd_return_pct: -6.43
 - id: claim-20260922-004-m
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -479,6 +653,13 @@ claims:
   - 进口替代
   - 联域股份
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 001326.SZ
+    rationale: 环节筛选方法论落点，长期跟踪非买卖方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-004-n
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -515,6 +696,13 @@ claims:
   - 情形推演
   - 仓位管理
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 双情形操作预案，无明确方向判断，属操作纪律类
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-004-o
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -550,3 +738,11 @@ claims:
   - 晋级率
   - 风格切换
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，非方向判断，跟踪大盘回调性质
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

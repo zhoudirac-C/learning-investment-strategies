@@ -121,6 +121,23 @@ claims:
     cases: []
   topic: 钨出口管制受益核心标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300666.SZ
+    rationale: 看多钨涨价受益标的，涨价持续至2027年底
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300666.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 292.4
+    t5_close: 311.2
+    fwd_return_pct: 6.43
 - id: claim-20260611-004-a
   source_path: sources/raw/财经/2026-06-11-半导体材料对日替代主线发酵-青枫浦上Q.md
   up_id: '1420210197'
@@ -268,3 +285,21 @@ claims:
     cases: []
   topic: 江丰电子全球靶材龙二受益钨出口管制
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300666.SZ
+    rationale: 明确看多江丰电子，受益钨靶材转单与产能满载
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300666.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 292.4
+    t5_close: 311.2
+    fwd_return_pct: 6.43

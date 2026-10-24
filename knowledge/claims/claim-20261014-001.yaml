@@ -34,6 +34,13 @@ claims:
   - 强度验证
   topic: 反弹有改善但强度待验证，今明两天连续修复比单次深V重要
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 反弹阶段定性观察，方向待10月14-15日验证，非明确看多看空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-001-b
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -74,6 +81,13 @@ claims:
   - AI硬件
   topic: AI硬件先行个股是板块合力能否形成的观察锚
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688498.SH
+    rationale: 方法论观察锚，非方向判断，以先行个股为验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-001-c
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -110,6 +124,13 @@ claims:
   - 时间层次
   topic: 持续性证据=收盘站稳+次日承接，非盘中冲高
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论非方向判断，验证层次提及创业板收盘确认
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-001-d
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -146,6 +167,23 @@ claims:
   - 样本量意识
   topic: 接受时间换空间，历史对照不足推导本轮重复
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 预期多日连续修复跌幅，属看多反弹节奏判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-14
+    t5_date: 2026-10-21
+    t0_close: 4217.68
+    t5_close: 4111.93
+    fwd_return_pct: -2.51
 - id: claim-20261014-001-e
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -182,6 +220,13 @@ claims:
   - 真实承接
   topic: 沪指颜色≠赚钱效应，权重托举不等于支撑有效
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论观点，非方向判断；核心讨论沪指颜色与个股广度背离
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-001-f
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -218,6 +263,13 @@ claims:
   - 晋级验证
   topic: 情绪修复需跌停低位+首板承接+新晋级三项并行
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情绪修复验证方法论，非方向性判断，仅给出三项并行标准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-001-g
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -254,6 +306,23 @@ claims:
   - 小范围跟踪
   topic: 情形A：回踩检验过的强势方向小范围跟踪，确认再加仓
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 正情形预案：创业板上攻3000点，条件确认后逐步参与，偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-14
+    t5_date: 2026-10-21
+    t0_close: 2866.76
+    t5_close: 2694.71
+    fwd_return_pct: -6
 - id: claim-20261014-001-h
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -290,6 +359,23 @@ claims:
   - 破位不加仓
   topic: 情形B：减少试错，破位不以跌很多为由加仓
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 创业板受压破位预案，防守收缩，方向偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-14
+    t5_date: 2026-10-21
+    t0_close: 2866.76
+    t5_close: 2694.71
+    fwd_return_pct: -6
 - id: claim-20261014-001-i
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -325,6 +411,13 @@ claims:
   - 退潮误判
   topic: 高标分歧非全面退潮，警惕新方向无延续只剩快速轮动
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，解读高标分歧信号边界，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-001-j
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -367,6 +460,13 @@ claims:
   - 收益风险比
   topic: 涨价链完整信号=前排维持+后排有效换手
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301190.SZ
+    rationale: 题材判断方法论，条件式观察而非明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-001-k
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -408,6 +508,13 @@ claims:
   - 军工
   topic: 新题材检验：扩散+承接+延续三步才升优先级
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000530.SZ
+    rationale: 新题材检验方法论，非明确方向判断，选最相关标的冰山冷热
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-001-l
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -444,6 +551,13 @@ claims:
   - 风险偏好
   topic: 硬件先稳是应用扩散的前提，次序错乱需警惕
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 传导次序方法论，非方向判断；AI主题关联创业板指
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-001-m
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -488,6 +602,23 @@ claims:
   - 超跌反抽
   topic: 量能约束下硬件内部分化是基准，偏好有基本面解释的强势品种
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300502.SZ
+    rationale: 偏好基本面支撑的强势硬件品种，倾向看多光通信龙头
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300502.SZ
+    t0_date: 2026-10-14
+    t5_date: 2026-10-21
+    t0_close: 330.8
+    t5_close: 294.12
+    fwd_return_pct: -11.09
 - id: claim-20261014-001-n
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -527,3 +658,11 @@ claims:
   - 传导判断
   topic: 调价是观察起点，传导链决定最终受益者
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002815.SZ
+    rationale: 方法论边界判断，非方向性观点，选最相关标的崇达技术
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

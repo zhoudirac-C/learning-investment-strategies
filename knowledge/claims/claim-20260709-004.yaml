@@ -353,6 +353,23 @@ claims:
   - 短线情绪
   - 存储
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603137.SH
+    rationale: 看多恒尚节能，视其为短线情绪回暖正反馈标杆
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603137.SH
+    t0_date: 2026-07-09
+    t5_date: 2026-07-16
+    t0_close: 25.2
+    t5_close: 32.05
+    fwd_return_pct: 27.18
 - id: claim-20260709-004-k
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
   up_id: '1420210197'
@@ -390,6 +407,23 @@ claims:
   - 存储涨价
   - DRAM
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603986.SH
+    rationale: 业绩高增+量价齐升+产能扩张，明确看多兆易创新
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603986.SH
+    t0_date: 2026-07-09
+    t5_date: 2026-07-16
+    t0_close: 663.49
+    t5_close: 514.61
+    fwd_return_pct: -22.44
 - id: claim-20260709-004-l
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
   up_id: '1420210197'
@@ -424,6 +458,23 @@ claims:
   - 引线框架
   - 先进封装
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603991.SH
+    rationale: 看好涨价周期下业绩与估值双重修复
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603991.SH
+    t0_date: 2026-07-09
+    t5_date: 2026-07-16
+    t0_close: 167.06
+    t5_close: 156.43
+    fwd_return_pct: -6.36
 - id: claim-20260709-004-m
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
   up_id: '1420210197'
@@ -459,6 +510,23 @@ claims:
   - 光引擎
   - 华为
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300394.SZ
+    rationale: 看多天孚通信NPO卡位带来的增长预期
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300394.SZ
+    t0_date: 2026-07-09
+    t5_date: 2026-07-16
+    t0_close: 271.5
+    t5_close: 244.13
+    fwd_return_pct: -10.08
 - id: claim-20260709-004-n
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
   up_id: '1420210197'

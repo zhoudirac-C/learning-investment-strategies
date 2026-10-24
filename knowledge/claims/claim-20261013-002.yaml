@@ -33,6 +33,23 @@ claims:
   - 买点时序
   topic: 日线低8已出，盼收盘稳3764下方明日出低点
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 低吸派偏好大盘再压一天出低点后买入，属看多节奏判断；3764点位对应上证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-10-13
+    t5_date: 2026-10-20
+    t0_close: 3800.86
+    t5_close: 3735.37
+    fwd_return_pct: -1.72
 - id: claim-20261013-002-b
   source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
   source_date: '2026-10-13'
@@ -68,6 +85,13 @@ claims:
   - 模式纪律
   topic: 负乖离抄底无明确买点，左右侧各有代价勿互博
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，讨论抄底模式取舍，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-002-c
   source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
   source_date: '2026-10-13'
@@ -102,6 +126,13 @@ claims:
   - 入场门槛
   topic: 右侧选手入场门槛为大盘突破站稳3908
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 右侧入场条件属方法论锚点，非方向判断；3908量级对应上证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-002-d
   source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
   source_date: '2026-10-13'
@@ -136,6 +167,23 @@ claims:
   - 前置功课
   topic: 若起行情是本年最后一波，启动前抓紧做F10功课
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 预判行情随时启动、年内最后一波机会，偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-13
+    t5_date: 2026-10-20
+    t0_close: 4275.68
+    t5_close: 4152.11
+    fwd_return_pct: -2.89
 - id: claim-20261013-002-e
   source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
   source_date: '2026-10-13'
@@ -169,6 +217,23 @@ claims:
   - 主线预判
   topic: 下一波行情风格将切换到成长股
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 预判行情主线切换至成长股，看多成长风格，以创业板指为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-13
+    t5_date: 2026-10-20
+    t0_close: 2958.34
+    t5_close: 2739.2
+    fwd_return_pct: -7.41
 - id: claim-20261013-002-f
   source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
   source_date: '2026-10-13'
@@ -202,3 +267,11 @@ claims:
   - 心态管理
   topic: 回撤三四十个点不重要，做回来就行
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 资金曲线管理方法论，非方向判断，无具体标的。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

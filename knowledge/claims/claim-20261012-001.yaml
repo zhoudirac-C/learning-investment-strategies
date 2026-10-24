@@ -34,6 +34,13 @@ claims:
   - 主线确立
   - 修复基础
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件性验证表述，非明确方向判断，属阶段定性方法论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -69,6 +76,13 @@ claims:
   - 油价
   - 成长估值
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 定性描述外盘映射与估值消化机制，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -104,6 +118,13 @@ claims:
   - SK海力士
   - 风险偏好锚点
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论口径纪律，非方向判断，仅提供观察锚点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -138,6 +159,13 @@ claims:
   - 因果纪律
   - 承接评价
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点：跨市场联动因果纪律，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -174,6 +202,13 @@ claims:
   - 上涨宽度
   - 卖盘释放
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 量能验证方法论，非方向判断；讨论大盘量价，基准选上证指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -210,6 +245,13 @@ claims:
   - 局部护盘
   - 资金转移
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 条件式盘面结构判据，属方法论，非方向性判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -246,6 +288,13 @@ claims:
   - 二板
   - 情绪宽度
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 晋级率推演为方法论框架，无方向判断，关联大盘短线情绪
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -280,6 +329,23 @@ claims:
   - 反弹中断
   - 前低检验
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 创业板反弹定性受限，提示再下探与前低检验风险
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-12
+    t5_date: 2026-10-19
+    t0_close: 2963.82
+    t5_close: 2746.29
+    fwd_return_pct: -7.34
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -315,6 +381,13 @@ claims:
   - 融资余额
   - 净流入口径
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论校准观点，无方向判断，默认沪深300为观察基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -348,6 +421,23 @@ claims:
   - 修复升级
   - 梯队补充
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 条件满足则上调修复评价，偏多预案；表述明确指向创业板承接。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-12
+    t5_date: 2026-10-19
+    t0_close: 2963.82
+    t5_close: 2746.29
+    fwd_return_pct: -7.34
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -383,6 +473,13 @@ claims:
   - 回补退出
   - 局部轮动
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情形B为条件性降级预案，非方向判断，混合信号则不动
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -431,6 +528,23 @@ claims:
   - 影视传媒
   - 承载转移
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300369.SZ
+    rationale: 看多应用端接棒科技轮动，首选网络安全标的绿盟科技
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300369.SZ
+    t0_date: 2026-10-12
+    t5_date: 2026-10-19
+    t0_close: 11.13
+    t5_close: 9.86
+    fwd_return_pct: -11.41
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -469,6 +583,13 @@ claims:
   - 机构席位
   - 板块宽度
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688498.SH
+    rationale: 条件式方法论判断，无明确方向；以源杰科技为验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -505,6 +626,13 @@ claims:
   - 海外映射
   - 港股窗口
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论纪律观点，映射≠持续性，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -548,6 +676,13 @@ claims:
   - 分歧承接
   - 避险买盘
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002709.SZ
+    rationale: 条件式方法论判断，非明确看多看空，以电池核心标的为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -586,6 +721,13 @@ claims:
   - 低基数
   - 板块行情
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300821.SZ
+    rationale: 方法论提示：个股预告不等于板块行情，需连续验证，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -619,6 +761,13 @@ claims:
   - 轮动
   - 资金竞争
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 轮动备选的观察判据，条件未确认，非方向性判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -667,6 +816,13 @@ claims:
   - 商业化验证
   - 概念与利润
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300364.SZ
+    rationale: 方法论验证框架，非方向判断；以最相关标的中文在线为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -707,6 +863,13 @@ claims:
   - 招标交付
   - 回款
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688004.SH
+    rationale: 属兑现链路方法论判断，非明确方向，跟踪博汇科技验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -754,6 +917,13 @@ claims:
   - 中试良率
   - 产业化
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300340.SZ
+    rationale: 口径纪律提示，非方向判断，强调产业目标不等于公司业绩
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -798,6 +968,13 @@ claims:
   - 验证框架
   - 临床监管
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688185.SH
+    rationale: 方法论框架，拆分验证维度，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -837,6 +1014,13 @@ claims:
   - 聚乳酸
   - 成本转嫁
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300829.SZ
+    rationale: 条件式传导分析，未给出明确看多或看空方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -876,6 +1060,13 @@ claims:
   - 设备维护
   - 传导确认
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301297.SZ
+    rationale: 方法论提示：涨价传导需三重确认，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -912,6 +1103,23 @@ claims:
   - 景气跟踪
   - 风格切换
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 中期产业景气支持AI硬件，短线待量价确认，整体偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-12
+    t5_date: 2026-10-19
+    t0_close: 2963.82
+    t5_close: 2746.29
+    fwd_return_pct: -7.34
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -959,6 +1167,13 @@ claims:
   - 订单验证
   - 客户定点
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002050.SZ
+    rationale: 方法论表述，仅提示观察纪律，无明确买卖方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -995,3 +1210,11 @@ claims:
   - 行动门槛
   - 反转定义
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论型观点，跟踪双创企稳等环境变量，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

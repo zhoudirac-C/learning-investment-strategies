@@ -1291,6 +1291,23 @@ claims:
   - 供需缺口
   - 上游材料
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002428.SZ
+    rationale: 看多云南锗业磷化铟上游稀缺属性，预期独立定价上涨
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002428.SZ
+    t0_date: 2026-08-04
+    t5_date: 2026-08-11
+    t0_close: 75.19
+    t5_close: 100.28
+    fwd_return_pct: 33.37
 - id: claim-20260804-036
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
   up_id: '1420210197'
@@ -1330,6 +1347,23 @@ claims:
   - 长期订单
   - 独立验证
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300209.SZ
+    rationale: 看多算力租赁加价潮信号，建议跟踪验证，非追高
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300209.SZ
+    t0_date: 2026-08-04
+    t5_date: 2026-08-11
+    t0_close: 33.64
+    t5_close: 34.92
+    fwd_return_pct: 3.81
 - id: claim-20260804-037
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
   up_id: '1420210197'

@@ -206,6 +206,23 @@ claims:
   - 情绪先行指标
   topic: 至纯科技光刻机身位观察股，炸板归因于市场环境
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603690.SH
+    rationale: 维护个股逻辑，看好光刻机方向，建议继续观察
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603690.SH
+    t0_date: 2026-07-28
+    t5_date: 2026-08-04
+    t0_close: 26
+    t5_close: 21.84
+    fwd_return_pct: -16
 - id: claim-20260728-010
   source_path: sources/original/bilibili/2026-07-28-2206-图片-今天是一根让人不舒服、但在磨底周期里并不意外的阴线。指数悉数.md
   up_id: '1420210197'
@@ -244,6 +261,23 @@ claims:
   - 弹性小盘
   topic: 共进股份交换机ODM，800G有供货记录，市场反弹具弹性
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603118.SH
+    rationale: 定位弹性小盘标的，预期反弹时上涨爆发力更强
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603118.SH
+    t0_date: 2026-07-28
+    t5_date: 2026-08-04
+    t0_close: 17.31
+    t5_close: 13.63
+    fwd_return_pct: -21.26
 - id: claim-20260728-011
   source_path: sources/original/bilibili/2026-07-28-2206-图片-今天是一根让人不舒服、但在磨底周期里并不意外的阴线。指数悉数.md
   up_id: '1420210197'
@@ -280,6 +314,23 @@ claims:
   - 资金结构
   topic: C长鑫是科技情绪风向标，全球份额翻倍至8%
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688825.SH
+    rationale: 看多长鑫科技，定位存储国产化情绪风向标
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688825.SH
+    t0_date: 2026-07-28
+    t5_date: 2026-08-04
+    t0_close: 47
+    t5_close: 55
+    fwd_return_pct: 17.02
 - id: claim-20260728-012
   source_path: sources/original/bilibili/2026-07-28-2206-图片-今天是一根让人不舒服、但在磨底周期里并不意外的阴线。指数悉数.md
   up_id: '1420210197'
@@ -316,6 +367,23 @@ claims:
   - 物联云
   topic: 萤石网络端侧AI，盈利弹性与场景化AI成长空间
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688475.SH
+    rationale: 阐述AI赋能盈利弹性与云服务成长逻辑，属看多关注
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688475.SH
+    t0_date: 2026-07-28
+    t5_date: 2026-08-04
+    t0_close: 28.84
+    t5_close: 31.12
+    fwd_return_pct: 7.91
 - id: claim-20260728-013
   source_path: sources/original/bilibili/2026-07-28-2206-图片-今天是一根让人不舒服、但在磨底周期里并不意外的阴线。指数悉数.md
   up_id: '1420210197'

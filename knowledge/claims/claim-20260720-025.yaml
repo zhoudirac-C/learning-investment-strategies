@@ -34,3 +34,21 @@ claims:
     name: 威龙股份
     role: 国资入主-治理修复预期-沪市主板可交易
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603779.SH
+    rationale: 国资入主治理修复，看多预期重估
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603779.SH
+    t0_date: 2026-07-20
+    t5_date: 2026-07-27
+    t0_close: 8.68
+    t5_close: 7.04
+    fwd_return_pct: -18.89

@@ -596,6 +596,23 @@ claims:
   - T字
   - 选龙
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002418.SZ
+    rationale: "倾向看多：T字视为分歧日主动选龙，回流则强者恒强，但附带回踩兑现风险"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002418.SZ
+    t0_date: 2026-08-26
+    t5_date: 2026-09-02
+    t0_close: 4.46
+    t5_close: 5.81
+    fwd_return_pct: 30.27
 - id: claim-20260826-041-a
   source_path: sources/raw/财经/2026-08-26-2306-专栏-晚盘复盘-今天这根阳线单看指数好看拆开有限.md
   up_id: '1420210197'
@@ -632,6 +649,23 @@ claims:
   - 股性溢价
   - 情绪层
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002855.SZ
+    rationale: "看多参与情绪层博弈，但明确提示不宜按产业久期持有"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002855.SZ
+    t0_date: 2026-08-26
+    t5_date: 2026-09-02
+    t0_close: 12.1
+    t5_close: 19.01
+    fwd_return_pct: 57.11
 - id: claim-20260826-042-a
   source_path: sources/raw/财经/2026-08-26-2306-专栏-晚盘复盘-今天这根阳线单看指数好看拆开有限.md
   up_id: '1420210197'
@@ -669,6 +703,23 @@ claims:
   - 转基因
   - 粮食安全
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600371.SH
+    rationale: "看多玉米种业粮食安全映射，催化为外生减产，锚定谷物价格"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600371.SH
+    t0_date: 2026-08-26
+    t5_date: 2026-09-02
+    t0_close: 9.54
+    t5_close: 14.42
+    fwd_return_pct: 51.15
 - id: claim-20260826-043-a
   source_path: sources/raw/财经/2026-08-26-2306-专栏-晚盘复盘-今天这根阳线单看指数好看拆开有限.md
   up_id: '1420210197'
@@ -704,6 +755,23 @@ claims:
   - 800G
   - 中报
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603083.SH
+    rationale: "中报高增+800G海外放量验证业绩，看多光模块主线"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603083.SH
+    t0_date: 2026-08-26
+    t5_date: 2026-09-02
+    t0_close: 190.76
+    t5_close: 179.91
+    fwd_return_pct: -5.69
 - id: claim-20260826-044-a
   source_path: sources/raw/财经/2026-08-26-2306-专栏-晚盘复盘-今天这根阳线单看指数好看拆开有限.md
   up_id: '1420210197'
@@ -742,6 +810,23 @@ claims:
   - 耗材
   - 半导体零部件
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301717.SZ
+    rationale: "看多耗材逻辑与业绩增长，但提示回踩介入而非追高"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301717.SZ
+    t0_date: 2026-08-26
+    t5_date: 2026-09-02
+    t0_close: 404
+    t5_close: 341.03
+    fwd_return_pct: -15.59
 - id: claim-20260826-045-a
   source_path: sources/raw/财经/2026-08-26-2306-专栏-晚盘复盘-今天这根阳线单看指数好看拆开有限.md
   up_id: '1420210197'
@@ -779,6 +864,24 @@ claims:
   - 液冷
   - AI方案商
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002475.SZ
+    rationale: "看多立讯精密AI转型，四大板块布局+光铜电源液冷全覆盖"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.05%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002475.SZ
+    t0_date: 2026-08-26
+    t5_date: 2026-09-02
+    t0_close: 57.11
+    t5_close: 57.08
+    fwd_return_pct: -0.05
 - id: claim-20260826-046-a
   source_path: sources/raw/财经/2026-08-26-2306-专栏-晚盘复盘-今天这根阳线单看指数好看拆开有限.md
   up_id: '1420210197'

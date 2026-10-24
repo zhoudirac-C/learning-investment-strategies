@@ -35,6 +35,23 @@
     name: 富创精密
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688409.SH
+    rationale: 明确看多富创精密，预期业绩与估值双反转，目标市值千亿。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688409.SH
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 175.68
+    t5_close: 203.3
+    fwd_return_pct: 15.72
 - id: claim-20260518-016
   topic: 珂玛科技陶瓷加热器已成为长存流片瓶颈
   source_path: sources/raw/财经/研报：26-05-18：半导体设备零部件与存储耗材产业链三公司跟踪.md
@@ -72,6 +89,23 @@
     name: 珂玛科技
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301611.SZ
+    rationale: 明确看多珂玛科技，预期放量与市值提升
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301611.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 110.1
+    t5_close: 121.77
+    fwd_return_pct: 10.6
 - id: claim-20260518-017
   topic: 京仪装备温控在两存和先进逻辑客户接近独供
   source_path: sources/raw/财经/研报：26-05-18：半导体设备零部件与存储耗材产业链三公司跟踪.md
@@ -107,3 +141,21 @@
     name: 京仪装备
     role: 参考标的
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688652.SH
+    rationale: 明确看多京仪装备，给出订单与市值目标
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688652.SH
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 136.825
+    t5_close: 154.175
+    fwd_return_pct: 12.68

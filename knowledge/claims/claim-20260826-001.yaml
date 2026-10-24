@@ -736,6 +736,23 @@ claims:
   - 产能外溢
   - 价值量
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688661.SH
+    rationale: 看多产能外溢带来业绩弹性，但强调保守假设
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688661.SH
+    t0_date: 2026-08-26
+    t5_date: 2026-09-02
+    t0_close: 96.61
+    t5_close: 102.4
+    fwd_return_pct: 5.99
 - id: claim-20260826-021-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
   up_id: '1420210197'

@@ -33,3 +33,11 @@ claims:
     name: 立新能源
     role: 电力情绪观察标-深市主板可交易
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 001258.SZ
+    rationale: 条件式情绪观察指标，未给出明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

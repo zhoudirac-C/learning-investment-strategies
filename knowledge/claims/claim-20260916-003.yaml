@@ -550,6 +550,13 @@ claims:
   - 碳化硅
   - 涨停标的
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "LLM 响应解析失败，降级 neutral"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260916-003-q
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -593,6 +600,23 @@ claims:
   - 光通信
   - 涨停标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002281.SZ
+    rationale: "看多CPO/光通信板块拉升，光迅科技为主板代表标的"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002281.SZ
+    t0_date: 2026-09-16
+    t5_date: 2026-09-23
+    t0_close: 185.21
+    t5_close: 190
+    fwd_return_pct: 2.59
 - id: claim-20260916-003-r
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -667,6 +691,23 @@ claims:
   - 历史新高
   - 独立行情
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601579.SH
+    rationale: "看多黄酒独立行情，以龙头会稽山连板新高为验证基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601579.SH
+    t0_date: 2026-09-16
+    t5_date: 2026-09-23
+    t0_close: 28.33
+    t5_close: 36.75
+    fwd_return_pct: 29.72
 - id: claim-20260916-003-t
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -914,6 +955,23 @@ claims:
   - 静电卡盘
   - 设备零部件
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 003031.SZ
+    rationale: "国产化空间+批量供货时点，表述看多放量前景"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 003031.SZ
+    t0_date: 2026-09-16
+    t5_date: 2026-09-23
+    t0_close: 137.535
+    t5_close: 134.415
+    fwd_return_pct: -2.27
 - id: claim-20260916-003-aa
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -954,6 +1012,24 @@ claims:
   - AI电源PCB
   - 厚铜板
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300814.SZ
+    rationale: "看多AI电源PCB规格升级，中富厚铜板受益"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.59%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300814.SZ
+    t0_date: 2026-09-16
+    t5_date: 2026-09-23
+    t0_close: 144.37
+    t5_close: 145.22
+    fwd_return_pct: 0.59
 - id: claim-20260916-003-ab
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -991,6 +1067,24 @@ claims:
   - 光刻胶
   - 国产替代
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603650.SH
+    rationale: "看多光刻胶国产替代，产能落地向收入转化，主标的彤程新材"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.12%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603650.SH
+    t0_date: 2026-09-16
+    t5_date: 2026-09-23
+    t0_close: 69.31
+    t5_close: 69.23
+    fwd_return_pct: -0.12
 - id: claim-20260916-003-ac
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -1135,6 +1229,23 @@ claims:
   - CPO器件
   - 交付状态
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300394.SZ
+    rationale: "CPO核心器件已交付，产业进度积极利好天孚通信"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300394.SZ
+    t0_date: 2026-09-16
+    t5_date: 2026-09-23
+    t0_close: 268.99
+    t5_close: 275.4
+    fwd_return_pct: 2.38
 - id: claim-20260916-003-ag
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -1242,6 +1353,13 @@ claims:
   - 汉缆股份
   - 电网标的
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002980.SZ
+    rationale: "产业链跟踪记录，无买卖方向判断，取华盛昌为基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260916-003-aj
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'

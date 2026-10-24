@@ -37,3 +37,19 @@ claims:
   - 海外链
   - 国产替代
   - 半导体
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688361.SH
+    rationale: 看多国产替代链、回避海外链，优先国产半导体标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688361.SH
+    t0_date: 2026-10-19
+    t0_close: 301.19

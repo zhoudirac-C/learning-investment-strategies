@@ -585,6 +585,23 @@ claims:
   - 补涨
   - 长江存储
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002654.SZ
+    rationale: 看多万润科技，预期存储第二轮补涨
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002654.SZ
+    t0_date: 2026-06-25
+    t5_date: 2026-07-02
+    t0_close: 20.702
+    t5_close: 18.982
+    fwd_return_pct: -8.31
 - id: claim-20260625-003-p
   source_path: sources/original/bilibili/2026-06-25-2249-图片-一、大势研判：双创新高，科技独强，增量入场远未结束 今日指数.md
   up_id: '1420210197'
@@ -621,6 +638,23 @@ claims:
   - 光纤预制棒
   - 涨价
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 605366.SH
+    rationale: 明确看多宏柏新材受益于高纯四氯化硅涨价
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 605366.SH
+    t0_date: 2026-06-25
+    t5_date: 2026-07-02
+    t0_close: 13.07
+    t5_close: 12.63
+    fwd_return_pct: -3.37
 - id: claim-20260625-003-q
   source_path: sources/original/bilibili/2026-06-25-2249-图片-一、大势研判：双创新高，科技独强，增量入场远未结束 今日指数.md
   up_id: '1420210197'
@@ -656,6 +690,23 @@ claims:
   - 英伟达
   - 电源
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002851.SZ
+    rationale: 看多麦格米特在英伟达800V HVDC供应链稀缺地位
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002851.SZ
+    t0_date: 2026-06-25
+    t5_date: 2026-07-02
+    t0_close: 171.95
+    t5_close: 146.94
+    fwd_return_pct: -14.54
 - id: claim-20260625-003-r
   source_path: sources/original/bilibili/2026-06-25-2249-图片-一、大势研判：双创新高，科技独强，增量入场远未结束 今日指数.md
   up_id: '1420210197'
@@ -803,3 +854,21 @@ claims:
   - 昇腾
   - 光模块锡膏
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688456.SH
+    rationale: 看好昇腾散热铜粉与光模块锡粉双主线，明确看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688456.SH
+    t0_date: 2026-06-25
+    t5_date: 2026-07-02
+    t0_close: 148.18
+    t5_close: 134.7
+    fwd_return_pct: -9.1

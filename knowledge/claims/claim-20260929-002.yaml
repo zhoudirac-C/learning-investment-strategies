@@ -34,6 +34,23 @@ claims:
   - 节前防守
   - 情绪修复
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性弱反抽非转强，基调防守承接验证，谨慎偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-29
+    t5_date: 2026-10-13
+    t0_close: 4345.21
+    t5_close: 4275.68
+    fwd_return_pct: -1.6
 - id: claim-20260929-002-b
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -67,6 +84,13 @@ claims:
   - 存量轮动
   - 承接不足
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 量能与存量轮动的方法论拆解，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-c
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -102,6 +126,13 @@ claims:
   - 三要素验证
   - 方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论框架，非方向判断；验证对象为A股整体情绪修复，用上证指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-d
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -136,6 +167,23 @@ claims:
   - 假期变量
   - 前瞻判断
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式看多节后反弹，但强调需假期信息确认，属偏多前瞻
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-29
+    t5_date: 2026-10-13
+    t0_close: 4345.21
+    t5_close: 4275.68
+    fwd_return_pct: -1.6
 - id: claim-20260929-002-e
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -171,6 +219,13 @@ claims:
   - 权重托底
   - 风险偏好
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论判别框架，无方向判断，关联大盘权重行情
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-f
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -207,6 +262,13 @@ claims:
   - 跌停
   - 接力意愿
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，无方向判断，仅情绪观察线
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-g
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -242,6 +304,13 @@ claims:
   - 防御
   - 业绩支撑
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判断：结构信号不推导情绪见底，无方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-h
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -277,6 +346,13 @@ claims:
   - 非农
   - 汇率
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 宏观观察方法论，双向推演，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-i
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -310,6 +386,13 @@ claims:
   - 操作纪律
   - 收盘确认
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 双向情形推演与操作纪律，无方向结论，属方法论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-j
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -345,6 +428,13 @@ claims:
   - 政策预期
   - 追涨
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 交易纪律提醒，非方向判断，属方法论类
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-k
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -378,6 +468,13 @@ claims:
   - 修复结构
   - 前排换手
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判据，非方向性观点，默认以沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-l
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -414,6 +511,13 @@ claims:
   - 承接验证
   - 政策兑现
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399393
+    rationale: 方法论框架：验证承接与定价性质，非方向判断，基准选国证地产指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-m
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -452,6 +556,23 @@ claims:
   - 设备交付
   - 分歧预判
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300450.SZ
+    rationale: 看多固态电池板块，以核心设备商先导智能为定价基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300450.SZ
+    t0_date: 2026-09-29
+    t5_date: 2026-10-13
+    t0_close: 33.76
+    t5_close: 34.25
+    fwd_return_pct: 1.45
 - id: claim-20260929-002-n
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -487,6 +608,13 @@ claims:
   - 独立性验证
   - 强势股
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600488.SH
+    rationale: 方法论框架，验证独立性而非方向判断，以津药药业为观察样本
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-o
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -524,6 +652,13 @@ claims:
   - AI应用
   - 选股标准
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300785.SZ
+    rationale: 板块结构观察与节前选股方法论，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-p
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -558,6 +693,13 @@ claims:
   - 算力网
   - 口径方法
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600362.SH
+    rationale: 方法论口径约束，非方向判断；最相关标的为铜业龙头江西铜业
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-q
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -592,6 +734,13 @@ claims:
   - 结构性货币政策
   - 半导体设备
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 政策工具性质解读，非方向判断；科创50代理半导体设备材料
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-r
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -626,6 +775,13 @@ claims:
   - 政策传导
   - 地产研究
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 贴息政策传导路径解读属方法论，无方向判断，宏观默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260929-002-s
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -660,3 +816,11 @@ claims:
   - 长端利率
   - 政策兑现
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，给出验证清单而非明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

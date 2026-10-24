@@ -860,6 +860,13 @@ claims:
   - 套保
   - 开板应对
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000523.SZ
+    rationale: 方法论警示框架：纯度、传导、数据三重存疑，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260909-024-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
   up_id: '1420210197'
@@ -896,6 +903,13 @@ claims:
   - 新股
   - 估值
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301699.SZ
+    rationale: 证伪式风险提示，否定价值洼地但未给出买卖方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260909-025-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
   up_id: '1420210197'
@@ -932,6 +946,13 @@ claims:
   - 1.6T光模块
   - 客户认证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603459.SH
+    rationale: 技术口径纠偏与方法论提示，非方向判断，待验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260909-026-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
   up_id: '1420210197'
@@ -969,6 +990,13 @@ claims:
   - 电子材料
   - 环节拆分
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600330.SH
+    rationale: 环节拆分与口径核实的方法论提示，非方向性判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260909-027-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
   up_id: '1420210197'
@@ -1005,6 +1033,13 @@ claims:
   - 资产注入
   - 成本剪刀差
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002157.SZ
+    rationale: 方法论型观点：给出跟踪锚点与验证框架，未明确看多或看空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260909-028-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
   up_id: '1420210197'
@@ -1041,6 +1076,23 @@ claims:
   - 锑钨
   - 趋势验证
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002155.SZ
+    rationale: 资源+并购双逻辑，建议关注跟踪，倾向看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002155.SZ
+    t0_date: 2026-09-09
+    t5_date: 2026-09-16
+    t0_close: 28.45
+    t5_close: 27.16
+    fwd_return_pct: -4.53
 - id: claim-20260909-029-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
   up_id: '1420210197'

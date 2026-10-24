@@ -31,6 +31,13 @@
   - 尾盘扫货
   - 量化套利
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 拆解护盘资金日内操作与量化套利机制，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-005-b
   source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
   source_date: '2026-10-22'
@@ -77,6 +84,13 @@
   - 蓝筹白马
   - 上证50
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000016
+    rationale: 方法论解读下跌结构，非方向判断；核心指向上证50
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-005-c
   source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
   source_date: '2026-10-22'
@@ -107,6 +121,21 @@
   - 东数西算
   - 公共事业
   school: gator
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 警示回避连续亏损与超高估值算力概念股
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-22
+    t0_close: 2576.9
 - id: claim-20261022-005-d
   source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
   source_date: '2026-10-22'
@@ -138,6 +167,21 @@
   - 千亿
   - 底部支撑
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: ETF千亿净流入托底，判断市场底部支撑，看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-005-e
   source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
   source_date: '2026-10-22'
@@ -171,6 +215,21 @@
   - 对冲
   - 内部矛盾
   school: gator
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 机构期货持续开空压制，指数上行承压，明确指向上证4000点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-10-22
+    t0_close: 3658.03
 - id: claim-20261022-005-f
   source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
   source_date: '2026-10-22'
@@ -204,3 +263,19 @@
   - 空头衰竭
   - 极度悲观
   school: gator
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 极度悲观为空头衰竭信号，骂声一致时反转临近，看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3

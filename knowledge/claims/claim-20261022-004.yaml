@@ -34,6 +34,21 @@ claims:
   - 被动砍仓
   - 寻底流程
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性寻底而非续跌，卖压有尽头，隐含止跌看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-004-b
   source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
   source_date: '2026-10-22'
@@ -66,6 +81,13 @@ claims:
   - 赎回规律
   - 寻底判据
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，量化赎回规律，无直接方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-004-c
   source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
   source_date: '2026-10-22'
@@ -98,6 +120,21 @@ claims:
   - 宏大叙事
   - 跨周期对比
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 判断赎回潮近尾声、阶段寻底，隐含看多市场企稳反弹
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-004-d
   source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
   source_date: '2026-10-22'
@@ -134,6 +171,21 @@ claims:
   - 实地调研
   - 白马闪崩
   school: gator
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300750.SZ
+    rationale: 恐慌宣泄末尾、下行有限，倾向关注但非抄底信号
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300750.SZ
+    t0_date: 2026-10-22
+    t0_close: 220.41
 - id: claim-20261022-004-e
   source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
   source_date: '2026-10-22'
@@ -167,6 +219,21 @@ claims:
   - 政策底
   - 科创50
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 护盘进入真金白银买入阶段，科创50现资金承接，隐含看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000688
+    t0_date: 2026-10-22
+    t0_close: 1305.87
 - id: claim-20261022-004-f
   source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
   source_date: '2026-10-22'
@@ -200,6 +267,13 @@ claims:
   - 左侧禁令
   - 右侧确认
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 磨底时长方法论与右侧纪律，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-004-g
   source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
   source_date: '2026-10-22'
@@ -232,3 +306,19 @@ claims:
   - 持仓纪律
   - 多空立场
   school: gator
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 判断市场处于阶段低点、底部区域已到，看多但等右侧确认
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3

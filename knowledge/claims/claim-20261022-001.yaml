@@ -31,6 +31,13 @@ claims:
   - 题材修复
   - 阶段定性
   - 市场矛盾
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 阶段定性框架，非单边方向判断，双轨背离观察
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-001-b
   source_path: sources/original/bilibili/2026-10-22-0852-专栏-今天盘前，市场仍处在权重股调整与局部题材修复并行的阶段。昨天.md
   source_date: '2026-10-22'
@@ -62,6 +69,13 @@ claims:
   - 修复判据
   - 扩散度
   - 承接持续性
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判据，非方向判断，默认沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-001-c
   source_path: sources/original/bilibili/2026-10-22-0852-专栏-今天盘前，市场仍处在权重股调整与局部题材修复并行的阶段。昨天.md
   source_date: '2026-10-22'
@@ -93,6 +107,13 @@ claims:
   - 尾盘承接
   - 大金融
   - 量价结构
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论判据，非方向判断；涉及大盘承接与金融科技配合，以上证为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-001-d
   source_path: sources/original/bilibili/2026-10-22-0852-专栏-今天盘前，市场仍处在权重股调整与局部题材修复并行的阶段。昨天.md
   source_date: '2026-10-22'
@@ -125,6 +146,13 @@ claims:
   - 美联储议息
   - 预期差
   - 估值重定价
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，无方向判断，仅提供事件窗口定价参考
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-001-e
   source_path: sources/original/bilibili/2026-10-22-0852-专栏-今天盘前，市场仍处在权重股调整与局部题材修复并行的阶段。昨天.md
   source_date: '2026-10-22'
@@ -156,6 +184,13 @@ claims:
   - 情绪扩散
   - 连板晋级
   - 情绪收敛
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情绪状态描述与方法论拆解，明确不构成看多，方向中性
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-001-f
   source_path: sources/original/bilibili/2026-10-22-0852-专栏-今天盘前，市场仍处在权重股调整与局部题材修复并行的阶段。昨天.md
   source_date: '2026-10-22'
@@ -187,6 +222,13 @@ claims:
   - AI硬件
   - 大小市值分化
   - 资金信心
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论型观点，质疑线性利好推导，未给出明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-001-g
   source_path: sources/original/bilibili/2026-10-22-0852-专栏-今天盘前，市场仍处在权重股调整与局部题材修复并行的阶段。昨天.md
   source_date: '2026-10-22'
@@ -218,6 +260,13 @@ claims:
   - AI应用
   - 板块持续性
   - 分歧
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论表述，无方向判断，仅给出持续性判据
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-001-h
   source_path: sources/original/bilibili/2026-10-22-0852-专栏-今天盘前，市场仍处在权重股调整与局部题材修复并行的阶段。昨天.md
   source_date: '2026-10-22'
@@ -249,6 +298,21 @@ claims:
   - 板块轮动
   - 存量博弈
   - 局部修复
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 存量博弈定性，否定普涨，预期指数仅局部修复、上行受限
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-001-i
   source_path: sources/original/bilibili/2026-10-22-0852-专栏-今天盘前，市场仍处在权重股调整与局部题材修复并行的阶段。昨天.md
   source_date: '2026-10-22'
@@ -280,6 +344,21 @@ claims:
   - AI安全
   - 漏洞发现
   - 自动化攻防
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688561.SH
+    rationale: 攻防自动化升级推升持续安全需求，利好网络安全板块，以奇安信为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688561.SH
+    t0_date: 2026-10-22
+    t0_close: 27.57
 - id: claim-20261022-001-j
   source_path: sources/original/bilibili/2026-10-22-0852-专栏-今天盘前，市场仍处在权重股调整与局部题材修复并行的阶段。昨天.md
   source_date: '2026-10-22'
@@ -311,6 +390,13 @@ claims:
   - 智能体安全
   - 权限管理
   - 安全评估
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 三段式安全投入框架属方法论，无方向判断与标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-001-k
   source_path: sources/original/bilibili/2026-10-22-0852-专栏-今天盘前，市场仍处在权重股调整与局部题材修复并行的阶段。昨天.md
   source_date: '2026-10-22'
@@ -342,6 +428,13 @@ claims:
   - 网络安全
   - 续费回款
   - 双需求
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点：区分两类需求并改用部署/续费/回款验证，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-001-l
   source_path: sources/original/bilibili/2026-10-22-0852-专栏-今天盘前，市场仍处在权重股调整与局部题材修复并行的阶段。昨天.md
   source_date: '2026-10-22'
@@ -373,6 +466,13 @@ claims:
   - 数据要素
   - 国家数据集团
   - 商业模式
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架：区分政策催化与商业模式，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-001-m
   source_path: sources/original/bilibili/2026-10-22-0852-专栏-今天盘前，市场仍处在权重股调整与局部题材修复并行的阶段。昨天.md
   source_date: '2026-10-22'
@@ -405,6 +505,13 @@ claims:
   - 采购判据
   - 国产替代
   - 工作节拍
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论型跟踪清单，无方向判断，基准取宽指
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-001-n
   source_path: sources/original/bilibili/2026-10-22-0852-专栏-今天盘前，市场仍处在权重股调整与局部题材修复并行的阶段。昨天.md
   source_date: '2026-10-22'
@@ -439,6 +546,13 @@ claims:
   - 半导体设备
   - 测试设备
   - 长川科技
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300604.SZ
+    rationale: 方法论观点，阐述测试设备需求第二变量，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-001-o
   source_path: sources/original/bilibili/2026-10-22-0852-专栏-今天盘前，市场仍处在权重股调整与局部题材修复并行的阶段。昨天.md
   source_date: '2026-10-22'
@@ -471,3 +585,11 @@ claims:
   - 大金融
   - 情绪
   - 观察框架
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观察框架，无方向判断，默认沪深300为验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

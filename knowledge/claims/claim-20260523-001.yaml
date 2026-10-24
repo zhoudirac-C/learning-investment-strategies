@@ -285,6 +285,23 @@
     name: 茂莱光学
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688502.SH
+    rationale: 看好平台型能力并建议长期跟踪，仅提示估值风险
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688502.SH
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 438
+    t5_close: 520.1
+    fwd_return_pct: 18.74
 - id: claim-20260523-009
   topic: 光测试仪器铲子股
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md

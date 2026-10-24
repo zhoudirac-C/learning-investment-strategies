@@ -296,6 +296,23 @@ claims:
     cases: []
   topic: 大位科技算力租赁标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600589.SH
+    rationale: UP点名大位科技为算力租赁标的，属看多关注
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600589.SH
+    t0_date: 2026-07-02
+    t5_date: 2026-07-09
+    t0_close: 9.68
+    t5_close: 8.84
+    fwd_return_pct: -8.68
 - id: claim-20260702-002-i
   source_path: sources/original/bilibili/2026-07-02-0857-图片-一、隔夜与开盘预判：海外硬件砸坑，指数温和、结构剧烈 隔夜美.md
   up_id: '1420210197'

@@ -79,6 +79,23 @@ claims:
   - 轮动
   - 农业
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600127.SH
+    rationale: 明确看多金健米业二波转强走势，种业抱团逻辑载体
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600127.SH
+    t0_date: 2026-08-27
+    t5_date: 2026-09-03
+    t0_close: 10.78
+    t5_close: 12.67
+    fwd_return_pct: 17.53
 - id: claim-20260827-051-x
   source_path: sources/raw/财经/2026-08-27-盘中-种业高标逻辑与仓位纪律.md
   up_id: '1420210197'

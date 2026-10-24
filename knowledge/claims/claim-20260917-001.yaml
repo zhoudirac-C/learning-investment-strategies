@@ -33,6 +33,13 @@ claims:
   - 两层拆解
   - 已定价vs增量
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "拆解已定价与增量的方法论，非方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-001-b
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -68,6 +75,13 @@ claims:
   - 可消化范围
   - 判据升级
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "属利空消化程度的定性判据，非方向性判断；宏观观点基准沪深300"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-001-c
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -101,6 +115,13 @@ claims:
   - 分子端
   - 美股路径
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "加息类型分类框架，走势视盈利而定，非直接方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-001-d
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -135,6 +156,13 @@ claims:
   - 国内变量
   - 量能情绪
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "方法论观点：A股由国内量能情绪主导，非方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-001-e
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -169,6 +197,13 @@ claims:
   - 前半小时成交
   - 抢跑or转折
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论判断，给出放量验证口径，未直接定方向"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-001-f
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -204,6 +239,13 @@ claims:
   - 防御备选
   - 稳定器
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "条件性角色判断，非明确看多看空，属盘面方法论"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-001-g
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -239,6 +281,13 @@ claims:
   - 二板家数
   - 情绪健康度
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "量化接力健康判据，条件式方法论，未给方向"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-001-h
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -273,6 +322,24 @@ claims:
   - 假期效应
   - 持续性约束
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "指数协调性不足叠加缩量假期效应，判断上涨持续性有限，偏谨慎看空"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.33%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-09-17
+    t5_date: 2026-09-24
+    t0_close: 3875.6
+    t5_close: 3888.37
+    fwd_return_pct: 0.33
 - id: claim-20260917-001-i
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -306,6 +373,13 @@ claims:
   - A转折
   - B翻版
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000688
+    rationale: "盘前双情形预案，方法论性质，无单一方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-001-j
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -340,6 +414,13 @@ claims:
   - 多看少动
   - 做T
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "仓位纪律与方法论，无方向判断，默认沪深300"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-001-k
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -375,6 +456,13 @@ claims:
   - 新催化
   - 节后领涨
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000688
+    rationale: "止跌成立但持续性需新催化验证，属条件式分层判断，非明确方向"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-001-l
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -410,6 +498,13 @@ claims:
   - 路径依赖
   - 板块轮动
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "板块轮动方法论，无明确多空方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-001-m
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -443,6 +538,13 @@ claims:
   - 指数量能绑定
   - 能源高股息
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "条件性轮动机制描述，非明确方向判断，基准为大盘指数"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-001-n
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -476,6 +578,13 @@ claims:
   - 扩散判据
   - 既有逻辑
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688126.SH
+    rationale: "观测扩散判据而非方向判断，硅片代表标的沪硅产业作基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-001-o
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -514,6 +623,23 @@ claims:
   - 未充分定价
   - AI服务器
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688630.SH
+    rationale: "看多PCB设备未被充分定价，首选芯碁微装"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688630.SH
+    t0_date: 2026-09-17
+    t5_date: 2026-09-24
+    t0_close: 431.2
+    t5_close: 418
+    fwd_return_pct: -3.06
 - id: claim-20260917-001-p
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -553,6 +679,23 @@ claims:
   - 独立催化
   - 承接条件
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301080.SZ
+    rationale: "条件性看好AI制药承接机会，首选标的百普赛斯"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301080.SZ
+    t0_date: 2026-09-17
+    t5_date: 2026-09-24
+    t0_close: 99.28
+    t5_close: 121.41
+    fwd_return_pct: 22.29
 - id: claim-20260917-001-q
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -587,6 +730,13 @@ claims:
   - 算电缺口
   - 一日博弈
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论判据：同构识别+一日博弈折扣，无A股映射标的"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-001-r
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -621,3 +771,11 @@ claims:
   - 跟踪变量
   - 操作纪律
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "盘前预案汇总与跟踪清单，非方向性新判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

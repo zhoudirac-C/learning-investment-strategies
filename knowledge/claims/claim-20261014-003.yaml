@@ -33,6 +33,13 @@ claims:
   - 序列确认
   topic: 最好别收上去，出现低9和钝化才是最优路径
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: LLM 响应解析失败，降级 neutral
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-003-2
   source_path: sources/original/bilibili/2026-10-14-0947-图片-今天最好是别收上去，收上去我担心后面会空跌，到时候你们心态又.md
   source_date: '2026-10-14'
@@ -67,6 +74,13 @@ claims:
   - 防守选择
   topic: 低点确认期高成交量权重比中小票安全
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，权重防守非方向判断，关联市场环境
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-003-3
   source_path: sources/original/bilibili/2026-10-14-0947-图片-今天最好是别收上去，收上去我担心后面会空跌，到时候你们心态又.md
   source_date: '2026-10-14'
@@ -100,6 +114,23 @@ claims:
   - 低吸纪律
   topic: 收3764下方即完全满足满仓节点
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 上证3764下方收盘触发满仓买入节点，看多操作信号
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-10-14
+    t5_date: 2026-10-21
+    t0_close: 3767.23
+    t5_close: 3713.03
+    fwd_return_pct: -1.44
 - id: claim-20261014-003-4
   source_path: sources/original/bilibili/2026-10-14-0947-图片-今天最好是别收上去，收上去我担心后面会空跌，到时候你们心态又.md
   source_date: '2026-10-14'
@@ -134,3 +165,21 @@ claims:
   - 情绪定调
   topic: 当前位置不用焦虑，任务是把行情吃好
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情绪定调当前位置不焦虑、转攻吃行情，属看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-14
+    t5_date: 2026-10-21
+    t0_close: 4217.68
+    t5_close: 4111.93
+    fwd_return_pct: -2.51

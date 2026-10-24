@@ -628,6 +628,23 @@ claims:
   - HVDC
   - 中恒电气
   - 麦格米特
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002364.SZ
+    rationale: "看多AIDC电源龙头中恒电气，麦格米特交付兑现为辅证"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002364.SZ
+    t0_date: 2026-08-17
+    t5_date: 2026-08-24
+    t0_close: 45.58
+    t5_close: 37.5
+    fwd_return_pct: -17.73
 - id: claim-20260817-018
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
   up_id: '1420210197'
@@ -809,6 +826,24 @@ claims:
   - 中报
   - 白酒
   - 消费利空
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 600519.SH
+    rationale: "茅台业绩负增长叠加国家队退出，预期开盘承压下跌"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.89%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600519.SH
+    t0_date: 2026-08-17
+    t5_date: 2026-08-24
+    t0_close: 1293.09
+    t5_close: 1304.66
+    fwd_return_pct: 0.89
 - id: claim-20260817-023
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
   up_id: '1420210197'

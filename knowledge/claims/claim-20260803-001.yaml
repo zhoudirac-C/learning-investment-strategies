@@ -1399,6 +1399,23 @@ claims:
   - 光器件
   - Scale-up
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300394.SZ
+    rationale: Lite方案若成立推高光器件价值量并新增需求，属看多逻辑
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300394.SZ
+    t0_date: 2026-08-03
+    t5_date: 2026-08-10
+    t0_close: 180.5
+    t5_close: 223.03
+    fwd_return_pct: 23.56
 - id: claim-20260803-039
   source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
   up_id: '1420210197'
@@ -1436,6 +1453,23 @@ claims:
   - 智能体经济
   - 第二成长曲线
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603039.SH
+    rationale: 看多泛微网络第二成长曲线，AI Agent入口逻辑
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603039.SH
+    t0_date: 2026-08-03
+    t5_date: 2026-08-10
+    t0_close: 39.615
+    t5_close: 45.275
+    fwd_return_pct: 14.29
 - id: claim-20260803-040
   source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
   up_id: '1420210197'
@@ -1474,6 +1508,23 @@ claims:
   - 丝杠级
   - TPU
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 605488.SH
+    rationale: 看好触觉传感器方向，公司产品迭代且获订单，属看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 605488.SH
+    t0_date: 2026-08-03
+    t5_date: 2026-08-10
+    t0_close: 26.98
+    t5_close: 28.16
+    fwd_return_pct: 4.37
 - id: claim-20260803-041
   source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
   up_id: '1420210197'

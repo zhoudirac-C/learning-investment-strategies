@@ -457,6 +457,23 @@ claims:
   - 合同负债
   - 一次性收益
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300378.SZ
+    rationale: MHS催化物理AI阿尔法叙事，看多但需验证合同负债转化
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300378.SZ
+    t0_date: 2026-08-31
+    t5_date: 2026-09-07
+    t0_close: 38.54
+    t5_close: 39.4
+    fwd_return_pct: 2.23
 - id: claim-20260830-013-a
   source_path: sources/original/bilibili/2026-08-30-2241-专栏-周五是一根典型的强修复次日阴线。周四放量上涨把指数推到压力位.md
   up_id: '1420210197'
@@ -496,6 +513,23 @@ claims:
   - 核聚变
   - 同链跟踪
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603011.SH
+    rationale: 看多合锻智能，PTFE热压机国产化设备先行逻辑
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603011.SH
+    t0_date: 2026-08-31
+    t5_date: 2026-09-07
+    t0_close: 26.8
+    t5_close: 26.33
+    fwd_return_pct: -1.75
 - id: claim-20260830-014-a
   source_path: sources/original/bilibili/2026-08-30-2241-专栏-周五是一根典型的强修复次日阴线。周四放量上涨把指数推到压力位.md
   up_id: '1420210197'
@@ -569,6 +603,13 @@ claims:
   - 右侧确认
   - M10材料
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002886.SZ
+    rationale: 逻辑看多但明确不追高、等右侧信号，属择时方法论而非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260830-016-a
   source_path: sources/original/bilibili/2026-08-30-2241-专栏-周五是一根典型的强修复次日阴线。周四放量上涨把指数推到压力位.md
   up_id: '1420210197'
@@ -605,6 +646,23 @@ claims:
   - 鱼粉涨价
   - 上下游区分
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000798.SZ
+    rationale: 核心判断为中水渔业渔业补涨预期，看多方向，鱼粉涨价仅作反向提示
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000798.SZ
+    t0_date: 2026-08-31
+    t5_date: 2026-09-07
+    t0_close: 9.62
+    t5_close: 11.15
+    fwd_return_pct: 15.9
 - id: claim-20260830-017-a
   source_path: sources/original/bilibili/2026-08-30-2241-专栏-周五是一根典型的强修复次日阴线。周四放量上涨把指数推到压力位.md
   up_id: '1420210197'
@@ -1152,6 +1210,23 @@ claims:
   - 军工
   - 卖方框架切割
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600316.SH
+    rationale: 采信合同负债32.2亿等硬数据，营收高增可兑现，看多个股
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600316.SH
+    t0_date: 2026-08-31
+    t5_date: 2026-09-07
+    t0_close: 31.41
+    t5_close: 31.75
+    fwd_return_pct: 1.08
 - id: claim-20260830-031-a
   source_path: sources/original/bilibili/2026-08-30-2241-专栏-周五是一根典型的强修复次日阴线。周四放量上涨把指数推到压力位.md
   up_id: '1420210197'
@@ -1190,6 +1265,23 @@ claims:
   - 结构切换
   - 提前跟踪
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002897.SZ
+    rationale: 看多意华股份：连接器放量被旧业务拖累掩盖，建议提前跟踪买入
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002897.SZ
+    t0_date: 2026-08-31
+    t5_date: 2026-09-07
+    t0_close: 60
+    t5_close: 61.3
+    fwd_return_pct: 2.17
 - id: claim-20260830-032-a
   source_path: sources/original/bilibili/2026-08-30-2241-专栏-周五是一根典型的强修复次日阴线。周四放量上涨把指数推到压力位.md
   up_id: '1420210197'

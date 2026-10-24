@@ -41,6 +41,21 @@ claims:
   - 宁德时代
   - 泡泡玛特
   - 格力电器
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 可选消费系统性收缩传导为看空判断；周期类默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-21
+    t0_close: 4111.93
 - id: claim-20261021-003-b
   supersedes: []
   contradicts: []
@@ -72,6 +87,13 @@ claims:
   - 消费传导
   - 三层模型
   - 方法论
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论传导框架，无方向判断，无相关标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-003-c
   supersedes: []
   contradicts: ["claim-20260520-002-b", "claim-20260917-014-a"]
@@ -103,6 +125,21 @@ claims:
   - 防御状态
   - 利润分配
   - 产业链
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 产业链转防御、价格战向上游蔓延，属看空周期判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-21
+    t0_close: 4111.93
 - id: claim-20261021-003-d
   supersedes: []
   contradicts: []
@@ -134,6 +171,13 @@ claims:
   - 见底指标
   - 支付意愿
   - 拐点判断
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，给出消费见底判断标准，无方向性
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-003-e
   supersedes: []
   contradicts: []
@@ -168,6 +212,19 @@ claims:
   - 情绪消费
   - 泡泡玛特
   - 溢价退潮
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 09992
+    rationale: 销售额下滑且溢价退潮，指向估值与业绩承压
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 09992 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 09992
 - id: claim-20261021-003-f
   supersedes: []
   contradicts: []
@@ -202,6 +259,21 @@ claims:
   - 耐用消费
   - 格力电器
   - 延迟降档
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 000651.SZ
+    rationale: 延迟换新+结构下移压制量价，短期基本面承压
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000651.SZ
+    t0_date: 2026-10-21
+    t0_close: 37.13
 - id: claim-20261021-003-g
   supersedes: []
   contradicts: []
@@ -236,6 +308,21 @@ claims:
   - 大宗上游
   - 宁德时代
   - 量价双压
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 300750.SZ
+    rationale: 宁德时代量价双压、毛利率创新低，明确看空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300750.SZ
+    t0_date: 2026-10-21
+    t0_close: 227.9
 - id: claim-20261021-003-h
   supersedes: []
   contradicts: []
@@ -267,3 +354,19 @@ claims:
   - 投资策略
   - 防御
   - 前端修复
+
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 否定消费链独立反转，整体偏防御谨慎
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-21
+    t0_close: 4111.93

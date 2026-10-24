@@ -282,6 +282,23 @@ claims:
     cases: []
   topic: 三美股份电子级氢氟酸供需缺口业绩释放
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603379.SH
+    rationale: 明确看多三美股份电子级氢氟酸业绩弹性释放
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603379.SH
+    t0_date: 2026-07-02
+    t5_date: 2026-07-09
+    t0_close: 82.96
+    t5_close: 66.26
+    fwd_return_pct: -20.13
 - id: claim-20260702-001-i
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
   up_id: '1420210197'
@@ -319,6 +336,23 @@ claims:
     cases: []
   topic: 华海诚科GMC国产替代放量窗口
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688535.SH
+    rationale: 明确看多华海诚科国产替代放量窗口
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688535.SH
+    t0_date: 2026-07-02
+    t5_date: 2026-07-09
+    t0_close: 174.18
+    t5_close: 179.2
+    fwd_return_pct: 2.88
 - id: claim-20260702-001-j
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
   up_id: '1420210197'
@@ -355,6 +389,23 @@ claims:
     cases: []
   topic: 银之杰开盘啦+券商牌照估值切换
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300085.SZ
+    rationale: 看多估值体系切换逻辑，流量+牌照整合预期
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300085.SZ
+    t0_date: 2026-07-02
+    t5_date: 2026-07-09
+    t0_close: 35.79
+    t5_close: 31.55
+    fwd_return_pct: -11.85
 - id: claim-20260702-001-k
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
   up_id: '1420210197'

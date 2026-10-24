@@ -32,6 +32,23 @@ claims:
   - 尾盘托底
   - 未广泛修复
   - 防守基调
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 赚钱效应未恢复，防守优先不建议加暴露，偏谨慎
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-15
+    t5_date: 2026-10-22
+    t0_close: 4166.01
+    t5_close: 4036.3
+    fwd_return_pct: -3.11
 - id: claim-20261015-003-b
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -65,6 +82,23 @@ claims:
   - 指数先稳
   - 情绪后修
   - 扩散验证
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 预判指数先企稳修复，短期偏多指数；未指明具体指数默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-15
+    t5_date: 2026-10-22
+    t0_close: 4166.01
+    t5_close: 4036.3
+    fwd_return_pct: -3.11
 - id: claim-20261015-003-c
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -98,6 +132,13 @@ claims:
   - 价格结果
   - 量价配合
   - 修复基础
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点无方向判断，以沪深300作量价判据验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-003-d
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -131,6 +172,13 @@ claims:
   - 稳指数
   - 扩散效果
   - 关口确认
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论观点，无方向判断；讨论护盘与指数确认，基准取上证指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-003-e
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -170,6 +218,13 @@ claims:
   - 梯队补充
   - 最高板
   - 亏钱效应
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002343.SZ
+    rationale: 方法论纠偏，非方向判断；取最相关标的作基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-003-f
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -203,6 +258,13 @@ claims:
   - 观察前移
   - 接力不抢先
   - 条件加仓
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，讲入场分级条件，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-003-g
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -236,6 +298,13 @@ claims:
   - 防守优先
   - 保护盈利
   - 退出纪律
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件化操作纪律，双向口径，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-003-h
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -269,6 +338,13 @@ claims:
   - 风险暴露
   - 概念关联
   - 交易位置
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 防错方法论，非方向判断；涉及指数与个股信号区分
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-003-i
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -302,6 +378,19 @@ claims:
   - 廉价经济
   - 补涨归属
   - 概念验证
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399971
+    rationale: 倾向短剧补涨沿廉价经济线延伸，属条件性看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 sz399971 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399971
 - id: claim-20261015-003-j
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -335,6 +424,13 @@ claims:
   - 主线判别
   - 连续跟随
   - 弱市纪律
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论纪律类观点，无方向判断，弱市题材筛选准则
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-003-k
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -386,6 +482,13 @@ claims:
   - 局部强股
   - 板块扩散
   - 科技回暖
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002463.SZ
+    rationale: 方法论观点：区分强股与板块回暖，给出扩散验证路径，非明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-003-l
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -422,6 +525,13 @@ claims:
   - 业绩承接
   - 修复验证
   - 个股行情
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002281.SZ
+    rationale: 条件式验证框架，预设双路径，非明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-003-m
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -458,6 +568,13 @@ claims:
   - 金属铬
   - 产能换算
   - 产业口径
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603067.SH
+    rationale: 属测算方法论约束，非方向判断，关联标的振华股份
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-003-n
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -494,6 +611,13 @@ claims:
   - 6-硝体
   - 量价齐升
   - 利润换算
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301190.SZ
+    rationale: 方法论观点，不构成方向判断，仅给出验证口径
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-003-o
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -533,6 +657,13 @@ claims:
   - 苹果智能
   - 关注催化
   - 订单推定
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688018.SH
+    rationale: 方法论提示：关注催化不等于订单证据，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-003-p
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -572,6 +703,13 @@ claims:
   - 存储扩产
   - 融资口径
   - 订单确认
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688652.SH
+    rationale: 方法论式时点判读纪律，非方向判断；关联标的京仪装备
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-003-q
   source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
   source_date: '2026-10-15'
@@ -605,3 +743,11 @@ claims:
   - 重复订单
   - 新品供货
   - 进度判据
+
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688012.SH
+    rationale: 方法论排序，非方向判断；最相关标的为半导体设备龙头中微公司
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

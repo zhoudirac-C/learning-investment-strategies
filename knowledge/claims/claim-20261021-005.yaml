@@ -32,6 +32,21 @@ claims:
   - 局部修复
   - 赚钱效应
   - 创业板
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 指数冲高回落承压，赚钱效应未确认回暖，整体偏谨慎
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-21
+    t0_close: 4111.93
 - id: claim-20261021-005-b
   supersedes: ["claim-20260913-001-009"]
   contradicts: []
@@ -76,6 +91,13 @@ claims:
   - 海洋王
   - 东安动力
   - 大业股份
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 描述指数与情绪背离现象，非明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-005-c
   supersedes: []
   contradicts: []
@@ -109,6 +131,21 @@ claims:
   - 背离观察
   - 存量调仓
   - 量价验证
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 创业板指低位科技抗跌，建议观察背离延续，偏关注
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-21
+    t0_close: 2694.71
 - id: claim-20261021-005-d
   supersedes: ["claim-20260721-001"]
   contradicts: []
@@ -142,6 +179,13 @@ claims:
   - 资金身份
   - 修复验证
   - 方法论
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论警示，非方向判断；讨论指数回升确认，关联上证指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-005-e
   supersedes: []
   contradicts: []
@@ -178,6 +222,13 @@ claims:
   - 热泵
   - 磷化工
   - 锆材料
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点：研报催化不等于主线，需先看指数环境
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-005-f
   supersedes: ["claim-20260807-026"]
   contradicts: []
@@ -215,6 +266,21 @@ claims:
   - 润建股份
   - 轮动转持续
   - 核心承接
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002398.SZ
+    rationale: 看多算力租赁/Token服务主题，核心标的润建股份承接催化
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002398.SZ
+    t0_date: 2026-10-21
+    t0_close: 4.1
 - id: claim-20261021-005-g
   supersedes: []
   contradicts: []
@@ -267,6 +333,13 @@ claims:
   - 服务合同
   - 收入结构
   - 规划不等于运营
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002398.SZ
+    rationale: 方法论观点，无方向判断，仅提供尽调核查框架
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-005-h
   supersedes: []
   contradicts: []
@@ -306,6 +379,21 @@ claims:
   - 澜起科技
   - AI推理
   - 新代际导入
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688008.SH
+    rationale: AI推理驱动内存接口需求，澜起业绩验证，看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688008.SH
+    t0_date: 2026-10-21
+    t0_close: 178.34
 - id: claim-20261021-005-i
   supersedes: ["claim-20260609-001-b", "claim-20260630-003-ap"]
   contradicts: []
@@ -366,6 +454,13 @@ claims:
   - 端侧推理
   - 执行控制
   - 扩散判断框架
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 601100.SH
+    rationale: 扩散判断方法论框架，非明确买卖方向，选恒立液压为观察基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-005-j
   supersedes: []
   contradicts: []
@@ -421,6 +516,21 @@ claims:
   - 仿真
   - 世界模型
   - 授权确权
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688787.SH
+    rationale: 看好具身智能数据采集新赛道，海天瑞声为数据服务核心标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688787.SH
+    t0_date: 2026-10-21
+    t0_close: 115.6
 - id: claim-20261021-005-k
   supersedes: ["claim-20260809-012"]
   contradicts: []
@@ -466,6 +576,13 @@ claims:
   - 产能爬坡
   - 成本变化
   - 阶段性价格
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688167.SH
+    rationale: 方法论框架，非方向判断；磷化铟相关标的为光智科技
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-005-l
   supersedes: ["claim-20260901-050-a"]
   contradicts: []
@@ -508,6 +625,13 @@ claims:
   - 轮动观察
   - 平潭发展
   - 板块联动
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 轮动观察非方向判断，按市场周期类默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-005-m
   supersedes: []
   contradicts: []
@@ -542,6 +666,13 @@ claims:
   - 高股息周期股
   - 商品价格波动
   - 现金回报陷阱
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 防御策略方法论提示，非方向判断，关联大盘广度
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-005-n
   supersedes: []
   contradicts: []
@@ -608,3 +739,11 @@ claims:
   - 研发验证量产订单距离
   - 产品布局客户验证收入贡献
   - 经营利润不等现金牛
+
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002398.SZ
+    rationale: 纯方法论验证框架，无方向判断，基准取首列算力租赁标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

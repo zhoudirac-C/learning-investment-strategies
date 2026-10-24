@@ -389,3 +389,21 @@ claims:
   - CPO
   - 估值弹性
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688502.SH
+    rationale: 明确看多茂莱光学，认为估值弹性可观、建议关注
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688502.SH
+    t0_date: 2026-06-25
+    t5_date: 2026-07-02
+    t0_close: 581.24
+    t5_close: 611.02
+    fwd_return_pct: 5.12

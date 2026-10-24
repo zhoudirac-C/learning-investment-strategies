@@ -759,6 +759,13 @@ claims:
   - 客户认证
   - 产能爬坡
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002585.SZ
+    rationale: "跟踪验证框架，强调机会需逐环节验证，非方向性判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260913-001-024
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
   up_id: '1420210197'
@@ -795,6 +802,13 @@ claims:
   - AI算力
   - 业绩影响
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002585.SZ
+    rationale: "事实澄清防题材炒作，非方向判断，锚定个股公告口径"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260913-001-025
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
   up_id: '1420210197'
@@ -832,6 +846,24 @@ claims:
   - 保偏光纤
   - 供给约束
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 603938.SH
+    rationale: "否定PCVD独占与供给溢价叙事，压低9N供给规模预期"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.78%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603938.SH
+    t0_date: 2026-09-14
+    t5_date: 2026-09-21
+    t0_close: 49.96
+    t5_close: 50.35
+    fwd_return_pct: 0.78
 - id: claim-20260913-001-026
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
   up_id: '1420210197'
@@ -868,6 +900,13 @@ claims:
   - ETR调查
   - 收入验证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002912.SZ
+    rationale: "需求假设未验证，订单收入回款链未走完，属跟踪观察非方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260913-001-027
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
   up_id: '1420210197'
@@ -936,6 +975,13 @@ claims:
   - 1.6T测试
   - DSP供应约束
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603083.SH
+    rationale: "陈述800G量产与1.6T测试进度及DSP约束，属进度监测而非方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260913-001-029
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
   up_id: '1420210197'
@@ -973,6 +1019,13 @@ claims:
   - CPO
   - 产品布局
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688519.SH
+    rationale: "仅说明布局不等于订单，属方法论提示，无方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260913-001-030
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
   up_id: '1420210197'

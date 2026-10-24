@@ -29,6 +29,21 @@
   - 回购增持
   - 老乡别走
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 政策底兑现+护盘确认，预期市场止跌回升
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11
 - id: claim-20261020-007-b
   source_path: sources/original/wechat/2026-10-20-10.20利好如大雨般落下.md
   source_date: '2026-10-20'
@@ -62,6 +77,21 @@
   - 美股回调
   - 过度反应
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: A股超跌属情绪放大，错配即底部特征，看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11
 - id: claim-20261020-007-c
   source_path: sources/original/wechat/2026-10-20-10.20利好如大雨般落下.md
   source_date: '2026-10-20'
@@ -94,6 +124,13 @@
   - 恐慌抄底
   - 流动性真空
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论拆解护盘资金抄底机制，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-007-d
   source_path: sources/original/wechat/2026-10-20-10.20利好如大雨般落下.md
   source_date: '2026-10-20'
@@ -125,6 +162,13 @@
   - 混沌期
   - 踩踏
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论拆解趋势定义，无明确多空方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-007-e
   source_path: sources/original/wechat/2026-10-20-10.20利好如大雨般落下.md
   source_date: '2026-10-20'
@@ -155,6 +199,21 @@
   - 政策约束底
   - 融资大年
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 认为科创指数跌过头、政策底支撑，看多科创50
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000688
+    t0_date: 2026-10-20
+    t0_close: 1342.42
 - id: claim-20261020-007-f
   source_path: sources/original/wechat/2026-10-20-10.20利好如大雨般落下.md
   source_date: '2026-10-20'
@@ -188,3 +247,19 @@
   - 托底
   - 先手仓位
   school: gator
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: ETF流入托底并提前布局，预期市场右侧上行
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11

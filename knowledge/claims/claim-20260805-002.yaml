@@ -555,6 +555,23 @@ claims:
   - AI漫剧
   - 摘帽
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600892.SH
+    rationale: 短剧业务高增长、摘帽加分，看多该股
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600892.SH
+    t0_date: 2026-08-05
+    t5_date: 2026-08-12
+    t0_close: 4.16
+    t5_close: 4.05
+    fwd_return_pct: -2.64
 - id: claim-20260805-056
   source_path: sources/original/bilibili/2026-08-05-2300-图片-今日指数低开后全天震荡走高，反弹趋势进一步确认，两市成交额突.md
   up_id: '1420210197'
@@ -590,6 +607,23 @@ claims:
   - CUDA
   - AI Agent基础设施
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688031.SH
+    rationale: 看好星环科技认知数据库稀缺性与AI Agent卡位
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688031.SH
+    t0_date: 2026-08-05
+    t5_date: 2026-08-12
+    t0_close: 118.07
+    t5_close: 112.76
+    fwd_return_pct: -4.5
 - id: claim-20260805-057
   source_path: sources/original/bilibili/2026-08-05-2300-图片-今日指数低开后全天震荡走高，反弹趋势进一步确认，两市成交额突.md
   up_id: '1420210197'
@@ -625,6 +659,23 @@ claims:
   - 百度萝卜快跑
   - 曹操出行
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600611.SH
+    rationale: 看多大众交通，强调牌照运力壁垒与Robotaxi催化
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600611.SH
+    t0_date: 2026-08-05
+    t5_date: 2026-08-12
+    t0_close: 4.69
+    t5_close: 5.25
+    fwd_return_pct: 11.94
 - id: claim-20260805-058
   source_path: sources/original/bilibili/2026-08-05-2300-图片-今日指数低开后全天震荡走高，反弹趋势进一步确认，两市成交额突.md
   up_id: '1420210197'

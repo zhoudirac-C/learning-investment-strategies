@@ -614,6 +614,13 @@ claims:
   - 光模块
   - mSAP工艺
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: LLM 响应解析失败，降级 neutral
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260915-004-19
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -650,6 +657,23 @@ claims:
   - 液冷
   - 算力互连
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002025.SZ
+    rationale: 产品已配套算力场景属利好，规模盈利待验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002025.SZ
+    t0_date: 2026-09-15
+    t5_date: 2026-09-22
+    t0_close: 68.78
+    t5_close: 73.2
+    fwd_return_pct: 6.43
 - id: claim-20260915-004-20
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -685,6 +709,13 @@ claims:
   - HBM
   - 三维集成
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688072.SH
+    rationale: 方法论澄清：设备能力≠订单收入，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260915-004-21
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'

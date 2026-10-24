@@ -35,6 +35,23 @@ claims:
   - 防守占优
   - 良性分化转走弱
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性降级为量能不足的弱势防守，操作基调转防守回避进攻
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-14
+    t5_date: 2026-10-21
+    t0_close: 4217.68
+    t5_close: 4111.93
+    fwd_return_pct: -2.51
 - id: claim-20261014-005-2
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -71,6 +88,13 @@ claims:
   - 见底确认
   - 不预设见底日期
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，量价判据非方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-005-3
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -104,6 +128,23 @@ claims:
   - GJD托底
   - 不恐慌
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 宏观趋势向上+神秘资金托底，看多A股整体
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-14
+    t5_date: 2026-10-21
+    t0_close: 4217.68
+    t5_close: 4111.93
+    fwd_return_pct: -2.51
 - id: claim-20261014-005-4
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -138,6 +179,23 @@ claims:
   - 贵金属反弹
   - 承接确认
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: CPI利空出尽预期A股反弹，但强调需盘面承接确认
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-14
+    t5_date: 2026-10-21
+    t0_close: 4217.68
+    t5_close: 4111.93
+    fwd_return_pct: -2.51
 - id: claim-20261014-005-5
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -173,6 +231,23 @@ claims:
   - 三季报景气
   - 高景气未变
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 三季报验证AI算力高景气，看多算力链，创业板指为算力权重代理
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-14
+    t5_date: 2026-10-21
+    t0_close: 2866.76
+    t5_close: 2694.71
+    fwd_return_pct: -6
 - id: claim-20261014-005-6
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -217,6 +292,13 @@ claims:
   - 龙版传媒
   - 观察序列
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 605577.SH
+    rationale: 方法论型观点，条件化验证框架无明确方向，锚点为龙版传媒
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-005-7
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -251,6 +333,13 @@ claims:
   - 四步验证链
   - 超声电子
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 操作剧本与情形推演，无明确方向；核心验证为指数量价承接
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-005-8
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -290,6 +379,13 @@ claims:
   - 防守占优
   - 中国神华
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 601088.SH
+    rationale: 风格观察方法论，非方向判断；以中国神华为红利温度计
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-005-9
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -326,6 +422,13 @@ claims:
   - 情绪驱动
   - 芒果超媒
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300413.SZ
+    rationale: 方法论观点：肯定长期逻辑但否定短线折算，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-005-10
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -360,6 +463,13 @@ claims:
   - 后排补涨
   - 失效条件
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 轮动方法论与条件判据，非明确方向判断，基准取沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261014-005-11
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -394,6 +504,19 @@ claims:
   - 反抽确认
   - 成交跟进
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sz399808
+    rationale: 新能源承接失败走弱，反抽未确认前短线偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 sz399808 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399808
 - id: claim-20261014-005-12
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -431,6 +554,23 @@ claims:
   - 相对强度
   - 强者恒强
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000823.SZ
+    rationale: 看好PCB相对强度，超声电子为修复观察锚，条件性看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000823.SZ
+    t0_date: 2026-10-14
+    t5_date: 2026-10-21
+    t0_close: 24.55
+    t5_close: 24.07
+    fwd_return_pct: -1.96
 - id: claim-20261014-005-13
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -465,6 +605,23 @@ claims:
   - EUV
   - 国产设备验证
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 设备景气延长至2028+，看多半导体设备板块，科创50为最相关基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000688
+    t0_date: 2026-10-14
+    t5_date: 2026-10-21
+    t0_close: 1380.26
+    t5_close: 1343.28
+    fwd_return_pct: -2.68
 - id: claim-20261014-005-14
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -499,3 +656,11 @@ claims:
   - 短线转长期
   - 操作纪律
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 操作纪律方法论，无方向判断，基准取大盘指数。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

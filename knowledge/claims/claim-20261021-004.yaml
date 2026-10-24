@@ -34,6 +34,21 @@ claims:
   - SOC
   - 存储价格
   - AI应用层
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 看多AI应用端硬件板块，科创50覆盖SoC与AI芯片标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000688
+    t0_date: 2026-10-21
+    t0_close: 1343.28
 - id: claim-20261021-004-b
   supersedes: []
   contradicts: ["claim-20260518-013", "claim-20261012-001-l"]
@@ -68,6 +83,21 @@ claims:
   - AI端侧
   - SOC芯片
   - 产业主线
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 看多泛端侧SOC芯片产业主线，无个股，按市场周期类默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-21
+    t0_close: 4111.93
 - id: claim-20261021-004-c
   supersedes: []
   contradicts: []
@@ -112,6 +142,21 @@ claims:
   - 晶晨股份
   - 瑞芯微
   - 恒玄科技
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688099.SH
+    rationale: 看好端侧芯片第一梯队标的池，首选晶晨股份作为定价基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688099.SH
+    t0_date: 2026-10-21
+    t0_close: 96.81
 - id: claim-20261021-004-d
   supersedes: []
   contradicts: []
@@ -171,6 +216,13 @@ claims:
   - 国科微
   - 富瀚微
   - 泰凌微
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300458.SZ
+    rationale: 梯队划分属方法论描述，非明确买卖方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-004-e
   supersedes: []
   contradicts: []
@@ -210,3 +262,19 @@ claims:
   - 第三梯队
   - 博通集成
   - 安凯微
+
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 603068.SH
+    rationale: 负面定性：体量小、部分亏损、抗风险弱，非核心配置标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603068.SH
+    t0_date: 2026-10-21
+    t0_close: 43.2

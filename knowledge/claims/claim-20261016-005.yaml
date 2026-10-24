@@ -29,6 +29,13 @@
   - 行情萎靡
   - 无看点不更新
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论声明，暂停评级无方向判断，默认沪深300"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-005-b
   source_path: sources/original/wechat/2026-10-16-10.16再小利好也是利好！.md
   source_date: '2026-10-16'
@@ -60,6 +67,13 @@
   - 卫浴电器
   - 半导体设备
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "仅描述板块资金异动监控信号，无明确看多看空方向"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-005-c
   source_path: sources/original/wechat/2026-10-16-10.16再小利好也是利好！.md
   source_date: '2026-10-16'
@@ -90,6 +104,23 @@
   - 汪汪队
   - 护盘
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "窗口指导+回购+护盘资金增持宽基，属政策托底看多信号"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-16
+    t5_date: 2026-10-23
+    t0_close: 4170.61
+    t5_close: 4105.33
+    fwd_return_pct: -1.57
 - id: claim-20261016-005-d
   source_path: sources/original/wechat/2026-10-16-10.16再小利好也是利好！.md
   source_date: '2026-10-16'
@@ -125,3 +156,22 @@
   - 政策约束底
   - 融资环境
   school: gator
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000688
+    rationale: "判断科创50跌不动、政策底支撑，隐含看多反弹"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.97%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000688
+    t0_date: 2026-10-16
+    t5_date: 2026-10-23
+    t0_close: 1358.65
+    t5_close: 1345.51
+    fwd_return_pct: -0.97

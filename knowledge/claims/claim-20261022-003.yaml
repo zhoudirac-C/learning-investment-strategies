@@ -33,6 +33,13 @@ claims:
   - 征税
   - 情绪共振
   - 宏观归因
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 归因方法论，非方向判断；最相关基准为恒生指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-003-b
   source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
   source_date: '2026-10-22'
@@ -73,6 +80,13 @@ claims:
   - 红筹架构
   - 风险偏好
   - 传导链条
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论传导链条模板，非方向判断；涉及全市场风险偏好，基准取沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-003-c
   source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
   source_date: '2026-10-22'
@@ -106,6 +120,13 @@ claims:
   - 个税全球征税
   - 征管规范化
   - 政策定性
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 政策定性分析，仅判冲击持续性，无具体买卖方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-003-d
   source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
   source_date: '2026-10-22'
@@ -142,6 +163,13 @@ claims:
   - 监管持续性
   - 财政刚需
   - 法治化
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判断监管持续性，无方向性观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-003-e
   source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
   source_date: '2026-10-22'
@@ -175,6 +203,13 @@ claims:
   - 税制完善
   - 监管路径
   - 影响形态
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 属监管路径影响形态的方法论判断，非方向表态，基准取沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-003-f
   source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
   source_date: '2026-10-22'
@@ -213,6 +248,13 @@ claims:
   - 装入环节
   - 存续环节
   - 穿透征税
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，拆解征税规则，无方向判断，无相关标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-003-g
   source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
   source_date: '2026-10-22'
@@ -254,6 +296,13 @@ claims:
   - 信托征税
   - 标的分化
   - 港股
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: PDD.US
+    rationale: 方法论：以上市年限与涨幅定位信托补税敞口，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-003-h
   source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
   source_date: '2026-10-22'
@@ -287,6 +336,13 @@ claims:
   - 实际税负
   - 成本扣除
   - 个体差异
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论纠偏观点，无方向判断，无具体标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-003-i
   source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
   source_date: '2026-10-22'
@@ -321,6 +377,21 @@ claims:
   - 基本面
   - 修复机会
   - 港股
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 判断错杀修复，属看多情绪修复机会；无个股，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-003-j
   source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
   source_date: '2026-10-22'
@@ -354,6 +425,21 @@ claims:
   - 中期
   - 外资信心
   - 靴子落地
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 政策靴子落地修复外资与民营资本信心，中期利多，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-003-k
   source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
   source_date: '2026-10-22'
@@ -387,3 +473,11 @@ claims:
   - 穿透监管
   - 长期趋势
   - 离岸架构
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 宏观税制趋势论述，无方向性判断，无具体标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

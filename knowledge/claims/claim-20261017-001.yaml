@@ -31,3 +31,19 @@ claims:
   - 技术形态
   - 大反弹
   - V型反转
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 判断已处底部、预期震荡上行，方向偏多但反弹级别受限
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-19
+    t0_close: 4174.53

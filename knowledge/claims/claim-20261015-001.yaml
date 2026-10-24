@@ -34,6 +34,13 @@ claims:
     cases: []
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 市场阶段定性描述，非明确买卖方向，防守中留局部机会
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: market-cycle
   subject: 低点形成过程值得跟踪，但不能由地量直接推出见底
   timeframe: short-term
@@ -70,6 +77,13 @@ claims:
     cases: []
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，讲地量与见底确认顺序，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: methodology
   subject: 海外防御交易向A股传导需经业务结构盈利周期与本地资金偏好筛选
   timeframe: short-term
@@ -105,6 +119,13 @@ claims:
     cases: []
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，非方向判断；默认沪深300作验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: methodology
   subject: A股与韩国市场同步下跌不能认定单一因果
   timeframe: short-term
@@ -138,6 +159,13 @@ claims:
     cases: []
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，反对因果与反转概率推断，无方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: methodology
   subject: 早盘验证顺序：先看30分钟强弱分布，再看午后首个30分钟量价配合
   timeframe: short-term
@@ -172,6 +200,13 @@ claims:
     cases: []
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 盘中修复真伪验证方法论，非方向判断；锚定大盘指数广度
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: methodology
   subject: 午后量价三组合判别买盘是否回流
   timeframe: short-term
@@ -208,6 +243,13 @@ claims:
     cases: []
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论判别买盘回流，非方向性判断，关联大盘指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: market-cycle
   subject: 3764点收盘确认与破位钝化结构三阶段分离
   timeframe: short-term
@@ -245,6 +287,13 @@ claims:
     cases: []
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 技术纪律方法论，无方向判断；明确指向上证指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: sector-theme
   subject: 大金融观察逻辑：银行稳指数而券商需与成交回升同步
   timeframe: short-term
@@ -281,6 +330,13 @@ claims:
     cases: []
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判据：权重护盘有效性需券商与成交共振验证，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: sector-theme
   subject: 情绪修复判据首板回升溢价保持与跌停不扩散同看
   timeframe: short-term
@@ -317,6 +373,13 @@ claims:
     cases: []
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 情绪判据方法论，非方向判断，关联上证指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: market-cycle
   subject: 两种情形预案：承接改善转修复观察 vs 无承接则暂停猜底新增交易
   timeframe: short-term
@@ -353,6 +416,13 @@ claims:
     cases: []
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 双情形预案为条件化方法论，非方向判断；3764点位指向上证指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: sector-theme
   subject: 涨价题材分散轮动：行业价格上涨与个股短线持续性没有必然对应
   timeframe: short-term
@@ -386,6 +456,13 @@ claims:
     cases: []
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论判断：涨价题材轮动持续性判据，无明确多空方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: sector-theme
   subject: 冰雪题材关注点在承接与跟进，个股标签与实际业务须分开
   timeframe: short-term
@@ -424,6 +501,13 @@ claims:
     methodology_pages: []
     cases: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301010.SZ
+    rationale: 题材跟踪方法论，明确禁止概念到利润推定，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: sector-theme
   subject: 医药回流判据：高开缩小回撤且创新药有序联动才算配置线索
   timeframe: short-term
@@ -465,6 +549,13 @@ claims:
     methodology_pages: []
     cases: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式判据方法论，非明确多空方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: sector-theme
   subject: 科技两线判据：硬件看出清验证，应用须指数回暖时保持强度
   timeframe: short-term
@@ -502,6 +593,13 @@ claims:
     methodology_pages: []
     cases: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688498.SH
+    rationale: 方法论判据：验证硬件出清与应用主线资格，非方向性结论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: sector-theme
   subject: 硬件企稳是应用轮动的有利条件而非充分条件
   timeframe: short-term
@@ -536,6 +634,13 @@ claims:
     cases: []
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 条件化方法论，无明确方向判断，科技主题关联创业板指
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: sector-theme
   subject: PCB产业验证重点：涨价传导与各环节利润留存
   timeframe: trend
@@ -576,6 +681,13 @@ claims:
     methodology_pages: []
     cases: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000823.SZ
+    rationale: 方法论跟踪框架，无明确方向判断，以超声电子为验证线索
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: sector-theme
   subject: 微信免费短剧入口有社交分发增量但长期竞争落在IP制作留存
   timeframe: trend
@@ -617,6 +729,13 @@ claims:
     methodology_pages: []
     cases: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 605287.SH
+    rationale: 定性讨论入口增量与竞争终局，未明确看多或看空，标的处早期
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - claim_type: methodology
   subject: 操作纪律：结构未成不以猜底加仓，低位不恐慌杀跌，反弹不抢跑确认
   timeframe: short-term
@@ -653,3 +772,11 @@ claims:
     cases: []
   related_stocks: []
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 操作纪律方法论，无方向判断，基准取沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

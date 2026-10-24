@@ -31,6 +31,13 @@ claims:
   - 做T
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论式突破确认规则，方向未定；明确指向上证指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-b
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -62,6 +69,23 @@ claims:
   - 趋势跟踪
   related_stocks: []
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 沪深300日线底部结构确认，偏多但未全面转多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-21
+    t5_date: 2026-09-29
+    t0_close: 4539.57
+    t5_close: 4345.21
+    fwd_return_pct: -4.28
 - id: claim-20260921-002-c
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -95,6 +119,13 @@ claims:
   - 震荡市
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判据，拆解放量有效性条件，无方向指向，基准取大盘指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-d
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -126,6 +157,13 @@ claims:
   - 成交额口径
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 成交额口径方法论，无方向判断，关联大盘成交基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-e
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -159,6 +197,13 @@ claims:
   - 3933点
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论观点，区分权重托举与结构健康，不预设方向，跟踪上证实际表现
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-f
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -192,6 +237,13 @@ claims:
   - 主升
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，讨论情绪修复质量判据，无方向性结论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-g
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -224,6 +276,13 @@ claims:
   - 假突破
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论纪律类观点，无方向判断，默认沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-h
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -254,6 +313,13 @@ claims:
   - 交易信号
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论表述，卖方观点仅作背景，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-i
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -284,6 +350,13 @@ claims:
   - 仓位纪律
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论观点，区分盘中识别与收盘触发，无方向判断，关联上证3933点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-j
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -316,6 +389,13 @@ claims:
   - 流动性
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 休市日历纠偏与方法论提示，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-k
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -348,6 +428,23 @@ claims:
   - 广度扩张
   related_stocks: []
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 上证收盘突破3933则加仓至六成以上，条件性看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-09-21
+    t5_date: 2026-09-29
+    t0_close: 3949.91
+    t5_close: 3830.45
+    fwd_return_pct: -3.02
 - id: claim-20260921-002-l
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -378,6 +475,13 @@ claims:
   - 主线切换
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 条件化操作框架，非方向判断，基准为上证3933点位
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-m
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -410,6 +514,13 @@ claims:
   - 高位分歧
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 情绪指标口径方法论，无方向判断，关联大盘情绪
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-n
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -444,6 +555,13 @@ claims:
     name: C沈鼓
     role: 沪主板-主板可交易
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 601091.SH
+    rationale: 双向待验证假设，非方向判断，以C沈鼓为观测基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-o
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -473,6 +591,13 @@ claims:
   - 产业逻辑
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论声明，区分情绪与产业逻辑，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-p
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -506,6 +631,13 @@ claims:
   - 汽车
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，给出医药回流观测条件，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-q
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -537,6 +669,13 @@ claims:
   - 汇兑损益
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，强调回归实际敞口，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-r
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -571,6 +710,13 @@ claims:
   - NPO
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论式分歧判断，需验证科技主线持续性，非明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-s
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -603,6 +749,13 @@ claims:
   - 领涨方向
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式应对方法论，无明确方向判断，默认沪深300基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-t
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -635,6 +788,13 @@ claims:
   - 分歧承接
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论观点，外部映射需盘面验证，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-u
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -667,6 +827,13 @@ claims:
   - 因果认定
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，拒绝因果认定，仅作观察窗口，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-v
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -701,6 +868,13 @@ claims:
   - 原厂价
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000636.SZ
+    rationale: 方法论观点，拆分MLCC行情分化，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-w
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -733,6 +907,13 @@ claims:
   - 毛利率
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，核验传导链，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-x
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -770,6 +951,13 @@ claims:
     name: 罗博特科
     role: 创业板-不可交易
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603083.SH
+    rationale: 方法论分层观察，无买卖方向判断，基准取主标的剑桥科技
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-y
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -800,6 +988,13 @@ claims:
   - 兑现路径
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论澄清，无方向判断，无相关标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-z
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -837,6 +1032,13 @@ claims:
     name: 华阳国际
     role: 深主板-主板可交易
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300378.SZ
+    rationale: 方法论观点，无方向判断，追踪订单转化需公司披露验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-aa
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -875,6 +1077,13 @@ claims:
     name: 锐翔智能
     role: 北交所-不可交易
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300657.SZ
+    rationale: 方法论观点，拒绝未验证倍数，解耦创新与收入，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-ab
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -908,6 +1117,13 @@ claims:
   - 国产补位
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点：区分极端案例与行业均值，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-ac
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -944,6 +1160,13 @@ claims:
     name: 博通集成
     role: 沪主板-主板可交易
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301583.SZ
+    rationale: 方法论提示，要求核实主营与受益环节，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-ad
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -983,6 +1206,13 @@ claims:
     name: 博汇科技
     role: 科创板-不可交易
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002212.SZ
+    rationale: 方法论观点，切断海外合作到国内订单映射，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-ae
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -1020,6 +1250,13 @@ claims:
     name: 药康生物
     role: 科创板-不可交易
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688046.SH
+    rationale: 方法论观点，澄清AI制药阶段划分，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-af
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -1052,6 +1289,13 @@ claims:
   - 摊低成本
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 做T纪律方法论，无方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-ag
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -1083,6 +1327,13 @@ claims:
   - 量能持续性
   related_stocks: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，无方向判断，仅给出盘面观察纪律
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260921-002-ah
   source_path: sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md
   source_date: '2026-09-21'
@@ -1115,3 +1366,11 @@ claims:
   - 分流轮动
   related_stocks: []
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 盘前观察框架，按功能分配标的，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

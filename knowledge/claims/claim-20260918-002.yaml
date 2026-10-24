@@ -36,6 +36,23 @@ claims:
   - 利率路径
   - 压力传导
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 关注加息后利率路径重定价压力向宽基传导，偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-18
+    t5_date: 2026-09-28
+    t0_close: 4507.39
+    t5_close: 4340.76
+    fwd_return_pct: -3.7
 - id: claim-20260918-003-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -70,6 +87,13 @@ claims:
   - 外推
   - 方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，讲如何观察A股反应，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260918-004-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -105,6 +129,13 @@ claims:
   - 增量资金
   - 持续性
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 量能口径解读，非方向判断，持续性待验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260918-005-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -141,6 +172,13 @@ claims:
   - 技术分析
   - 方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 技术分析方法论，无方向判断，默认沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260918-006-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -176,6 +214,13 @@ claims:
   - 市场广度
   - 突破有效性
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论：判断突破有效性的三层条件，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260918-007-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -219,6 +264,13 @@ claims:
   - 炸板
   - 样本选择
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000523.SZ
+    rationale: 情绪观察方法论，非方向判断，选最相关标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260918-008-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -252,6 +304,13 @@ claims:
   - 失效条件
   - 交易纪律
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 操作纪律与预案框架，无方向性判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260918-009-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -285,6 +344,23 @@ claims:
   - 轮动
   - 隔日溢价
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 数据指向短线风险偏好修复，倾向看多但附条件跟踪框架
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-18
+    t5_date: 2026-09-28
+    t0_close: 4507.39
+    t5_close: 4340.76
+    fwd_return_pct: -3.7
 - id: claim-20260918-010-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -319,6 +395,13 @@ claims:
   - 资金避险
   - 延续性
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式方法论，未给出明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260918-011-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -358,6 +441,13 @@ claims:
   - 节前
   - '515980'
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 515980.SZ
+    rationale: 止跌待确认，非明确多空方向，以515980走势为验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260918-012-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -400,6 +490,13 @@ claims:
   - 长协验证
   - 中晶科技
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 003026.SZ
+    rationale: 涨价仅为待验证预期，方法论提示不下方向结论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260918-013-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -439,6 +536,13 @@ claims:
   - 扩产兑现
   - 跟踪口径
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688630.SH
+    rationale: 产业链跟踪方法论，非方向判断，选最相关标的芯碁微装
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260918-014-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -481,6 +585,23 @@ claims:
   - 百普赛斯
   - 阳光诺和
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301080.SZ
+    rationale: AI制药融资催化升温，建议关注上游研发服务标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301080.SZ
+    t0_date: 2026-09-18
+    t5_date: 2026-09-28
+    t0_close: 109.48
+    t5_close: 120.82
+    fwd_return_pct: 10.36
 - id: claim-20260918-015-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -515,6 +636,13 @@ claims:
   - 订单口径
   - 海外映射
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 口径澄清非方向判断，提醒勿将80亿美元视为确认订单
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260918-016-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -554,6 +682,23 @@ claims:
   - 数据中心电源
   - A股线索
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603950.SH
+    rationale: 建议关注跟踪数据中心电源线索，偏看多但需核实
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603950.SH
+    t0_date: 2026-09-18
+    t5_date: 2026-09-28
+    t0_close: 60.61
+    t5_close: 52.5
+    fwd_return_pct: -13.38
 - id: claim-20260918-017-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -590,3 +735,11 @@ claims:
   - 等待即预案
   - 防守优先
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论级操作纪律，无方向判断，默认沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

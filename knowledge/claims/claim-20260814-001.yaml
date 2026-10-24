@@ -814,6 +814,23 @@ claims:
   - 中报
   - 协创数据Q2净利
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300857.SZ
+    rationale: Q2净利落在预告上沿，基本面兑现利好股价
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300857.SZ
+    t0_date: 2026-08-14
+    t5_date: 2026-08-21
+    t0_close: 265.99
+    t5_close: 247.41
+    fwd_return_pct: -6.99
 - id: claim-20260814-024
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
   up_id: '1420210197'
@@ -1065,6 +1082,23 @@ claims:
   - 中报
   - 中芯国际26Q2
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688981.SH
+    rationale: 收入毛利率超指引，先进制程放量，明确看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688981.SH
+    t0_date: 2026-08-14
+    t5_date: 2026-08-21
+    t0_close: 132.87
+    t5_close: 124.8
+    fwd_return_pct: -6.07
 - id: claim-20260814-031
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
   up_id: '1420210197'
@@ -1100,6 +1134,23 @@ claims:
   - 中报
   - 华虹宏力26Q2
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688347.SH
+    rationale: 收入创新高、订单超产能且提价，明确看多华虹
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688347.SH
+    t0_date: 2026-08-14
+    t5_date: 2026-08-21
+    t0_close: 253.24
+    t5_close: 233.22
+    fwd_return_pct: -7.91
 - id: claim-20260814-032
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
   up_id: '1420210197'
@@ -1261,6 +1312,23 @@ claims:
   - 中报
   - 国产算力中报兑现
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688041.SH
+    rationale: 国产算力中报兑现叠加打新情绪，对科技方向偏正面
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688041.SH
+    t0_date: 2026-08-14
+    t5_date: 2026-08-21
+    t0_close: 280.99
+    t5_close: 246.21
+    fwd_return_pct: -12.38
 - id: claim-20260814-036
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
   up_id: '1420210197'

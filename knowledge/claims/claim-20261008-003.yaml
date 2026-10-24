@@ -34,6 +34,19 @@ claims:
     cases: []
   topic: 地产顺势加强但板块不成气候，本质高位抱团
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000006
+    rationale: 地产顺势加强、个股或走出，短期偏多但板块级别有限
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 sh000006 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000006
 - id: claim-20261008-003-b
   source_path: sources/original/bilibili/2026-10-08-1046-图片-总结一下早盘的情况。 地产节前拉地天超预期，今天科技走弱顺势.md
   source_date: '2026-10-08'
@@ -67,6 +80,13 @@ claims:
     cases: []
   topic: 固态电池=量化顺势行情，个人不易参与，持续性待验证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性量化顺势行情，属方法论判断，无明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-003-c
   source_path: sources/original/bilibili/2026-10-08-1046-图片-总结一下早盘的情况。 地产节前拉地天超预期，今天科技走弱顺势.md
   source_date: '2026-10-08'
@@ -100,6 +120,13 @@ claims:
     cases: []
   topic: 医药鼠疫一字轮番炸板，封单比太低=假强
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000933
+    rationale: 盘口封单比判读方法论，非方向判断；关联医药板块指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-003-d
   source_path: sources/original/bilibili/2026-10-08-1046-图片-总结一下早盘的情况。 地产节前拉地天超预期，今天科技走弱顺势.md
   source_date: '2026-10-08'
@@ -135,6 +162,13 @@ claims:
     cases: []
   topic: 老登风格延续：进攻=船运农业电池地产医药，防御=银行电力煤炭石油
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 风格轮动结构分类描述，非指数方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-003-e
   source_path: sources/original/bilibili/2026-10-08-1046-图片-总结一下早盘的情况。 地产节前拉地天超预期，今天科技走弱顺势.md
   source_date: '2026-10-08'
@@ -170,6 +204,13 @@ claims:
     cases: []
   topic: 量能回落增量不大，AI科技等一根放量阳线（时点未知会突然来）
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 量能观察与等待信号，非明确多空方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-003-f
   source_path: sources/original/bilibili/2026-10-08-1046-图片-总结一下早盘的情况。 地产节前拉地天超预期，今天科技走弱顺势.md
   source_date: '2026-10-08'
@@ -205,6 +246,13 @@ claims:
     cases: []
   topic: 科技现阶段没有趋势，产业与行情都需要时间
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 科技无趋势属非方向判断，给持仓者耐心框架，基准取科创50
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-003-g
   source_path: sources/original/bilibili/2026-10-08-1046-图片-总结一下早盘的情况。 地产节前拉地天超预期，今天科技走弱顺势.md
   source_date: '2026-10-08'
@@ -239,6 +287,13 @@ claims:
     cases: []
   topic: 投资本与人才流入最大的行业并耐心等待=投资思维
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论观点，无方向判断；关联科技产业，以创业板指为参照
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-003-h
   source_path: sources/original/bilibili/2026-10-08-1046-图片-总结一下早盘的情况。 地产节前拉地天超预期，今天科技走弱顺势.md
   source_date: '2026-10-08'
@@ -279,3 +334,11 @@ claims:
     cases: []
   topic: 分辨高低切与核心抱团；机会=金健米业/华电辽能式一二三波强趋势
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600127.SH
+    rationale: 方法论框架，无方向判断，选相关标的作基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

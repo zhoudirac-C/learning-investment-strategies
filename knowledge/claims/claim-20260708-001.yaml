@@ -251,6 +251,13 @@ claims:
   - 科技反弹
   - 承接质量
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002185.SZ
+    rationale: 条件式观察指标，判断承接质量而非方向，属方法论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260708-008-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
   up_id: '1420210197'
@@ -485,6 +492,23 @@ claims:
   - 高纯铟
   - AI光芯片
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600641.SH
+    rationale: 明确看多先导基电，预期AI磷化铟周期中量价齐升
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600641.SH
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 41.58
+    t5_close: 39.7
+    fwd_return_pct: -4.52
 - id: claim-20260708-014-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
   up_id: '1420210197'
@@ -520,6 +544,23 @@ claims:
   - SoC
   - 业绩预告
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603893.SH
+    rationale: 业绩预增且强调端侧AI核心受益，明确看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603893.SH
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 200.8
+    t5_close: 209.3
+    fwd_return_pct: 4.23
 - id: claim-20260708-015-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
   up_id: '1420210197'
@@ -557,6 +598,23 @@ claims:
   - 连接器
   - 业绩反转
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002025.SZ
+    rationale: 看好航天电器进入昇腾950供应链带来2026业绩反转
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002025.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 86.17
+    t5_close: 70.23
+    fwd_return_pct: -18.5
 - id: claim-20260708-016-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
   up_id: '1420210197'

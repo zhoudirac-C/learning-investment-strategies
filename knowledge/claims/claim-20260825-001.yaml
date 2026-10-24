@@ -833,6 +833,23 @@ claims:
   - 800G
   - 业绩兑现
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603228.SH
+    rationale: Q2业绩环比改善，800G量产从零到一，低位订单是价值锚，看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603228.SH
+    t0_date: 2026-08-25
+    t5_date: 2026-09-01
+    t0_close: 91.03
+    t5_close: 89.3
+    fwd_return_pct: -1.9
 - id: claim-20260825-024-a
   source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
   up_id: '1420210197'

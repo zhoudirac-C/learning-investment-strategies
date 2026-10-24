@@ -602,6 +602,23 @@ claims:
   - 脑机接口
   - 博弈窗口
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002172.SZ
+    rationale: 低位补涨博弈窗口，右侧确认看独立走强，倾向看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002172.SZ
+    t0_date: 2026-08-13
+    t5_date: 2026-08-20
+    t0_close: 4.13
+    t5_close: 4.44
+    fwd_return_pct: 7.51
 - id: claim-20260813-040
   source_path: sources/original/bilibili/2026-08-13-2238-专栏-今天这根放量阴线，落在连续反弹之后、前期压力位之下，性质上更.md
   up_id: '1420210197'
@@ -637,6 +654,13 @@ claims:
   - 事件驱动
   - 股权重估
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000936.SZ
+    rationale: 描述参股型事件驱动属性与方法论，非明确涨跌方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260813-041
   source_path: sources/original/bilibili/2026-08-13-2238-专栏-今天这根放量阴线，落在连续反弹之后、前期压力位之下，性质上更.md
   up_id: '1420210197'
@@ -673,6 +697,13 @@ claims:
   - 未审计
   - 方向线索
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300862.SZ
+    rationale: 强调数据未审计需验证，属方法论提示而非明确买卖方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260813-042
   source_path: sources/original/bilibili/2026-08-13-2238-专栏-今天这根放量阴线，落在连续反弹之后、前期压力位之下，性质上更.md
   up_id: '1420210197'

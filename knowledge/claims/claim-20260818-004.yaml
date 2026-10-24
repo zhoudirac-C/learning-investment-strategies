@@ -989,6 +989,23 @@ claims:
   - 央企
   - S客户
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301516.SZ
+    rationale: 看多中远通服务器电源弹性，跟踪S客户订单节奏
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301516.SZ
+    t0_date: 2026-08-18
+    t5_date: 2026-08-25
+    t0_close: 22.5
+    t5_close: 23.47
+    fwd_return_pct: 4.31
 - id: claim-20260818-066
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-18-2232-专栏-一、指数定环境：探底回升，但修复的成色存疑 据当日盘面数据，.md
   up_id: '1420210197'
@@ -1025,6 +1042,23 @@ claims:
   - 次新
   - 低流通盘
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603395.SH
+    rationale: 看多红四方：涨价逻辑+次新低流通盘弹性共振
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603395.SH
+    t0_date: 2026-08-18
+    t5_date: 2026-08-25
+    t0_close: 26.36
+    t5_close: 28.55
+    fwd_return_pct: 8.31
 - id: claim-20260818-067
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-18-2232-专栏-一、指数定环境：探底回升，但修复的成色存疑 据当日盘面数据，.md
   up_id: '1420210197'
@@ -1060,6 +1094,23 @@ claims:
   - 华为昇腾
   - 纯增量
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002025.SZ
+    rationale: 看多航天电器：NPO Socket纯增量+华为昇腾卡位
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002025.SZ
+    t0_date: 2026-08-18
+    t5_date: 2026-08-25
+    t0_close: 71.68
+    t5_close: 60.67
+    fwd_return_pct: -15.36
 - id: claim-20260818-068
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-18-2232-专栏-一、指数定环境：探底回升，但修复的成色存疑 据当日盘面数据，.md
   up_id: '1420210197'
@@ -1113,6 +1164,23 @@ claims:
   - 静电卡盘
   - 零部件耗材
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301611.SZ
+    rationale: 看多珂玛科技：零部件耗材复购订单高增，确定性较强
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301611.SZ
+    t0_date: 2026-08-18
+    t5_date: 2026-08-25
+    t0_close: 113.58
+    t5_close: 99.34
+    fwd_return_pct: -12.54
 - id: claim-20260818-069
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-18-2232-专栏-一、指数定环境：探底回升，但修复的成色存疑 据当日盘面数据，.md
   up_id: '1420210197'
@@ -1158,6 +1226,13 @@ claims:
   - 雷赛智能
   - 鸣志电器
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002979.SZ
+    rationale: 产业链标的记录，无明确买卖方向；雷赛灵巧手方案最相关
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260818-070
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-18-2232-专栏-一、指数定环境：探底回升，但修复的成色存疑 据当日盘面数据，.md
   up_id: '1420210197'

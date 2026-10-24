@@ -640,6 +640,23 @@ claims:
   - 神州信息
   - 金房能源
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000555.SZ
+    rationale: 量子QRAM突破利好映射股，看多神州信息
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000555.SZ
+    t0_date: 2026-09-03
+    t5_date: 2026-09-10
+    t0_close: 10.95
+    t5_close: 10.7
+    fwd_return_pct: -2.28
 - id: claim-20260903-019-a
   source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
   up_id: '1420210197'
@@ -686,6 +703,23 @@ claims:
   - 旭光电子
   - 北方华创
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600353.SH
+    rationale: 三方合作推进氮化铝国产替代，日系产能收缩利好旭光电子
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600353.SH
+    t0_date: 2026-09-03
+    t5_date: 2026-09-10
+    t0_close: 33.93
+    t5_close: 31.8
+    fwd_return_pct: -6.28
 - id: claim-20260903-020-a
   source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
   up_id: '1420210197'
@@ -764,6 +798,23 @@ claims:
   - 浪潮信息
   - 汇金股份
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000977.SZ
+    rationale: 戴尔大涨印证AI硬件景气，映射看多浪潮信息
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000977.SZ
+    t0_date: 2026-09-03
+    t5_date: 2026-09-10
+    t0_close: 86.35
+    t5_close: 70.43
+    fwd_return_pct: -18.44
 - id: claim-20260903-022-a
   source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
   up_id: '1420210197'

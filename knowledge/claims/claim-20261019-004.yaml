@@ -31,6 +31,21 @@
   - 量化节奏
   - 护盘资金
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: ETF放量护盘逆转量化空头节奏，预期情绪拐点向上
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-19
+    t0_close: 4174.53
 - id: claim-20261019-004-b
   source_path: sources/original/wechat/2026-10-19-10.19周末消息汇总.md
   source_date: '2026-10-19'
@@ -62,6 +77,13 @@
   - 消息时差
   - 宰杀
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 信息不对称属方法论警示，非方向判断，基准取沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-004-c
   source_path: sources/original/wechat/2026-10-19-10.19周末消息汇总.md
   source_date: '2026-10-19'
@@ -92,3 +114,11 @@
   - 尾盘跳水
   - 信息链
   school: gator
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: LLM 响应解析失败，降级 neutral
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

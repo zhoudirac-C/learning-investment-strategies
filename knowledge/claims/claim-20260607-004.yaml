@@ -478,6 +478,23 @@ claims:
     name: 达实智能
     role: 回填-正文提及
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002421.SZ
+    rationale: 智能体情绪标杆，Q4签约加速且有大客户背书，偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002421.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 4.89
+    t5_close: 3.83
+    fwd_return_pct: -21.68
 - id: claim-20260607-004-n
   topic: 能科科技——具身智能大脑定位
   statement: 能科科技"灵系列"AI产品已在150多个工业场景开发出25个有显性业务价值的智能体、在70余家龙头/重点企业落地，定位具身智能"大脑"角色。这些为公司自述落地规模，具体收入贡献与可复用性需结合财报验证
@@ -517,6 +534,13 @@ claims:
     name: 能科科技
     role: 参考标的
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603859.SH
+    rationale: 仅陈述落地叙事并提示需财报验证，未给出明确看多或看空方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260607-004-o
   topic: 绿的谐波——机器人方向领涨，市占率口径未统一
   statement: 绿的谐波是周五午后机器人方向领涨标的。谐波减速器在人形机器人BOM中价值量高、壁垒深。公司国内市占率不同信源给出30%-60%的较宽区间（口径差异大，需谨慎引用），公司称2025年实现国际头部机器人客户批量交付
@@ -562,6 +586,23 @@ claims:
     name: 绿的谐波
     role: 回填-正文提及
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688017.SH
+    rationale: 领涨标的+产业地位真实，看多方向明确
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688017.SH
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 367
+    t5_close: 408.01
+    fwd_return_pct: 11.17
 - id: claim-20260607-004-p
   topic: 金禄电子——物理AI/PCB映射标的
   statement: 金禄电子的PCB布局多为公司表态或媒体报道，产业映射（物理AI链条）成立但订单与业绩兑现度需另行核实。暂按跟踪观察处理，不构成投资建议
@@ -604,6 +645,13 @@ claims:
     name: 金禄电子
     role: 回填-正文提及
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301282.SZ
+    rationale: 明确声明非投资建议，仅跟踪观察，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260607-004-q
   topic: 天准科技——物理AI/控制器映射标的
   statement: 天准科技的控制器布局多为公司表态或媒体报道，产业映射（物理AI链条）成立但订单与业绩兑现度需另行核实。暂按跟踪观察处理，不构成投资建议
@@ -646,3 +694,11 @@ claims:
     name: 天准科技
     role: 回填-正文提及
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688003.SH
+    rationale: 仅产业跟踪观察，无方向判断，不构成投资建议
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

@@ -33,3 +33,21 @@ claims:
     name: 国瓷材料
     role: 氧化锆涨价-创业板不可交易
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300285.SZ
+    rationale: 氧化锆涨价催化，量价齐升看多国瓷材料
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300285.SZ
+    t0_date: 2026-07-20
+    t5_date: 2026-07-27
+    t0_close: 49.92
+    t5_close: 62.44
+    fwd_return_pct: 25.08

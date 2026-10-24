@@ -1602,6 +1602,23 @@ claims:
   - 长鑫IPO
   - 个股
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002208.SZ
+    rationale: 被列为长鑫IPO产业链关注标的，属看多关注
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002208.SZ
+    t0_date: 2026-07-10
+    t5_date: 2026-07-17
+    t0_close: 19.43
+    t5_close: 13.7
+    fwd_return_pct: -29.49
 - id: claim-20260710-001-av
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
   up_id: '1420210197'
@@ -1639,6 +1656,19 @@ claims:
   - 长鑫IPO
   - 个股
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688584.SH
+    rationale: 列为长鑫IPO产业链关注标的，属正面关联预期
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 688584.SH 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688584.SH
 - id: claim-20260710-001-aw
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
   up_id: '1420210197'
@@ -1917,6 +1947,13 @@ claims:
   - 半导体硅片
   - 半导体
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002129.SZ
+    rationale: 仅陈述业务聚焦事实，无看多看空方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260710-001-be
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
   up_id: '1420210197'
@@ -1954,6 +1991,23 @@ claims:
   - 个股
   - A股
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688783.SH
+    rationale: 12英寸硅片量产并进入验证，属利好进展
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688783.SH
+    t0_date: 2026-07-10
+    t5_date: 2026-07-17
+    t0_close: 51.2
+    t5_close: 38.94
+    fwd_return_pct: -23.95
 - id: claim-20260710-001-bf
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
   up_id: '1420210197'
@@ -2238,6 +2292,23 @@ claims:
   - CPO
   - 硅光
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000988.SZ
+    rationale: 表述强调硅光多技术路线布局及海外扩产，属看多预期。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000988.SZ
+    t0_date: 2026-07-10
+    t5_date: 2026-07-17
+    t0_close: 158.07
+    t5_close: 117.62
+    fwd_return_pct: -25.59
 - id: claim-20260710-001-bn
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
   up_id: '1420210197'
@@ -2275,6 +2346,23 @@ claims:
   - NPO
   - CPO
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300570.SZ
+    rationale: 看好Shuffle光柔性板契合CPO/NPO需求，构成增长极
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300570.SZ
+    t0_date: 2026-07-10
+    t5_date: 2026-07-17
+    t0_close: 211.64
+    t5_close: 158.08
+    fwd_return_pct: -25.31
 - id: claim-20260710-001-bo
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
   up_id: '1420210197'
@@ -2451,6 +2539,23 @@ claims:
   - 个股
   - A股
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300369.SZ
+    rationale: 列为企业安全主题关注标的，属看多关注类观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300369.SZ
+    t0_date: 2026-07-10
+    t5_date: 2026-07-17
+    t0_close: 6.61
+    t5_close: 6.5
+    fwd_return_pct: -1.66
 - id: claim-20260710-001-bt
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
   up_id: '1420210197'
@@ -2488,6 +2593,23 @@ claims:
   - 个股
   - A股
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300454.SZ
+    rationale: 列为企业安全主题关注标的，属看多关注方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300454.SZ
+    t0_date: 2026-07-10
+    t5_date: 2026-07-17
+    t0_close: 111.24
+    t5_close: 107.48
+    fwd_return_pct: -3.38
 - id: claim-20260710-001-bu
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
   up_id: '1420210197'

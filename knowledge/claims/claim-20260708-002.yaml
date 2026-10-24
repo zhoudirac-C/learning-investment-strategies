@@ -763,6 +763,23 @@ claims:
   - 支撑
   - stock-view
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300502.SZ
+    rationale: 看多CPO权重股基本盘价值，认为其支撑指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300502.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 510.84
+    t5_close: 556
+    fwd_return_pct: 8.84
 - id: claim-20260708-002-w
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
   up_id: '1420210197'
@@ -898,6 +915,23 @@ claims:
   - 连板
   - stock-view
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600793.SH
+    rationale: 连板突破、短线情绪回暖，属看多判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600793.SH
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 18.41
+    t5_close: 14.4
+    fwd_return_pct: -21.78
 - id: claim-20260708-002-aa
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
   up_id: '1420210197'
@@ -1175,6 +1209,23 @@ claims:
   - 业绩
   - stock-view
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000977.SZ
+    rationale: 预期业绩利好催化国产AI硬件修复，偏看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000977.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 78.17
+    t5_close: 84.7
+    fwd_return_pct: 8.35
 - id: claim-20260708-002-ai
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
   up_id: '1420210197'
@@ -1805,6 +1856,23 @@ claims:
   - 国产AI
   - 业绩
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000977.SZ
+    rationale: 业绩大增验证国产AI服务器龙头，强化看多逻辑。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000977.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 78.17
+    t5_close: 84.7
+    fwd_return_pct: 8.35
 - id: claim-20260708-002-ba
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
   up_id: '1420210197'
@@ -1883,6 +1951,13 @@ claims:
   - 科技
   - stock-view
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002185.SZ
+    rationale: 仅列举先进封装主题相关标的，无方向性判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260708-002-bc
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
   up_id: '1420210197'
@@ -2078,6 +2153,23 @@ claims:
   - 旅游
   - stock-view
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000558.SZ
+    rationale: 表述称公司直接受益冰雪旅游政策主题，属看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000558.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 3.3
+    t5_close: 3.21
+    fwd_return_pct: -2.73
 - id: claim-20260708-002-bi
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
   up_id: '1420210197'
@@ -2112,6 +2204,23 @@ claims:
   - 旅游
   - stock-view
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300005.SZ
+    rationale: 受益户外消费复苏，看多探路者股票
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300005.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 20.68
+    t5_close: 18.87
+    fwd_return_pct: -8.75
 - id: claim-20260708-002-bj
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
   up_id: '1420210197'
@@ -2294,6 +2403,23 @@ claims:
   - 创新药
   - stock-view
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301520.SZ
+    rationale: 强调CRO受益研发活跃度提升及获批利好，方向看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301520.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 42.74
+    t5_close: 58.79
+    fwd_return_pct: 37.55
 - id: claim-20260708-002-bo
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
   up_id: '1420210197'
@@ -2328,3 +2454,21 @@ claims:
   - 创新药
   - stock-view
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000908.SZ
+    rationale: 表述聚焦转型与重组预期，属看多关注。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000908.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 6.97
+    t5_close: 7.5
+    fwd_return_pct: 7.6

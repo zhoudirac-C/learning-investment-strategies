@@ -27,6 +27,13 @@
   - 中期风险
   - 两层定性
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 两层定性：短期修复偏多但中期风险未消，整体非单一方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-002-b
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -56,6 +63,13 @@
   - 验证点
   - 主动配置
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 前瞻观察框架，不定方向，仅设验证标准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-002-c
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -85,6 +99,13 @@
   - 指数失真
   - 结构矛盾
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点：区分指数企稳与成长股止跌，非明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-002-d
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -114,6 +135,13 @@
   - 短线资金
   - 增量资金共振
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式方法论：托底≠反转，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-002-e
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -143,6 +171,19 @@
   - CoreWeave
   - CDS利差
   related_stocks: []
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: CRWV
+    rationale: 信用风险叠加估值压缩，预示调整更深更长
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 CRWV 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: CRWV
 - id: claim-20261018-002-f
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -172,6 +213,13 @@
   - AI基础设施
   - 资本开支
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，无方向判断，无具体标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-002-g
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -201,6 +249,21 @@
   - 周期重估
   - 风格切换
   related_stocks: []
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 风险提示：信用担忧扩散或引发AI资本开支周期系统性重估，偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-19
+    t0_close: 4174.53
 - id: claim-20261018-002-h
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -230,6 +293,13 @@
   - 道指抗跌
   - 风险转移
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式轮动判断，非明确方向；基准为道指验证轮动承接
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-002-i
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -259,6 +329,13 @@
   - 定价主因
   - 判别法
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判别框架，无方向性判断，仅检验定价主因切换
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-002-j
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -288,6 +365,13 @@
   - 债券价格
   - 双市场框架
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，无方向判断；无A股直接标的，取默认指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-002-k
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -318,6 +402,21 @@
   - 北美云厂商
   - 订单兑现
   related_stocks: []
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 算力硬件链估值容忍度系统性下降，定价转向盈利兑现，偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-19
+    t0_close: 2746.29
 - id: claim-20261018-002-l
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -353,6 +452,21 @@
   - code: '001318'
     name: 阳光乳业
     role: 短线情绪品种补跌样本-主板可交易
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情绪退潮修复交替，风险扩散，短线偏好未改善，偏谨慎
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-19
+    t0_close: 4174.53
 - id: claim-20261018-002-m
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -382,6 +496,13 @@
   - 补跌收敛
   - 修复扩散
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情绪诊断与观察信号，非方向性判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-002-n
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -411,6 +532,13 @@
   - 风险暴露
   - 轮动良性
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399971
+    rationale: 条件式方法论判断，无明确方向，以中证传媒指数为观察基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-002-o
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -440,6 +568,13 @@
   - 风险释放次序
   - 科技分化
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 科技内部分化反复，无明确整体方向判断，以创业板指作科技基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-002-p
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -469,6 +604,13 @@
   - 驱动差异
   - 题材弹性
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性分析两板块驱动差异，无明确买卖方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-002-q
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -498,6 +640,13 @@
   - 债务融资
   - 抗风险能力
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，非方向判断；无具体标的，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-002-r
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -527,6 +676,13 @@
   - 市场广度
   - 假反弹
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件性路径推演，非明确方向判断，属方法论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261018-002-s
   source_path: sources/original/bilibili/2026-10-18-2051-专栏-本周全球资本市场的调整进一步加剧，美股科技板块持续承压，A股.md
   source_date: '2026-10-18'
@@ -583,3 +739,11 @@
   - code: '001232'
     name: 嘉立创
     role: 电子设计制造一体化-主板可交易
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定价范式切换属方法论判断，非方向性观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

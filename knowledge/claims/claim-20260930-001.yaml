@@ -35,6 +35,13 @@ claims:
   - 节前观望
   - 低点
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 磨底期观望定性，无明确多空方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260930-001-b
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -70,6 +77,13 @@ claims:
   - 宽度
   - 抛压
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 量价分类决策框架，属方法论，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260930-001-c
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -105,6 +119,23 @@ claims:
   - 低点信号
   - 收线确认
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 创业板底部钝化属潜在偏多信号，倾向下行空间有限但未确认
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-09-30
+    t5_date: 2026-10-14
+    t0_close: 3135.28
+    t5_close: 2866.76
+    fwd_return_pct: -8.56
 - id: claim-20260930-001-d
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -140,6 +171,23 @@ claims:
   - 长假
   - 情景推演
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 倾向性预期节后资金回流带动指数回升，属偏多情景推演
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-30
+    t5_date: 2026-10-14
+    t0_close: 4357.62
+    t5_close: 4217.68
+    fwd_return_pct: -3.21
 - id: claim-20260930-001-e
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -179,6 +227,19 @@ claims:
   - 地产
   - 承接
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000002.SZ
+    rationale: 看多万科A核心股启动，预期地产板块修复上涨
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 000002.SZ 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000002.SZ
 - id: claim-20260930-001-f
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -214,6 +275,13 @@ claims:
   - 题材轮动
   - 局部修复
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性判断量能受限、待放量确认，无明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260930-001-g
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -249,6 +317,13 @@ claims:
   - 订单验证
   - 信息分层
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，无方向判断，无具体标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260930-001-h
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -283,6 +358,13 @@ claims:
   - 电解质
   - 跟踪顺序
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300450.SZ
+    rationale: 属跟踪优先级方法论框架，非明确方向判断；设备先导智能为最相关标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260930-001-i
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -322,6 +404,13 @@ claims:
   - 金银河
   - 产业化线索
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002882.SZ
+    rationale: 产业链核验方法论示范，明示材料不足以定方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260930-001-j
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -357,6 +446,13 @@ claims:
   - 成交验证
   - 受益分化
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600048.SH
+    rationale: 方法论式政策效果分析，无明确方向判断，以地产龙头为验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260930-001-k
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -392,6 +488,23 @@ claims:
   - 试剂耗材
   - 数据闭环
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 看好AI制药映射到卖铲子环节的采购转化，无具体标的，暂以宽基为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-30
+    t5_date: 2026-10-14
+    t0_close: 4357.62
+    t5_close: 4217.68
+    fwd_return_pct: -3.21
 - id: claim-20260930-001-l
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -434,6 +547,13 @@ claims:
   - 产品结构
   - 客户关系
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 601869.SH
+    rationale: 观察框架而非方向判断，明确海外大单≠A股受益，需后续确认
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260930-001-m
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -478,6 +598,13 @@ claims:
   - 观察样本
   - 固态电池
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600241.SH
+    rationale: 短线情绪分层跟踪方法论，明确为观察样本而非推荐
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260930-001-n
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -517,6 +644,13 @@ claims:
   - 推理调用
   - 算力需求
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 605398.SH
+    rationale: 双变量分析不给单边结论，标的仅观察待验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260930-001-o
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -553,6 +687,13 @@ claims:
   - 首板供给
   - 亏钱效应
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情绪跟踪方法论，非方向判断，以大盘指数作验证参照
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260930-001-p
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -588,6 +729,13 @@ claims:
   - 做T
   - 观望
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 存量持有非新开仓建议，新方向观望，属操作指令非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260930-001-q
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -622,6 +770,13 @@ claims:
   - 情绪延续
   - 催化扩散
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 节后验证清单属方法论跟踪，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260930-001-r
   source_path: sources/original/bilibili/2026-09-30-0907-图片-纽约联储主席、FOMC永久投票委员兼副主席威廉姆斯北京时间周.md
   source_date: '2026-09-30'
@@ -656,3 +811,21 @@ claims:
   - 仓位博弈
   - 美债
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 建议假期用仓位博弈港股，隐含看多港股方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-30
+    t5_date: 2026-10-14
+    t0_close: 4357.62
+    t5_close: 4217.68
+    fwd_return_pct: -3.21

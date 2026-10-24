@@ -439,6 +439,23 @@ claims:
   - 全球糖缺口
   - 利润弹性
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600737.SH
+    rationale: 糖价上涨催化叠加历史利润弹性，倾向看多中粮糖业
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600737.SH
+    t0_date: 2026-09-08
+    t5_date: 2026-09-15
+    t0_close: 18.16
+    t5_close: 14.38
+    fwd_return_pct: -20.82
 - id: claim-20260908-003-l
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-09-08-2144-专栏-今天的市场呈现沪指偏强、双创承压的分化格局，农业与周期方向接.md
   up_id: '1420210197'
@@ -482,6 +499,23 @@ claims:
   - 出版传媒
   - 高低切
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603999.SH
+    rationale: 读者传媒2连板获资金关注，属看多观察线索
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603999.SH
+    t0_date: 2026-09-08
+    t5_date: 2026-09-15
+    t0_close: 7.29
+    t5_close: 6.28
+    fwd_return_pct: -13.85
 - id: claim-20260908-003-m
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-09-08-2144-专栏-今天的市场呈现沪指偏强、双创承压的分化格局，农业与周期方向接.md
   up_id: '1420210197'
@@ -520,6 +554,13 @@ claims:
   - AI影视
   - 机构席位
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 601595.SH
+    rationale: 观点强调转化待验证、需跟踪，无明确看多看空方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260908-003-n
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-09-08-2144-专栏-今天的市场呈现沪指偏强、双创承压的分化格局，农业与周期方向接.md
   up_id: '1420210197'
@@ -555,6 +596,23 @@ claims:
   - 深圳
   - 去化周期
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 000011.SZ
+    rationale: 收入增但亏损，政策预期先行基本面，提示回避追高
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000011.SZ
+    t0_date: 2026-09-08
+    t5_date: 2026-09-15
+    t0_close: 9.49
+    t5_close: 8.27
+    fwd_return_pct: -12.86
 - id: claim-20260908-003-o
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-09-08-2144-专栏-今天的市场呈现沪指偏强、双创承压的分化格局，农业与周期方向接.md
   up_id: '1420210197'
@@ -590,6 +648,23 @@ claims:
   - HDI
   - 1.6T
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 002579.SZ
+    rationale: 风险提示：消息不足以证明入链，建议回避
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002579.SZ
+    t0_date: 2026-09-08
+    t5_date: 2026-09-15
+    t0_close: 17.06
+    t5_close: 18.6
+    fwd_return_pct: 9.03
 - id: claim-20260908-003-p
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-09-08-2144-专栏-今天的市场呈现沪指偏强、双创承压的分化格局，农业与周期方向接.md
   up_id: '1420210197'
@@ -628,6 +703,13 @@ claims:
   - 磷化工
   - 农业链
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002470.SZ
+    rationale: 方法论提示：区分关注热度与利润驱动，非明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260908-003-q
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-09-08-2144-专栏-今天的市场呈现沪指偏强、双创承压的分化格局，农业与周期方向接.md
   up_id: '1420210197'
@@ -669,6 +751,13 @@ claims:
   - 液冷
   - 云创智达
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002418.SZ
+    rationale: 风险提示与方法论澄清，非方向判断，区分业务基础与订单
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260908-003-r
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-09-08-2144-专栏-今天的市场呈现沪指偏强、双创承压的分化格局，农业与周期方向接.md
   up_id: '1420210197'
@@ -708,6 +797,13 @@ claims:
   - TGV
   - 先进封装
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002008.SZ
+    rationale: 谨慎定性提示订单转化需验证，无明确涨跌方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260908-003-s
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-09-08-2144-专栏-今天的市场呈现沪指偏强、双创承压的分化格局，农业与周期方向接.md
   up_id: '1420210197'

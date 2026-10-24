@@ -32,6 +32,23 @@ claims:
   - 趋势定性
   - 三重压力
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性反弹为情绪修复非趋势反转，三重压力未解除，偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 4310.28
+    t5_close: 4166.01
+    fwd_return_pct: -3.35
 - id: claim-20261002-001-b
   source_path: sources/original/bilibili/2026-10-02-0903-图片-隔夜市场被两只手救了！欧债风暴+美联储鸽派发声，但危险远未远.md
   source_date: '2026-10-02'
@@ -68,6 +85,13 @@ claims:
   - 反身性
   - 失效条件
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 宏观平衡态刻画，无明确方向判断，属市场机制描述
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261002-001-c
   source_path: sources/original/bilibili/2026-10-02-0903-图片-隔夜市场被两只手救了！欧债风暴+美联储鸽派发声，但危险远未远.md
   source_date: '2026-10-02'
@@ -101,6 +125,13 @@ claims:
   - 情景推演
   - 加息概率
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，三情景无单一方向，基准取大盘指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261002-001-d
   source_path: sources/original/bilibili/2026-10-02-0903-图片-隔夜市场被两只手救了！欧债风暴+美联储鸽派发声，但危险远未远.md
   source_date: '2026-10-02'
@@ -137,6 +168,23 @@ claims:
   - 通胀
   - 暂停加息
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 三条件均未满足，反弹非反转，维持防守基调
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 4310.28
+    t5_close: 4166.01
+    fwd_return_pct: -3.35
 - id: claim-20261002-001-e
   source_path: sources/original/bilibili/2026-10-02-0903-图片-隔夜市场被两只手救了！欧债风暴+美联储鸽派发声，但危险远未远.md
   source_date: '2026-10-02'
@@ -173,3 +221,21 @@ claims:
   - 加息预期
   - 鲍曼
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 加息预期退潮利好风险资产反弹，宏观默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 4310.28
+    t5_close: 4166.01
+    fwd_return_pct: -3.35

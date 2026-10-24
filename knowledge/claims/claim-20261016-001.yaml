@@ -33,6 +33,13 @@ claims:
   - 量能
   - 下跌广度
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "阶段定性+磨底确认框架，条件未满足，非明确方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-b
   claim_type: market-cycle
   subject: 调整归因应兼顾外部冲击与内部结构
@@ -65,6 +72,13 @@ claims:
   - 外因内因
   - 方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "归因方法论判断，无方向性；基准取默认大盘指数"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-c
   claim_type: market-cycle
   subject: AI资金判断不再围绕统一资本开支故事
@@ -97,6 +111,13 @@ claims:
   - 资本开支
   - 结构分层
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "定性结构判断，无明确多空方向，属市场风格演变描述"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-d
   claim_type: sector-theme
   subject: PCB与AI硬件获情绪修复窗口，创新药面临持续性检验
@@ -137,6 +158,23 @@ claims:
   - AI制药
   - 情绪修复
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002815.SZ
+    rationale: "PCB/AI硬件有望情绪修复，看多相关标的崇达技术"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002815.SZ
+    t0_date: 2026-10-16
+    t5_date: 2026-10-23
+    t0_close: 23.47
+    t5_close: 18.55
+    fwd_return_pct: -20.96
 - id: claim-20261016-001-e
   claim_type: methodology
   subject: 量能质量判据：上涨放量与回落收敛
@@ -169,6 +207,13 @@ claims:
   - 方向时段
   - 修复判据
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "量能结构判读方法论，非方向判断，关联大盘量能"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-f
   claim_type: methodology
   subject: ETF放量不等于增量资金持续流入
@@ -201,6 +246,13 @@ claims:
   - 增量资金
   - 误读纠偏
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论纠偏，非方向判断；ETF资金流判据与大盘相关"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-g
   claim_type: methodology
   subject: 3700与3674区域为观察区而非自动支撑
@@ -234,6 +286,13 @@ claims:
   - 支撑验证
   - 量价
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "方法论观点：历史点位重合不自动成支撑，需量价验证，非方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-h
   claim_type: sector-theme
   subject: 券商脉冲未转化为赚钱效应，需看金融合力
@@ -267,6 +326,13 @@ claims:
   - 护盘
   - 修复结构
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "条件性结构判断，非明确多空方向，指向大盘修复结构"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-i
   claim_type: methodology
   subject: 首板回升不等于情绪周期反转
@@ -299,6 +365,13 @@ claims:
   - 首板
   - 纠偏
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论纠偏观点，非方向判断；涉及情绪周期，默认沪深300"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-j
   claim_type: market-cycle
   subject: 月底前有机会进入反复试探的磨底阶段
@@ -331,6 +404,23 @@ claims:
   - 月底路径
   - 前置条件
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "磨底为企稳机会信号，属大盘阶段判断，基准沪深300"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-16
+    t5_date: 2026-10-23
+    t0_close: 4170.61
+    t5_close: 4105.33
+    fwd_return_pct: -1.57
 - id: claim-20261016-001-k
   claim_type: methodology
   subject: 不能用历史连阴纪录推算反弹日期
@@ -363,6 +453,13 @@ claims:
   - 超跌反弹
   - 时点判断
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论观点，非方向判断，默认沪深300为基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-l
   claim_type: methodology
   subject: 事件落地不等于利空出尽，须看与定价的差异
@@ -395,6 +492,13 @@ claims:
   - 利空出尽
   - 定价差异
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论观点，无方向判断，默认沪深300为基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-m
   claim_type: operation
   subject: 情形A：承接扩散则分批观察有限试错
@@ -427,6 +531,24 @@ claims:
   - 试错
   - 分批观察
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "条件触发后偏多分批试错，锚定沪指3700关键位"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.69%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-10-16
+    t5_date: 2026-10-23
+    t0_close: 3716.28
+    t5_close: 3690.48
+    fwd_return_pct: -0.69
 - id: claim-20261016-001-n
   claim_type: operation
   subject: 情形B：破位失守则收缩暴露，不以加仓摊低成本
@@ -459,6 +581,13 @@ claims:
   - 风险处置
   - 破位
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "操作纪律类，非方向判断；3674点指上证指数"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-o
   claim_type: methodology
   subject: 题材能否走出来先看核心分歧承接再看跟随扩散
@@ -491,6 +620,13 @@ claims:
   - 核心承接
   - 跟随扩散
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "题材跟踪方法论，非方向判断，关联A股题材整体"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-p
   claim_type: methodology
   subject: 利好开盘位置决定交易难度
@@ -523,6 +659,13 @@ claims:
   - 开盘位置
   - 交易难度
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "开盘溢价交易方法论，非方向判断，基准取沪深300"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-q
   claim_type: sector-theme
   subject: 固态电池与涨价方向只作局部修复观察
@@ -555,6 +698,23 @@ claims:
   - 涨价方向
   - 局部修复
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "否定固态电池/涨价板块新主线预期，定性局部修复，偏谨慎回避"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-16
+    t5_date: 2026-10-23
+    t0_close: 4170.61
+    t5_close: 4105.33
+    fwd_return_pct: -1.57
 - id: claim-20261016-001-r
   claim_type: methodology
   subject: 防守属性须落到盈利稳定性和估值位置
@@ -587,6 +747,13 @@ claims:
   - 盈利稳定性
   - 估值位置
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论纠偏，无方向判断，默认沪深300为基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-s
   claim_type: sector-theme
   subject: 业绩正反馈是科技修复起点，PCB是合适切口
@@ -628,6 +795,23 @@ claims:
   - 业绩正反馈
   - PCB切口
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002815.SZ
+    rationale: "看多科技板块业绩修复，PCB为切口，选崇达技术定价"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002815.SZ
+    t0_date: 2026-10-16
+    t5_date: 2026-10-23
+    t0_close: 23.47
+    t5_close: 18.55
+    fwd_return_pct: -20.96
 - id: claim-20261016-001-t
   claim_type: methodology
   subject: PCB关注点从需求转向订单交付与利润转化
@@ -666,6 +850,13 @@ claims:
   - 订单交付
   - 利润兑现
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301282.SZ
+    rationale: "方法论型跟踪框架升级，非方向判断，基准取相关标的金禄电子"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-u
   claim_type: sector-theme
   subject: AI应用独立走强能力尚未建立
@@ -698,6 +889,23 @@ claims:
   - 独立走强
   - 商业化
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: "AI应用短期难独立走强，偏谨慎；以创业板指作板块代理基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-16
+    t5_date: 2026-10-23
+    t0_close: 2772.38
+    t5_close: 2684.1
+    fwd_return_pct: -3.18
 - id: claim-20261016-001-v
   claim_type: sector-theme
   subject: 半导体设备与工业光学短期修复中期看经营
@@ -743,6 +951,13 @@ claims:
   - 情绪修复
   - 经营兑现
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688072.SH
+    rationale: "属跟踪方法论，短期修复与中期兑现为条件判断，无明确方向"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-w
   claim_type: methodology
   subject: AI需求分析须分层，不能用一个资本开支故事覆盖
@@ -775,6 +990,13 @@ claims:
   - 分层框架
   - 回报验证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论框架，无方向判断，无具体标的"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-x
   claim_type: methodology
   subject: 超跌修复与中期景气应分别跟踪
@@ -807,6 +1029,13 @@ claims:
   - 中期景气
   - 分别跟踪
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: "方法论框架，无方向判断；跟踪对象为云资本开支与供应链，创业板指最具代表性"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-y
   claim_type: methodology
   subject: 科技产业跟踪沿客户验证到交付收入展开
@@ -851,6 +1080,13 @@ claims:
   - 客户验证
   - 复购交付
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688072.SH
+    rationale: "方法论观点，无方向判断，选最相关标的拓荆科技"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-001-z
   claim_type: operation
   subject: 盘前小结：不机械减仓也不因单次托底认定反转
@@ -883,3 +1119,11 @@ claims:
   - 盘前小结
   - 仓位管理
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: "操作纪律总括，双向否定，无方向判断，指向沪指3700点"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

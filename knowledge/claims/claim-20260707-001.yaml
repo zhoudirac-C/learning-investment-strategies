@@ -564,6 +564,23 @@ claims:
   - 交换机
   - 业绩预增
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301165.SZ
+    rationale: 业绩预增32.71%-65.88%，交换机业务驱动，看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301165.SZ
+    t0_date: 2026-07-07
+    t5_date: 2026-07-14
+    t0_close: 94.51
+    t5_close: 98.82
+    fwd_return_pct: 4.56
 - id: claim-20260707-017-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
   up_id: '1420210197'
@@ -667,6 +684,23 @@ claims:
   - 存储
   - 业绩预增
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301308.SZ
+    rationale: 业绩预增验证存储上行周期，明确看多江波龙
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301308.SZ
+    t0_date: 2026-07-07
+    t5_date: 2026-07-14
+    t0_close: 627.9
+    t5_close: 538.51
+    fwd_return_pct: -14.24
 - id: claim-20260707-020-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
   up_id: '1420210197'
@@ -816,6 +850,23 @@ claims:
   - 薄膜电容
   - AIDC
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600563.SH
+    rationale: 看好法拉电子AIDC薄膜电容份额提升至约50%，属看多观点。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600563.SH
+    t0_date: 2026-07-07
+    t5_date: 2026-07-14
+    t0_close: 150.47
+    t5_close: 138.66
+    fwd_return_pct: -7.85
 - id: claim-20260707-024-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
   up_id: '1420210197'
@@ -852,6 +903,23 @@ claims:
   - HVDC
   - 智算中心
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002364.SZ
+    rationale: HVDC产品落地，受益AI数据中心建设，属看多逻辑
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002364.SZ
+    t0_date: 2026-07-07
+    t5_date: 2026-07-14
+    t0_close: 51.8
+    t5_close: 53.6
+    fwd_return_pct: 3.47
 - id: claim-20260707-025-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
   up_id: '1420210197'
@@ -920,6 +988,23 @@ claims:
   - 光模块
   - 业绩
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300308.SZ
+    rationale: 明确看好业绩、订单上修与新品放量，属个股看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300308.SZ
+    t0_date: 2026-07-07
+    t5_date: 2026-07-14
+    t0_close: 1120.706
+    t5_close: 1182.856
+    fwd_return_pct: 5.55
 - id: claim-20260707-027-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
   up_id: '1420210197'
@@ -955,6 +1040,23 @@ claims:
   - 光芯片
   - 国产替代
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688048.SH
+    rationale: 明确看好长光华芯，国产替代逻辑看多个股
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688048.SH
+    t0_date: 2026-07-07
+    t5_date: 2026-07-14
+    t0_close: 411
+    t5_close: 459
+    fwd_return_pct: 11.68
 - id: claim-20260707-028-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
   up_id: '1420210197'
@@ -991,6 +1093,23 @@ claims:
   - 光纤光缆
   - 护城河
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601869.SH
+    rationale: 看多长飞光纤护城河与AI算力受益逻辑
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601869.SH
+    t0_date: 2026-07-07
+    t5_date: 2026-07-14
+    t0_close: 428.865
+    t5_close: 399.885
+    fwd_return_pct: -6.76
 - id: claim-20260707-029-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
   up_id: '1420210197'
@@ -1028,6 +1147,23 @@ claims:
   - 高速连接器
   - 华为系
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688629.SH
+    rationale: 看多华丰科技，受益国产超节点高速连接器需求提升
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688629.SH
+    t0_date: 2026-07-07
+    t5_date: 2026-07-14
+    t0_close: 199.284
+    t5_close: 180.234
+    fwd_return_pct: -9.56
 - id: claim-20260707-030-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
   up_id: '1420210197'
@@ -1064,6 +1200,23 @@ claims:
   - 高速连接器
   - 阿里系
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300843.SZ
+    rationale: 看好超节点带动高速连接器需求，胜蓝股份受益。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300843.SZ
+    t0_date: 2026-07-07
+    t5_date: 2026-07-14
+    t0_close: 144.46
+    t5_close: 133.11
+    fwd_return_pct: -7.86
 - id: claim-20260707-031-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
   up_id: '1420210197'

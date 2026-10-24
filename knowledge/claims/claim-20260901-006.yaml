@@ -612,6 +612,19 @@ claims:
   - 跨界并购
   - SLT
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603221.SH
+    rationale: "存储景气下跨界并购转型，情绪与预期溢价驱动看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: "source_date 2026-09-01 早于 603221.SH 全部 K 线"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603221.SH
 - id: claim-20260901-057-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
   up_id: '1420210197'
@@ -648,6 +661,23 @@ claims:
   - 妖股
   - 盘面记录
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002855.SZ
+    rationale: "记录捷荣技术接替连板龙头、妖股再爆发，隐含短线看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002855.SZ
+    t0_date: 2026-09-01
+    t5_date: 2026-09-08
+    t0_close: 17.71
+    t5_close: 18.5
+    fwd_return_pct: 4.46
 - id: claim-20260901-058-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
   up_id: '1420210197'
@@ -690,6 +720,23 @@ claims:
   - 轨道交通
   - 波段
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 003005.SZ
+    rationale: "认可竞业达真实场景交付与数据积累，相对看多但强调波段参与"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 003005.SZ
+    t0_date: 2026-09-01
+    t5_date: 2026-09-08
+    t0_close: 18.18
+    t5_close: 18.72
+    fwd_return_pct: 2.97
 - id: claim-20260901-059-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
   up_id: '1420210197'
@@ -726,6 +773,24 @@ claims:
   - 农药
   - 扩散段
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603086.SH
+    rationale: "除草剂涨价叠加满产，看好景气支撑，建议关注待回踩确认"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.46%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603086.SH
+    t0_date: 2026-09-01
+    t5_date: 2026-09-08
+    t0_close: 6.54
+    t5_close: 6.57
+    fwd_return_pct: 0.46
 - id: claim-20260901-060-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
   up_id: '1420210197'
@@ -768,6 +833,13 @@ claims:
   - 浸没式
   - 订单兑现
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002418.SZ
+    rationale: "属液冷甄别方法论，评估卡位阶段，无明确买卖方向"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260901-061-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
   up_id: '1420210197'
@@ -804,6 +876,23 @@ claims:
   - 境外收入
   - 低基数
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300642.SZ
+    rationale: "认可医药回流逻辑支撑透景生命基本面，倾向看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300642.SZ
+    t0_date: 2026-09-01
+    t5_date: 2026-09-08
+    t0_close: 20.35
+    t5_close: 18.47
+    fwd_return_pct: -9.24
 - id: claim-20260901-062-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
   up_id: '1420210197'

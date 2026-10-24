@@ -32,3 +32,21 @@ tags:
 - 硅光测试
 - CPO
 - CoWoS
+
+direction:
+  value: "bullish"
+  basis_kind: "stock"
+  basis_code: "300757.SZ"
+  rationale: "订单与出货指引构成中期业绩支撑，中线看多"
+  annotated_at: "2026-10-24"
+  annotator: "m3-direction-v1"
+outcome:
+  result: "hit"
+  evaluated_at: "2026-10-24"
+  window_days: 5
+  basis_code: "300757.SZ"
+  t0_date: "2026-09-04"
+  t5_date: "2026-09-11"
+  t0_close: 573.99
+  t5_close: 630.0
+  fwd_return_pct: 9.76

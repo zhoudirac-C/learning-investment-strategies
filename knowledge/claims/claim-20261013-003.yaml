@@ -24,6 +24,23 @@
   related_stocks: []
   tags: []
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 底部概率上升、重视修复行情，属偏多市场级判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-13
+    t5_date: 2026-10-20
+    t0_close: 4275.68
+    t5_close: 4152.11
+    fwd_return_pct: -2.89
 - id: claim-20261013-003-b
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -50,6 +67,13 @@
   related_stocks: []
   tags: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，评估修复质量而非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-003-c
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -76,6 +100,23 @@
   related_stocks: []
   tags: []
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件性看多：积极态度有望延续至10月下旬，基准沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-13
+    t5_date: 2026-10-20
+    t0_close: 4275.68
+    t5_close: 4152.11
+    fwd_return_pct: -2.89
 - id: claim-20261013-003-d
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -102,6 +143,13 @@
   related_stocks: []
   tags: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 量能判读方法论，非方向判断；涉及指数放量路径，以上证为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-003-e
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -128,6 +176,13 @@
   related_stocks: []
   tags: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 条件式量能验证方法论，未给出明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-003-f
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -154,6 +209,13 @@
   related_stocks: []
   tags: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式结构判断，无明确方向，属观察方法论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-003-g
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -186,6 +248,13 @@
     role: 专栏观察样本
   tags: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情绪状态定性描述，非方向性买卖判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-003-h
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -215,6 +284,13 @@
     role: 专栏观察样本
   tags: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002242.SZ
+    rationale: 条件式观察框架，无明确方向判断，以九阳股份为验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-003-i
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -241,6 +317,13 @@
   related_stocks: []
   tags: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论型观察框架，未做涨跌方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-003-j
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -267,6 +350,13 @@
   related_stocks: []
   tags: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 交易纪律方法论，无方向判断，默认沪深300作基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-003-k
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -293,6 +383,13 @@
   related_stocks: []
   tags: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399808
+    rationale: 板块轮动方法论，条件性观察判断，非明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-003-l
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -322,6 +419,23 @@
     role: 硫资源与固态电池双线索
   tags: []
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000833.SZ
+    rationale: 预期双线索合力带来关注与上涨，看多个股
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000833.SZ
+    t0_date: 2026-10-13
+    t5_date: 2026-10-20
+    t0_close: 20.65
+    t5_close: 18.15
+    fwd_return_pct: -12.11
 - id: claim-20261013-003-m
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -357,6 +471,13 @@
     role: 专栏观察样本
   tags: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 605577.SH
+    rationale: 方法论性质：讨论龙头判据与承接观察，未明确看多看空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-003-n
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -386,6 +507,23 @@
     role: 专栏观察样本
   tags: []
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301190.SZ
+    rationale: 看多涨价扩散节奏，核心观察标的为善水科技
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301190.SZ
+    t0_date: 2026-10-13
+    t5_date: 2026-10-20
+    t0_close: 49.2
+    t5_close: 43.61
+    fwd_return_pct: -11.36
 - id: claim-20261013-003-o
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -412,6 +550,13 @@
   related_stocks: []
   tags: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399967
+    rationale: 观察纪律性判断，未赋予主线，无明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-003-p
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -441,6 +586,13 @@
     role: 专栏观察样本
   tags: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301660.SZ
+    rationale: 转债活跃度解读方法论，明确非方向判断，仅辅助观察
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-003-q
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -473,6 +625,13 @@
     role: 专栏观察样本
   tags: []
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000823.SZ
+    rationale: 属板块判断加方法论，短期分化预期，非明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-003-r
   source_path: sources/raw/财经/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md
   source_date: '2026-10-13'
@@ -499,3 +658,11 @@
   related_stocks: []
   tags: []
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 操作纪律类方法论，无方向判断，关联大盘盘面
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

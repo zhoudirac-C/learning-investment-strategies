@@ -335,3 +335,21 @@ claims:
     name: 海王生物
     role: 参考标的
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603811.SH
+    rationale: 观察提示属纳入跟踪的关注倾向，非看空；选代码最完整标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603811.SH
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 10.26
+    t5_close: 10.65
+    fwd_return_pct: 3.8

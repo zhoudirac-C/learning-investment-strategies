@@ -28,6 +28,13 @@
   - 日线级别
   - 修复质量
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判断：下跌速率与底部结构级别关系，非方向观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261016-003-b
   source_path: sources/raw/财经/2026-10-16-1339-图片-午后开盘市场小幅回落，但整体仍维持修复格局，成交量随行情修复.md
   source_date: '2026-10-16'
@@ -58,6 +65,23 @@
   - 一日游
   - 题材定性
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 明确看空低空经济主题，无个股代码，以沪深300为板块基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-16
+    t5_date: 2026-10-23
+    t0_close: 4170.61
+    t5_close: 4105.33
+    fwd_return_pct: -1.57
 - id: claim-20261016-003-c
   source_path: sources/raw/财经/2026-10-16-1339-图片-午后开盘市场小幅回落，但整体仍维持修复格局，成交量随行情修复.md
   source_date: '2026-10-16'
@@ -88,6 +112,19 @@
   - 轮动
   - 科技还债
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399967
+    rationale: 判断军工等超跌板块将轮动反弹，属看多军工方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 sz399967 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399967
 - id: claim-20261016-003-d
   source_path: sources/raw/财经/2026-10-16-1339-图片-午后开盘市场小幅回落，但整体仍维持修复格局，成交量随行情修复.md
   source_date: '2026-10-16'
@@ -118,3 +155,11 @@
   - 轮动难度
   - 持续性
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399971
+    rationale: 观察指标类观点，条件判断无明确方向，基准取传媒指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

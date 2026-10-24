@@ -30,6 +30,13 @@ claims:
   - 反弹持续性
   - 资金接力
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 磨底属阶段初判非买点信号，方向未确认，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-001-b
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -61,6 +68,21 @@ claims:
   - 调整级别
   - 量价确认
   related_stocks: []
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 关注修复能否升级为B浪反弹，隐含看多预期
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11
 - id: claim-20261020-001-c
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -92,6 +114,13 @@ claims:
   - 同一时点对比
   - 市场广度
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论：定义修复质量判定标准，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-001-d
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -123,6 +152,13 @@ claims:
   - 权重托底
   - 信号强弱
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399986
+    rationale: 仅定性为待观察异常，非方向判断；以中证银行指数验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-001-e
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -154,6 +190,13 @@ claims:
   - 双创
   - 转强确认
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论观点，讨论判断指数转强的标准，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-001-f
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -185,6 +228,13 @@ claims:
   - 亏钱效应
   - 情绪修复
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 三条件式方法论判断，未给出明确方向，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-001-g
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -216,6 +266,13 @@ claims:
   - 分歧承接
   - 连板
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论定义穿越概念，无方向判断，无具体标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-001-h
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -247,6 +304,13 @@ claims:
   - 分歧承接
   - 补跌收敛
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，讲题材筛选维度切换，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-001-i
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -278,6 +342,13 @@ claims:
   - 追高
   - 参与节奏
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 交易方法论，区分情绪与承接，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-001-j
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -309,6 +380,13 @@ claims:
   - 超跌修复
   - 量能业绩
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 定性超跌修复而非反转，属方法论判断，非明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-001-k
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -349,6 +427,21 @@ claims:
   - code: '603533'
     name: 掌阅科技
     role: AI漫剧生成平台-主板可交易
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002343.SZ
+    rationale: 看多AI短剧主题，以慈文传媒为扩散验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002343.SZ
+    t0_date: 2026-10-20
+    t0_close: 10.25
 - id: claim-20261020-001-l
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -380,6 +473,13 @@ claims:
   - 合同毛利
   - 承接
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件式方法论，未确认条件成立，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-001-m
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -411,6 +511,13 @@ claims:
   - 非银赎回
   - 政策边界
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 区分预期改善与实际增量资金，属方法论提示而非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-001-n
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -442,6 +549,19 @@ claims:
   - 军贸
   - 底部验证窗口
   related_stocks: []
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399967
+    rationale: 预期军工基本面触底、订单利润先后改善，属看多；以中证军工指数验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 sz399967 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399967
 - id: claim-20261020-001-o
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -473,6 +593,19 @@ claims:
   - 三段式行情
   - 业绩驱动
   related_stocks: []
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399967
+    rationale: 预期军工有事件与业绩双驱动行情，偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 sz399967 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399967
 - id: claim-20261020-001-p
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -516,6 +649,13 @@ claims:
   - code: '002651'
     name: 利君股份
     role: 航空零部件配套-主板可交易
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600967.SH
+    rationale: 方法论约束，非方向判断；关联最相关标的内蒙一机
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-001-q
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -547,6 +687,13 @@ claims:
   - 伪信号
   - 确认后行动
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 操作纪律方法论，无方向判断，关联大盘走势
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-001-r
   source_path: sources/original/bilibili/2026-10-20-0017-专栏-今日指数低开后分化，沪指先行修复，深成指翻红，双创仍承压；午.md
   source_date: '2026-10-20'
@@ -578,3 +725,11 @@ claims:
   - 失效处置
   - 短线纪律
   related_stocks: []
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 操作纪律类观点，非方向判断，无具体标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

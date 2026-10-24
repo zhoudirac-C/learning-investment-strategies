@@ -246,6 +246,13 @@ claims:
   - 独立走强
   - 封板承接
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 003040.SZ
+    rationale: 仅给出观察框架，明确不预判方向，属方法论观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260906-008-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
   up_id: '1420210197'
@@ -634,6 +641,13 @@ claims:
   - 跟踪标的
   - 扩散方向
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000533.SZ
+    rationale: 纯跟踪观察记录，无买卖建议与方向判断，基准取主标的顺钠股份
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260906-019-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
   up_id: '1420210197'
@@ -675,6 +689,13 @@ claims:
   - 鸿博股份
   - 在建工程
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002229.SZ
+    rationale: 产业链跟踪记录，无买卖点建议，非方向判断；行云科技非A股，取鸿博股份为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260906-020-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
   up_id: '1420210197'

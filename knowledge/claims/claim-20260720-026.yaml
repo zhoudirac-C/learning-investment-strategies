@@ -34,3 +34,21 @@ claims:
     name: 松发股份
     role: 民营造船第一股-沪市主板可交易
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603268.SH
+    rationale: 看多松发股份，订单排至2030年，回调视为贝塔非逻辑破坏
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603268.SH
+    t0_date: 2026-07-20
+    t5_date: 2026-07-27
+    t0_close: 147.4
+    t5_close: 152.07
+    fwd_return_pct: 3.17

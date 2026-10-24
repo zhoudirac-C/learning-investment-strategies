@@ -30,3 +30,21 @@
   - 险资固收
   - 风控
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 排除四大下跌理由，认为无被动抛售压力，隐含看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-13
+    t5_date: 2026-10-20
+    t0_close: 4275.68
+    t5_close: 4152.11
+    fwd_return_pct: -2.89

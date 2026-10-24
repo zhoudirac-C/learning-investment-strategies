@@ -477,6 +477,23 @@ claims:
   - 分歧回流
   topic: 7月23日复盘：宝光股份——真空灭弧室龙头，电力分歧回流时跟踪
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600379.SH
+    rationale: 看多宝光股份，龙头+电力基建需求，等待分歧回流买入时机
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600379.SH
+    t0_date: 2026-07-23
+    t5_date: 2026-07-30
+    t0_close: 11.52
+    t5_close: 10.56
+    fwd_return_pct: -8.33
 - id: claim-20260723-041
   source_path: sources/original/bilibili/2026-07-23-2151-图片-今日指数延续分化：沪指相对强势，科创50跌幅偏大，盘面黄白线.md
   up_id: '1420210197'
@@ -513,6 +530,23 @@ claims:
   - 黄金
   topic: 7月23日复盘：中电电机——金矿资产注入预期，黄金回踩可博弈分歧
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603988.SH
+    rationale: 看多中电电机金矿注入题材，回踩分歧后待量价确认参与
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603988.SH
+    t0_date: 2026-07-23
+    t5_date: 2026-07-30
+    t0_close: 17.17
+    t5_close: 19.91
+    fwd_return_pct: 15.96
 - id: claim-20260723-042
   source_path: sources/original/bilibili/2026-07-23-2151-图片-今日指数延续分化：沪指相对强势，科创50跌幅偏大，盘面黄白线.md
   up_id: '1420210197'
@@ -549,6 +583,23 @@ claims:
   - 风格切换信号
   topic: 7月23日复盘：恒尚节能——建筑跨界存储，风格切换先行信号股
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603137.SH
+    rationale: 判断三连板企稳后有望逐步修复，属看多关注
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603137.SH
+    t0_date: 2026-07-23
+    t5_date: 2026-07-30
+    t0_close: 25.8
+    t5_close: 26.21
+    fwd_return_pct: 1.59
 - id: claim-20260723-043
   source_path: sources/original/bilibili/2026-07-23-2151-图片-今日指数延续分化：沪指相对强势，科创50跌幅偏大，盘面黄白线.md
   up_id: '1420210197'

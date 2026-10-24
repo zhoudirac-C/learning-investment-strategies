@@ -37,6 +37,23 @@ claims:
   - 偏多
   - 指数定性
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 明确判断指数短期上升趋势并建议偏多，属看多观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 4517.28
+    t5_close: 4310.28
+    fwd_return_pct: -4.58
 - id: claim-20260923-002-b
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -70,6 +87,13 @@ claims:
   - 冲高回落
   - 新方向
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 假期效应属节奏与结构轮动判断，非净方向观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260923-002-c
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -106,6 +130,23 @@ claims:
   - 操作基调
   - 新方向
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 节前偏多基调，持股做T不加仓，属大盘操作判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 4517.28
+    t5_close: 4310.28
+    fwd_return_pct: -4.58
 - id: claim-20260923-002-d
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -138,6 +179,23 @@ claims:
   - KOSPI
   - 科技股风偏
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 外盘锚点恶化压制风偏，科技股资金面短期承压
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 3379.61
+    t5_close: 3036.66
+    fwd_return_pct: -10.15
 - id: claim-20260923-002-e
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -171,6 +229,23 @@ claims:
   - 日韩反包
   - 传导链
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 预判美股站稳→日韩反包→传导A股上行，看多大盘
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 4517.28
+    t5_close: 4310.28
+    fwd_return_pct: -4.58
 - id: claim-20260923-002-f
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -204,6 +279,23 @@ claims:
   - 提前定价
   - 预期差
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 担忧已提前定价，利好易超预期，属看多判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 4517.28
+    t5_close: 4310.28
+    fwd_return_pct: -4.58
 - id: claim-20260923-002-g
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -241,6 +333,13 @@ claims:
   - 美债
   - 宏观框架
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 宏观传导框架，条件式判断而非直接方向观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260923-002-h
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -276,6 +375,23 @@ claims:
   - 讨价还价
   - 油价主线
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 美伊谈判进入实质阶段，油价下行主线延续，整体偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 4517.28
+    t5_close: 4310.28
+    fwd_return_pct: -4.58
 - id: claim-20260923-002-i
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -309,6 +425,13 @@ claims:
   - WTI
   - 布伦特
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 601857.SH
+    rationale: 条件情景二阶推演，讲美欧分化而非单边方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260923-002-j
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -341,6 +464,13 @@ claims:
   - 晋级率
   - 抱团
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: LLM 响应解析失败，降级 neutral
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260923-002-k
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -382,6 +512,23 @@ claims:
   - 异动
   - 资金再分配
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 资金再分配利多其他方向，成立与否取决于指数环境
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 4517.28
+    t5_close: 4310.28
+    fwd_return_pct: -4.58
 - id: claim-20260923-002-l
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -421,6 +568,13 @@ claims:
   - 存储行情
   - 轮动
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 提出两种待验证情形，未给出方向判断，属方法论命题
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260923-002-m
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -455,6 +609,13 @@ claims:
   - 冲高回落创新高
   - 绝对涨幅
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论筛选框架，无方向判断；科技趋势股最相关创业板指
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260923-002-n
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -503,6 +664,13 @@ claims:
   - 分化
   - 精选
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 描述板块轮动与操作方法论，非明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260923-002-o
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -542,6 +710,23 @@ claims:
   - 定价逻辑
   - 负载回迁
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600770.SH
+    rationale: 看多CPU负载回迁逻辑，首选综艺股份
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600770.SH
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 6.51
+    t5_close: 6.03
+    fwd_return_pct: -7.37
 - id: claim-20260923-002-p
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -580,6 +765,23 @@ claims:
   - Shopify
   - 智能体购物
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300464.SZ
+    rationale: 看多Agent Commerce催化下的AI电商方向，首选星徽股份
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300464.SZ
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 12
+    t5_close: 9.53
+    fwd_return_pct: -20.58
 - id: claim-20260923-002-q
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -621,6 +823,23 @@ claims:
   - 中东欧
   - 估值
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603538.SH
+    rationale: 出海平台催化利好首批入驻的美诺华，看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603538.SH
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 27.78
+    t5_close: 29.46
+    fwd_return_pct: 6.05
 - id: claim-20260923-002-r
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -665,6 +884,23 @@ claims:
   - 产品化
   - 催化窗口
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000725.SZ
+    rationale: 看多玻璃基板产品化主题，京东方大会为催化窗口
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000725.SZ
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 6.02
+    t5_close: 5.5
+    fwd_return_pct: -8.64
 - id: claim-20260923-002-s
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -705,6 +941,23 @@ claims:
   - 利空出尽
   - 配置价值
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600711.SH
+    rationale: 看多镍板块配置价值，盛屯矿业镍业务更核心
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600711.SH
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 10.9
+    t5_close: 10.28
+    fwd_return_pct: -5.69
 - id: claim-20260923-002-t
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -747,6 +1000,23 @@ claims:
   - 烟草
   - 日本验证
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300741.SZ
+    rationale: HNB产业逻辑看多，首选华宝股份为定价基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300741.SZ
+    t0_date: 2026-09-23
+    t5_date: 2026-10-08
+    t0_close: 29.59
+    t5_close: 23.6
+    fwd_return_pct: -20.24
 - id: claim-20260923-002-u
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -793,6 +1063,19 @@ claims:
   - 测试需求
   - 创远信科
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301689.SZ
+    rationale: 看多测试仪器环节，选可交易主标的电科思仪
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 301689.SZ 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301689.SZ
 - id: claim-20260923-002-v
   source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
@@ -831,3 +1114,11 @@ claims:
   - 防守
   - 低开不可怕
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 双情形操作预案属方法论，无明确方向；以A股节奏基准上证指数定价
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

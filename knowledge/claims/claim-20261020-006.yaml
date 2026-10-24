@@ -31,6 +31,21 @@
   - 上证50
   - 雨露均沾
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 护盘广度提升、情绪托底积极，利好大盘整体
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11
 - id: claim-20261020-006-b
   source_path: sources/original/wechat/2026-10-20-股市：还悲观的可考虑销户（2026.10.20）.md
   source_date: '2026-10-20'
@@ -61,6 +76,21 @@
   - 海外风险
   - 震荡磨底
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 护盘托底概率大，可试多但海外风险未出清，偏多谨慎
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11
 - id: claim-20261020-006-c
   source_path: sources/original/wechat/2026-10-20-股市：还悲观的可考虑销户（2026.10.20）.md
   source_date: '2026-10-20'
@@ -90,6 +120,21 @@
   - 销户论
   - 反向劝退
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 底部区域反向劝退话术，实质是看多立场的强化表达
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11
 - id: claim-20261020-006-d
   source_path: sources/original/wechat/2026-10-20-股市：还悲观的可考虑销户（2026.10.20）.md
   source_date: '2026-10-20'
@@ -121,6 +166,13 @@
   - 护盘机制
   - 双向调节
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 描述护盘机制的循环规律，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-006-e
   source_path: sources/original/wechat/2026-10-20-股市：还悲观的可考虑销户（2026.10.20）.md
   source_date: '2026-10-20'
@@ -154,3 +206,19 @@
   - 试多
   - 右侧信号
   school: gator
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 判断市场底形成、可试多，属看多方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11

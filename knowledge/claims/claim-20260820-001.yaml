@@ -519,6 +519,13 @@ claims:
   - mRNA
   - 观察落点
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688185.SH
+    rationale: "主题映射筛选+条件判定，未给明确方向，属方法论"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260820-016
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-0900-专栏-一、隔夜与开盘预判：纪要偏鹰，长端利率却被按住了 据隔夜行情.md
   up_id: '1420210197'
@@ -588,6 +595,23 @@ claims:
   - 业绩高增
   - 定增
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688627.SH
+    rationale: "业绩高增长、订单充足、测试机突破，明确看多方向"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688627.SH
+    t0_date: 2026-08-20
+    t5_date: 2026-08-27
+    t0_close: 483.66
+    t5_close: 513.5
+    fwd_return_pct: 6.17
 - id: claim-20260820-018
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-0900-专栏-一、隔夜与开盘预判：纪要偏鹰，长端利率却被按住了 据隔夜行情.md
   up_id: '1420210197'
@@ -624,6 +648,24 @@ claims:
   - 稼动率
   - 涨价
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002156.SZ
+    rationale: "H1净利超去年全年，稼动率90%+叠加Q3涨价，业绩看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.92%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002156.SZ
+    t0_date: 2026-08-20
+    t5_date: 2026-08-27
+    t0_close: 63.15
+    t5_close: 63.73
+    fwd_return_pct: 0.92
 - id: claim-20260820-019
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-0900-专栏-一、隔夜与开盘预判：纪要偏鹰，长端利率却被按住了 据隔夜行情.md
   up_id: '1420210197'
@@ -660,6 +702,24 @@ claims:
   - 超声检测
   - HBM
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688392.SH
+    rationale: "订单超收入+CoWoS批量交货复购，明确看多弹性标的"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.67%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688392.SH
+    t0_date: 2026-08-20
+    t5_date: 2026-08-27
+    t0_close: 191.32
+    t5_close: 192.6
+    fwd_return_pct: 0.67
 - id: claim-20260820-020
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-0900-专栏-一、隔夜与开盘预判：纪要偏鹰，长端利率却被按住了 据隔夜行情.md
   up_id: '1420210197'
@@ -695,6 +755,23 @@ claims:
   - 订单节奏
   - 利润下滑
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301611.SZ
+    rationale: "判断Q2为报表低点，估值看订单节奏，倾向看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301611.SZ
+    t0_date: 2026-08-20
+    t5_date: 2026-08-27
+    t0_close: 99.8
+    t5_close: 103.04
+    fwd_return_pct: 3.25
 - id: claim-20260820-021
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-0900-专栏-一、隔夜与开盘预判：纪要偏鹰，长端利率却被按住了 据隔夜行情.md
   up_id: '1420210197'

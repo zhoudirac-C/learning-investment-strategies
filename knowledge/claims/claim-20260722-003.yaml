@@ -259,6 +259,23 @@ claims:
   - 字节
   - 阿里
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688702.SH
+    rationale: 订单从验证走向批量，看多但提示追高风险
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688702.SH
+    t0_date: 2026-07-22
+    t5_date: 2026-07-29
+    t0_close: 430.15
+    t5_close: 351.42
+    fwd_return_pct: -18.3
 - id: claim-20260722-024
   source_path: sources/original/bilibili/2026-07-22-2217-图片-今日指数低开后震荡回升，随后迎来分化：沪指相对强势，双创回落.md
   up_id: '1420210197'
@@ -299,6 +316,23 @@ claims:
   - 含AI量
   - 估值修复
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000063.SZ
+    rationale: 看多中兴通讯，含AI量低估+大票补涨估值修复逻辑
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000063.SZ
+    t0_date: 2026-07-22
+    t5_date: 2026-07-29
+    t0_close: 37.092
+    t5_close: 34.08
+    fwd_return_pct: -8.12
 - id: claim-20260722-025
   source_path: sources/original/bilibili/2026-07-22-2217-图片-今日指数低开后震荡回升，随后迎来分化：沪指相对强势，双创回落.md
   up_id: '1420210197'
@@ -337,6 +371,23 @@ claims:
   - 服务器
   - 景气外溢
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000977.SZ
+    rationale: 超微订单验证AI服务器景气外溢，看多浪潮信息
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000977.SZ
+    t0_date: 2026-07-22
+    t5_date: 2026-07-29
+    t0_close: 90.47
+    t5_close: 74.94
+    fwd_return_pct: -17.17
 - id: claim-20260722-026
   source_path: sources/original/bilibili/2026-07-22-2217-图片-今日指数低开后震荡回升，随后迎来分化：沪指相对强势，双创回落.md
   up_id: '1420210197'
@@ -377,6 +428,13 @@ claims:
   - Token工厂
   - 华为昇腾
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301236.SZ
+    rationale: UP仅梳理产业链信息，未表达明确看多看空判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260722-027
   source_path: sources/original/bilibili/2026-07-22-2217-图片-今日指数低开后震荡回升，随后迎来分化：沪指相对强势，双创回落.md
   up_id: '1420210197'

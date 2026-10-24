@@ -29,6 +29,23 @@
   - 债市定价
   - 宏观联动
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: AI叙事降温+资金成本挤压，看空科技板块，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-15
+    t5_date: 2026-10-22
+    t0_close: 4166.01
+    t5_close: 4036.3
+    fwd_return_pct: -3.11
 - id: claim-20261015-004-b
   source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
   source_date: '2026-10-15'
@@ -60,6 +77,13 @@
   - 增速曲线
   - AI定价
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论判断：以二阶导解释AI板块杀跌，非方向观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-004-c
   source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
   source_date: '2026-10-15'
@@ -92,6 +116,23 @@
   - 垫资链
   - CoreWeave
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 看空算力垫资链，最先跌的是垫资建数据中心公司
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-15
+    t5_date: 2026-10-22
+    t0_close: 4166.01
+    t5_close: 4036.3
+    fwd_return_pct: -3.11
 - id: claim-20261015-004-d
   source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
   source_date: '2026-10-15'
@@ -123,6 +164,13 @@
   - 加息路径
   - 美联储
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 属货币政策路径的分层判断，未直接给出资产方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-004-e
   source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
   source_date: '2026-10-15'
@@ -154,6 +202,23 @@
   - MBS
   - 空头回补
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 仓位极端低配+技术卖压耗尽，看多债市长端，收益率回落
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-15
+    t5_date: 2026-10-22
+    t0_close: 4166.01
+    t5_close: 4036.3
+    fwd_return_pct: -3.11
 - id: claim-20261015-004-f
   source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
   source_date: '2026-10-15'
@@ -183,6 +248,13 @@
   - 增长受损
   - 风险转移
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性拆解收益率下行性质，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-004-g
   source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
   source_date: '2026-10-15'
@@ -214,6 +286,23 @@
   - 融资链
   - '7700'
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 警示AI融资链风险或扩散至全市场，7700失守则看空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-15
+    t5_date: 2026-10-22
+    t0_close: 4166.01
+    t5_close: 4036.3
+    fwd_return_pct: -3.11
 - id: claim-20261015-004-h
   source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
   source_date: '2026-10-15'
@@ -243,6 +332,19 @@
   - 短期偏空
   - 买盘
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 518880.SZ
+    rationale: 黄金短期偏空，以黄金ETF 518880作定价基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 518880.SZ 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 518880.SZ
 - id: claim-20261015-004-i
   source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
   source_date: '2026-10-15'
@@ -272,6 +374,13 @@
   - 103分界
   - 区间
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 美元指数技术位判断，双向情景非方向性观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-004-j
   source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
   source_date: '2026-10-15'
@@ -301,6 +410,13 @@
   - 实际利率
   - 传导链
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh518880
+    rationale: 传导机制方法论判断，非方向观点；最相关标的为黄金ETF
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261015-004-k
   source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
   source_date: '2026-10-15'
@@ -330,3 +446,11 @@
   - 定价中枢
   - 框架
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定价框架方法论判断，无明确多空方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

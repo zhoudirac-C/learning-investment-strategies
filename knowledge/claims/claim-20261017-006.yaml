@@ -32,3 +32,19 @@ claims:
   - 权重
   - 六二四
   - 九二四
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 看多横盘整固的国产替代科技权重，科创50作代理基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000688
+    t0_date: 2026-10-19
+    t0_close: 1329.19

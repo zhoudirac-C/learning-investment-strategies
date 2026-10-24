@@ -36,6 +36,13 @@ claims:
     cases: []
   topic: 科技大跌=源杰跌停黑天鹅（科创权重第六）
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688498.SH
+    rationale: 归因单一黑天鹅触发科技下跌，属事件解释而非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-005-b
   source_path: sources/original/bilibili/2026-10-08-1429-视频-抄底。.md
   source_date: '2026-10-08'
@@ -71,6 +78,23 @@ claims:
     cases: []
   topic: 科创50底轨1444到位即企稳，否则明日探底收下影线（试看截断）
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 科创50底轨1444到位+下影线预期，隐含见底反弹看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000688
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 1456.32
+    t5_close: 1359.52
+    fwd_return_pct: -6.65
 - id: claim-20261008-005-c
   source_path: sources/original/bilibili/2026-10-08-1429-视频-抄底。.md
   source_date: '2026-10-08'
@@ -105,6 +129,13 @@ claims:
     cases: []
   topic: 纠偏：本轮没有底背离（上一波已做完该撤就撤）
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 技术误读纠偏，非方向判断，仅澄清无底背离信号
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261008-005-d
   source_path: sources/original/bilibili/2026-10-08-1429-视频-抄底。.md
   source_date: '2026-10-08'
@@ -139,6 +170,23 @@ claims:
     cases: []
   topic: 抄底依据=九转低九+日线负乖离过大（非底背离）
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 低九+负乖离共振抄底，属看多入场信号，指向大盘日线级别
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 3811.9
+    t5_close: 3707.48
+    fwd_return_pct: -2.74
 - id: claim-20261008-005-e
   source_path: sources/original/bilibili/2026-10-08-1429-视频-抄底。.md
   source_date: '2026-10-08'
@@ -173,3 +221,21 @@ claims:
     cases: []
   topic: 成长板块跳空低开=最后一跌历史模板（今年3-4月、去年11月先例）
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 成长板块最后一跌=做空动能释放，隐含抄底看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 3036.66
+    t5_close: 2783.17
+    fwd_return_pct: -8.35

@@ -36,3 +36,22 @@ claims:
   - 第二轮融资
   - 国产大模型
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002432.SZ
+    rationale: "看多DeepSeek产业链，九安医疗为可交易相关标的"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.14%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002432.SZ
+    t0_date: 2026-07-20
+    t5_date: 2026-07-27
+    t0_close: 72.5
+    t5_close: 72.4
+    fwd_return_pct: -0.14

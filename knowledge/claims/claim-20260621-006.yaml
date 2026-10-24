@@ -667,3 +667,21 @@ claims:
   - 报行合一
   - 配置机会
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601628.SH
+    rationale: 看多中国人寿，认为回调是中长期配置买点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601628.SH
+    t0_date: 2026-06-22
+    t5_date: 2026-06-29
+    t0_close: 35.464
+    t5_close: 34.764
+    fwd_return_pct: -1.97

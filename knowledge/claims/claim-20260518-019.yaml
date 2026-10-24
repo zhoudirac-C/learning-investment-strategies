@@ -270,6 +270,23 @@ claims:
     name: 润建股份
     role: 参考标的
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 002929.SZ
+    rationale: 明确不建议关注，下游调整利空传导至公司
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002929.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 58.192
+    t5_close: 62.102
+    fwd_return_pct: 6.72
 - id: claim-20260518-019-i
   topic: 英伟达5月20日财报大概率没问题
   source_path: sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
@@ -375,6 +392,23 @@ claims:
     name: 兆易创新
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603986.SH
+    rationale: 认为阴线后是低吸买点，预期反弹上涨
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603986.SH
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 483.5
+    t5_close: 629
+    fwd_return_pct: 30.09
 - id: claim-20260518-019-l
   topic: 中国长城明日收阳线概率很大
   source_path: sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
@@ -413,6 +447,23 @@ claims:
     name: 中国长城
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000066.SZ
+    rationale: 预期明日收阳上涨，联动受益逻辑看多中国长城
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000066.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 15.69
+    t5_close: 17.84
+    fwd_return_pct: 13.7
 - id: claim-20260518-019-m
   topic: 波浪理论操作策略
   source_path: sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md

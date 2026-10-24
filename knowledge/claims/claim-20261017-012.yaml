@@ -31,3 +31,11 @@ claims:
   - 逃顶
   - 顶鬼
   - 日线
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 量价逃顶方法论与信号规则，非明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

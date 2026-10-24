@@ -563,6 +563,23 @@ claims:
   - 3414亿
   - 位置筹码
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603118.SH
+    rationale: 短期看多共进股份弹性，但强调来自位置筹码而非基本面
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603118.SH
+    t0_date: 2026-08-17
+    t5_date: 2026-08-24
+    t0_close: 19.32
+    t5_close: 16.01
+    fwd_return_pct: -17.13
 - id: claim-20260816-016
   claim_type: stock-view
   subject: 天孚通信CPO稀缺卡位
@@ -601,6 +618,23 @@ claims:
   - 1.6T光引擎
   - 英伟达供应链
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300394.SZ
+    rationale: 强调CPO稀缺卡位与量产交付，属看多观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300394.SZ
+    t0_date: 2026-08-17
+    t5_date: 2026-08-24
+    t0_close: 286.56
+    t5_close: 249.5
+    fwd_return_pct: -12.93
 - id: claim-20260816-017
   claim_type: stock-view
   subject: 海洋王纯情绪载体标的
@@ -657,6 +691,13 @@ claims:
   - 筹码结构
   - 回撤风险
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002724.SZ
+    rationale: 情绪载体风险定性，强调纪律而非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260816-018
   claim_type: stock-view
   subject: 网宿科技中报二季度拐点
@@ -693,6 +734,23 @@ claims:
   - 结构切换
   - AI Infra
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300017.SZ
+    rationale: 看好Q2业绩拐点与高毛利业务放量，属看多观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300017.SZ
+    t0_date: 2026-08-17
+    t5_date: 2026-08-24
+    t0_close: 17.57
+    t5_close: 15.2
+    fwd_return_pct: -13.49
 - id: claim-20260816-019
   claim_type: catalyst
   subject: Anthropic二季度初步营收超115亿美元

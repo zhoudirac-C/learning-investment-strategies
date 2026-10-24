@@ -473,6 +473,23 @@ claims:
   - HBM
   - 缺陷检测
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603283.SH
+    rationale: 强调公司HBM检测差异化优势并列为受益标的，看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603283.SH
+    t0_date: 2026-06-30
+    t5_date: 2026-07-07
+    t0_close: 80.98
+    t5_close: 68.25
+    fwd_return_pct: -15.72
 - id: claim-20260630-003-o
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
   up_id: '1420210197'
@@ -508,6 +525,23 @@ claims:
   - GSI
   - 海力士
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002559.SZ
+    rationale: 参股GSI稳定供货海力士，属存储测试机利好逻辑
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002559.SZ
+    t0_date: 2026-06-30
+    t5_date: 2026-07-07
+    t0_close: 12.71
+    t5_close: 13.15
+    fwd_return_pct: 3.46
 - id: claim-20260630-003-p
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
   up_id: '1420210197'
@@ -1121,6 +1155,23 @@ claims:
   - CPO交换机
   - LPO光模块
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301165.SZ
+    rationale: 看好锐捷网络超节点/交换机卡位，属看多个股观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301165.SZ
+    t0_date: 2026-06-30
+    t5_date: 2026-07-07
+    t0_close: 80.45
+    t5_close: 94.51
+    fwd_return_pct: 17.48
 - id: claim-20260630-003-ah
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
   up_id: '1420210197'
@@ -1157,6 +1208,23 @@ claims:
   - 超节点
   - 订单兑现
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301165.SZ
+    rationale: 预期订单兑现驱动股价上行，属看多观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301165.SZ
+    t0_date: 2026-06-30
+    t5_date: 2026-07-07
+    t0_close: 80.45
+    t5_close: 94.51
+    fwd_return_pct: 17.48
 - id: claim-20260630-003-ai
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
   up_id: '1420210197'
@@ -1327,6 +1395,23 @@ claims:
   - 镍粉
   - 三星电机
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 605376.SH
+    rationale: 强调国内唯一量产80nm镍粉并深度绑定三星电机，属看多定位
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 605376.SH
+    t0_date: 2026-06-30
+    t5_date: 2026-07-07
+    t0_close: 271.3
+    t5_close: 212.53
+    fwd_return_pct: -21.66
 - id: claim-20260630-003-an
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
   up_id: '1420210197'

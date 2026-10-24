@@ -31,6 +31,21 @@ claims:
   - 全力看多
   - 仓位明牌
   - 收货
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 仓位即观点，主动收货表达A股底部看多判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-008-b
   source_path: sources/original/bilibili/2026-10-22-2134-视频-【急跌后的见底信号】 -.md
   source_date: '2026-10-22'
@@ -63,6 +78,13 @@ claims:
   - 走V
   - 走U
   - 底部形态
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 底部形态分类方法论，无方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-008-c
   source_path: sources/original/bilibili/2026-10-22-2134-视频-【急跌后的见底信号】 -.md
   source_date: '2026-10-22'
@@ -95,6 +117,21 @@ claims:
   - 方向判断
   - 科技赎回
   - 流动性
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 明确看多大盘，预期急跌后V型反弹
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-008-d
   source_path: sources/original/bilibili/2026-10-22-2134-视频-【急跌后的见底信号】 -.md
   source_date: '2026-10-22'
@@ -127,6 +164,13 @@ claims:
   - 走V
   - 股权投资心态
   - 左侧分批
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点非方向判断；港股主题基准取恒指
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-008-e
   source_path: sources/original/bilibili/2026-10-22-2134-视频-【急跌后的见底信号】 -.md
   source_date: '2026-10-22'
@@ -159,6 +203,13 @@ claims:
   - 鱼头不吃
   - 放量连续
   - 5日3天
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判据，非方向判断；默认用沪深300作验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-008-f
   source_path: sources/original/bilibili/2026-10-22-2134-视频-【急跌后的见底信号】 -.md
   source_date: '2026-10-22'
@@ -191,6 +242,21 @@ claims:
   - 末尾信号
   - 平开瀑布
   - 平台破位
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 赎回末尾=抛压出清近尾声，隐含市场见底偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-008-g
   source_path: sources/original/bilibili/2026-10-22-2134-视频-【急跌后的见底信号】 -.md
   source_date: '2026-10-22'
@@ -223,6 +289,21 @@ claims:
   - 中小盘流动性
   - 龙哥
   - 恶性事件防线
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 护盘意愿明确、流动性扩至中小盘，预期指数企稳上行
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-008-h
   source_path: sources/original/bilibili/2026-10-22-2134-视频-【急跌后的见底信号】 -.md
   source_date: '2026-10-22'
@@ -258,6 +339,19 @@ claims:
   - 10倍PE
   - 港股通
   - 预期差
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 00700
+    rationale: 明确看多腾讯，认为估值已低、计划买入个股
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 448 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 448
 - id: claim-20261022-008-i
   source_path: sources/original/bilibili/2026-10-22-2134-视频-【急跌后的见底信号】 -.md
   source_date: '2026-10-22'
@@ -292,6 +386,21 @@ claims:
   - 中国平安
   - 股息率
   - 险资持仓
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601318.SH
+    rationale: 看好平安高股息价值，45元为买入锚点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601318.SH
+    t0_date: 2026-10-22
+    t0_close: 50.94
 - id: claim-20261022-008-j
   source_path: sources/original/bilibili/2026-10-22-2134-视频-【急跌后的见底信号】 -.md
   source_date: '2026-10-22'
@@ -326,6 +435,21 @@ claims:
   - 牧原股份
   - 猪周期
   - 情绪宣泄末尾
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002714.SZ
+    rationale: 周期底部布局，越跌越买，看多牧原
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002714.SZ
+    t0_date: 2026-10-22
+    t0_close: 41.92
 - id: claim-20261022-008-k
   source_path: sources/original/bilibili/2026-10-22-2134-视频-【急跌后的见底信号】 -.md
   source_date: '2026-10-22'
@@ -360,6 +484,21 @@ claims:
   - AH溢价
   - 港股底部信号
   - 新股扭曲
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: AH溢价尖峰预示港股阶段底，看多后续反弹
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-008-l
   source_path: sources/original/bilibili/2026-10-22-2134-视频-【急跌后的见底信号】 -.md
   source_date: '2026-10-22'
@@ -391,6 +530,13 @@ claims:
   - AH共振
   - 拐点真伪
   - 交叉验证
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论非方向判断，验证大盘拐点以沪深300为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-008-m
   source_path: sources/original/bilibili/2026-10-22-2134-视频-【急跌后的见底信号】 -.md
   source_date: '2026-10-22'
@@ -429,6 +575,13 @@ claims:
   - 货币基金
   - 高股息
   - 压舱石
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 511880.SZ
+    rationale: 方法论观点：现金管理流动性优先，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-008-n
   source_path: sources/original/bilibili/2026-10-22-2134-视频-【急跌后的见底信号】 -.md
   source_date: '2026-10-22'
@@ -461,6 +614,13 @@ claims:
   - 周期律
   - AI危机两层面
   - 杀估值vs真危机
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判据：区分杀估值与真危机，未给明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-008-o
   source_path: sources/original/bilibili/2026-10-22-2134-视频-【急跌后的见底信号】 -.md
   source_date: '2026-10-22'
@@ -492,3 +652,11 @@ claims:
   - 操作纪律
   - 不做T
   - 信念一致
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 操作纪律类方法论，非方向判断，基准取大盘
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

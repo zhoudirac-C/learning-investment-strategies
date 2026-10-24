@@ -31,6 +31,21 @@ claims:
   - 市场信心
   - 修复关键
   - 宽基ETF
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 定性修复进行中，扩散持续则反弹升级，偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-007-b
   source_path: sources/original/bilibili/2026-10-22-2209-专栏-今天市场再度普跌，宽基ETF尾盘放量与多数个股持续走弱同时发_3.md
   source_date: '2026-10-22'
@@ -63,6 +78,13 @@ claims:
   - 集中拉升
   - 修复进展
   - 方法论
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判据，非方向判断；关联大盘修复评估
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-007-c
   source_path: sources/original/bilibili/2026-10-22-2209-专栏-今天市场再度普跌，宽基ETF尾盘放量与多数个股持续走弱同时发_3.md
   source_date: '2026-10-22'
@@ -98,6 +120,13 @@ claims:
   - 抱团松动
   - 增量买盘
   - 短线情绪
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 资金切换机制的方法论解释，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-007-d
   source_path: sources/original/bilibili/2026-10-22-2209-专栏-今天市场再度普跌，宽基ETF尾盘放量与多数个股持续走弱同时发_3.md
   source_date: '2026-10-22'
@@ -130,6 +159,13 @@ claims:
   - 大金融
   - 银行
   - 红利分化
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观察资金结构，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-007-e
   source_path: sources/original/bilibili/2026-10-22-2209-专栏-今天市场再度普跌，宽基ETF尾盘放量与多数个股持续走弱同时发_3.md
   source_date: '2026-10-22'
@@ -165,6 +201,13 @@ claims:
   - 分歧消化
   - 慢修复
   - 承接范围
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 003021.SZ
+    rationale: 方法论跟踪框架，非方向判断；基准取相关标的兆威机电
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-007-f
   source_path: sources/original/bilibili/2026-10-22-2209-专栏-今天市场再度普跌，宽基ETF尾盘放量与多数个股持续走弱同时发_3.md
   source_date: '2026-10-22'
@@ -200,6 +243,13 @@ claims:
   - 数据要素
   - 军工
   - 消息响应
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002076.SZ
+    rationale: 题材生态定性描述，无明确方向判断，属方法论观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-007-g
   source_path: sources/original/bilibili/2026-10-22-2209-专栏-今天市场再度普跌，宽基ETF尾盘放量与多数个股持续走弱同时发_3.md
   source_date: '2026-10-22'
@@ -232,6 +282,13 @@ claims:
   - 数据采集
   - 标注仿真
   - 收费空间
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架非方向判断，无具体标的，取沪深300作基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-007-h
   source_path: sources/original/bilibili/2026-10-22-2209-专栏-今天市场再度普跌，宽基ETF尾盘放量与多数个股持续走弱同时发_3.md
   source_date: '2026-10-22'
@@ -270,6 +327,13 @@ claims:
   - 整机适配
   - 可靠性验证
   - 批量交付
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 003021.SZ
+    rationale: 阐述适配—验证—批量的兑现路径方法论，区分能力与经营贡献，非买卖方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-007-i
   source_path: sources/original/bilibili/2026-10-22-2209-专栏-今天市场再度普跌，宽基ETF尾盘放量与多数个股持续走弱同时发_3.md
   source_date: '2026-10-22'
@@ -305,6 +369,21 @@ claims:
   - SoC
   - 物联网模组
   - 成本传导
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603236.SH
+    rationale: 需求成本双改善框架，指向模组企业盈利改善，偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603236.SH
+    t0_date: 2026-10-22
+    t0_close: 82.02
 - id: claim-20261022-007-j
   source_path: sources/original/bilibili/2026-10-22-2209-专栏-今天市场再度普跌，宽基ETF尾盘放量与多数个股持续走弱同时发_3.md
   source_date: '2026-10-22'
@@ -343,6 +422,13 @@ claims:
   - 软件分化
   - 续费回款
   - 收入验证
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603171.SH
+    rationale: 筛选方法论非方向判断，选税友股份作验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-007-k
   source_path: sources/original/bilibili/2026-10-22-2209-专栏-今天市场再度普跌，宽基ETF尾盘放量与多数个股持续走弱同时发_3.md
   source_date: '2026-10-22'
@@ -377,6 +463,13 @@ claims:
   - 国资整合
   - 股权变化
   - 预期交易
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600838.SH
+    rationale: 方法论式观察框架，非方向判断；以上海九百为观察案例
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-007-l
   source_path: sources/original/bilibili/2026-10-22-2209-专栏-今天市场再度普跌，宽基ETF尾盘放量与多数个股持续走弱同时发_3.md
   source_date: '2026-10-22'
@@ -412,6 +505,13 @@ claims:
   - 创新药
   - 产业比较
   - 方法论
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002940.SZ
+    rationale: 方法论表述，无方向判断，仅说明兑现周期差异
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-007-m
   source_path: sources/original/bilibili/2026-10-22-2209-专栏-今天市场再度普跌，宽基ETF尾盘放量与多数个股持续走弱同时发_3.md
   source_date: '2026-10-22'
@@ -444,6 +544,13 @@ claims:
   - 修复延伸
   - 防守轮动
   - 可证伪
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 双情形推演框架，未给出方向性判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261022-007-n
   source_path: sources/original/bilibili/2026-10-22-2209-专栏-今天市场再度普跌，宽基ETF尾盘放量与多数个股持续走弱同时发_3.md
   source_date: '2026-10-22'
@@ -476,3 +583,11 @@ claims:
   - 量能范围
   - 承接协调
   - 情绪稳定
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 盯盘观察清单，无方向判断，属方法论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

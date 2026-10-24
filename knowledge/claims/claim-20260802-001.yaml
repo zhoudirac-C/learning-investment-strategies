@@ -834,6 +834,23 @@ claims:
   - 股权转让
   - 预期先行
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 300996.SZ
+    rationale: 预期先行、并表协同未验证，实质提示回避追高待订单落地
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300996.SZ
+    t0_date: 2026-08-03
+    t5_date: 2026-08-10
+    t0_close: 17.09
+    t5_close: 19.5
+    fwd_return_pct: 14.1
 - id: claim-20260802-018
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
   up_id: '1420210197'
@@ -877,6 +894,23 @@ claims:
   - 行业性景气
   - 量价齐升
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 300613.SZ
+    rationale: 质疑业绩可持续性，认为行业景气而非个体突破，偏谨慎看空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300613.SZ
+    t0_date: 2026-08-03
+    t5_date: 2026-08-10
+    t0_close: 67.48
+    t5_close: 74.15
+    fwd_return_pct: 9.88
 - id: claim-20260802-019
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
   up_id: '1420210197'
@@ -912,6 +946,23 @@ claims:
   - 增速回落
   - 情绪锚
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 688836.SH
+    rationale: 强调业绩增速回落被IPO情绪行情忽略，隐含谨慎看空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688836.SH
+    t0_date: 2026-08-19
+    t5_date: 2026-08-26
+    t0_close: 845
+    t5_close: 591.53
+    fwd_return_pct: -30
 - id: claim-20260802-020
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
   up_id: '1420210197'
@@ -948,6 +999,23 @@ claims:
   - AI培训
   - 兑现周期
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 003032.SZ
+    rationale: 叙事完整、具主题弹性，仅提示兑现周期长，谨慎偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 003032.SZ
+    t0_date: 2026-08-03
+    t5_date: 2026-08-10
+    t0_close: 9.69
+    t5_close: 12.03
+    fwd_return_pct: 24.15
 - id: claim-20260802-021
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
   up_id: '1420210197'

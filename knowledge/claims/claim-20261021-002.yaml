@@ -30,6 +30,13 @@ claims:
   - 修复延续
   - 日线结构
   - 科技扩散
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 日内观察任务拆解，条件性确认而非明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-002-b
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -61,6 +68,21 @@ claims:
   - 日线底部结构
   - 3741点
   - 收盘确认
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 沪指日线底部结构确认条件，收盘站上3741即看多信号
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-10-21
+    t0_close: 3713.03
 - id: claim-20261021-002-c
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -92,6 +114,13 @@ claims:
   - 外盘
   - 开盘情绪
   - 内资
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论口径：外盘定开盘，内资定全天，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-002-d
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -123,6 +152,13 @@ claims:
   - 量能检验
   - 半小时同比
   - 午后增量
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 量能方法论，无方向判断，适用于大盘成交验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-002-e
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -154,6 +190,13 @@ claims:
   - 大金融
   - ETF承接
   - 权重合力
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 托底信号降级的方法论判断，非方向性观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-002-f
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -185,6 +228,13 @@ claims:
   - 情绪基线
   - 二板
   - 晋级率
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论观点，给出情绪基线无方向，基准对应沪市大盘
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-002-g
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -225,6 +275,13 @@ claims:
   - 科技扩散
   - 大市值
   - 物理AI
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300308.SZ
+    rationale: 属方法论：提出扩散验证条件，非明确方向判断，以中际旭创为观察基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-002-h
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -259,6 +316,13 @@ claims:
   - 硬件与软件
   - 板块呼应
   - 端侧
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300308.SZ
+    rationale: 方法论观察框架，无方向判断，取相关标的作基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-002-i
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -296,6 +360,13 @@ claims:
   - 消费
   - 轮动
   - 修复广度
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 轮动方法论，条件判断无明确方向，基准取沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-002-j
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -330,6 +401,13 @@ claims:
   - 涨价题材
   - 三季报
   - 公司分化
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301190.SZ
+    rationale: 讲财报分化方法论，非明确多空方向，以善水科技为观察基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-002-k
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -364,6 +442,13 @@ claims:
   - 物理AI
   - 模型能力
   - 部署成本
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688836.SH
+    rationale: 描述模型能力进展与工程化条件，非方向性判断，关联宇树科技
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-002-l
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -404,6 +489,21 @@ claims:
   - 端侧AI
   - 渗透率
   - 量产收入
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603893.SH
+    rationale: 端侧AI渗透叠加存储降本利好SoC厂商，倾向看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603893.SH
+    t0_date: 2026-10-21
+    t0_close: 200
 - id: claim-20261021-002-m
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -441,6 +541,13 @@ claims:
   - 智能制造
   - 政策兑现
   - 运维收入
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603859.SH
+    rationale: 方法论表述，无方向判断，仅给出政策兑现验证框架
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-002-n
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -478,6 +585,13 @@ claims:
   - 数据要素
   - 项目回款
   - 国家数据集团
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 601858.SH
+    rationale: 方法论观点：业务联系不等于增量，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-002-o
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -509,6 +623,13 @@ claims:
   - 物理AI
   - 空间数据
   - 产业链外延
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 产业链框架梳理，无方向判断，关联科创50
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-002-p
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -540,6 +661,21 @@ claims:
   - 情形A
   - 确认条件
   - 量能权重情绪
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 条件满足则沪指向3741上方扩展修复，方向看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-10-21
+    t0_close: 3713.03
 - id: claim-20261021-002-q
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -571,6 +707,21 @@ claims:
   - 情形B
   - 磨底
   - 结构降级
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情形B判据指向磨底反复、成交广度不足，偏谨慎看空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-21
+    t0_close: 4111.93
 - id: claim-20261021-002-r
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -602,6 +753,13 @@ claims:
   - 观察纪律
   - 预期与经营
   - 时间尺度
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 元方法论，无方向判断，基准取大盘指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261021-002-s
   source_path: sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md
   source_date: '2026-10-21'
@@ -633,3 +791,11 @@ claims:
   - 三变量
   - 盘中打分
   - 15时核对
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 复盘观察清单，无方向判断；3741点为上证核对位
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

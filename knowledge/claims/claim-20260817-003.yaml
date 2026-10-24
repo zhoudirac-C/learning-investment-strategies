@@ -462,6 +462,23 @@ claims:
   - 估值先行
   - CPO
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300570.SZ
+    rationale: 看多海外链弹性，估值先行预期股价上行
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300570.SZ
+    t0_date: 2026-08-17
+    t5_date: 2026-08-24
+    t0_close: 193.8
+    t5_close: 202.9
+    fwd_return_pct: 4.7
 - id: claim-20260817-043
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-2214-专栏-今天这根中阳线不难看懂，难在读它的性质。放量2446亿元至2.md
   up_id: '1420210197'
@@ -498,6 +515,23 @@ claims:
   - FCBGA
   - 封装基板
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002436.SZ
+    rationale: 强调量产爬坡、收入高增与机构净买入，属看多观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002436.SZ
+    t0_date: 2026-08-17
+    t5_date: 2026-08-24
+    t0_close: 38.3
+    t5_close: 33.24
+    fwd_return_pct: -13.21
 - id: claim-20260817-044
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-2214-专栏-今天这根中阳线不难看懂，难在读它的性质。放量2446亿元至2.md
   up_id: '1420210197'
@@ -534,6 +568,23 @@ claims:
   - mSAP
   - 国产替代
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301511.SZ
+    rationale: 看多德福科技载体铜箔卡位，跟踪验证与量产爬坡
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301511.SZ
+    t0_date: 2026-08-17
+    t5_date: 2026-08-24
+    t0_close: 101
+    t5_close: 81.87
+    fwd_return_pct: -18.94
 - id: claim-20260817-045
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-2214-专栏-今天这根中阳线不难看懂，难在读它的性质。放量2446亿元至2.md
   up_id: '1420210197'
@@ -1057,6 +1108,23 @@ claims:
   - 224G
   - 安费诺
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688668.SH
+    rationale: 明确看多鼎通科技，业绩高增与液冷认证验证出货确定性
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688668.SH
+    t0_date: 2026-08-17
+    t5_date: 2026-08-24
+    t0_close: 292.9
+    t5_close: 247.7
+    fwd_return_pct: -15.43
 - id: claim-20260817-059
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-2214-专栏-今天这根中阳线不难看懂，难在读它的性质。放量2446亿元至2.md
   up_id: '1420210197'
@@ -1098,6 +1166,23 @@ claims:
   - 业绩拐点
   - FPC拖累
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301123.SZ
+    rationale: 拐点确认、订单饱满、高端占比提升，看多奕东电子
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301123.SZ
+    t0_date: 2026-08-17
+    t5_date: 2026-08-24
+    t0_close: 81.2
+    t5_close: 73.68
+    fwd_return_pct: -9.26
 - id: claim-20260817-060
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-2214-专栏-今天这根中阳线不难看懂，难在读它的性质。放量2446亿元至2.md
   up_id: '1420210197'
@@ -1146,6 +1231,23 @@ claims:
   - 第二梯队
   - 认证进度
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300322.SZ
+    rationale: 梳理液冷Cage第二梯队获资格/对接进展，偏关注看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300322.SZ
+    t0_date: 2026-08-17
+    t5_date: 2026-08-24
+    t0_close: 19.42
+    t5_close: 17.05
+    fwd_return_pct: -12.2
 - id: claim-20260817-061
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-2214-专栏-今天这根中阳线不难看懂，难在读它的性质。放量2446亿元至2.md
   up_id: '1420210197'
@@ -1196,6 +1298,23 @@ claims:
   - VC
   - 并购卡位
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300684.SZ
+    rationale: 看多液冷配套与均热板标的，中石科技1.6T VC已供货且2连板，方向明确。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300684.SZ
+    t0_date: 2026-08-17
+    t5_date: 2026-08-24
+    t0_close: 80.83
+    t5_close: 84.2
+    fwd_return_pct: 4.17
 - id: claim-20260817-062
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-2214-专栏-今天这根中阳线不难看懂，难在读它的性质。放量2446亿元至2.md
   up_id: '1420210197'
@@ -1297,6 +1416,23 @@ claims:
   - TEC
   - 主动控温
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300019.SZ
+    rationale: 积极评价散热链卡位，硅宝参数最具体为首选
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300019.SZ
+    t0_date: 2026-08-17
+    t5_date: 2026-08-24
+    t0_close: 15.46
+    t5_close: 14.05
+    fwd_return_pct: -9.12
 - id: claim-20260817-064
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-2214-专栏-今天这根中阳线不难看懂，难在读它的性质。放量2446亿元至2.md
   up_id: '1420210197'

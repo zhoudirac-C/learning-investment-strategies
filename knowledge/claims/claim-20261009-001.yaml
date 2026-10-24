@@ -34,6 +34,13 @@ claims:
   - 持续性验证
   - 市场阶段
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 资金回归验证期定性，非明确方向判断，按市场周期观察处理
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-001-b
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -67,6 +74,23 @@ claims:
   - 分歧卖压
   - 资金回流
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 放量下跌定性为卖压释放而非资金回流，偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000001
+    t0_date: 2026-10-09
+    t5_date: 2026-10-16
+    t0_close: 3813.79
+    t5_close: 3716.28
+    fwd_return_pct: -2.56
 - id: claim-20261009-001-c
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -105,6 +129,23 @@ claims:
   - 封板率
   - 情绪周期
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情绪仅局部韧性，普遍修复未至，追涨环境偏差，偏谨慎
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-09
+    t5_date: 2026-10-16
+    t0_close: 4317.25
+    t5_close: 4170.61
+    fwd_return_pct: -3.4
 - id: claim-20261009-001-d
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -141,6 +182,23 @@ claims:
   - 科技压力
   - 外部传导
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 外部利好不改科技压力，A股承接待验证，短期偏谨慎
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-09
+    t5_date: 2026-10-16
+    t0_close: 4317.25
+    t5_close: 4170.61
+    fwd_return_pct: -3.4
 - id: claim-20261009-001-e
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -177,6 +235,13 @@ claims:
   - 操作纪律
   - 底部机会
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 操作纪律方法论，钝化≠结构，非方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-001-f
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -213,6 +278,13 @@ claims:
   - 修复广度
   - 决策树
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 条件化加仓预案与方法论，未给出确定性方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-001-g
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -250,6 +322,13 @@ claims:
   - 缩量企稳
   - 量价配合
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 量能解读方法论，非方向判断，最相关为大盘量价
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-001-h
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -287,6 +366,13 @@ claims:
   - 结构分化
   - 银行保险券商
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论框架，区分护盘与真修复，无方向判断，关联上证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-001-i
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -324,6 +410,13 @@ claims:
   - 共振判据
   - 方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论表述，无方向判断，基准取最相关指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-001-j
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -366,6 +459,13 @@ claims:
   - PCB
   - 由点到面
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688498.SH
+    rationale: 方法论观察框架未定方向，以源杰等核心止跌为验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-001-k
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -406,6 +506,13 @@ claims:
   - 板块轮动
   - 避险方向
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 轮动观察框架与资金再平衡提示，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-001-l
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -456,6 +563,13 @@ claims:
   - 传导约束
   - 证伪边界
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688222.SH
+    rationale: 方法论框架：受益排序与证伪边界，非明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-001-m
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -494,6 +608,13 @@ claims:
   - GLP-1
   - 口径纪律
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600276.SH
+    rationale: 方法论提示：总额≠现金流，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-001-n
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -538,6 +659,23 @@ claims:
   - BCB
   - 迈威尔
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601208.SH
+    rationale: 看好高速覆铜板树脂升级方向，建议关注东材科技验证放量
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601208.SH
+    t0_date: 2026-10-09
+    t5_date: 2026-10-16
+    t0_close: 48.47
+    t5_close: 42.4
+    fwd_return_pct: -12.52
 - id: claim-20261009-001-o
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -574,6 +712,13 @@ claims:
   - 选股标准
   - 指数共振
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，无方向判断；涉及指数共振验证，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-001-p
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -611,3 +756,11 @@ claims:
   - 执行纪律
   - 60分钟
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 纯执行纪律与方法论，无方向判断，默认沪深300为基准。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

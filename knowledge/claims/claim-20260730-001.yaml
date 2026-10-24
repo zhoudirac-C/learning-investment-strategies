@@ -749,6 +749,23 @@ claims:
   - 无状态化
   - AI SaaS
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603171.SH
+    rationale: 看好MCP+财税Agent落地，税友股份AI SaaS业绩兑现预期
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603171.SH
+    t0_date: 2026-07-30
+    t5_date: 2026-08-06
+    t0_close: 41.47
+    t5_close: 49.68
+    fwd_return_pct: 19.8
 - id: claim-20260730-021
   source_path: sources/raw/财经/2026-07-30-复盘-情绪释放最充分的一天.md
   up_id: '1420210197'
@@ -788,6 +805,23 @@ claims:
   - 建筑跨界
   - 逆势走强
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603137.SH
+    rationale: 看多恒尚节能，存储扩散标的逆势走强，建议关注
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603137.SH
+    t0_date: 2026-07-30
+    t5_date: 2026-08-06
+    t0_close: 26.21
+    t5_close: 25
+    fwd_return_pct: -4.62
 - id: claim-20260730-022
   source_path: sources/raw/财经/2026-07-30-复盘-情绪释放最充分的一天.md
   up_id: '1420210197'
@@ -825,6 +859,13 @@ claims:
   - 资产注入
   - 控制权变更
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600228.SH
+    rationale: 仅事件跟踪记录，明确非交易推荐，无明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260730-023
   source_path: sources/raw/财经/2026-07-30-复盘-情绪释放最充分的一天.md
   up_id: '1420210197'

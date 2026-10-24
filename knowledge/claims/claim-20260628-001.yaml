@@ -442,6 +442,23 @@ claims:
   - 长鑫
   - 封测
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000021.SZ
+    rationale: 看好深科技绑定长鑫扩产带来的封测盈利改善
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000021.SZ
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 58.86
+    t5_close: 53.3
+    fwd_return_pct: -9.45
 - id: claim-20260628-001-n
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
   up_id: '1420210197'
@@ -476,6 +493,23 @@ claims:
   - 12英寸硅片
   - 利润兑现
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688783.SH
+    rationale: 看好12英寸硅片涨价下利润兑现，属看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688783.SH
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 61.33
+    t5_close: 52
+    fwd_return_pct: -15.21
 - id: claim-20260628-001-o
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
   up_id: '1420210197'
@@ -513,6 +547,23 @@ claims:
   - 液冷
   - 英伟达链
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603124.SH
+    rationale: 明确看多：绑定酷冷至尊进英伟达链，液冷业务高增长
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603124.SH
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 179.56
+    t5_close: 161.1
+    fwd_return_pct: -10.28
 - id: claim-20260628-001-p
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
   up_id: '1420210197'
@@ -553,6 +604,23 @@ claims:
   - 金刚石散热
   - 力量钻石
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301071.SZ
+    rationale: 看多金刚石散热材料受益AI芯片需求，首选力量钻石
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301071.SZ
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 89.23
+    t5_close: 86.83
+    fwd_return_pct: -2.69
 - id: claim-20260628-001-q
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
   up_id: '1420210197'
@@ -590,6 +658,23 @@ claims:
   - 中复神鹰
   - 三重共振
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688295.SH
+    rationale: 看多碳纤维行业三重共振，首选核心标的中复神鹰
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688295.SH
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 59.22
+    t5_close: 49.85
+    fwd_return_pct: -15.82
 - id: claim-20260628-001-r
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
   up_id: '1420210197'

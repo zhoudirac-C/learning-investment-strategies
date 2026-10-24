@@ -459,6 +459,23 @@ claims:
   - 哈药控异动
   - 低位扩散
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600613.SH
+    rationale: 判断神奇制药接替哈药成为医药情绪龙头，看多该股
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600613.SH
+    t0_date: 2026-08-20
+    t5_date: 2026-08-27
+    t0_close: 8.56
+    t5_close: 11.61
+    fwd_return_pct: 35.63
 - id: claim-20260820-043
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-2158-图片-一、指数定环境：缩量4317亿的修复，意义有限甚至有副作用.md
   up_id: '1420210197'
@@ -495,6 +512,23 @@ claims:
   - 40亿
   - 分歧转一致
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600127.SH
+    rationale: 预期分歧转一致、明日回流，看多金健米业
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600127.SH
+    t0_date: 2026-08-20
+    t5_date: 2026-08-27
+    t0_close: 8.6
+    t5_close: 10.78
+    fwd_return_pct: 25.35
 - id: claim-20260820-044
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-2158-图片-一、指数定环境：缩量4317亿的修复，意义有限甚至有副作用.md
   up_id: '1420210197'
@@ -533,6 +567,23 @@ claims:
   - 144根
   - 纯增量
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601869.SH
+    rationale: 看多长飞光纤：保偏光纤纯增量、需求10-20倍增长、英伟达采用
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601869.SH
+    t0_date: 2026-08-20
+    t5_date: 2026-08-27
+    t0_close: 357.705
+    t5_close: 426.82
+    fwd_return_pct: 19.32
 - id: claim-20260820-045
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-2158-图片-一、指数定环境：缩量4317亿的修复，意义有限甚至有副作用.md
   up_id: '1420210197'
@@ -568,6 +619,23 @@ claims:
   - 海外收入
   - 商业化
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300601.SZ
+    rationale: 看多康泰生物：有mRNA平台与商业化渠道，区别于纯概念。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300601.SZ
+    t0_date: 2026-08-20
+    t5_date: 2026-08-27
+    t0_close: 14.47
+    t5_close: 13.55
+    fwd_return_pct: -6.36
 - id: claim-20260820-046
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-2158-图片-一、指数定环境：缩量4317亿的修复，意义有限甚至有副作用.md
   up_id: '1420210197'

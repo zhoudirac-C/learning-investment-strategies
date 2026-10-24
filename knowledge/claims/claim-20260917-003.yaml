@@ -38,6 +38,13 @@ claims:
   - 震荡轮动
   - 变盘边界
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "带条件的震荡阶段判断，无明确方向，默认沪深300基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-004-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -74,6 +81,13 @@ claims:
   - 持续性证据
   - 局部确认
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "阶段定位方法论表述，无方向判断，仅设定确认边界"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-005-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -110,6 +124,13 @@ claims:
   - 存量切换
   - 量能结构
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论观点，区分行情性质，无方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-006-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -146,6 +167,13 @@ claims:
   - 市场广度
   - 大金融
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论观点，区分指数稳与市场真转强，无方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-007-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -184,6 +212,13 @@ claims:
   - 分歧检验
   - 参与条件
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002584.SZ
+    rationale: "方法论式参与条件清单，无明确方向判断，情绪样本仅作观察"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-008-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -220,6 +255,13 @@ claims:
   - 失效条件
   - 放量破位
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "条件性风控规则，非方向判断，默认以沪深300为基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-009-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -257,6 +299,13 @@ claims:
   - 二波判据
   - 万向德农
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600371.SH
+    rationale: "条件升级判据属方法论，非方向性判断，观察标的万向德农"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-010-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -291,6 +340,24 @@ claims:
   - 进攻轮动
   - 主线条件
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "看多汽车风电轮动承接机会，无个股代码，以沪深300为基准"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.47%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-17
+    t5_date: 2026-09-24
+    t0_close: 4460.16
+    t5_close: 4439.14
+    fwd_return_pct: -0.47
 - id: claim-20260917-011-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -327,6 +394,13 @@ claims:
   - 业务联动
   - 订单验证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论判据，非方向性观点，无具体标的"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-012-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -371,6 +445,13 @@ claims:
   - 业绩兑现
   - 三季报
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 002281.SZ
+    rationale: "经营兑现验证方法论，无明确买卖方向，取首只相关股"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-013-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -406,6 +487,13 @@ claims:
   - 采购验证
   - 收入传导
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论观点，无方向判断，无相关标的"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-014-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -445,6 +533,13 @@ claims:
   - 国产替代
   - 盈利兑现
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688409.SH
+    rationale: "条件式方法论：盈利兑现需订单、交期、毛利率验证，非明确方向判断；以半导体零部件代表标的富创精密作参照。"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-015-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -479,6 +574,13 @@ claims:
   - 封装载板
   - 分开验证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300408.SZ
+    rationale: "方法论区分两类陶瓷业务逻辑，无方向；参考陶瓷龙头三环集团"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-016-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -512,6 +614,13 @@ claims:
   - 受益门槛
   - 集群扩展
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论判断：需求传导需过交付门槛，无方向无标的"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260917-017-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -546,3 +655,11 @@ claims:
   - 经营预期
   - 地产链承接
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: "方法论判据，无方向性结论，仅提供政策有效性验证框架"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

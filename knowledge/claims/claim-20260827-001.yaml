@@ -600,6 +600,23 @@ claims:
   - 5万P
   - 已验收
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300209.SZ
+    rationale: 已验收算力5万P为产能落地利好，看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300209.SZ
+    t0_date: 2026-08-27
+    t5_date: 2026-09-03
+    t0_close: 35.48
+    t5_close: 35.1
+    fwd_return_pct: -1.07
 - id: claim-20260827-018-a
   source_path: sources/original/bilibili/2026-08-27-0846-专栏-一、隔夜与开盘预判：英伟达决定开盘，美债决定收盘 据英伟达2.md
   up_id: '1420210197'
@@ -637,6 +654,23 @@ claims:
   - 3.8万P
   - 算力租赁
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603629.SH
+    rationale: 披露算力3.8万P及上下游稳定合作，属利好基本面陈述
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603629.SH
+    t0_date: 2026-08-27
+    t5_date: 2026-09-03
+    t0_close: 125.051
+    t5_close: 111.441
+    fwd_return_pct: -10.88
 - id: claim-20260827-019-a
   source_path: sources/original/bilibili/2026-08-27-0846-专栏-一、隔夜与开盘预判：英伟达决定开盘，美债决定收盘 据英伟达2.md
   up_id: '1420210197'
@@ -779,6 +813,23 @@ claims:
   - 三季度波动
   - 订单外溢
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688661.SH
+    rationale: 三季度波动但四季度起看规模出货与订单外溢，整体偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688661.SH
+    t0_date: 2026-08-27
+    t5_date: 2026-09-03
+    t0_close: 110.35
+    t5_close: 102.5
+    fwd_return_pct: -7.11
 - id: claim-20260827-023-a
   source_path: sources/original/bilibili/2026-08-27-0846-专栏-一、隔夜与开盘预判：英伟达决定开盘，美债决定收盘 据英伟达2.md
   up_id: '1420210197'
@@ -1071,6 +1122,23 @@ claims:
   - 新签订单
   - 创新药研发
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688202.SH
+    rationale: 新签订单同比翻倍，看多美迪西基本面改善
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688202.SH
+    t0_date: 2026-08-27
+    t5_date: 2026-09-03
+    t0_close: 100.37
+    t5_close: 94.84
+    fwd_return_pct: -5.51
 - id: claim-20260827-031-a
   source_path: sources/original/bilibili/2026-08-27-0846-专栏-一、隔夜与开盘预判：英伟达决定开盘，美债决定收盘 据英伟达2.md
   up_id: '1420210197'
@@ -1108,6 +1176,13 @@ claims:
   - mRNA疫苗
   - 创新药
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300765.SZ
+    rationale: 基本面事实记录，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260827-032-a
   source_path: sources/original/bilibili/2026-08-27-0846-专栏-一、隔夜与开盘预判：英伟达决定开盘，美债决定收盘 据英伟达2.md
   up_id: '1420210197'

@@ -32,6 +32,13 @@ claims:
   - 持续买盘
   - 低点确认
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 盘面阶段定性，任务为低点确认而非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-b
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -67,6 +74,13 @@ claims:
   - 抛压
   - 双义信号
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论提示：缩量双义，无法定向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-c
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -111,6 +125,23 @@ claims:
   - 筹码压力
   - 归因
   school: qing
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: AI硬件筹码压力致指数修复受限，短期承压看空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-13
+    t5_date: 2026-10-20
+    t0_close: 4275.68
+    t5_close: 4152.11
+    fwd_return_pct: -2.89
 - id: claim-20261013-001-d
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -147,6 +178,13 @@ claims:
   - 见底纪律
   - 方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 底部判断方法论，无方向性判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-e
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -182,6 +220,13 @@ claims:
   - '3754'
   - 量能同时段
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论观点，讲点位确认层次与量能对照，无方向判断；点位指上证指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-f
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -227,6 +272,13 @@ claims:
   - 券商保险
   - 扩散
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论判断：银行独涨属防御抱团，未给出方向，验证看沪指与扩散信号
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-g
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -263,6 +315,13 @@ claims:
   - 首板供给
   - 统计口径
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 情绪跟踪方法论，无方向判断，基准取上证指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-h
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -304,6 +363,13 @@ claims:
   - 源杰科技
   - 联讯仪器
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688498.SH
+    rationale: 方法论框架：观察价格反应而非方向判断，基准取源杰科技
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-i
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -346,6 +412,13 @@ claims:
   - 有限试错
   - 控制回撤
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 双情形条件树操作预案，非单边方向判断，核心基准为沪指3800—3820。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-j
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -379,6 +452,13 @@ claims:
   - 催化
   - 方法论
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论筛选框架，非方向判断，无具体标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-k
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -414,6 +494,13 @@ claims:
   - 风险偏好
   - 科创50
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 条件式判断硬件企稳标准，非明确看多看空，指向科创50
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-l
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -454,6 +541,13 @@ claims:
   - 机构卖压
   - 假设验证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688498.SH
+    rationale: 方法论观点：将卖压判断定为待验证假设，非方向结论
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-m
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -490,6 +584,13 @@ claims:
   - 黄金
   - 宏观框架
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，非方向判断，仅提供外部环境观察基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-n
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -523,6 +624,13 @@ claims:
   - 存款成本
   - 贷款需求
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 财报分析框架，无方向判断，属方法论观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-o
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -563,6 +671,13 @@ claims:
   - 善水科技
   - 利润传导
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300829.SZ
+    rationale: 方法论纪律：区分题材联动与利润传导，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-p
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -603,6 +718,13 @@ claims:
   - 商业模式
   - 利用率
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301085.SZ
+    rationale: 属算力租赁分析框架方法论，无方向判断，映射亚康股份
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261013-001-q
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -637,3 +759,11 @@ claims:
   - 电池
   - 防御轮动
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 轮动边界方法论，非方向判断，涉及指数环境与板块承接
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

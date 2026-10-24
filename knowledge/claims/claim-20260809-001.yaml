@@ -547,6 +547,13 @@ claims:
   - 溢价误读
   - 定价机制
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301308.SZ
+    rationale: 纠正定增溢价误读，属方法论澄清非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260809-016
   source_path: sources/original/bilibili/2026-08-09-2147-专栏-一、指数定环境：四连阳与 2.66 万亿，反弹高度已相当可观.md
   up_id: '1420210197'
@@ -664,6 +671,23 @@ claims:
   - CRO
   - 情绪龙头
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600721.SH
+    rationale: 情绪龙头+CRO细分景气+国资入主预期，定性偏多但提示业绩未兑现
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600721.SH
+    t0_date: 2026-08-10
+    t5_date: 2026-08-17
+    t0_close: 11.59
+    t5_close: 14.02
+    fwd_return_pct: 20.97
 - id: claim-20260809-019
   source_path: sources/original/bilibili/2026-08-09-2147-专栏-一、指数定环境：四连阳与 2.66 万亿，反弹高度已相当可观.md
   up_id: '1420210197'
@@ -700,6 +724,23 @@ claims:
   - 双逻辑
   - 止损位
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002721.SZ
+    rationale: 黄金业绩安全垫+AI估值想象，双逻辑均偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002721.SZ
+    t0_date: 2026-08-10
+    t5_date: 2026-08-17
+    t0_close: 2.77
+    t5_close: 2.69
+    fwd_return_pct: -2.89
 - id: claim-20260809-020
   source_path: sources/original/bilibili/2026-08-09-2147-专栏-一、指数定环境：四连阳与 2.66 万亿，反弹高度已相当可观.md
   up_id: '1420210197'
@@ -744,6 +785,23 @@ claims:
   - RoCE
   - 业绩传导
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688702.SH
+    rationale: 明确看多盛科通信，业绩传导与份额提升逻辑支撑上涨预期
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688702.SH
+    t0_date: 2026-08-10
+    t5_date: 2026-08-17
+    t0_close: 403.96
+    t5_close: 421.7
+    fwd_return_pct: 4.39
 - id: claim-20260809-021
   source_path: sources/original/bilibili/2026-08-09-2147-专栏-一、指数定环境：四连阳与 2.66 万亿，反弹高度已相当可观.md
   up_id: '1420210197'
@@ -788,6 +846,13 @@ claims:
   - 德明利
   - 右侧确认
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301308.SZ
+    rationale: 主张等右侧确认而非立即买卖，属方法论判断非方向观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260809-022
   source_path: sources/original/bilibili/2026-08-09-2147-专栏-一、指数定环境：四连阳与 2.66 万亿，反弹高度已相当可观.md
   up_id: '1420210197'
@@ -824,6 +889,19 @@ claims:
   - 卖水人
   - 港股
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 01548
+    rationale: 看好金斯瑞AI4S卖耗材逻辑，传导路径最短
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 01548 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 01548
 - id: claim-20260809-023
   source_path: sources/original/bilibili/2026-08-09-2147-专栏-一、指数定环境：四连阳与 2.66 万亿，反弹高度已相当可观.md
   up_id: '1420210197'
@@ -931,6 +1009,13 @@ claims:
   - 液冷总成
   - 认证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301123.SZ
+    rationale: 对比两标的不同性质赌注，属差异化分析，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260809-026
   source_path: sources/original/bilibili/2026-08-09-2147-专栏-一、指数定环境：四连阳与 2.66 万亿，反弹高度已相当可观.md
   up_id: '1420210197'

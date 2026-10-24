@@ -159,6 +159,23 @@ claims:
     name: 金盘科技
     role: 回填-正文提及
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300373.SZ
+    rationale: 称四家为核心赛道标的，属看多推荐，首选扬杰科技定价
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300373.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 100.19
+    t5_close: 123.13
+    fwd_return_pct: 22.9
 - id: claim-20260527-003-e
   topic: 功率器件涨价逻辑
   source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
@@ -274,6 +291,23 @@ claims:
     name: 新洁能
     role: 回填-正文提及
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300373.SZ
+    rationale: 明确看多GaN/SiC功率标的并提示英伟达供应链利好
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300373.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 100.19
+    t5_close: 123.13
+    fwd_return_pct: 22.9
 - id: claim-20260527-003-h
   topic: 电容及材料
   source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
@@ -321,6 +355,23 @@ claims:
     name: 江海股份
     role: 回填-正文提及
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002484.SZ
+    rationale: 明确看多江海股份为电容核心标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002484.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 82.8
+    t5_close: 108.06
+    fwd_return_pct: 30.51
 - id: claim-20260527-003-i
   topic: 二次电源核心标的是新雷能
   source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
@@ -360,3 +411,21 @@ claims:
     name: 新雷能
     role: 回填-正文提及
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300593.SZ
+    rationale: 认定新雷能为二次电源核心标的，隐含关注/看多倾向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300593.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 34.88
+    t5_close: 37.05
+    fwd_return_pct: 6.22

@@ -237,6 +237,23 @@ claims:
   - 锐捷网络
   - 国产交换机
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002396.SZ
+    rationale: "看多母公司星网锐捷，认为市值低估存在修复空间"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002396.SZ
+    t0_date: 2026-07-06
+    t5_date: 2026-07-13
+    t0_close: 25.74
+    t5_close: 28.99
+    fwd_return_pct: 12.63
 - id: claim-20260706-003-h
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
   up_id: '1420210197'
@@ -271,6 +288,23 @@ claims:
   - BBU电芯
   - AI数据中心
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002245.SZ
+    rationale: "看好BBU电芯订单落地带来业绩弹性，属看多观点"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002245.SZ
+    t0_date: 2026-07-06
+    t5_date: 2026-07-13
+    t0_close: 22.37
+    t5_close: 18.99
+    fwd_return_pct: -15.11
 - id: claim-20260706-003-i
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
   up_id: '1420210197'
@@ -305,6 +339,24 @@ claims:
   - 台风巴威
   - 管网修复
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002457.SZ
+    rationale: "台风催化排水管网订单预期，看多青龙管业"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.78%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002457.SZ
+    t0_date: 2026-07-06
+    t5_date: 2026-07-13
+    t0_close: 14.07
+    t5_close: 14.18
+    fwd_return_pct: 0.78
 - id: claim-20260706-003-j
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
   up_id: '1420210197'

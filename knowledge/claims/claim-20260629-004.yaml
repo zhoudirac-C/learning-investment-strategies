@@ -1167,6 +1167,23 @@ claims:
   - 中标
   - '601133'
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601133.SH
+    rationale: "大额中标利好柏诚股份短期业绩与股价"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601133.SH
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 42.11
+    t5_close: 35.9
+    fwd_return_pct: -14.75
 - id: claim-20260629-004-af
   source_path: sources/raw/财经/2026-06-29-2242-复盘-一天之内风格三次大变.md
   up_id: '1420210197'
@@ -1211,6 +1228,23 @@ claims:
   - 柏诚
   - 股份
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601133.SH
+    rationale: "新签合同超去年全年，订单饱满利好业绩，看多柏诚股份"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601133.SH
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 42.11
+    t5_close: 35.9
+    fwd_return_pct: -14.75
 - id: claim-20260629-004-ag
   source_path: sources/raw/财经/2026-06-29-2242-复盘-一天之内风格三次大变.md
   up_id: '1420210197'
@@ -1249,6 +1283,23 @@ claims:
   - 股份
   - '601133'
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601133.SH
+    rationale: "下滑归因收入确认节奏，订单饱满预示业绩拐点，偏看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601133.SH
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 42.11
+    t5_close: 35.9
+    fwd_return_pct: -14.75
 - id: claim-20260629-004-ah
   source_path: sources/raw/财经/2026-06-29-2242-复盘-一天之内风格三次大变.md
   up_id: '1420210197'
@@ -1287,6 +1338,23 @@ claims:
   - 业绩
   - 拐点
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601133.SH
+    rationale: "业绩拐点预期向上，订单转收入驱动业绩改善"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601133.SH
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 42.11
+    t5_close: 35.9
+    fwd_return_pct: -14.75
 - id: claim-20260629-004-ai
   source_path: sources/raw/财经/2026-06-29-2242-复盘-一天之内风格三次大变.md
   up_id: '1420210197'
@@ -1325,6 +1393,23 @@ claims:
   - 子代
   - '688008'
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688008.SH
+    rationale: "看好澜起科技技术领先及AI运力需求带来的长期利好"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688008.SH
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 296.06
+    t5_close: 268.68
+    fwd_return_pct: -9.25
 - id: claim-20260629-004-aj
   source_path: sources/raw/财经/2026-06-29-2242-复盘-一天之内风格三次大变.md
   up_id: '1420210197'
@@ -1369,6 +1454,23 @@ claims:
   - '688008'
   - 确定性
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688008.SH
+    rationale: "明确看多澜起科技，AI内存互连量价共振利好龙头"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688008.SH
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 296.06
+    t5_close: 268.68
+    fwd_return_pct: -9.25
 - id: claim-20260629-004-ak
   source_path: sources/raw/财经/2026-06-29-2242-复盘-一天之内风格三次大变.md
   up_id: '1420210197'
@@ -1425,6 +1527,24 @@ claims:
   - '688347'
   - 氢氟酸
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002407.SZ
+    rationale: "看多多氟多半导体材料国产替代逻辑，基准为其股票代码"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.44%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002407.SZ
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 45.66
+    t5_close: 45.86
+    fwd_return_pct: 0.44
 - id: claim-20260629-004-al
   source_path: sources/raw/财经/2026-06-29-2242-复盘-一天之内风格三次大变.md
   up_id: '1420210197'
@@ -1463,6 +1583,24 @@ claims:
   - '3.76'
   - 净利润
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002407.SZ
+    rationale: "业绩大增反映六氟磷酸锂景气反转，看多个股"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.44%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002407.SZ
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 45.66
+    t5_close: 45.86
+    fwd_return_pct: 0.44
 - id: claim-20260629-004-am
   source_path: sources/raw/财经/2026-06-29-2242-复盘-一天之内风格三次大变.md
   up_id: '1420210197'
@@ -1513,6 +1651,24 @@ claims:
   - 国产化
   - 需注意
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002407.SZ
+    rationale: "看多双逻辑叠加，提示分歧风险但方向偏多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.44%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002407.SZ
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 45.66
+    t5_close: 45.86
+    fwd_return_pct: 0.44
 - id: claim-20260629-004-an
   source_path: sources/raw/财经/2026-06-29-2242-复盘-一天之内风格三次大变.md
   up_id: '1420210197'
@@ -1557,6 +1713,23 @@ claims:
   - 半导体
   - 行业
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600888.SH
+    rationale: "强调公司高纯铝技术壁垒与独特地位，属看多表述"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600888.SH
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 14.96
+    t5_close: 13.67
+    fwd_return_pct: -8.62
 - id: claim-20260629-004-ao
   source_path: sources/raw/财经/2026-06-29-2242-复盘-一天之内风格三次大变.md
   up_id: '1420210197'
@@ -1595,6 +1768,23 @@ claims:
   - '600888'
   - '20.70'
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600888.SH
+    rationale: "毛利率大幅跳升，盈利能力显著改善，看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600888.SH
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 14.96
+    t5_close: 13.67
+    fwd_return_pct: -8.62
 - id: claim-20260629-004-ap
   source_path: sources/raw/财经/2026-06-29-2242-复盘-一天之内风格三次大变.md
   up_id: '1420210197'
@@ -1633,6 +1823,23 @@ claims:
   - 逻辑
   - 电容
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600888.SH
+    rationale: "看多新疆众和，AI电容与封装靶材双需求驱动高纯铝涨价逻辑"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600888.SH
+    t0_date: 2026-06-29
+    t5_date: 2026-07-06
+    t0_close: 14.96
+    t5_close: 13.67
+    fwd_return_pct: -8.62
 - id: claim-20260629-004-aq
   source_path: sources/raw/财经/2026-06-29-2242-复盘-一天之内风格三次大变.md
   up_id: '1420210197'

@@ -34,6 +34,23 @@ claims:
   - 费城半导体
   - 会计口径
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 定性为估值分母修正而非需求证伪，利好A股科技链企稳
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-09
+    t5_date: 2026-10-16
+    t0_close: 3043.33
+    t5_close: 2772.38
+    fwd_return_pct: -8.9
 - id: claim-20261009-002-b
   source_path: sources/original/bilibili/2026-10-09-0846-图片-事件：据向投资者公开的财务文件消息，OpenAI在9月底向投.md
   source_date: '2026-10-09'
@@ -68,6 +85,23 @@ claims:
   - 增长斜率
   - 科技主线
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 反驳算力叙事受损担忧，看多AI算力主线，科创50为科技算力代理基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000688
+    t0_date: 2026-10-09
+    t5_date: 2026-10-16
+    t0_close: 1457.27
+    t5_close: 1358.65
+    fwd_return_pct: -6.77
 - id: claim-20261009-002-c
   source_path: sources/original/bilibili/2026-10-09-0937-图片-昨天说过了，今天收根下影线，别着急，下影线收出来看上证60分.md
   source_date: '2026-10-09'
@@ -102,6 +136,13 @@ claims:
   - 底部结构
   - 节奏
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 观察窗口方法论，未确认60分钟结构前不定向，明确指向上证指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-002-d
   source_path: sources/original/bilibili/2026-10-09-1030-图片-科技股暴跌，但市场总的融资余额还是增加的，说明散户还在加仓，.md
   source_date: '2026-10-09'
@@ -138,6 +179,23 @@ claims:
   - 龙虎榜
   - 风控赎回
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 定性为资金面出清而非基本面恶化，隐含超跌后看多科技股
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-10-09
+    t5_date: 2026-10-16
+    t0_close: 3043.33
+    t5_close: 2772.38
+    fwd_return_pct: -8.9
 - id: claim-20261009-002-e
   source_path: sources/original/bilibili/2026-10-09-1030-图片-科技股暴跌，但市场总的融资余额还是增加的，说明散户还在加仓，.md
   source_date: '2026-10-09'
@@ -172,6 +230,13 @@ claims:
   - 被动卖出
   - 市场结构
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，描述下跌机制，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-002-f
   source_path: sources/original/bilibili/2026-10-09-1030-图片-科技股暴跌，但市场总的融资余额还是增加的，说明散户还在加仓，.md
   source_date: '2026-10-09'
@@ -207,6 +272,13 @@ claims:
   - 机构互爆
   - 与7月对比
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 仅诊断本轮下跌机制差异，未给出方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-002-g
   source_path: sources/original/bilibili/2026-10-09-1030-图片-科技股暴跌，但市场总的融资余额还是增加的，说明散户还在加仓，.md
   source_date: '2026-10-09'
@@ -241,6 +313,13 @@ claims:
   - 打破条件
   - 底部确认
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架：给出循环终结的可证伪信号（GJD买入），非直接方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-002-h
   source_path: sources/original/bilibili/2026-10-09-1030-图片-科技股暴跌，但市场总的融资余额还是增加的，说明散户还在加仓，.md
   source_date: '2026-10-09'
@@ -275,6 +354,23 @@ claims:
   - 救市ETF
   - IPO
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 中期韧性判断：扛住三重抛压，承接强，中期不悲观
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-09
+    t5_date: 2026-10-16
+    t0_close: 4317.25
+    t5_close: 4170.61
+    fwd_return_pct: -3.4
 - id: claim-20261009-002-i
   source_path: sources/original/bilibili/2026-10-09-1420-图片-下影线如约而至，后面怎么走就看下周一了。 做交易，这种时候不.md
   source_date: '2026-10-09'
@@ -308,6 +404,13 @@ claims:
   - 下周一
   - 节奏
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 择时方法论，未给多空方向；形态观察锚定上证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261009-002-j
   source_path: sources/original/bilibili/2026-10-09-1420-图片-下影线如约而至，后面怎么走就看下周一了。 做交易，这种时候不.md
   source_date: '2026-10-09'
@@ -344,3 +447,11 @@ claims:
   - 账户管理
   - 纪律
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 风控心态方法论，无方向判断，基准取市场整体沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

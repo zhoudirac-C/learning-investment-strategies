@@ -37,6 +37,23 @@ claims:
     name: 宇树科技
     role: 人形机器人整机龙头-科创板
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688836.SH
+    rationale: UP明确看多宇树，预期估值翻3-5倍至2000-3000亿
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688836.SH
+    t0_date: 2026-08-19
+    t5_date: 2026-08-26
+    t0_close: 845
+    t5_close: 591.53
+    fwd_return_pct: -30
 - id: claim-20260819-006-002
   source_path: sources/original/bilibili/2026-08-19-0037-视频-宇树上市，人形机器人走到哪一步了？ 感谢观看，一键三连。.md
   source_date: '2026-08-19'
@@ -281,6 +298,23 @@ claims:
     name: 宇树科技
     role: 人形机器人整机-科创板
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688836.SH
+    rationale: 强调宇树自我造血与量产迁移优势，明确看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688836.SH
+    t0_date: 2026-08-19
+    t5_date: 2026-08-26
+    t0_close: 845
+    t5_close: 591.53
+    fwd_return_pct: -30
 - id: claim-20260819-006-009
   source_path: sources/original/bilibili/2026-08-19-0037-视频-宇树上市，人形机器人走到哪一步了？ 感谢观看，一键三连。.md
   source_date: '2026-08-19'
@@ -317,6 +351,23 @@ claims:
     name: 宇树科技
     role: 人形机器人整机-科创板
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 688836.SH
+    rationale: 提示宇树扣非利润承压、利润率波动风险，方向偏空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688836.SH
+    t0_date: 2026-08-19
+    t5_date: 2026-08-26
+    t0_close: 845
+    t5_close: 591.53
+    fwd_return_pct: -30
 - id: claim-20260819-006-010
   source_path: sources/original/bilibili/2026-08-19-0037-视频-宇树上市，人形机器人走到哪一步了？ 感谢观看，一键三连。.md
   source_date: '2026-08-19'

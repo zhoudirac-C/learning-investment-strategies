@@ -30,6 +30,21 @@ claims:
   - 白马股
   - 市场信心
   - 权重调整
+  direction:
+    value: bearish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 信心极差、权重白马持续被杀，指向指数承压下行
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-22
+    t0_close: 4036.3
 - id: claim-20261022-002-b
   source_path: sources/original/bilibili/2026-10-22-1035-图片-市场的信心太差，每天杀白马股祭天，下周三ETF期权交割，海外.md
   source_date: '2026-10-22'
@@ -63,3 +78,11 @@ claims:
   - 事件窗口
   - 做T
   - 磨底
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，仅谈事件窗口操作节奏，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

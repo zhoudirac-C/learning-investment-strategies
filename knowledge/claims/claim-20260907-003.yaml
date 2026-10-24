@@ -260,6 +260,23 @@ claims:
   - 散热
   - 集泰股份
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002909.SZ
+    rationale: 视为未充分定价的散热机会，建议跟踪关注，偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002909.SZ
+    t0_date: 2026-09-07
+    t5_date: 2026-09-14
+    t0_close: 7.93
+    t5_close: 6.74
+    fwd_return_pct: -15.01
 - id: claim-20260907-041-h
   source_path: sources/original/bilibili/2026-09-07-2254-图片-今天是一根久违的结构性反弹阳线：指数高开后快速分化，沪指被高.md
   up_id: '1420210197'
@@ -367,3 +384,21 @@ claims:
   - 食品通胀
   - 海欣食品
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002702.SZ
+    rationale: 看好海欣食品作为末端补涨载体，建议参与但需盯前端。
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002702.SZ
+    t0_date: 2026-09-07
+    t5_date: 2026-09-14
+    t0_close: 6.17
+    t5_close: 5.3
+    fwd_return_pct: -14.1

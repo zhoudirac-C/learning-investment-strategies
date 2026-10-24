@@ -35,3 +35,21 @@ tags:
 - 鼎通科技
 - 奕东电子
 - 散热
+
+direction:
+  value: "bullish"
+  basis_kind: "stock"
+  basis_code: "688668.SH"
+  rationale: "看好液冷Cage主线，鼎通科技独供批量出货为首选标的"
+  annotated_at: "2026-10-24"
+  annotator: "m3-direction-v1"
+outcome:
+  result: "miss"
+  evaluated_at: "2026-10-24"
+  window_days: 5
+  basis_code: "688668.SH"
+  t0_date: "2026-09-04"
+  t5_date: "2026-09-11"
+  t0_close: 251.13
+  t5_close: 247.02
+  fwd_return_pct: -1.64

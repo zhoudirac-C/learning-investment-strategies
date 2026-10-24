@@ -749,6 +749,23 @@ claims:
   - AI应用
   - ARR
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300418.SZ
+    rationale: Q2扣非扭亏为AI应用首个盈利样本，看多重建估值锚
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300418.SZ
+    t0_date: 2026-08-19
+    t5_date: 2026-08-26
+    t0_close: 42.52
+    t5_close: 39.7
+    fwd_return_pct: -6.63
 - id: claim-20260819-064
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-19-2243-专栏-今天这根大阴线，如果只在A股内部找原因，会得出一个偏悲观、也.md
   up_id: '1420210197'
@@ -784,6 +801,13 @@ claims:
   - 煤炭属性
   - 两条线
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 601011.SH
+    rationale: 核心是涨停归因纠偏与方法论区分，非明确买卖方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260819-065
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-19-2243-专栏-今天这根大阴线，如果只在A股内部找原因，会得出一个偏悲观、也.md
   up_id: '1420210197'

@@ -854,6 +854,23 @@ claims:
   - 中报预告
   - 中际旭创
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300308.SZ
+    rationale: "调整归因于中报预告缺失，披露后不确定性消除利好股价"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300308.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 1182.856
+    t5_close: 1135.356
+    fwd_return_pct: -4.02
 - id: claim-20260714-001-z
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -1150,6 +1167,13 @@ claims:
   - 中报预增
   - 业绩预增
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600487.SH
+    rationale: "表述为观察资金偏好的线索，未给出明确买卖方向"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260714-001-ah
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -1184,6 +1208,23 @@ claims:
   - 业绩预增
   - 亨通光电
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 600487.SH
+    rationale: "认为利好兑现叠加系统性抛压，短期情绪主导仍可能补跌"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600487.SH
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 74.38
+    t5_close: 59.96
+    fwd_return_pct: -19.39
 - id: claim-20260714-001-ai
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -1286,6 +1327,23 @@ claims:
   - 北方华创逆
   - 势获主力买
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002371.SZ
+    rationale: "主力逆势净流入，资金承接强，隐含看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002371.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 774.2
+    t5_close: 744.6
+    fwd_return_pct: -3.82
 - id: claim-20260714-001-al
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -1321,6 +1379,23 @@ claims:
   - 科技
   - 胜宏科技
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300476.SZ
+    rationale: "逆势收红且主力净流入，业绩订单支撑看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300476.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 290.28
+    t5_close: 240.27
+    fwd_return_pct: -17.23
 - id: claim-20260714-001-am
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -1356,6 +1431,23 @@ claims:
   - 昇腾
   - 航天电器
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002025.SZ
+    rationale: "主力资金逆势加仓叠加昇腾链催化，看多航天电器。"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002025.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 74.24
+    t5_close: 66.98
+    fwd_return_pct: -9.78
 - id: claim-20260714-001-an
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -1392,6 +1484,24 @@ claims:
   - 成熟制程
   - 中芯国际
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688981.SH
+    rationale: "抗跌微涨，国产替代与涨价逻辑支撑，偏看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.61%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688981.SH
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 160.99
+    t5_close: 160
+    fwd_return_pct: -0.61
 - id: claim-20260714-001-ao
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -1633,6 +1743,23 @@ claims:
   - 中药
   - 片仔癀
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600436.SH
+    rationale: "看好片仔癀，主力资金流入、逆势布局信号。"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600436.SH
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 126.62
+    t5_close: 145.05
+    fwd_return_pct: 14.56
 - id: claim-20260714-001-av
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -1678,6 +1805,24 @@ claims:
   - 多只中药股
   - 涨停
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002603.SZ
+    rationale: "政策催化中药板块涨停潮，明确看多，以岭药业为板块核心标的"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.58%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002603.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 17.15
+    t5_close: 17.25
+    fwd_return_pct: 0.58
 - id: claim-20260714-001-aw
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -1745,6 +1890,23 @@ claims:
   - 九丰能源连
   - 板但主力出
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 605090.SH
+    rationale: "主力大幅流出、板上出货，提示回避短期博弈风险"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 605090.SH
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 39.4
+    t5_close: 34.4
+    fwd_return_pct: -12.69
 - id: claim-20260714-001-ay
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -1782,6 +1944,23 @@ claims:
   - 氦气
   - 金宏气体
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688106.SH
+    rationale: "看多金宏气体，氦气+电子特气双逻辑受资金认可"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688106.SH
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 40.31
+    t5_close: 30.74
+    fwd_return_pct: -23.74
 - id: claim-20260714-001-az
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -2058,6 +2237,23 @@ claims:
   - 超节点
   - 紫光股份
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000938.SZ
+    rationale: "国产超节点交换节点进展积极，产品化能力利好股价"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000938.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 36.98
+    t5_close: 41.46
+    fwd_return_pct: 12.11
 - id: claim-20260714-001-bh
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -2093,6 +2289,13 @@ claims:
   - 科技
   - 恒为科技
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603496.SH
+    rationale: "仅陈述早期技术探索，商业化未定，无明确方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260714-001-bi
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -2130,6 +2333,23 @@ claims:
   - 昇腾
   - 航天电器
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002025.SZ
+    rationale: "看好昇腾链核心标的，主力资金逆势净流入加仓"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002025.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 74.24
+    t5_close: 66.98
+    fwd_return_pct: -9.78
 - id: claim-20260714-001-bj
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -2345,6 +2565,23 @@ claims:
   - 超节点
   - 英维克
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002837.SZ
+    rationale: "看好英维克液冷技术与客户优势，属看多个股观点。"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002837.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 70.13
+    t5_close: 59.99
+    fwd_return_pct: -14.46
 - id: claim-20260714-001-bp
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -2381,6 +2618,23 @@ claims:
   - 昇腾
   - 申菱环境
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301018.SZ
+    rationale: "看好申菱环境昇腾液冷CDU供应商地位，属看多观点"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301018.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 113.88
+    t5_close: 90.23
+    fwd_return_pct: -20.77
 - id: claim-20260714-001-bq
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -2417,6 +2671,23 @@ claims:
   - 昇腾
   - 川润股份
   school: qing
+  direction:
+    value: bearish
+    basis_kind: stock
+    basis_code: 002272.SZ
+    rationale: "传闻未获公告确认，警惕预期透支，倾向回避"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002272.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 20.23
+    t5_close: 16.35
+    fwd_return_pct: -19.18
 - id: claim-20260714-001-br
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -2451,6 +2722,23 @@ claims:
   - 液冷
   - 高澜股份
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300499.SZ
+    rationale: "表述强调液冷技术路线全面、受益多场景需求，属看多倾向。"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300499.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 35.5
+    t5_close: 27.73
+    fwd_return_pct: -21.89
 - id: claim-20260714-001-bs
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -2519,6 +2807,23 @@ claims:
   - 液冷
   - 依米康
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300249.SZ
+    rationale: "液冷订单高增长，看多依米康股价弹性"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300249.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 15.75
+    t5_close: 12.95
+    fwd_return_pct: -17.78
 - id: claim-20260714-001-bu
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -2632,6 +2937,23 @@ claims:
   - AI
   - WAIC
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300624.SZ
+    rationale: "预期WAIC事件催化相关个股短期上涨，属事件性看多。"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300624.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 47.76
+    t5_close: 48.97
+    fwd_return_pct: 2.53
 - id: claim-20260714-001-bx
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -2842,6 +3164,24 @@ claims:
   - 成熟制程
   - 中芯国际
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688981.SH
+    rationale: "明确看多中芯国际，受益国产替代与涨价逻辑"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|-0.61%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688981.SH
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 160.99
+    t5_close: 160
+    fwd_return_pct: -0.61
 - id: claim-20260714-001-cd
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -2877,6 +3217,23 @@ claims:
   - 晶圆代工
   - 华虹宏力
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688347.SH
+    rationale: "看好特色工艺代工受益景气上行，属看多观点"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688347.SH
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 352.59
+    t5_close: 397.78
+    fwd_return_pct: 12.82
 - id: claim-20260714-001-ce
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -2912,6 +3269,23 @@ claims:
   - 北方华创受
   - 益晶圆厂扩
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002371.SZ
+    rationale: "看多设备龙头，代工涨价传导利好订单增长"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002371.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 774.2
+    t5_close: 744.6
+    fwd_return_pct: -3.82
 - id: claim-20260714-001-cf
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -2954,6 +3328,23 @@ claims:
   - 科技
   - 半导体设备龙头
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688072.SH
+    rationale: "看多拓荆科技，并购强化平台化逻辑且资金流入"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688072.SH
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 850.01
+    t5_close: 764.46
+    fwd_return_pct: -10.06
 - id: claim-20260714-001-cg
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -3023,6 +3414,24 @@ claims:
   - 基药目录
   - 以岭药业
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002603.SZ
+    rationale: "核心品种进基药目录、基层扩容利好销售，属看多观点。"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: neutral_window
+    reason: "|0.58%| < 1.0% 阈值"
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002603.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 17.15
+    t5_close: 17.25
+    fwd_return_pct: 0.58
 - id: claim-20260714-001-ci
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -3059,6 +3468,23 @@ claims:
   - 业绩预增
   - 九芝堂
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000989.SZ
+    rationale: "中报预增叠加基药利好，明确看多九芝堂"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000989.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 9.47
+    t5_close: 8.91
+    fwd_return_pct: -5.91
 - id: claim-20260714-001-cj
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -3101,6 +3527,23 @@ claims:
   - 中药股受政
   - 策跟踪
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 003020.SZ
+    rationale: "政策利好下提示关注中药标的，属看多型跟踪建议"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 003020.SZ
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 20.8
+    t5_close: 16.07
+    fwd_return_pct: -22.74
 - id: claim-20260714-001-ck
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -3202,6 +3645,23 @@ claims:
   - 科技
   - 麦迪科技
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603990.SH
+    rationale: "看好康养机器人与智慧医疗布局，受益产业政策"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603990.SH
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 19.21
+    t5_close: 16.75
+    fwd_return_pct: -12.81
 - id: claim-20260714-001-cn
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -3236,6 +3696,23 @@ claims:
   - 具身智能
   - 亿嘉和
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603666.SH
+    rationale: "具身智能拓展电力与康养新场景，看多"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603666.SH
+    t0_date: 2026-07-14
+    t5_date: 2026-07-21
+    t0_close: 25.66
+    t5_close: 20.81
+    fwd_return_pct: -18.9
 - id: claim-20260714-001-co
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'
@@ -3310,6 +3787,13 @@ claims:
   - 科技
   - AI
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600410.SH
+    rationale: "仅列举AI应用映射标的，无明确涨跌方向判断"
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260714-001-cq
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-0904-专栏-周一市场震荡调整，创业板指、深成指均跌超3%。盘面上，氦气概.md
   up_id: '1420210197'

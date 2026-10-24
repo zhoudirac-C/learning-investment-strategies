@@ -30,6 +30,21 @@ claims:
   - 情绪钟摆
   - 多空切换
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情绪钟摆摆向恐惧端，作者转为大多头，看多市场
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11
 - id: claim-20261020-005-b
   source_path: sources/original/bilibili/2026-10-20-2326-视频-【右侧行情要看融资余额】 -.md
   source_date: '2026-10-20'
@@ -63,6 +78,21 @@ claims:
   - 大多头
   - 空头转多
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 明确从空头转大多头，情绪钟摆看多市场整体
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11
 - id: claim-20261020-005-c
   source_path: sources/original/bilibili/2026-10-20-2326-视频-【右侧行情要看融资余额】 -.md
   source_date: '2026-10-20'
@@ -95,6 +125,13 @@ claims:
   - 科技股
   - 不梭哈
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论观点，界定反弹级别而非方向判断，科技股相关用创业板指
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-005-d
   source_path: sources/original/bilibili/2026-10-20-2326-视频-【右侧行情要看融资余额】 -.md
   source_date: '2026-10-20'
@@ -129,6 +166,13 @@ claims:
   - 防套利
   - ETF
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000016
+    rationale: 方法论解释护盘轮动防套利，非方向判断；涉及上证50权重
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-005-e
   source_path: sources/original/bilibili/2026-10-20-2326-视频-【右侧行情要看融资余额】 -.md
   source_date: '2026-10-20'
@@ -163,6 +207,13 @@ claims:
   - 正反馈
   - 创业板
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论观点，无方向判断；提及创业板作为参照
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-005-f
   source_path: sources/original/bilibili/2026-10-20-2326-视频-【右侧行情要看融资余额】 -.md
   source_date: '2026-10-20'
@@ -196,6 +247,13 @@ claims:
   - 医生病人
   - 美股
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，讨论护盘与市场自发关系，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-005-g
   source_path: sources/original/bilibili/2026-10-20-2326-视频-【右侧行情要看融资余额】 -.md
   source_date: '2026-10-20'
@@ -228,6 +286,21 @@ claims:
   - 市场自发
   - 反弹力度
   school: gator
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 配合大多头立场，认为市场可自发上涨，属看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: pending_data
+    reason: 第 5 交易日未到（最新 2026-10-23）
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-20
+    t0_close: 4152.11
 - id: claim-20261020-005-h
   source_path: sources/original/bilibili/2026-10-20-2326-视频-【右侧行情要看融资余额】 -.md
   source_date: '2026-10-20'
@@ -261,6 +334,13 @@ claims:
   - 避免过热
   - 银行
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论解释护盘机制，非方向判断，关联大盘指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-005-i
   source_path: sources/original/bilibili/2026-10-20-2326-视频-【右侧行情要看融资余额】 -.md
   source_date: '2026-10-20'
@@ -294,6 +374,13 @@ claims:
   - 做空
   - 护盘资金
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 复盘六月做空逻辑，属方法论框架，非当前方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-005-j
   source_path: sources/original/bilibili/2026-10-20-2326-视频-【右侧行情要看融资余额】 -.md
   source_date: '2026-10-20'
@@ -327,6 +414,13 @@ claims:
   - 胡萝卜大棒
   - 震荡
   school: gator
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，描述护盘节奏规律，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261020-005-k
   source_path: sources/original/bilibili/2026-10-20-2326-视频-【右侧行情要看融资余额】 -.md
   source_date: '2026-10-20'
@@ -359,3 +453,11 @@ claims:
   - 人性
   - 拿不住
   school: gator
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，讨论左侧交易人性难度，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

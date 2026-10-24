@@ -32,6 +32,13 @@ claims:
   - 观察窗口
   - 承接回流
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 对当日大跌的定性观察，判断后移待验证，无明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-b
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -64,6 +71,13 @@ claims:
   - 风险敞口
   - 归因框架
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 下跌归因方法论，无方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-c
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -100,6 +114,13 @@ claims:
   - 高估值成长
   - 压力情景
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 方法论跟踪框架，非方向判断；指向高估值成长股，以创业板指为相关基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-d
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -136,6 +157,13 @@ claims:
   - 抛压衰减
   - 无量反弹
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，量价企稳判据，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-e
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -172,6 +200,13 @@ claims:
   - 修复条件
   - 参与难度
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 护盘判据属方法论，未定方向；默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-f
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -205,6 +240,13 @@ claims:
   - 估值缓冲
   - 内部分化
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000922
+    rationale: 方法论框架，无方向判断，关联红利指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-g
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -240,6 +282,13 @@ claims:
   - 低迷区
   - 承接确认
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 情绪冰点观察日为方法论定性，方向待承接确认，非明确看多看空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-h
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -275,6 +324,13 @@ claims:
   - 负反馈
   - 核心回封
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论：冰点为观察窗口，非方向性买卖判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-i
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -309,6 +365,13 @@ claims:
   - 弱势反抽
   - 隔夜风险
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 次日情形应对决策树，方法论非方向判断，基准取大盘指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-j
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -345,6 +408,13 @@ claims:
   - 估值压力
   - 增长预期
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 明确不给方向预设，仅给观察清单，属方法论类
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-k
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -380,6 +450,23 @@ claims:
   - 资金回流
   - 幅度预判
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 预期节后修复上涨，附条件，属市场周期看多判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-28
+    t5_date: 2026-10-12
+    t0_close: 4340.76
+    t5_close: 4287.98
+    fwd_return_pct: -1.22
 - id: claim-20260928-002-l
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -420,6 +507,13 @@ claims:
   - 核心承接
   - 连板
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603396.SH
+    rationale: 题材情绪定性观察，非方向判断，关注核心标的承接
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-m
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -460,6 +554,23 @@ claims:
   - 超跌反弹
   - 医药对标
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600418.SH
+    rationale: 看多新能源超跌反弹，范围限定整车+风电，首选江淮汽车验证
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600418.SH
+    t0_date: 2026-09-28
+    t5_date: 2026-10-12
+    t0_close: 25.22
+    t5_close: 22.05
+    fwd_return_pct: -12.57
 - id: claim-20260928-002-n
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -495,6 +606,13 @@ claims:
   - 核心活跃
   - 板块轮动
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，无方向判断，无具体标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-o
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -531,6 +649,13 @@ claims:
   - 景气贴现率
   - 利空出清
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 见底评估方法论，非方向判断；科技链以创业板指代理
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-p
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -567,6 +692,13 @@ claims:
   - 持续性验证
   - 容量
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 603396.SH
+    rationale: 条件式定性边界，非明确方向判断，核心标的为金辰股份
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-q
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -603,6 +735,19 @@ claims:
   - 核心到板块
   - 正反馈
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 301689.SZ
+    rationale: 保留观察价值、期待核心带动板块正反馈，偏看多关注
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: insufficient_data
+    reason: kline 缓存无 301689.SZ 日线
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 301689.SZ
 - id: claim-20260928-002-r
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -643,6 +788,13 @@ claims:
   - 异动验证
   - 次日反馈
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688244.SH
+    rationale: 方法论框架，验证持续性而非方向判断，以领涨股永信至诚为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-s
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -681,6 +833,13 @@ claims:
   - 弱市轮动
   - 无新主线
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 弱市轮动定性判断，非方向性观点，基准取沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-t
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -717,6 +876,13 @@ claims:
   - 量产良率
   - 封装可靠性
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 产业链映射方法论，非方向判断，基准取沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-u
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -768,6 +934,13 @@ claims:
   - 金刚石
   - 热界面材料
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 301716.SZ
+    rationale: 散热材料跟踪框架与阶段划分，属方法论非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-v
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -802,6 +975,13 @@ claims:
   - 液冷架构
   - 客户认证
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 600160.SH
+    rationale: 方法论拆分框架，非方向判断；基准取氟化工龙头巨化股份
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260928-002-w
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -841,6 +1021,23 @@ claims:
   - 交付
   - 出货量叙事
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600699.SH
+    rationale: 以实际交付验证为锚，均胜电子控制器已规模化供货，偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600699.SH
+    t0_date: 2026-09-28
+    t5_date: 2026-10-12
+    t0_close: 24.02
+    t5_close: 20.85
+    fwd_return_pct: -13.2
 - id: claim-20260928-002-x
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -879,6 +1076,23 @@ claims:
   - 系统运行安全
   - 权限控制
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300369.SZ
+    rationale: 智能体安全需求延伸利好绿盟科技等安全厂商
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300369.SZ
+    t0_date: 2026-09-28
+    t5_date: 2026-10-12
+    t0_close: 8.95
+    t5_close: 11.13
+    fwd_return_pct: 24.36
 - id: claim-20260928-002-y
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -915,3 +1129,11 @@ claims:
   - 不追脉冲
   - 节前仓位
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 操作纪律与方法论，无方向判断，节前仓位管理规则
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

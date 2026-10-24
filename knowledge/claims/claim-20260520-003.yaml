@@ -303,6 +303,23 @@ claims:
     name: 通富微电
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002156.SZ
+    rationale: 认知升级+AMD项目扩产逻辑偏多，关注承接放量
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002156.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 60.09
+    t5_close: 68.27
+    fwd_return_pct: 13.61
 - id: claim-20260520-003-i
   topic: 中科飞测是半导体检测量测核心弹性标的
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
@@ -344,6 +361,23 @@ claims:
     name: 中科飞测
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688361.SH
+    rationale: 明确看多中科飞测，受益国产替代、扩产及先进封装三重逻辑
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688361.SH
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 212.76
+    t5_close: 252.21
+    fwd_return_pct: 18.54
 - id: claim-20260520-003-j
   topic: 新易盛仍是光通信逻辑核心
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
@@ -382,6 +416,23 @@ claims:
     name: 新易盛
     role: 参考标的
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300502.SZ
+    rationale: 看好光通信核心资产，关注订单与业绩兑现
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300502.SZ
+    t0_date: 2026-06-11
+    t5_date: 2026-06-18
+    t0_close: 526
+    t5_close: 581.48
+    fwd_return_pct: 10.55
 - id: claim-20260520-003-k
   topic: 国产算力与昇腾
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md

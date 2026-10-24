@@ -33,6 +33,23 @@ claims:
   - 仓位管理
   - 指数修复
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 指数重回上升趋势框架，看多立场升级，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-09-22
+    t5_date: 2026-09-30
+    t0_close: 4544.59
+    t5_close: 4357.62
+    fwd_return_pct: -4.11
 - id: claim-20260922-001-b
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -67,6 +84,13 @@ claims:
   - 科技接力
   - 反弹持续性
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 对修复性质的定性判断，方向取决于量能与科技表现，暂非明确多空
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-c
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -100,6 +124,13 @@ claims:
   - 资金接力
   - 短线博弈
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 判据型方法论观点，讨论外盘传导验证框架，无明确方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-d
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -134,6 +165,13 @@ claims:
   - 耐心纪律
   - 操作纪律
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 操作方法论，无明确方向；默认以沪深300为验证基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-e
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -168,6 +206,23 @@ claims:
   - 跨节资金
   - 修复节奏
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 假期仅拖慢修复节奏，科技修复方向未变，仍偏多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sz399006
+    t0_date: 2026-09-22
+    t5_date: 2026-09-30
+    t0_close: 3399.93
+    t5_close: 3135.28
+    fwd_return_pct: -7.78
 - id: claim-20260922-001-f
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -202,6 +257,13 @@ claims:
   - 10:30窗口
   - 13:30窗口
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 量能观察方法论，无方向判断；参照A股成交额，以上证为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-g
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -237,6 +299,13 @@ claims:
   - 金融权重
   - 赚钱效应
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论判断：区分指数虚强与赚钱效应，无方向倾向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-h
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -271,6 +340,13 @@ claims:
   - 炸板修复
   - 晋级率
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论判据，无方向性判断，关联市场情绪基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-i
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -303,6 +379,13 @@ claims:
   - 情形A
   - 情形B
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 双剧本条件应对框架，非方向性判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-j
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -338,6 +421,13 @@ claims:
   - 首板家数
   - 观察线
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 方法论观察线，非买卖信号，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-k
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -372,6 +462,13 @@ claims:
   - 高标
   - 低位补位
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000001
+    rationale: 判据型方法论，无方向判断，以市场情绪相关指数为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-l
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -406,6 +503,13 @@ claims:
   - 医药
   - 地产
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 高低切换方法论与纪律提示，无明确方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-m
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -446,6 +550,13 @@ claims:
   - 容量品种
   - 连板高度
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000636.SZ
+    rationale: 方法论观点：以容量品种趋势反馈判别产业资金回流，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-n
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -481,6 +592,13 @@ claims:
   - 涨价
   - 存储经验
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 筛选方法论而非方向判断，科技主题以创业板指为相关基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-o
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -519,6 +637,13 @@ claims:
   - 十五五规划
   - 医药外包
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 688315.SH
+    rationale: 方法论框架条，无方向判断，选最相关标的诺禾致源
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-p
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -558,6 +683,23 @@ claims:
   - 球形硅微粉
   - PCB材料
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688300.SH
+    rationale: 看多PCB材料升级线索，联瑞新材为球形硅微粉核心标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688300.SH
+    t0_date: 2026-09-22
+    t5_date: 2026-09-30
+    t0_close: 177.21
+    t5_close: 144.3
+    fwd_return_pct: -18.57
 - id: claim-20260922-001-q
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -599,6 +741,23 @@ claims:
   - 微型电机
   - 宇树Dex5-S
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 603728.SH
+    rationale: 看多微型电机/驱动环节，建议关注鸣志电器
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 603728.SH
+    t0_date: 2026-09-22
+    t5_date: 2026-09-30
+    t0_close: 50.55
+    t5_close: 51.5
+    fwd_return_pct: 1.88
 - id: claim-20260922-001-r
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -640,6 +799,13 @@ claims:
   - Meta Muse
   - AI营销
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 300058.SZ
+    rationale: 框架性判据，非方向判断；观察样本为蓝色光标
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-s
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -677,6 +843,13 @@ claims:
   - 国产处理器
   - AMD
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000066.SZ
+    rationale: 框架式观察环节梳理，无明确买卖方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260922-001-t
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -711,3 +884,11 @@ claims:
   - 仓位控制
   - 纠错余地
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 通用操作纪律方法论，无方向判断，基准取默认指数
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

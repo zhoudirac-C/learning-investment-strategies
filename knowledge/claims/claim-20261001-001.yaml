@@ -33,6 +33,13 @@ claims:
   - 调整定性
   - 四季报
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 调整定性的方法论框架，非方向判断，默认沪深300
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261001-001-b
   source_path: sources/original/bilibili/2026-10-01-1104-专栏-近期A股市场出现连续调整，市场对于中美关系缓和、国内政策加码.md
   source_date: '2026-10-01'
@@ -66,6 +73,23 @@ claims:
   - 风险溢价
   - 竞争框架
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 降低中美尾部风险溢价，利好中国资产估值分母
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 4310.28
+    t5_close: 4166.01
+    fwd_return_pct: -3.35
 - id: claim-20261001-001-c
   source_path: sources/original/bilibili/2026-10-01-1104-专栏-近期A股市场出现连续调整，市场对于中美关系缓和、国内政策加码.md
   source_date: '2026-10-01'
@@ -102,6 +126,23 @@ claims:
   - 自主可控
   - 商业竞争力
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000688
+    rationale: 看多国产算力长期趋势，科创50涵盖芯片算力核心标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000688
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 1456.32
+    t5_close: 1359.52
+    fwd_return_pct: -6.65
 - id: claim-20261001-001-d
   source_path: sources/original/bilibili/2026-10-01-1104-专栏-近期A股市场出现连续调整，市场对于中美关系缓和、国内政策加码.md
   source_date: '2026-10-01'
@@ -136,6 +177,13 @@ claims:
   - 资产负债表
   - 稳定预期
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 政策范式解读与方法论框架，非方向性判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261001-001-e
   source_path: sources/original/bilibili/2026-10-01-1104-专栏-近期A股市场出现连续调整，市场对于中美关系缓和、国内政策加码.md
   source_date: '2026-10-01'
@@ -170,6 +218,23 @@ claims:
   - 反内卷
   - 盈利环境
   school: qing
+  direction:
+    value: bullish
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 政策底确立、稳预期改善盈利，利好大盘整体估值
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: sh000300
+    t0_date: 2026-10-08
+    t5_date: 2026-10-15
+    t0_close: 4310.28
+    t5_close: 4166.01
+    fwd_return_pct: -3.35
 - id: claim-20261001-001-f
   source_path: sources/original/bilibili/2026-10-01-1104-专栏-近期A股市场出现连续调整，市场对于中美关系缓和、国内政策加码.md
   source_date: '2026-10-01'
@@ -205,6 +270,13 @@ claims:
   - 机构考核
   - 两融
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 拆解节前调整为交易性因素，未给出方向判断，属方法论分析
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261001-001-g
   source_path: sources/original/bilibili/2026-10-01-1104-专栏-近期A股市场出现连续调整，市场对于中美关系缓和、国内政策加码.md
   source_date: '2026-10-01'
@@ -241,6 +313,13 @@ claims:
   - 三季报
   - 订单盈利
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sz399006
+    rationale: 阶段切换方法论与验证清单，非方向判断；科技板块以创业板指为基准
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261001-001-h
   source_path: sources/original/bilibili/2026-10-01-1104-专栏-近期A股市场出现连续调整，市场对于中美关系缓和、国内政策加码.md
   source_date: '2026-10-01'
@@ -274,6 +353,13 @@ claims:
   - 企业利润
   - 观察阶段
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 预期重排序框架总结，方向待财报验证，非即期买卖判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261001-001-i
   source_path: sources/original/bilibili/2026-10-01-1304-图片-9月30日，美国公布的8月PCE通胀数据，给了市场一个短暂松.md
   source_date: '2026-10-01'
@@ -309,6 +395,13 @@ claims:
   - 长端收益率
   - 会议概率
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论框架，非方向判断，无直接标的
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261001-001-j
   source_path: sources/original/bilibili/2026-10-01-1304-图片-9月30日，美国公布的8月PCE通胀数据，给了市场一个短暂松.md
   source_date: '2026-10-01'
@@ -344,6 +437,13 @@ claims:
   - 内部结构
   - 归因纪律
   school: qing
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论自律条，无可交易方向，仅数据解读纪律
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261001-001-k
   source_path: sources/original/bilibili/2026-10-01-1304-图片-9月30日，美国公布的8月PCE通胀数据，给了市场一个短暂松.md
   source_date: '2026-10-01'
@@ -380,6 +480,13 @@ claims:
   - 机会成本
   - 会议概率
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 518880.SZ
+    rationale: 方法论观点：金价锚定长期实际利率，非方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261001-001-l
   source_path: sources/original/bilibili/2026-10-01-1304-图片-9月30日，美国公布的8月PCE通胀数据，给了市场一个短暂松.md
   source_date: '2026-10-01'
@@ -416,3 +523,11 @@ claims:
   - 政策传导
   - 资金成本
   school: qing
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，区分政策预期与实际金融条件，无方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

@@ -1132,6 +1132,23 @@ claims:
   - AI应用
   - 右侧确认
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300418.SZ
+    rationale: 预期AI应用行情启动是时间问题，倾向看多但建议等待右侧确认
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300418.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 47.96
+    t5_close: 46.11
+    fwd_return_pct: -3.86
 - id: claim-20260708-006-ai
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'
@@ -1169,6 +1186,23 @@ claims:
   - 全栈闭环
   - 天工
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300418.SZ
+    rationale: 强调全栈AI闭环稀缺布局，属看多昆仑万维
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300418.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 47.96
+    t5_close: 46.11
+    fwd_return_pct: -3.86
 - id: claim-20260708-006-aj
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'
@@ -1206,6 +1240,23 @@ claims:
   - Q1营收
   - 海外收入
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300418.SZ
+    rationale: 引用Q1营收高增与海外占比，基本面利好看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300418.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 47.96
+    t5_close: 46.11
+    fwd_return_pct: -3.86
 - id: claim-20260708-006-ak
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'
@@ -1243,6 +1294,23 @@ claims:
   - 天工AI
   - ARR
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300418.SZ
+    rationale: ARR突破8亿美元被视为商业化积极信号，看多昆仑万维
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300418.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 47.96
+    t5_close: 46.11
+    fwd_return_pct: -3.86
 - id: claim-20260708-006-al
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'
@@ -1280,6 +1348,23 @@ claims:
   - Claude Code
   - AI Agent安全
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300017.SZ
+    rationale: 看好AI Agent安全需求利好网宿科技防御方案
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300017.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 14.66
+    t5_close: 14.35
+    fwd_return_pct: -2.11
 - id: claim-20260708-006-am
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'
@@ -1317,6 +1402,23 @@ claims:
   - 边缘节点
   - 提价
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300017.SZ
+    rationale: 提价带动CDN量价齐升，利好网宿科技股价
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300017.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 14.66
+    t5_close: 14.35
+    fwd_return_pct: -2.11
 - id: claim-20260708-006-an
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'
@@ -1354,6 +1456,23 @@ claims:
   - 语义缓存
   - 算力成本
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300017.SZ
+    rationale: 看多网宿科技，强调边缘AI降本增效与算力租赁新增长极
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300017.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 14.66
+    t5_close: 14.35
+    fwd_return_pct: -2.11
 - id: claim-20260708-006-ao
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'
@@ -1425,6 +1544,23 @@ claims:
   - N加3
   - 昇腾950
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688981.SH
+    rationale: 看好中芯国际承接昇腾950先进制程大单，属看多观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688981.SH
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 152.1
+    t5_close: 153.64
+    fwd_return_pct: 1.01
 - id: claim-20260708-006-aq
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'
@@ -1496,6 +1632,23 @@ claims:
   - 配套芯片
   - 代工
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688249.SH
+    rationale: 看多晶合集成，受益算力配套芯片代工需求
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688249.SH
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 58.51
+    t5_close: 50.34
+    fwd_return_pct: -13.96
 - id: claim-20260708-006-as
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'
@@ -1604,6 +1757,13 @@ claims:
   - AI原生手机
   - M153
   school: qing
+  direction:
+    value: neutral
+    basis_kind: stock
+    basis_code: 000063.SZ
+    rationale: 仅陈述AI手机产品布局事实，无明确看多看空方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20260708-006-av
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'
@@ -1641,6 +1801,23 @@ claims:
   - LCD
   - 柔性AMOLED
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 000725.SZ
+    rationale: 出货排名领先，AI手机趋势下看多京东方A
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 000725.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 7.63
+    t5_close: 6.38
+    fwd_return_pct: -16.38
 - id: claim-20260708-006-aw
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'
@@ -1678,6 +1855,23 @@ claims:
   - 动力煤
   - 客户基础
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601001.SH
+    rationale: 看好优质动力煤与稳定客户基础的防御属性
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601001.SH
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 18.313
+    t5_close: 17.583
+    fwd_return_pct: -3.99
 - id: claim-20260708-006-ax
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'
@@ -1715,6 +1909,23 @@ claims:
   - 一体化运营
   - 煤矿物流
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 601101.SH
+    rationale: 看好一体化运营提升稳定性和成本控制，属看多观点
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 601101.SH
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 12.12
+    t5_close: 11.91
+    fwd_return_pct: -1.73
 - id: claim-20260708-006-ay
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'
@@ -1786,6 +1997,23 @@ claims:
   - 业绩反转
   - 第二增长曲线
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 300568.SZ
+    rationale: 看多星源材质，预期业绩反转且涨价弹性大
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 300568.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 18.46
+    t5_close: 14.73
+    fwd_return_pct: -20.21
 - id: claim-20260708-006-ba
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'
@@ -1823,6 +2051,23 @@ claims:
   - 隔膜龙头
   - 盈利修复
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 002812.SZ
+    rationale: 看多恩捷股份，预期隔膜涨价带来盈利修复
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: miss
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 002812.SZ
+    t0_date: 2026-07-08
+    t5_date: 2026-07-15
+    t0_close: 60.541
+    t5_close: 54.551
+    fwd_return_pct: -9.89
 - id: claim-20260708-006-bb
   source_path: sources/original/bilibili/2026-07-08-2219-图片-动态-1222699793902469157.md
   up_id: '1420210197'

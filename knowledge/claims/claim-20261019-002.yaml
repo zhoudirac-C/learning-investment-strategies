@@ -31,6 +31,13 @@ claims:
   - 题材级别
   - GTC
   related_stocks: []
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 题材定级方法论，非明确买卖方向判断
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
 - id: claim-20261019-002-b
   source_path: sources/original/bilibili/2026-10-19-1427-图片-本轮物理AI、机器人板块午后异动，直接催化是即将于10月20.md
   source_date: '2026-10-19'
@@ -63,3 +70,11 @@ claims:
   - 赚钱效应
   - 下跌惯性
   related_stocks: []
+
+  direction:
+    value: neutral
+    basis_kind: index
+    basis_code: sh000300
+    rationale: 方法论观点，判断反弹级别的前置条件，无方向
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1

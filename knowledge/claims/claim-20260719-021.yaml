@@ -33,3 +33,21 @@ claims:
   - HBM
   - 华为封测
   school: qing
+
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 600584.SH
+    rationale: 明确看多长电科技先进封装卡位与AI芯片逻辑确定性
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 600584.SH
+    t0_date: 2026-07-20
+    t5_date: 2026-07-27
+    t0_close: 76.94
+    t5_close: 82.3
+    fwd_return_pct: 6.97

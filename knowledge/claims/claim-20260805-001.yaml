@@ -669,6 +669,23 @@ claims:
   - 康宁
   - 避风港
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688502.SH
+    rationale: 认为茂莱光学不受光模块利空影响且受益下一代光互联，属看多
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688502.SH
+    t0_date: 2026-08-05
+    t5_date: 2026-08-12
+    t0_close: 372.99
+    t5_close: 408
+    fwd_return_pct: 9.39
 - id: claim-20260805-020
   source_path: sources/raw/财经/2026-08-05-0915-专栏-8.5早盘-隔夜外盘与开盘预判.md
   up_id: '1420210197'
@@ -1046,6 +1063,23 @@ claims:
   - 无锡尚积
   - PVD
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688072.SH
+    rationale: 看多拓荆科技设备布局与AI-NAND景气受益
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688072.SH
+    t0_date: 2026-08-05
+    t5_date: 2026-08-12
+    t0_close: 677.88
+    t5_close: 703.03
+    fwd_return_pct: 3.71
 - id: claim-20260805-030
   source_path: sources/raw/财经/2026-08-05-0915-专栏-8.5早盘-隔夜外盘与开盘预判.md
   up_id: '1420210197'
@@ -1083,6 +1117,23 @@ claims:
   - 3D DRAM
   - 3D NAND
   school: qing
+  direction:
+    value: bullish
+    basis_kind: stock
+    basis_code: 688147.SH
+    rationale: 表述强调设备量产支撑存储迭代，属看多逻辑
+    annotated_at: 2026-10-24
+    annotator: m3-direction-v1
+  outcome:
+    result: hit
+    evaluated_at: 2026-10-24
+    window_days: 5
+    basis_code: 688147.SH
+    t0_date: 2026-08-05
+    t5_date: 2026-08-12
+    t0_close: 96.48
+    t5_close: 112.67
+    fwd_return_pct: 16.78
 - id: claim-20260805-031
   source_path: sources/raw/财经/2026-08-05-0915-专栏-8.5早盘-隔夜外盘与开盘预判.md
   up_id: '1420210197'
