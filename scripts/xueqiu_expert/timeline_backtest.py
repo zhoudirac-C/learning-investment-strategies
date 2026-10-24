@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import json
 import time
+import urllib.request
 from datetime import datetime
 from pathlib import Path
 
@@ -40,35 +41,39 @@ def log(msg: str) -> None:
     print(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}", flush=True)
 
 
-def fetch_page(page, uid: str, page_no: int):  # -> dict | str("waf") | None
-    """导航一页 v4/user_timeline API（全部发言：原创长文+讨论区短帖）。
-
-    2026-09-23 实测：/statuses/original/timeline.json 只含原创长文——渠道A
-    讨论区作者大面积为空（"不可方物的铁拳"0帖）；v4 端点覆盖全部发言。"""
-    # 2026-09-24：裸域 xueqiu.com 直连 API 触发 WAF 模式拦截（登录态+API 路径维度，
-    # HTML 页面正常；封禁 2h+ 未自动解除）。www.xueqiu.com 同路径返回正常 JSON
-    # （页面自身 XHR 也走 www）→ 取数统一走 www
+def fetch_page(uid: str, page_no: int):  # -> dict | str("waf") | None
+    """urllib 直连 www.xueqiu.com（cookie 登录态），绕过 headless WAF 拦截。"""
     url = (f"https://www.xueqiu.com/v4/statuses/user_timeline.json"
            f"?user_id={uid}&page={page_no}&count={COUNT}")
+    cookies_path = Path.home() / "xq_cookies.json"
+    if not cookies_path.exists():
+        log(f"  uid={uid} p{page_no}: 缺少 xq_cookies.json")
+        return None
+    cookies = json.loads(cookies_path.read_text())
+    cookie_str = "; ".join([f"{c['name']}={c['value']}" for c in cookies])
+    req = urllib.request.Request(url, headers={
+        "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                       "(KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"),
+        "Referer": "https://www.xueqiu.com/",
+        "Cookie": cookie_str,
+    })
     try:
-        page.goto(url, timeout=30000)
-        time.sleep(1.2)
-        txt = page.evaluate("document.body.innerText")
-    except Exception as e:  # noqa: BLE001
-        log(f"  uid={uid} p{page_no}: 导航异常 {type(e).__name__}，30s 后重试一次")
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            txt = resp.read().decode("utf-8", errors="ignore")
+    except Exception as e:
+        log(f"  uid={uid} p{page_no}: urllib 异常 {type(e).__name__}，30s 后重试一次")
         time.sleep(30)
         try:
-            page.goto(url, timeout=30000)
-            time.sleep(1.2)
-            txt = page.evaluate("document.body.innerText")
-        except Exception:  # noqa: BLE001
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                txt = resp.read().decode("utf-8", errors="ignore")
+        except Exception:
             return None
     txt = (txt or "").strip()
     if not txt.startswith("{"):
         return "waf"
     try:
         return json.loads(txt)
-    except Exception:  # noqa: BLE001
+    except Exception:
         return "waf"
 
 
@@ -79,7 +84,7 @@ def backtest_user(page, uid: str, name: str, max_pages: int = MAX_PAGES) -> dict
     oldest = None
     waf_retried = False
     while True:
-        d = fetch_page(page, uid, page_no)
+        d = fetch_page(uid, page_no)
         if d == "waf":
             if waf_retried:
                 return {"status": "waf_blocked", "posts": all_posts,

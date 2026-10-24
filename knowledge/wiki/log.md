@@ -3238,3 +3238,11 @@ ASR 不可用属预期限制，非采集故障。
 - **提取**：claim-20261023-005（13 条，Gate 1/2/3 全过，up_id=1420210197 青枫浦上Q）
 - **核心观点**：国际再平衡是 A 股极端行情根因；全球化倒退形成各化阵营；资本复利导致贫富分化压低总需求；土地财政走不通，应过渡到股权财政（合肥模式）；消费不足根源是支付能力和安全感不足；散户建议半仓轮动、持股不超过3个、永远不要满仓
 - **wiki 新增**：knowledge/claims/claim-20261023-005.yaml
+
+## 2026-10-24 claim 下游同步管线补跑（10-17 批次 12 条，含时序守卫上线）
+
+- **discover --all-missing**：12 条（claim-20261017-001~012）全部处理，共 27 关系（8 supersedes + contradicts + supplements），supersedes 方向全部「新取代旧」
+- **Neo4j migrate**：12 claims + SUPERSEDES/CONTRADICTS/SUPPLEMENTS 边完成
+- **Qdrant qing_claims**：全量 upsert 6029 条（与 Neo4j/YAML 三方一致）
+- **时序守卫上线**（process_claim）：源 source_date 早于目标的反向 supersedes 自动丢弃并在 reason 记录「时序守卫拦截」，防止「历史观点替代最近观点」；缺日期放行由审计兜底；回归测试 tests/test_discover_time_order_guard.py（6 过）
+- **存量反向边审计**（scripts/audit_supersedes_time_order.py）：2227 条 supersedes 边中 52 条方向违例（2026-05~06 一簇 + 10-13~10-22 零星，疑似 6-8 YAML 修复回填与近期补扫误标），已存档待单独 remediation

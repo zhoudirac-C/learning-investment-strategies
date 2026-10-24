@@ -11,6 +11,7 @@ cron：每 30 分钟一次。no_agent 语义：stdout 非空才投递，空=静�
 """
 from __future__ import annotations
 
+import urllib.request
 import json
 import os
 import subprocess
@@ -50,32 +51,24 @@ def bc_status() -> tuple[int, int]:
 
 
 def probe() -> bool:
-    """单页探测 IP 是否解封。True=解封。"""
-    cookies = json.loads(Path("/home/ubuntu/xq_cookies.json").read_text())
-    pw_cookies = [{"name": c["name"], "value": c["value"],
-                   "domain": c.get("domain", ".xueqiu.com"),
-                   "path": c.get("path", "/")}
-                  for c in cookies if "xueqiu" in (c.get("domain") or "")]
-    from playwright.sync_api import sync_playwright
-    with sync_playwright() as pw:
-        ctx = pw.chromium.launch_persistent_context(
-            user_data_dir="/home/ubuntu/.config/chromium", headless=True,
-            executable_path="/usr/bin/google-chrome-stable",
-            user_agent=("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                        "AppleWebKit/537.36 (KHTML, like Gecko) "
-                        "Chrome/152.0.0.0 Safari/537.36"),
-            args=["--disable-blink-features=AutomationControlled"])
-        ctx.add_cookies(pw_cookies)
-        page = ctx.pages[0] if ctx.pages else ctx.new_page()
-        # 2026-09-24：裸域被 WAF 模式拦截（与 P3 取数同维度），www 同路径正常。
-        # 先访问首页预热（对齐实测成功序列），再探 www API
-        page.goto("https://xueqiu.com/", timeout=30000, wait_until="domcontentloaded")
-        time.sleep(2)
-        page.goto("https://www.xueqiu.com/v4/statuses/user_timeline.json"
-                  "?user_id=6876843497&page=1&count=20", timeout=30000)
-        time.sleep(2)
-        txt = page.evaluate("document.body.innerText")
+    """urllib 探测 www.xueqiu.com API 是否可访问。True=解封。"""
+    cookies_path = Path("/home/ubuntu/xq_cookies.json")
+    if not cookies_path.exists():
+        return False
+    cookies = json.loads(cookies_path.read_text())
+    cookie_str = "; ".join([f"{c['name']}={c['value']}" for c in cookies])
+    url = "https://www.xueqiu.com/v4/statuses/user_timeline.json?user_id=6876843497&page=1&count=20"
+    req = urllib.request.Request(url, headers={
+        "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"),
+        "Referer": "https://www.xueqiu.com/",
+        "Cookie": cookie_str,
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            txt = resp.read().decode("utf-8", errors="ignore")
         return (txt or "").strip().startswith("{")
+    except Exception:
+        return False
 
 
 def main() -> None:

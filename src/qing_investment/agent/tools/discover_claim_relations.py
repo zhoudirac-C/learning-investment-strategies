@@ -144,6 +144,17 @@ def find_similar_claims(
     return similar
 
 
+def _parse_source_date(value) -> str | None:
+    """解析 claim source_date 为归一化 YYYY-MM-DD 字符串；无法解析返回 None。"""
+    s = str(value or "").strip()
+    for fmt in ("%Y-%m-%d", "%Y/%m/%d", "%Y.%m.%d", "%Y%m%d"):
+        try:
+            return datetime.strptime(s, fmt).strftime("%Y-%m-%d")
+        except ValueError:
+            continue
+    return None
+
+
 def fetch_full_claim(claim_id: str, neo4j: Neo4jClient) -> dict | None:
     """Fetch full claim details from Neo4j."""
     result = neo4j.get_claim_evolution(claim_id)
@@ -287,6 +298,21 @@ def process_claim(
             "same_up": same_up,
         }
         results["pairs"].append(pair_info)
+
+        # 时序守卫（2026-10-24）：supersedes 语义是「新取代旧」，方向只能
+        # 源新于目标。旧批次补扫时 LLM 偶发把「该被目标取代」误标为源
+        # supersedes 目标，写入即构成「历史观点替代最近观点」，必须拦截。
+        # 缺日期时放行（由后续反向边审计兜底）。
+        if relation == "supersedes" and same_up:
+            d_src = _parse_source_date(claim.get("source_date"))
+            d_tgt = _parse_source_date(sim_full.get("source_date"))
+            if d_src and d_tgt and d_src < d_tgt:
+                relation = "none"
+                pair_info["relation"] = "none"
+                pair_info["reason"] += (
+                    f" [时序守卫拦截: 源({d_src})早于目标({d_tgt})，"
+                    f"反向supersedes已丢弃]"
+                )
 
         if relation == "supersedes" and same_up:
             if sim["id"] not in results["supersedes"]:

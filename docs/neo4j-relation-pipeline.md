@@ -96,6 +96,22 @@ bash scripts/run_discover_with_progress.sh
 
 - `scripts/debug_discover.py` — 单条 claim 的 discover 管道追踪（Qdrant 搜索 → Neo4j 获取 → LLM 判断）
 - `scripts/fix_corrupted_yaml.py` — 批量修复 YAML 孤儿行，从 Neo4j 回填 supersedes/contradicts
+- `scripts/audit_supersedes_time_order.py` — 反向边审计：全量扫描 claim YAML，
+  列出「源 source_date 早于目标」的 supersedes 违例边（历史观点替代最近观点）
+
+### ⏱ 时序守卫（2026-10-24 新增）
+
+`process_claim` 内置 supersedes 方向守卫：**源 source_date 早于目标时，反向
+supersedes 直接丢弃**（pair 降级为 none 并在 reason 记录「时序守卫拦截」）。
+背景：旧批次补扫（`--all-missing` / `--neo4j-zero-edges` 重扫历史 claim）时，
+LLM 偶发把「源该被目标取代」误标为源 supersedes 目标——写入即构成「历史
+观点替代最近观点」。缺日期时守卫放行，由 `audit_supersedes_time_order.py`
+兜底。contradicts 对称无方向，不受守卫影响。回归测试：
+`tests/test_discover_time_order_guard.py`。
+
+⚠️ 历史数据注意：2026-10-24 审计发现存量 2227 条 supersedes 边中有 52 条
+反向违例（集中于 2026-05~06 与 10-13~10-22 两簇），疑似 6-8 YAML 修复回填
+与近期补扫误标所致，待单独 remediation（先跑审计脚本取清单）。
 
 ### 🩺 故障诊断速查
 
