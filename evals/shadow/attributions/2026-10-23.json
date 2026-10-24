@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-23",
+  "triggers": [
+    "stage_miss_premarket",
+    "stage_miss"
+  ],
+  "types": [
+    "步骤缺",
+    "概念误用"
+  ],
+  "analysis": "错因：1) cycle_state 三指数分歧（科创50 rebound_day=1/60min底10-23，上证 rebound_day=3/90min底10-21，创业板旧底失效），AI 选择科创50作为锚定并设 rebound_day=1，未按规则取中位或显式输出区间，构成对预设结论最有利的单点锚定（概念误用）；2) 将成交额19562.6亿环比+27.96%、涨停82家/封板率87.23%等情绪指标直接解释为'非杠杆增量回补'，但机构净买卖家数31:31均衡、融资余额10-22净流出-233.64亿并不支持增量入场，缺少对资金来源的验证步骤，且创业板指收于5日线下方（2684<约2706）仍被当作待收复条件而非否决条件，导致阶段误判为震荡修复而非调整（步骤缺）。",
+  "proposal_refs": [
+    "framework/proposals/2026-10-23-pattern-patch-note.md",
+    "framework/proposals/2026-10-23-pattern-patch-note.md",
+    "framework/proposals/2026-10-23-glossary-patch-note.md"
+  ]
+}

@@ -1,0 +1,65 @@
+claims:
+- id: claim-20261023-003-a
+  source_path: sources/raw/财经/2026-10-23-1105-动态-沪深300上证50形成30分钟底部结构.md
+  source_type: 图片
+  claim_type: technical-signal
+  subject: 沪深300与上证50三十分钟底部结构
+  timeframe: intraday
+  statement: 截至11:00，沪深300和上证50已经形成30分钟底部结构，但其他指数仍需等待11:30或13:30的完整周期确认。
+  evidence_quote: 截止到11:00，沪深300和上证50形成30分钟底部结构，其他指数要看11:30或1:30。
+  interpretation: UP按指数分层确认底部结构：权重指数先出30分钟结构，其他指数尚未同步，说明修复仍处局部向全局扩散阶段。
+  confidence: high
+  intensity: medium
+  stance: view
+  topic: 权重指数先形成30分钟底部结构
+  source_date: '2026-10-23'
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-23T13:59:57+08:00'
+  status: active
+  supersedes: ["claim-20260921-002-b"]
+  contradicts: []
+  supplements: ["claim-20260310-001-a"]
+  last_discovered: 2026-10-24
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 沪深300
+  - 上证50
+  - 30分钟
+  - 底部结构
+- id: claim-20261023-003-b
+  source_path: sources/raw/财经/2026-10-23-1105-动态-沪深300上证50形成30分钟底部结构.md
+  source_type: 图片
+  claim_type: market-cycle
+  subject: 市场强度与下周关键节点
+  timeframe: short-term
+  statement: UP认为这两天市场强度终于上来，但真正的关键节点仍在下周三和周四。
+  evidence_quote: 这两天强度终于上来了，重要节点还是下周三周四。
+  interpretation: UP把当前反弹定位为强度修复的前段，尚未进入决定性确认；下周三周四可能是期权交割、数据或结构确认类关键窗口。
+  confidence: medium
+  intensity: medium
+  stance: market-regime
+  topic: 强度回升但关键节点在下周三周四
+  source_date: '2026-10-23'
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-23T13:59:57+08:00'
+  status: active
+  supersedes: ["claim-20260824-001-d", "claim-20260821-006"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-24
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 强度回升
+  - 关键节点
+  - 下周三
+  - 下周四

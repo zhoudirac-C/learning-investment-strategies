@@ -39,6 +39,17 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+# 日志：判断异常在哪（方案1：A+B 结构化日志）
+LOG_FILE = Path.home() / ".hermes" / "wechat_fetch.log"
+
+def log_gator(event: str, **fields):
+    import json
+    LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+    record = {"ts": datetime.now().strftime("%Y-%m-%d %H:%M:%S"), "event": event, "script": "bilibili_notify"}
+    record.update(fields)
+    with open(LOG_FILE, "a", encoding="utf-8") as f:
+        f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
 # 确保能导入 v2 脚本
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -120,10 +131,12 @@ def maybe_run_gator_fetch(now: datetime | None = None) -> bool:
         return False
 
     today = now.strftime("%Y-%m-%d")
+    log_gator("gate_check", window_start=f"{hh}:{mm:02d}", in_window=start <= now < end, today=today)
     try:
         if _GATOR_DAILY_MARKER.exists():
             last = _GATOR_DAILY_MARKER.read_text(encoding="utf-8").strip()
             if last == today:
+                log_gator("marker_skipped", reason="already_run_today", last=last, today=today)
                 return False
     except Exception:
         pass
@@ -151,6 +164,7 @@ def maybe_run_gator_fetch(now: datetime | None = None) -> bool:
         print(f"WARN: gator 抓取执行失败: {exc}", file=sys.stderr)
         return True
 
+    log_gator("fetch_result", proc_returncode=proc.returncode, stdout_has_content=bool(proc.stdout and proc.stdout.strip()), stderr_has_content=bool(proc.stderr and proc.stderr.strip()))
     if proc.stdout.strip():
         # 透传到本脚本 stdout → no_agent watchdog 会投递飞书
         print(proc.stdout.strip())

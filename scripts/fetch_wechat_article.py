@@ -62,6 +62,21 @@ def save_state(state: dict) -> None:
         pass
 
 
+LOG_FILE = REPO_ROOT / "logs" / "wechat_fetch.log"
+
+
+def log_fetch(event: str, **fields):
+    import json
+    LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+    record = {
+        "ts": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "event": event,
+    }
+    record.update(fields)
+    with open(LOG_FILE, "a", encoding="utf-8") as f:
+        f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+
 def probe_weread_cookie() -> tuple[bool, str]:
     """探测微信读书 Cookie 是否仍有效（直连 weread cover 接口）。
 
@@ -173,6 +188,7 @@ def main() -> int:
     # 采集器返回"暂无需要获取内容的文章"，抓取钩子"先写标记再调用"
     # 也不重试 → 连续 7 天零入库、零告警，直到人工发现。
     ok, detail = probe_weread_cookie()
+    log_fetch("cookie_probe", cookie_ok=ok, detail=detail, check_only=args.check_only)
     if not ok:
         print(
             f"WEREAD_COOKIE_INVALID: {detail} — 微信读书登录态失效，"
@@ -198,6 +214,7 @@ def main() -> int:
     exported = set(state["exported_ids"])
 
     new_rows = [dict(r) for r in rows if r["id"] not in exported]
+    log_fetch("db_increment", pending=len(new_rows), total_db=len(rows), exported=len(exported), backfill=args.backfill)
     if args.check_only:
         print(f"PENDING: {len(new_rows)}")
         return 0
@@ -236,6 +253,7 @@ def main() -> int:
 
     for p in written:
         print(f"NEW_ARTICLE: {p}")
+    log_fetch("export_complete", written=len(written), new_article_ids=[str(p) for p in written])
     return 0
 
 

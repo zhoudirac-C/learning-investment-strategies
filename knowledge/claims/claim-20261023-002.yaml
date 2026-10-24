@@ -1,0 +1,33 @@
+claims:
+- id: claim-20261023-002-a
+  source_path: sources/raw/财经/2026-10-23-1024-动态-终于杀出筹码.md
+  source_type: 图片
+  claim_type: market-cycle
+  subject: 恐慌盘筹码释放
+  timeframe: intraday
+  statement: 评论区出现恐慌并“杀出筹码”并非坏事，说明调整中已有筹码交换和恐慌盘释放，UP将其视为偏积极信号。
+  evidence_quote: 看了下评论区，不是挺好的嘛，终于杀出筹码了。
+  interpretation: UP把评论区恐慌解读为筹码松动而非风险扩大；“终于”带有等待已久的意味，暗示杀筹有利于后续修复，但未给具体买点。
+  confidence: medium
+  intensity: low
+  stance: market-regime
+  topic: 评论区恐慌反映筹码释放
+  source_date: '2026-10-23'
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-23T13:59:57+08:00'
+  status: active
+  supersedes: ["claim-20260602-003-a"]
+  contradicts: []
+  supplements: ["claim-20260803-023"]
+  last_discovered: 2026-10-24
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 评论区
+  - 恐慌盘
+  - 筹码释放
+  - 情绪修复

@@ -1,0 +1,98 @@
+claims:
+- id: claim-20261023-004-a
+  source_path: sources/raw/财经/2026-10-23-1359-动态-日线结构标准与政策市.md
+  source_date: '2026-10-23'
+  source_type: 图片
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-23T14:01:41+08:00'
+  claim_type: operation
+  subject: 日线结构标准与加仓T出决策
+  timeframe: intraday
+  statement: 日线结构仍按收盘量化标准执行：收盘价高于3708点结构形成，低于3627点结构消失；今天加仓部分是否T出，应依据该标准而不是盘中情绪决定。
+  evidence_quote: 日线量化标准是收盘价高于3708点结构形成，低于3627点结构消失。 所以你们今天加仓的要不要T出来，根据标准来就好，这个点位也是早盘里面发过的。
+  interpretation: UP把加仓后的T出动作绑定到收盘结构标准：3708上方才确认日线结构，3627下方则结构失效；盘中冲高但未达标准时，不应用情绪替代纪律。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260803-016", "claim-20261021-002-b"]
+  contradicts: []
+  supplements: ["claim-20260929-001-o"]
+  last_discovered: 2026-10-24
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  topic: 加仓T出按日线结构标准执行
+  related_stocks: []
+  tags:
+  - 日线结构
+  - '3708'
+  - '3627'
+  - 加仓T出
+  - 交易纪律
+- id: claim-20261023-004-b
+  source_path: sources/raw/财经/2026-10-23-1359-动态-日线结构标准与政策市.md
+  source_date: '2026-10-23'
+  source_type: 图片
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-23T14:01:41+08:00'
+  claim_type: market-cycle
+  subject: 多周期共振行情级别
+  timeframe: short-term
+  statement: 若多周期共振信号出现，对应的应是“大机会”级别；若后续行情验证向好，UP倾向于认为可能走出将近一个月的行情。
+  evidence_quote: 昨天晚上复盘说过今天多周期共振如果出线机会就是大机会，昨晚好好复盘了的，今天就能找到共振的题材，如果后面行情还不错，我认为是会走出将近一个月的行情。
+  interpretation: UP把多周期共振视为行情级别放大器：共振不是普通反弹，而是可发展为阶段行情的信号；但仍以“后面行情还不错”为条件，不是无条件看多。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-24
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: market-regime
+  topic: 多周期共振可能对应近一个月行情
+  related_stocks: []
+  tags:
+  - 多周期共振
+  - 大机会
+  - 近一个月行情
+  - 结构确认
+- id: claim-20261023-004-c
+  source_path: sources/raw/财经/2026-10-23-1359-动态-日线结构标准与政策市.md
+  source_date: '2026-10-23'
+  source_type: 图片
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-23T14:01:41+08:00'
+  claim_type: methodology
+  subject: A股政策市结束条件
+  timeframe: permanent
+  statement: A股是政策市，政策驱动行情只有在政策转向或政策结束其时才会结束，技术面调整本身不构成政策市终点。
+  evidence_quote: 无论怎样，再强调一遍，A股是政策市，政策市只因政策而结束。
+  interpretation: UP用“政策市”定义A股行情的主要矛盾：只要政策逻辑未结束，市场回调更应视为政策市中的波动；政策转向才是趋势终结信号。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260715-025-a"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-24
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: market-regime
+  topic: A股政策市只因政策而结束
+  related_stocks: []
+  tags:
+  - 政策市
+  - 行情结束条件
+  - 主要矛盾
+  - 方法论
