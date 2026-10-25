@@ -89,19 +89,19 @@ def _eight_week_records(stage_hit=True, dir_hits=2, dir_samples=2):
 
 def test_judge_graduated_when_8_weeks_above_lines():
     stats = aggregate(_eight_week_records())
-    assert judge(stats, weeks=8, covered_weeks=8) == "graduated"
+    assert judge(stats, weeks=8, covered_weeks=8, c3_passed=True) == "graduated"
 
 
 def test_judge_not_yet_when_below_line():
     stats = aggregate(_eight_week_records(stage_hit=False))
-    assert judge(stats, weeks=8, covered_weeks=8) == "not_yet"
+    assert judge(stats, weeks=8, covered_weeks=8, c3_passed=False) == "not_yet"
 
 
 def test_judge_insufficient_when_fewer_weeks():
     stats = aggregate(_eight_week_records()[:7])
-    assert judge(stats, weeks=8, covered_weeks=7) == "insufficient_data"
+    assert judge(stats, weeks=8, covered_weeks=7, c3_passed=None) == "insufficient_data"
 
 
 def test_judge_no_data():
     stats = aggregate([_rec("2026-08-05", status="pending_maturity")])
-    assert judge(stats, weeks=8, covered_weeks=1) == "no_data"
+    assert judge(stats, weeks=8, covered_weeks=1, c3_passed=None) == "no_data"

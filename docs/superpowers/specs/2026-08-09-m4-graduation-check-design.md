@@ -34,6 +34,11 @@
 |---|---|
 | "连续 8 周"口径 | 窗口聚合达标：最近 8 个自然周内已结算记录聚合算命中率，达标即过；附分周明细 |
 | 第三判据 | v1 跳过：仓库中"路径 A 假设"无可计算定义，固定输出 pending-definition 及说明 |
+
+> 修订（2026-10-25）：M3 claims 分桶 + 市场回写落地后，第三判据 v1 可计算口径
+> 已定义并实施，见
+> [`2026-10-25-criterion3-computable-definition.md`](2026-10-25-criterion3-computable-definition.md)；
+> 本文"固定输出 pending-definition"的决策自此失效。
 | 架构 | `src/investment_engine/shadow/graduation.py` 单模块 + thin script |
 
 ## 数据流

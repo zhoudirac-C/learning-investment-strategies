@@ -25,7 +25,7 @@ def test_run_writes_report(tmp_path):
     assert "verdict: insufficient_data" in text          # 仅 1 周数据
     assert "阶段一致率: 100.0%（n=1）" in text
     assert "方向 5 日超额命中率: 50.0%（n=2）" in text
-    assert "第三判据" in text and "不参与判定" in text
+    assert "第三判据" in text and "数据不足" in text
     assert "| 2026-08-03 |" in text                      # 分周明细行
     assert "解析跳过 0 条" in text
 
