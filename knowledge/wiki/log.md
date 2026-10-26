@@ -1,4 +1,13 @@
 # 操作日志
+## 2026-10-26 | qing-learning ingest | 青枫浦上Q 10/25 专栏提取（充电专属，17 条）
+
+- 处理 raw：`sources/original/bilibili/2026-10-25-2337-专栏-周五的探底回升，把市场从连续调整后的悲观预期中拉了回来。反弹.md`（动态 1263168251376959488，10-25 23:37 发布，充电专属）
+- 复制到 raw：`sources/raw/财经/2026-10-25-专栏-周五探底回升反弹具备延续基础.md`
+- claim-20261025-001 ~ claim-20261025-017（17 条）：market-cycle×5（反弹定性、反弹成因、下周节奏、11月反弹条件、市场阶段）、macro×1（地缘与外部变量）、methodology×6（国产算力细分、涨价线索核验、算力供需与 Neocloud、估值结论与光伏、算力景气观察框架、下周跟踪四点）、sector-theme×5（机器人与物理AI、大业股份情绪风向、半导体芯片、算力硬件板块、光通信海内外链）。stance 全为 view/market-regime，**未提纯行情事实**
+- 个股：大业股份 603278（主板可交易）入 claim-20261025-006 related_stocks；其余 claim related_stocks 全空
+- Gate 1/2/3 通过，已拆分为独立 YAML 并写入 knowledge/claims/
+- 后续：discover/migrate/Qdrant 待合并跑
+
 
 ## 2026-10-24 | qing-learning ingest | 青枫浦上Q 10/17 周复盘视频提取（BV1ndJv6nEV3，28:50，充电专属）
 
