@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -22,6 +23,13 @@ STATE = DATA / "expert_watch_state.json"
 TOP_N = 20
 MAX_LINES_PER_USER = 5
 MAX_TOTAL_LINES = 80
+
+# 雪球 WAF 频率风控：实测连续请求 ≥5 次后返回 988 字节挑战页（非 JSON）。
+# 口径：每 FETCH_INTERVAL 秒发一个请求；每 FETCH_BATCH 个请求后批量休息，
+# 让风控窗口过期。与 P3 回测脚本 PAGE_SLEEP=15 口径保持一致。
+FETCH_INTERVAL = 4        # 单个请求间隔（秒）
+FETCH_BATCH = 5           # 每 N 个请求后批量休息
+FETCH_BATCH_SLEEP = 60    # 批量休息秒数（需覆盖雪球 WAF 风控窗口，实测需≥60s）
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from timeline_backtest import fetch_page  # noqa: E402
@@ -100,36 +108,47 @@ def main() -> None:
 
     lines: list[str] = []
     errors: list[str] = []
-    for e in top:
-                uid = str(e["uid"])
-                name = e.get("screen_name") or uid
-                d = fetch_page(uid, 1)
-                if d == "waf" or d is None:
-                    errors.append(f"⚠️ {name}({uid}) 抓取失败/WAF")
-                    continue
-                items = d.get("statuses") or d.get("list") or []
-                posts = []
-                max_seen = state.get(uid, 0)
-                for p in items:
-                    ts = p.get("created_at")
-                    if not ts:
-                        continue
-                    ts = int(ts)
-                    max_seen = max(max_seen, ts)
-                    posts.append({
-                        "created_at": ts,
-                        "title": p.get("title") or "",
-                        "description": (p.get("description") or "")[:500],
-                        "target": p.get("target") or f"/{uid}/{p.get('id')}",
-                        "retweet": bool(p.get("retweeted_status")),
-                    })
-                new_posts = [p for p in posts if p["created_at"] > state.get(uid, 0)]
-                state[uid] = max_seen
-                new_posts.sort(key=lambda x: x["created_at"])
-                for p in new_posts[:MAX_LINES_PER_USER]:
-                    lines.append(fmt_post(uid, name, p))
-                if len(new_posts) > MAX_LINES_PER_USER:
-                    lines.append(f"- {name}: 另有 {len(new_posts) - MAX_LINES_PER_USER} 条新帖未展开")
+    for i, e in enumerate(top, 1):
+        uid = str(e["uid"])
+        name = e.get("screen_name") or uid
+        d = fetch_page(uid, 1)
+        if d == "waf" or d is None:
+            errors.append(f"⚠️ {name}({uid}) 抓取失败/WAF")
+            # 即使失败也保持节奏，避免后续请求连续命中风控窗口
+            if i % FETCH_BATCH == 0:
+                time.sleep(FETCH_BATCH_SLEEP)
+            else:
+                time.sleep(FETCH_INTERVAL)
+            continue
+        items = d.get("statuses") or d.get("list") or []
+        posts = []
+        max_seen = state.get(uid, 0)
+        for p in items:
+            ts = p.get("created_at")
+            if not ts:
+                continue
+            ts = int(ts)
+            max_seen = max(max_seen, ts)
+            posts.append({
+                "created_at": ts,
+                "title": p.get("title") or "",
+                "description": (p.get("description") or "")[:500],
+                "target": p.get("target") or f"/{uid}/{p.get('id')}",
+                "retweet": bool(p.get("retweeted_status")),
+            })
+        new_posts = [p for p in posts if p["created_at"] > state.get(uid, 0)]
+        state[uid] = max_seen
+        new_posts.sort(key=lambda x: x["created_at"])
+        for p in new_posts[:MAX_LINES_PER_USER]:
+            lines.append(fmt_post(uid, name, p))
+        if len(new_posts) > MAX_LINES_PER_USER:
+            lines.append(f"- {name}: 另有 {len(new_posts) - MAX_LINES_PER_USER} 条新帖未展开")
+
+        # 限流：每 FETCH_BATCH 个请求批量休息，避免雪球 WAF 频率风控
+        if i % FETCH_BATCH == 0:
+            time.sleep(FETCH_BATCH_SLEEP)
+        else:
+            time.sleep(FETCH_INTERVAL)
 
     STATE.write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
     if not lines and not errors:
