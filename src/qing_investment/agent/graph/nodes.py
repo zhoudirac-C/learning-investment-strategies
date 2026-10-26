@@ -1362,6 +1362,53 @@ def _load_reasoning_patterns(state: AgentState) -> list[dict]:
     return matched
 
 
+_LLM_FAILURE_LOG_PATH = (
+    Path(__file__).resolve().parents[4] / "logs" / "llm_failures.jsonl"
+)
+
+
+def _extract_error_status(e: BaseException):
+    """从常见 LLM/HTTP 异常形态提取状态码（openai.APIStatusError / httpx）。"""
+    status = getattr(e, "status_code", None)
+    if status is None:
+        resp = getattr(e, "response", None)
+        status = getattr(resp, "status_code", None)
+    return status
+
+
+def _extract_error_body(e: BaseException, limit: int = 500) -> str:
+    """优先取 HTTP 响应体，退化为异常 str；截断防刷屏。"""
+    resp = getattr(e, "response", None)
+    text = getattr(resp, "text", None)
+    if not text:
+        text = str(e)
+    return text[:limit]
+
+
+def _persist_llm_failure(*, provider, stage, prompt, elapsed_s, error) -> None:
+    """LLM 调用失败详情落盘 logs/llm_failures.jsonl（llm_empty 根因留痕）。
+
+    2026-10-26：尾盘条件单报 llm_empty，失败证据随进程日志丢失无法定位。
+    写入自身必须绝对安静——再抛异常会污染调用方的重试/降级逻辑。
+    """
+    record = {
+        "ts": datetime.now(_CN_TZ).isoformat(),
+        "provider": provider,
+        "stage": stage,
+        "prompt_len": len(prompt),
+        "elapsed_s": round(elapsed_s, 3),
+        "error_type": type(error).__name__,
+        "status_code": _extract_error_status(error),
+        "error_body": _extract_error_body(error),
+    }
+    try:
+        _LLM_FAILURE_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with _LLM_FAILURE_LOG_PATH.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+    except Exception:
+        logger.exception("persist llm failure record failed")
+
+
 def _safe_llm_invoke(
     prompt: str,
     min_length: int = 0,
@@ -1417,6 +1464,7 @@ def _safe_llm_invoke(
         logger.info("[_safe_llm_invoke] 优先尝试 %s", local_provider)
         record_provider_usage(local_provider, "attempt", "local-first enabled")
         local_llm = get_llm_client(provider=local_provider)
+        _local_t0 = time.time()
         try:
             content = _invoke(local_llm)
             record_provider_usage(local_provider, "success", f"content_len={len(content)}")
@@ -1432,6 +1480,13 @@ def _safe_llm_invoke(
                 )
             return content
         except Exception as e:
+            _persist_llm_failure(
+                provider=local_provider,
+                stage="local_attempt",
+                prompt=prompt,
+                elapsed_s=time.time() - _local_t0,
+                error=e,
+            )
             record_provider_usage(local_provider, "failed", str(e)[:120])
             logger.warning(
                 "[_safe_llm_invoke] %s 失败: %s, 将 fallback 到 %s",
@@ -1446,6 +1501,7 @@ def _safe_llm_invoke(
     # fallback / 直接走配置 provider
     logger.info("[_safe_llm_invoke] 调用配置 provider: %s", settings.llm_provider)
     record_provider_usage(settings.llm_provider, "fallback" if local_providers else "attempt")
+    _cfg_t0 = time.time()
     try:
         llm = get_llm_client()
         content = _invoke(llm)
@@ -1458,6 +1514,13 @@ def _safe_llm_invoke(
         )
         return content
     except Exception as e:
+        _persist_llm_failure(
+            provider=settings.llm_provider or "unknown",
+            stage="configured_attempt",
+            prompt=prompt,
+            elapsed_s=time.time() - _cfg_t0,
+            error=e,
+        )
         record_provider_usage(settings.llm_provider, "failed", str(e)[:120])
         logger.warning(
             "[_safe_llm_invoke] provider %s 失败: %s, tracker=%s",

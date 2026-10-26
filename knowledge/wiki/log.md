@@ -1,4 +1,14 @@
 # 操作日志
+## 2026-10-26 | qing-learning ingest | 青枫浦上Q 10/26 图片提取增补（2 条，026/027）
+
+- 处理 raw：`sources/original/bilibili/2026-10-26-1021-图片-...`（动态 1263333998416887828，10-26 10:21，充电专属，图片）+ `sources/original/bilibili/2026-10-26-1113-图片-...`（动态 1263347617813757955，10-26 11:13，充电专属，图片）
+- 复制到 raw：`sources/raw/财经/2026-10-26-图片-AI海外链马斯克担忧.md` + `...-机器人未加强资金往宽做.md`
+- claim-20261026-026: 指数拉升中机器人未加强，资金往宽做不再聚焦（market-cycle，market-regime）
+- claim-20261026-027: 机器人板块有不利消息，玩一玩就行不能当真（sector-theme，view）
+- 同步修复：`0853-专栏` 前端标记 `unprocessed: false`（原已提取 001-015，标记未同步）；`1021`/`1113` 前端标记 `unprocessed: false`
+- Gate 1/2/3 通过，已拆分写入 `knowledge/claims/claim-20261026-026.yaml` / `027.yaml`
+- Git 提交：`270055ce`（增补 026/027 + 原文件修复 + index 更新）
+
 ## 2026-10-26 | qing-learning ingest | 鳄鱼派 10/26 视频提取（gator-ecyu-0001，9 条）
 
 - 处理 raw：`sources/original/bilibili/2026-10-26-1015-视频-大涨后的分歧，不用怕 -.md`（动态 1263332615452098577，10-26 10:15 发布，充电专属，BV1yHnQ6rEta，06:09）

@@ -43,8 +43,8 @@ def log(msg: str) -> None:
 
 def fetch_page(uid: str, page_no: int):  # -> dict | str("waf") | None
     """urllib 直连 www.xueqiu.com（cookie 登录态），绕过 headless WAF 拦截。"""
-    url = (f"https://www.xueqiu.com/v4/statuses/user_timeline.json"
-           f"?user_id={uid}&page={page_no}&count={COUNT}")
+    url = (f"https://www.xueqiu.com/statuses/original/timeline.json"
+           f"?user_id={uid}&page={page_no}&count=10")
     cookies_path = Path.home() / "xq_cookies.json"
     if not cookies_path.exists():
         log(f"  uid={uid} p{page_no}: 缺少 xq_cookies.json")
