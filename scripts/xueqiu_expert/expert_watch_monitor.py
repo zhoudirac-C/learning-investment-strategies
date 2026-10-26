@@ -98,25 +98,12 @@ def main() -> None:
                    "domain": c.get("domain", ".xueqiu.com"), "path": c.get("path", "/")}
                   for c in cookies if "xueqiu" in (c.get("domain") or "")]
 
-    from playwright.sync_api import sync_playwright
     lines: list[str] = []
     errors: list[str] = []
-    with sync_playwright() as pw:
-        ctx = pw.chromium.launch_persistent_context(
-            user_data_dir="/home/ubuntu/.config/chromium",
-            headless=True,
-            executable_path="/usr/bin/google-chrome-stable",
-            user_agent=("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                        "AppleWebKit/537.36 (KHTML, like Gecko) "
-                        "Chrome/152.0.0.0 Safari/537.36"),
-            args=["--disable-blink-features=AutomationControlled", "--window-size=1560,1000"])
-        try:
-            ctx.add_cookies(pw_cookies)  # type: ignore[arg-type]  # playwright 接受该 dict 列表，Pyright 误报
-            page = ctx.pages[0] if ctx.pages else ctx.new_page()
-            for e in top:
+    for e in top:
                 uid = str(e["uid"])
                 name = e.get("screen_name") or uid
-                d = fetch_page(page, uid, 1)
+                d = fetch_page(uid, 1)
                 if d == "waf" or d is None:
                     errors.append(f"⚠️ {name}({uid}) 抓取失败/WAF")
                     continue
@@ -143,8 +130,6 @@ def main() -> None:
                     lines.append(fmt_post(uid, name, p))
                 if len(new_posts) > MAX_LINES_PER_USER:
                     lines.append(f"- {name}: 另有 {len(new_posts) - MAX_LINES_PER_USER} 条新帖未展开")
-        finally:
-            ctx.close()
 
     STATE.write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
     if not lines and not errors:
