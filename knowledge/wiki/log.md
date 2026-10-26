@@ -1,4 +1,14 @@
 # 操作日志
+## 2026-10-26 | qing-learning ingest | 鳄鱼派 10/26 视频提取（gator-ecyu-0001，9 条）
+
+- 处理 raw：`sources/original/bilibili/2026-10-26-1015-视频-大涨后的分歧，不用怕 -.md`（动态 1263332615452098577，10-26 10:15 发布，充电专属，BV1yHnQ6rEta，06:09）
+- ASR：xiaomi/mimo-v2.5 已转写，raw 文件第 30-35 行保存完整转写文本
+- 复制到 raw：`sources/raw/财经/2026-10-26-视频-大涨后的分歧-不用怕.md`
+- claim-20261026-016 ~ claim-20261026-024（9 条）：market-cycle×6（开盘瀑布成因=基民赎回、微盘股为真实情绪指标、周五两融未回升、右侧不必等两融回升、行情本质为反弹可能短暂、现在不是死磕科技阶段）、operation×3（右侧交易难点与好处、基民赎回不必恐慌放量是好事、不要对科技二极管白酒可关注）、sector-theme×1（不要对科技二极管）。stance 全为 view/market-regime，**未提纯行情事实**
+- related_stocks 全空（无个股，仅板块与市场情绪判断）
+- Gate 1/2/3 通过，已拆分为独立 YAML 并写入 knowledge/claims/
+- 后续：discover/migrate/Qdrant 待合并跑
+
 ## 2026-10-26 | qing-learning ingest | 青枫浦上Q 10/25 专栏提取（充电专属，17 条）
 
 - 处理 raw：`sources/original/bilibili/2026-10-25-2337-专栏-周五的探底回升，把市场从连续调整后的悲观预期中拉了回来。反弹.md`（动态 1263168251376959488，10-25 23:37 发布，充电专属）
