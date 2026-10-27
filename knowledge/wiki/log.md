@@ -3286,3 +3286,14 @@ ASR 不可用属预期限制，非采集故障。
 - **Qdrant qing_claims**：全量 upsert 6029 条（与 Neo4j/YAML 三方一致）
 - **时序守卫上线**（process_claim）：源 source_date 早于目标的反向 supersedes 自动丢弃并在 reason 记录「时序守卫拦截」，防止「历史观点替代最近观点」；缺日期放行由审计兜底；回归测试 tests/test_discover_time_order_guard.py（6 过）
 - **存量反向边审计**（scripts/audit_supersedes_time_order.py）：2227 条 supersedes 边中 52 条方向违例（2026-05~06 一簇 + 10-13~10-22 零星，疑似 6-8 YAML 修复回填与近期补扫误标），已存档待单独 remediation
+
+## 2026-10-27 | qing-learning ingest | 青枫浦上Q 10/27 早盘专栏提取（13 条，001~013）
+
+- 处理 raw：`sources/original/bilibili/2026-10-27-0859-专栏-10.27（早盘）...`（动态 1263684111293218853，10-27 08:59，充电专属，专栏）
+- 复制到 raw：`sources/raw/财经/2026-10-27-专栏-10.27早盘.md`
+- claim-20261027-001 ~ claim-20261027-013（13 条）：market-cycle×7（日线底部/策略转向、周五托底性质、系统性风险降低、卖压未释放、月底窗口、最猛烈下跌过去、盘前落点）、methodology×1（超跌反弹轮动主攻假设）、sector-theme×4（机器人物理AI分化、端侧SoC、消费强势、医疗并购溢价）、operation×1（周二仓位与三种情形）。stance 全为 view/market-regime，**未提纯行情事实**
+- 个股：奥士康 002913（主板可交易）入 013；上海九百 600838、青岛食品 001219（主板可交易）入 010；景旺电子 603228、澳弘电子 605058（主板可交易）入 009；锋龙股份 002931（主板可交易）入 008；其余标的为科创板/创业板/北交所，按主板交易约束标注不可交易（澳华内镜 688212、百迈科 920268、明月镜片 301101、博士眼镜 300622、海天瑞声 688787、华依科技 688071、利亚德 300296、上纬新材 688585）
+- 创建 wiki：`知识/wiki/每日复盘/2026-10-27-青枫浦上Q早盘专栏.md`
+- Gate 1/2/3 通过，已拆分为独立 YAML 并写入 knowledge/claims/claim-20261027-001~013.yaml
+- 索引：claims/index.md + wiki/index.md + wiki/log.md 已更新
+- 后续：discover/migrate/Qdrant 待合并跑
