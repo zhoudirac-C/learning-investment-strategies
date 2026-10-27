@@ -9,9 +9,9 @@ claims:
   claim_type: operation
   subject: 小周期做T方法
   timeframe: short-term
-  statement: 近期重点讲做T，用小周期（日内T用30分钟或15分钟）做T；KDJ八十以上卖、二十以下买；金叉买、死叉卖；通过做T把成本降到相对低位，后面来行情可不亏甚至赚钱走；举例恩捷股份一路下跌中仍有做T机会。
-  evidence_quote: 我一直在告诉你们的就是做T，你们就去拿小周期做T……一般来讲做日内T你三十分钟或十五分钟都可以……八十以上是卖点……二十以下……金叉买，死叉卖……你通过做T就一步一步的去把你的整个做下来
-  interpretation: 下跌趋势中通过小周期做T降低持仓成本，而非躺平或试图日内止损（A股T+1不可日内T出）。
+  statement: 近期重点讲做T，日内T可对照30分钟和15分钟周期；KDJ低位20以下才严格要求买入，高位死叉或相对高档即可卖出，弱市不要求一定要到80。通过小周期做T逐步降低成本，UP以恩捷股份(002812)一路下跌中的做T机会为例。
+  evidence_quote: 一般来讲做日内T你三十分钟或十五分钟都可以……你在买的时候一定要，一定要它低于二十你再买。但是你卖的时候无所谓的，七十几、八十几，它只要是在高档，都是你减仓的时候……低位二十以下，金叉买，高，死叉卖……你通过做T就一步一步的去把你的整个做下来
+  interpretation: 下跌趋势中通过小周期做T降低持仓成本，不等于趋势已经反转；买卖阈值不对称，弱市处于相对高档即可减仓，不机械等待80以上。
   confidence: high
   status: active
   intensity: medium
@@ -26,9 +26,9 @@ claims:
   topic: trading-method
   stance: view
   related_stocks:
-  - code: 002812
+  - code: '002812'
     name: 恩捷股份
-    role: 锂电负极-主板可交易
+    role: 锂电隔膜-主板可交易
   tags:
   - 做T
   - KDJ
@@ -39,6 +39,6 @@ claims:
     value: neutral
     basis_kind: stock
     basis_code: 002812.SZ
-    rationale: 做T方法论科普，非方向判断，仅以恩捷股份举例
+    rationale: 做T方法论科普，非方向判断，仅以恩捷股份(002812)举例
     annotated_at: 2026-10-24
     annotator: m3-direction-v1

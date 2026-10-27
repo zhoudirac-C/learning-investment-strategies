@@ -1,4 +1,12 @@
 # 操作日志
+## 2026-10-28 | qing-learning ingest | 青枫浦上Q 10/27 复盘专栏提取（17 条，033~049）
+
+- 来源：B站专栏 22:33（动态 1263893924723818529，充电专属）；C2 raw：`sources/raw/财经/2026-10-27-专栏-10.27复盘.md`
+- 拆分写入 `knowledge/claims/claim-20261027-033.yaml` ~ `claim-20261027-049.yaml`（17 条）：market-cycle×3、sector-theme×6、methodology×4、operation×3
+- 核心：大分歧拆分释放与小冰点修复节奏、1.5万亿量能分水岭、机器人分歧后存活能力、博弈活口方法论、上海九百换手承接、科技反抽主动被动分档、物理AI双场景/真实交互数据/硅光制造平台框架、龙虎榜席位解读纪律、数据引用口径纪律、端侧DRAM与HBM分环节、业绩持续性判据、明日三情形推演
+- 标的：光洋股份(002708)、国脉科技(002093)、天娱数科(002354)、金安国纪(002636)、上海九百(600838)、慈文传媒(002343)主板可交易；粤芯半导体(301660)创业板不可交易；华工科技(000988)硅光协同
+- Gate 1/2/3 全过，重复检测无冲突；两处 unprocessed 已关闭；下游 discover/Neo4j/Qdrant 同步待主流程统一处理
+
 ## 2026-10-26 | qing-learning ingest | 青枫浦上Q 10/26 图片提取增补（2 条，026/027）
 
 - 处理 raw：`sources/original/bilibili/2026-10-26-1021-图片-...`（动态 1263333998416887828，10-26 10:21，充电专属，图片）+ `sources/original/bilibili/2026-10-26-1113-图片-...`（动态 1263347617813757955，10-26 11:13，充电专属，图片）
@@ -3356,3 +3364,30 @@ ASR 不可用属预期限制，非采集故障。
 - Gate 1/2/3 通过，已拆分为独立 YAML 并写入 knowledge/claims/claim-20261027-024~032.yaml
 - 索引：claims/index.md + wiki/index.md + wiki/log.md 已更新
 - 后续：discover/migrate/Qdrant 待合并跑
+
+## 2026-10-27 | qing-learning ingest | 青枫浦上Q 09/20《全球资产重新定价及中国市场投资展望》完整 ASR 提取（15 条，001）
+
+- 来源：dynamic_id 1250147503938994209，BV1j4ez6oEak，59:49 完整 ASR，15/15 段，时长与原始 API 一致，无部分转写标记；C2 raw：`sources/raw/财经/2026-09-20-视频-全球资产重新定价周复盘.md`
+- 正式文件 `knowledge/claims/claim-20260920-001.yaml`（001-a～001-o，15 条）：market-cycle×5、methodology×5、macro×3、sector-theme×1、operation×1、risk×1；related_stocks 全空
+- 核心：反弹与反转区分、结构性行情宽度、油价供给/需求双路径、能源交易验证、美债期限结构与信用分化、AI资本开支客户回报、政策资金真实需求、港A共同修复
+- Gate 1/2/3 全过，正式 YAML 单文件门禁 15/15 通过，重复检测无冲突；可疑专名与精确行情数字未写成可靠事实
+- 创建 wiki：`knowledge/wiki/每日复盘/2026-09-20-青枫浦上Q全球资产重新定价周复盘视频.md`；claims/wiki 索引、wiki log、sources/processed-log 已更新；原B站文件与C2 raw的 unprocessed 均关闭
+- Pattern：`macro_transmission_fed_oil_20260920` 已归入现有 `macro_transmission`；同步已完成（2026-10-27）：本批44条Neo4j节点全部可见，Qdrant共6257条，三件套健康通过
+
+## 2026-10-27 | qing-learning ingest | 青枫浦上Q 09/27 周复盘完整 ASR 提取（15 条，003）
+
+- 来源：dynamic_id 1252721744146333780，BV1BRaa6qEkP，36:53 完整 ASR，10/10 段，无部分转写标记；C2 raw：`sources/raw/财经/2026-09-27-视频-周复盘.md`
+- 正式文件 `knowledge/claims/claim-20260927-003.yaml`（003-a～003-o，15 条）：macro×7、methodology×3、operation×1、risk×2、technical-signal×1、sector-theme×1、market-cycle×1；002 因 archive 隔离库占用而跳过
+- 核心：节前回调承接、全球利率重估、债市危机功能分层、A股低利率缓冲、地产底部双条件、人民币渐进升值与经济再平衡；浪潮信息(000977)仅为低置信一次性售卡风险提示
+- Gate 1/2/3 全过，正式 YAML 单文件门禁 15/15 通过，重复检测无冲突
+- 创建 wiki：`knowledge/wiki/每日复盘/2026-09-27-青枫浦上Q周复盘视频.md`；claims/wiki 索引、wiki log、sources/processed-log 已更新；原B站文件与C2 raw的 unprocessed 均关闭
+- Pattern：`macro_rate_transmission_repricing` 已归入现有 `macro_transmission`；同步已完成（2026-10-27）：本批44条Neo4j节点全部可见，Qdrant共6257条，三件套健康通过
+
+## 2026-10-27 | qing-learning ingest | 青枫浦上Q 10/11《听雷声滚滚》完整 ASR 提取（14 条，002）
+
+- 来源：dynamic_id 1257955814652510224，BV1xppn6tEDs，26:53 完整 ASR，7/7 段，无部分转写标记；C2 raw：`sources/raw/财经/2026-10-11-视频-听雷声滚滚周复盘.md`
+- 正式文件 `knowledge/claims/claim-20261011-002.yaml`（002-a～002-n，14 条）：macro×4、market-cycle×2、methodology×4、sector-theme×5、operation×1、risk×1
+- 核心：宽松逻辑约束、油价二次通胀、信用压力早期、收益率驱动拆解、政策与AI业绩共振、利润率验证、国产GPU财报开关、垂类应用数据壁垒与AI安全卖铲人；宁德时代(300750)标注创业板不可交易
+- Gate 1/2/3 全过，正式 YAML 单文件门禁 14/14 通过，重复检测无冲突；两倍标准差做T不补造参数，可疑专名未写成可靠事实
+- 创建 wiki：`knowledge/wiki/每日复盘/2026-10-11-青枫浦上Q听雷声滚滚周复盘视频.md`；claims/wiki 索引、wiki log、sources/processed-log 已更新；原B站文件与C2 raw的 unprocessed 均关闭
+- Pattern：`macro_credit_spread_transmission_20261011` 已归入现有 `macro_transmission`；同步已完成（2026-10-27）：本批44条Neo4j节点全部可见，Qdrant共6257条，三件套健康通过

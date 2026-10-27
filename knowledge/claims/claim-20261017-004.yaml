@@ -9,9 +9,9 @@ claims:
   claim_type: market-cycle
   subject: AI资本开支四盏灯
   timeframe: short-term
-  statement: AI资本开支景气四盏灯中，仅“长期协议”一盏亮黄灯（CoreWeave债券大幅折价、算力外包商信用暴雷），超大厂capex指引未亮红灯、头部云厂商未下调指引、未出现AI收入增速显著低于capex、数据中心利用率减值尚未发生；整体AI资本开支景气未发生太大变化。
-  evidence_quote: 四盏灯就第二盏灯亮了个黄灯，其他目前来看没有问题……至少从我目前来讲，AI资本开支景气的这个问题没有发生太多的一个变化
-  interpretation: AI产业链景气未实质性恶化，仅算力外包商信用环节出现黄灯风险，不构成国产算力逻辑证伪。
+  statement: AI资本开支景气四盏灯中，仅“长期协议”一盏亮黄灯（CoreWeave债券大幅折价、算力外包商信用暴雷），超大厂capex指引未亮红灯、头部云厂商未下调指引、未出现AI收入增速显著低于capex、数据中心利用率减值尚未发生。第三盏灯当前的边界是单纯卖Token模式竞争激烈、盈利难，需要验证AI+软件订阅转化，属于远期盈利担忧而非财报已验证恶化；整体AI资本开支景气未发生太大变化。
+  evidence_quote: 市场目前担心的是单纯卖Token的模式竞争激烈，盈利难，需要验证AI加软件订阅的转化。因此，当前是远期盈利的担忧，而不是财报层面的验证的恶化……四盏灯就第二盏灯亮了个黄灯，其他目前来看没有问题……至少从我目前来讲，AI资本开支景气的这个问题没有发生太多的一个变化
+  interpretation: AI产业链景气未实质性恶化，仅算力外包商信用环节出现黄灯风险；第三盏灯需继续跟踪Token盈利与AI+软件订阅转化，不能以当前担忧替代财报验证，也不构成国产算力逻辑证伪。
   confidence: high
   status: active
   intensity: medium
@@ -31,6 +31,7 @@ claims:
   - 资本开支
   - 四盏灯
   - CoreWeave
+  - Token盈利
 
   direction:
     value: bullish

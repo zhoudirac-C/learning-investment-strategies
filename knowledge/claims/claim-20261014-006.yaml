@@ -1,0 +1,259 @@
+claims:
+- id: claim-20261014-006-1
+  source_path: sources/raw/财经/2026-10-14-视频-看懂MACD背离-画面OCR.md
+  source_date: '2026-10-14'
+  source_type: 视频
+  up_id: '525121722'
+  up_name: 莫大韭菜
+  extracted_at: '2026-10-26T18:07:16+08:00'
+  claim_type: technical-knowledge
+  subject: MACD由快线慢线和柱体构成
+  timeframe: permanent
+  statement: 课程将 MACD 拆成三个可读部件：DIF 快线为 12 日 EMA 与 26 日 EMA 之差，DEA 慢线为 DIF 的 9 日 EMA，国内软件柱体为 2×(DIF-DEA)。快线上穿或下穿慢线形成金叉或死叉，柱体用于观察快慢线距离的变化。
+  evidence_quote: DIF（快线）= 12 日 EMA - 26 日 EMA；DEA（慢线）= DIF 的 9 日 EMA；国内软件柱子 = 2×(DIF-DEA)。
+  interpretation: 先统一指标部件和计算口径，再讨论速度、背离与价格确认，避免只看红绿柱颜色而不知道它衡量的是快慢线差值。公式按原始画面校订 OCR。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-27
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: DIF、DEA 与柱体的计算口径和读图顺序
+  stance: view
+  related_stocks: []
+  tags:
+  - MACD
+  - DIF
+  - DEA
+  - 柱体计算
+- id: claim-20261014-006-2
+  source_path: sources/raw/财经/2026-10-14-视频-看懂MACD背离-画面OCR.md
+  source_date: '2026-10-14'
+  source_type: 视频
+  up_id: '525121722'
+  up_name: 莫大韭菜
+  extracted_at: '2026-10-26T18:07:16+08:00'
+  claim_type: technical-knowledge
+  subject: 柱体读速度而零轴读强弱
+  timeframe: permanent
+  statement: MACD 柱体的伸缩首先描述速度变化，不应直接等同于价格方向：红柱变长为上涨加速，红柱变短为仍在涨但减速；绿柱变长为下跌加速，绿柱变短为仍在跌但减速。金叉和死叉表示速度拐头向上或向下，DIF 位于零轴上方或下方则用于判断整体偏强或偏弱。
+  evidence_quote: 一张表，记住 MACD：红柱变长—上涨在加速；红柱变短—还在涨，但在减速；绿柱变长—下跌在加速；绿柱变短—还在跌，但在减速；金叉/死叉—速度拐头向上/向下；快线在零轴上/下—整体偏强/偏弱。
+  interpretation: 课程把‘方向、速度、强弱’分开：柱子变短并不必然意味着已经反转，零轴位置也不能单独替代后续价格确认。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20070123-001-c"]
+  last_discovered: 2026-10-27
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 红绿柱看加速度，金叉死叉看速度拐点，零轴看强弱
+  stance: view
+  related_stocks: []
+  tags:
+  - MACD读图
+  - 红绿柱
+  - 金叉死叉
+  - 零轴强弱
+- id: claim-20261014-006-3
+  source_path: sources/raw/财经/2026-10-14-视频-看懂MACD背离-画面OCR.md
+  source_date: '2026-10-14'
+  source_type: 视频
+  up_id: '525121722'
+  up_name: 莫大韭菜
+  extracted_at: '2026-10-26T18:07:16+08:00'
+  claim_type: technical-knowledge
+  subject: 背离只表示价格与速度不同步
+  timeframe: permanent
+  statement: 价格创新高而 DIF 未同步创新高构成顶背离，价格创新低而 DIF 未同步创新低构成底背离。背离只说明价格运行速度发生变化，方向仍要由价格自己确认，不能把指标不同步直接解释为反转。
+  evidence_quote: 价格新高、快线不新高：顶背离。价格创新低，快线却没有创新低。背离，只说明速度变了；方向，要等价格自己说。
+  interpretation: 这是全课的核心边界：DIF 提供动能线索，但是否形成顶部或底部必须由价格结构进一步验证。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-27
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 顶底背离是速度与价格不同步，不是反转命令
+  stance: view
+  related_stocks: []
+  tags:
+  - 顶背离
+  - 底背离
+  - 价格确认
+  - 动能
+- id: claim-20261014-006-4
+  source_path: sources/raw/财经/2026-10-14-视频-看懂MACD背离-画面OCR.md
+  source_date: '2026-10-14'
+  source_type: 视频
+  up_id: '525121722'
+  up_name: 莫大韭菜
+  extracted_at: '2026-10-26T18:07:16+08:00'
+  claim_type: technical-knowledge
+  subject: 强势上涨中的顶背离只是黄灯
+  timeframe: permanent
+  statement: 强势上涨中顶背离可以连续出现而价格继续走高，因此顶背离只是黄灯，不是立即卖出或摸顶依据。应继续观察价格是否守住前一个低点：前低不断抬高时背离可被趋势消化，价格跌破前低才说明结构恶化，并应通过止损控制风险。
+  evidence_quote: 强势上涨中，顶背离很常见。这里接连出现背离，价格却越走越高。这几次，价格都守住了前一个低点；而这一次，价格跌破了前低。再用止损管住风险。
+  interpretation: 课程把背离预警与价格破坏分开：前低是否守住是案例给出的结构验证，跌破后不能用‘只是背离’为继续硬扛辩解。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  disagrees_with: ["claim-20260823-001-006", "claim-20070614-001-c"]
+  supplements: []
+  last_discovered: 2026-10-27
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 顶背离可被强趋势消化，跌破前低才触发结构风控
+  stance: view
+  related_stocks: []
+  tags:
+  - 顶背离
+  - 强势上涨
+  - 前低
+  - 止损
+- id: claim-20261014-006-5
+  source_path: sources/raw/财经/2026-10-14-视频-看懂MACD背离-画面OCR.md
+  source_date: '2026-10-14'
+  source_type: 视频
+  up_id: '525121722'
+  up_name: 莫大韭菜
+  extracted_at: '2026-10-26T18:07:16+08:00'
+  claim_type: technical-knowledge
+  subject: 底背离不是充分抄底条件
+  timeframe: permanent
+  statement: 底背离同样只是线索，不能单独作为抄底依据。课程用上证指数 2008 年 4 月、7 月两次底背离后继续跌破，以及 8 月第三次仍跌破的案例说明：指标减速可以反复出现，价格仍可能继续创新低，必须等待价格确认。
+  evidence_quote: 上证指数 2008 年日线：4 月、7 月，两次底背离——都又跌破；8 月，第三次——还是跌破。
+  interpretation: 多次底背离并不意味着风险必然衰减到可安全介入，历史失败案例用于约束‘背离即底’的机械化理解。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-27
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 底背离可连续失败，价格未确认前不能等同见底
+  stance: view
+  related_stocks: []
+  tags:
+  - 底背离
+  - 上证指数
+  - 失败案例
+  - 价格确认
+- id: claim-20261014-006-6
+  source_path: sources/raw/财经/2026-10-14-视频-看懂MACD背离-画面OCR.md
+  source_date: '2026-10-14'
+  source_type: 视频
+  up_id: '525121722'
+  up_name: 莫大韭菜
+  extracted_at: '2026-10-26T18:07:16+08:00'
+  claim_type: methodology
+  subject: 价格确认比是否出现背离更重要
+  timeframe: permanent
+  statement: 课程的历史样本显示，单独底背离并未比无背离新低提供明显优势；等到‘金叉＋收盘站回前高’后，有背离组和无背离组的守住低点比例都提高，且无背离组更高。因此真正应优先提取的是价格确认规则，而不是把背离当作必要且充分的抄底信号。
+  evidence_quote: 出现底背离（19 次）：7 次，37%；没有背离的新低（37 次）：13 次，35%。等到‘金叉＋收盘站回前高’：有背离（13 次）9 次，69%；无背离（15 次）13 次，87%。背离只是线索，价格确认才是关键。
+  interpretation: 同一套确认规则在两类样本中都改善结果，说明不能把改善全部归功于背离；同时样本量有限，只能支持方法边界，不能外推成固定未来胜率。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  disagrees_with: ["claim-20261013-002-b"]
+  supplements: []
+  last_discovered: 2026-10-27
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 金叉与站回前高才是核心确认，背离不是必需优势
+  stance: view
+  related_stocks: []
+  tags:
+  - 底背离统计
+  - 金叉
+  - 站回前高
+  - 价格确认
+- id: claim-20261014-006-7
+  source_path: sources/raw/财经/2026-10-14-视频-看懂MACD背离-画面OCR.md
+  source_date: '2026-10-14'
+  source_type: 视频
+  up_id: '525121722'
+  up_name: 莫大韭菜
+  extracted_at: '2026-10-26T18:07:16+08:00'
+  claim_type: risk
+  subject: 等待价格确认需要承担时间和价格成本
+  timeframe: permanent
+  statement: 等待‘金叉＋收盘站回前高’并非无成本：课程样本中，有背离组从低点到确认的中位等待为 24 个交易日，确认时价格已离低点约 9.1%。因此确认策略是在更高确定性与更晚、更高的介入位置之间取舍，不能只展示改善后的守住比例而忽略等待成本。
+  evidence_quote: 代价：确认要等——有背离组中位数晚 24 个交易日，那时价格已离低点约 9.1%。守住：此后 60 个交易日不再跌破该低点（确认组从确认日算起）。波段低点需事后 10 个交易日才能确认；样本有限，统计不代表未来。
+  interpretation: 这条明确了确认的适用边界和评价口径：既要看成功率，也要看等待时间、介入价格与样本定义，不能把历史统计当成无条件收益承诺。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-27
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 确认提高质量但牺牲介入时机和价格，需同时评价成本
+  stance: view
+  related_stocks: []
+  tags:
+  - 确认成本
+  - 等待时间
+  - 介入价格
+  - 样本边界
+- id: claim-20261014-006-8
+  source_path: sources/raw/财经/2026-10-14-视频-看懂MACD背离-画面OCR.md
+  source_date: '2026-10-14'
+  source_type: 视频
+  up_id: '525121722'
+  up_name: 莫大韭菜
+  extracted_at: '2026-10-26T18:07:16+08:00'
+  claim_type: technical-signal
+  subject: 半导体材料案例要求依次确认见底条件
+  timeframe: short-term
+  statement: 在半导体材料（BK1325）截至 2026-10-14 收盘的课程案例中，绿柱开始变短、跌破 8 月低点后 DIF 仍守住前低以形成底背离、快线上穿慢线这三项当时均未出现，因此不能提前宣布见底。后续还需按课程的价格确认思路观察金叉与收盘站回前高；信号应依次出现，才提高见底判断的可靠性。
+  evidence_quote: 截至 2026-10-14 收盘的状态：1 绿柱开始变短，还没出现；2 若跌破 8 月低点 10515.64，快线守在 -1267.7 上方 = 底背离，还没出现；3 快线上穿慢线，金叉、柱子翻红，还没出现。依次出现，见底胜算才会提高。另：金叉＋站回前高，确认。
+  interpretation: 这是 dated case，不是当前操作指令。案例展示从减速、背离到金叉和价格站回前高的分层确认，任何一项缺失都不能由主观预期替代。数值和状态按原始帧核对。
+  confidence: high
+  status: case-only
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-27
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 2026-10-14 半导体材料尚无见底确认，按顺序等待信号
+  stance: view
+  related_stocks: []
+  tags:
+  - 半导体材料
+  - BK1325
+  - 见底确认
+  - MACD案例

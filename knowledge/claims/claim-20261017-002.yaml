@@ -7,11 +7,11 @@ claims:
   up_name: 青枫浦上Q
   extracted_at: '2026-10-24T13:09:19+08:00'
   claim_type: macro
-  subject: 下跌主因（外部扰动）
+  subject: 外部扰动与长鑫突破的替代逻辑
   timeframe: short-term
-  statement: 本轮下跌基本上来自外部扰动——韩国暴跌（存储芯片巨头DRAM技术突破致韩国科技股被杀，A股受韩国因子拖累）与CoreWeave股债双杀（高杠杆算力外包商信用恶化、违约概率高），而非国内基本面恶化。
-  evidence_quote: 我们这一轮的下跌基本上都来自于外部的扰动。首先一个原因是韩国的暴跌，其次是Covewu事件
-  interpretation: 将下跌归因于外部冲击而非内在基本面，支撑“只看国产链”的判断。
+  statement: 长鑫在DRAM领域的技术突破使海外巨头承压，UP认为这验证了其此前关于中国半导体替代最终挑战海外巨头的判断；技术突破后出现内卷和毛利下降有可能，但现阶段不是主要叙事。本轮A股下跌主要被UP归因于韩国市场波动与CoreWeave股债双杀等外部扰动，并非国产AI/半导体景气已被证伪。
+  evidence_quote: 长鑫科技，长鑫在周六的时候有一个技术突破，也是DRAM的芯片的领域有一个技术突破。那么这件事情也验证了……我们的科技革命最后革的命是这些海外巨头的命……一旦我们技术突破，就会开始内卷。所以这些企业的毛利就会开始下降。我认为会有这样的一个情况发生，但现阶段它不是主要的一个叙事……我们这一轮的下跌基本上都来自于外部的扰动。首先一个原因是韩国的暴跌，其次是Covewu事件
+  interpretation: 将交易层外部冲击与产业层逻辑分开：韩国和CoreWeave事件压制盘面，长鑫突破则被UP视为中国半导体替代逻辑的验证；内卷与毛利下降是可能风险而非当前主叙事。该收窄结论不代表国内所有基本面均无问题。
   confidence: high
   status: active
   intensity: medium
@@ -28,15 +28,16 @@ claims:
   related_stocks: []
   tags:
   - 外部扰动
-  - 韩国暴跌
+  - 长鑫
+  - DRAM突破
+  - 国产半导体
   - CoreWeave
-  - 股债双杀
 
   direction:
     value: bullish
     basis_kind: index
     basis_code: sh000300
-    rationale: 归因外部冲击而非国内基本面，隐含A股看多
+    rationale: 外部冲击未证伪国产AI/半导体景气，长鑫突破被视为替代逻辑验证，方向偏多国产链
     annotated_at: 2026-10-24
     annotator: m3-direction-v1
   outcome:
