@@ -9,6 +9,17 @@
 - Gate 1/2/3 通过，已拆分写入 `knowledge/claims/claim-20261026-026.yaml` / `027.yaml`
 - Git 提交：`270055ce`（增补 026/027 + 原文件修复 + index 更新）
 
+## 2026-10-27 | qing-learning ingest | 青枫浦上Q 10/26 复盘专栏提取（11 条，028~038）
+
+- 处理 raw：`sources/original/bilibili/2026-10-26-2328-专栏-10.26（复盘）...`（动态 1263536871221231620，10-26 23:28，充电专属，专栏）
+- 复制到 raw：`sources/raw/财经/2026-10-26-专栏-10.26复盘.md`
+- claim-20261026-028 ~ claim-20261026-038（11 条）：market-cycle×5（反复磨底/底部结构、托底≠主动引导、局部抱团未结束、科技出清节奏、机器人防分歧、明日基准预期）、sector-theme×4（科技出清、机器人分歧、物理AI无人驾驶、红利防御/油气）、stock-view×1（无人驾驶场景三条线索）、methodology×1（个人交易框架右侧确认）。stance 全为 view/market-regime，**未提纯行情事实**
+- 个股：慈文传媒 002343（主板可交易）入 030/037；多伦科技 603528（主板可交易）、爱仕达 002403（主板可交易）、中邮科技 688648（科创板不可交易）入 036
+- 创建 wiki：`知识/wiki/每日复盘/2026-10-26-青枫浦上Q复盘专栏.md`
+- Gate 1/2/3 通过，已拆分为独立 YAML 并写入 knowledge/claims/claim-20261026-028~038.yaml
+- 索引：claims/index.md + wiki/index.md + wiki/log.md 已更新
+- 后续：discover/migrate/Qdrant 待合并跑
+
 ## 2026-10-26 | qing-learning ingest | 鳄鱼派 10/26 视频提取（gator-ecyu-0001，9 条）
 
 - 处理 raw：`sources/original/bilibili/2026-10-26-1015-视频-大涨后的分歧，不用怕 -.md`（动态 1263332615452098577，10-26 10:15 发布，充电专属，BV1yHnQ6rEta，06:09）
