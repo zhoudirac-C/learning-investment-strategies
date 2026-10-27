@@ -3297,3 +3297,49 @@ ASR 不可用属预期限制，非采集故障。
 - Gate 1/2/3 通过，已拆分为独立 YAML 并写入 knowledge/claims/claim-20261027-001~013.yaml
 - 索引：claims/index.md + wiki/index.md + wiki/log.md 已更新
 - 后续：discover/migrate/Qdrant 待合并跑
+
+## 2026-10-27 | qing-learning ingest | 莫大韭菜 10/14《看懂 MACD 背离》OCR 续提取（8 条，006）
+
+- 续跑既有 C2 会话 `20261026_180716_b4b3af`，未重新 start、未覆盖 step1；对照完整 OCR 与关键帧复核公式、2008 年底背离失败案例、历史统计和 BK1325 状态
+- claim-20261014-006-1 ~ 006-8（8 条）：technical-knowledge×5、methodology×1、risk×1、technical-signal×1；核心为柱体读速度/零轴读强弱、背离只是黄灯、价格确认优先及确认成本、半导体材料 dated case
+- Gate 1/2/3 全过；正式文件 `knowledge/claims/claim-20261014-006.yaml` 单文件门禁 8/8 通过；related_stocks 全空
+- 创建 wiki：`knowledge/wiki/每日复盘/2026-10-14-莫大韭菜MACD背离视频.md`；每日复盘 index、wiki log、sources/processed-log 已更新
+- 原 B 站文件与 OCR raw 的 `unprocessed` 均关闭；discover/Neo4j/Qdrant 由主流程统一处理，本次未跑
+
+## 2026-10-27 | qing-learning ingest | 青枫浦上Q 10/17 周复盘视频覆盖复核与 wiki 补建
+
+- 对照完整 ASR 与既有 claim-20261017-001 ~ 012：底部/反弹、外部扰动、AI 四盏灯、国产链、政策、选股、强趋势、做 T、国家队、风格切换、军工和退出信号均已覆盖
+- 12 条已覆盖主要独立判断，未重复提取，未为行情事实或举例凑数新增 claim
+- 创建 wiki：`knowledge/wiki/每日复盘/2026-10-17-青枫浦上Q周复盘视频.md`；每日复盘 index、wiki log、sources/processed-log 已更新
+- 原 B 站文件 `unprocessed` 已关闭；本次不跑下游同步
+
+## 2026-10-27 | qing-learning ingest | 青枫浦上Q 10/19《如何做T》完整 ASR 提取（15 条，005）
+
+- 来源：dynamic_id 1260873862665469975，BV16vnJ6kEfA，53:13 完整 ASR，无部分转写标记；复制 C2 raw：`sources/raw/财经/2026-10-19-视频-如何做T.md`
+- 独立 C2 会话 `20261027_125556_25f3f2`；正式文件 `knowledge/claims/claim-20261019-005.yaml`（005-a～005-o，15 条）：macro×1、methodology×6、technical-signal×5、operation×2、risk×1
+- 核心：15分钟KDJ与布林组合、弱市严买宽卖与强市严卖、半仓现金轮动、低位金叉失效、收盘确认沙盘推演、强趋势支撑买回与深跌破位失效、ETF/大市值适用边界；历史收益展示和重复话术未单列
+- Gate 1/2/3 全过，正式 YAML 单文件门禁 15/15 通过，related_stocks 全空；未绑定不确定ASR专名或创造精确阈值
+- 创建 wiki：`knowledge/wiki/每日复盘/2026-10-19-青枫浦上Q如何做T视频.md`；每日复盘 index、wiki log、sources/processed-log 已更新；原B站文件与C2 raw的 unprocessed 均关闭
+- 仅形成候选课程方法论，未修改正式 framework/methodology；后续可评审「趋势状态分层下的15分钟KDJ—布林半仓做T与失效处理」pattern 提案；总索引重建及 discover/Neo4j/Qdrant 由主流程统一处理
+
+## 2026-10-27 | qing-learning ingest | 青枫浦上Q 10/09《强趋势交易（4）》完整 ASR 提取（15 条，003）
+
+- 来源：dynamic_id 1257182424143495191，BV1MYpb6XEsC，53:35 完整 ASR，无部分转写标记；复制 C2 raw：`sources/raw/财经/2026-10-09-视频-强趋势交易4.md`
+- 独立 C2 会话 `20261027_130409_054d19`；正式文件 `knowledge/claims/claim-20261009-003.yaml`（003-a～003-o，15 条）：methodology×8、operation×4、risk×3，related_stocks 全空
+- 核心：事前规则与模式一致性、左侧卖飞成本、左右侧禁止情绪切换、四类买回触发、成本锚定纠偏、核心票底仓与交易仓、交易日志、买点与止损互补、分类风险预算、第一反馈、空仓复测与资金效率
+- Gate 1/2/3 全过，正式 YAML 单文件门禁 15/15 通过；ASR中的案例亏损比例未外推为统一止损阈值
+- 既有正式回链已核对：`framework/reasoning-patterns.yaml` 的 `operation_strategy.source_raw` 与子模式 `pattern_consistency_trade_review.source_raw` 均直引原B站文件；003-a～003-c与其四步链条一致，003-d～003-o为扩展，核心票底仓和新信号买回处理强票卖飞边界，未发现证据冲突；未改pattern、未重复生成提案
+- 创建 wiki：`knowledge/wiki/每日复盘/2026-10-09-青枫浦上Q强趋势交易4视频.md`；每日复盘 index、wiki log、sources/processed-log 已更新；原B站文件与C2 raw的 unprocessed 均关闭；总索引重建及 discover/Neo4j/Qdrant 由主流程统一处理
+
+
+## 2026-10-27 | qing-learning ingest | 鳄鱼派 10/27 视频提取（gator-ecyu-0001，10 条）
+
+- 处理 raw：`sources/original/bilibili/2026-10-27-1252-视频-做反弹，需量力而行 -.md`（动态 1263743978866475012，10-27 12:52 发布，充电专属，BV1iExK6yE3T，15:16）
+- ASR：xiaomi/mimo-v2.5 已转写，raw 文件第 30+ 行保存完整转写文本
+- 复制到 raw：`sources/raw/财经/2026-10-27-视频-做反弹需量力而行.md`
+- claim-20261027-014 ~ claim-20261027-023（10 条）：market-cycle×2（市场核心驱动为内因、反弹力度不及八月）、stock-view×4（科技股反弹门槛、不要割高股息红利追科技、不雪前耻、低弹性标的适合普通人）、methodology×1（看风偏看安全垫不一味图弹性）、operation×2（六比四仓位、杠杆/商品操作纪律）、sector-theme×1（生猪看01过年行情）。stance 全为 view/market-regime，**未提纯行情事实**
+- related_stocks：022 牧原股份 002714（主板可交易）、温氏股份 300498（创业板不可交易）；023 中国电信 601728（主板可交易）；其余全空
+- 创建 wiki：`知识/wiki/每日复盘/2026-10-27-鳄鱼派视频-做反弹需量力而行.md`
+- Gate 1/2/3 通过，已拆分为独立 YAML 并写入 knowledge/claims/claim-20261027-014~023.yaml
+- 索引：claims/index.md + wiki/index.md + wiki/log.md 已更新
+- 后续：discover/migrate/Qdrant 待合并跑
