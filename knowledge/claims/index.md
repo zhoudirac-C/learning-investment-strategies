@@ -738,3 +738,13 @@
 - [claim-20261027-021.yaml](claim-20261027-021.yaml)
 - [claim-20261027-022.yaml](claim-20261027-022.yaml)
 - [claim-20261027-023.yaml](claim-20261027-023.yaml)
+
+- [claim-20261027-024.yaml](claim-20261027-024.yaml)
+- [claim-20261027-025.yaml](claim-20261027-025.yaml)
+- [claim-20261027-026.yaml](claim-20261027-026.yaml)
+- [claim-20261027-027.yaml](claim-20261027-027.yaml)
+- [claim-20261027-028.yaml](claim-20261027-028.yaml)
+- [claim-20261027-029.yaml](claim-20261027-029.yaml)
+- [claim-20261027-030.yaml](claim-20261027-030.yaml)
+- [claim-20261027-031.yaml](claim-20261027-031.yaml)
+- [claim-20261027-032.yaml](claim-20261027-032.yaml)

@@ -3322,13 +3322,13 @@ ASR 不可用属预期限制，非采集故障。
 - 创建 wiki：`knowledge/wiki/每日复盘/2026-10-19-青枫浦上Q如何做T视频.md`；每日复盘 index、wiki log、sources/processed-log 已更新；原B站文件与C2 raw的 unprocessed 均关闭
 - 仅形成候选课程方法论，未修改正式 framework/methodology；后续可评审「趋势状态分层下的15分钟KDJ—布林半仓做T与失效处理」pattern 提案；总索引重建及 discover/Neo4j/Qdrant 由主流程统一处理
 
-## 2026-10-27 | qing-learning ingest | 青枫浦上Q 10/09《强趋势交易（4）》完整 ASR 提取（15 条，003）
+## 2026-10-27 | qing-learning ingest | 青枫浦上Q 10/09《强趋势交易（4）》完整 ASR 提取（16 条，003，含保真修正）
 
 - 来源：dynamic_id 1257182424143495191，BV1MYpb6XEsC，53:35 完整 ASR，无部分转写标记；复制 C2 raw：`sources/raw/财经/2026-10-09-视频-强趋势交易4.md`
-- 独立 C2 会话 `20261027_130409_054d19`；正式文件 `knowledge/claims/claim-20261009-003.yaml`（003-a～003-o，15 条）：methodology×8、operation×4、risk×3，related_stocks 全空
-- 核心：事前规则与模式一致性、左侧卖飞成本、左右侧禁止情绪切换、四类买回触发、成本锚定纠偏、核心票底仓与交易仓、交易日志、买点与止损互补、分类风险预算、第一反馈、空仓复测与资金效率
-- Gate 1/2/3 全过，正式 YAML 单文件门禁 15/15 通过；ASR中的案例亏损比例未外推为统一止损阈值
-- 既有正式回链已核对：`framework/reasoning-patterns.yaml` 的 `operation_strategy.source_raw` 与子模式 `pattern_consistency_trade_review.source_raw` 均直引原B站文件；003-a～003-c与其四步链条一致，003-d～003-o为扩展，核心票底仓和新信号买回处理强票卖飞边界，未发现证据冲突；未改pattern、未重复生成提案
+- 原独立 C2 会话 `20261027_130409_054d19`；补充会话 `20261027_132954_990ac2` 仅提取003-p；正式文件 `knowledge/claims/claim-20261009-003.yaml`（003-a～003-p，16 条）：methodology×8、operation×5、risk×3，related_stocks 全空
+- 核心：事前规则与模式一致性、左侧卖飞成本、左右侧禁止情绪切换、四类买回触发、成本锚定纠偏、核心票底仓与交易仓、交易日志、买点与止损互补、分类风险预算、第一反馈、空仓复测、独立去弱换强与资金效率；003-n不再联合两个退出条件，003-o恢复低开、平开并补回趋势股跌停底线
+- 原会话及补充会话 Gate 1/2/3 全过，003-p暂存YAML单条门禁通过，合并后正式 YAML 单文件门禁 16/16 通过；ASR中的案例亏损比例未外推为统一止损阈值
+- 既有正式回链已核对：`framework/reasoning-patterns.yaml` 的 `operation_strategy.source_raw` 与子模式 `pattern_consistency_trade_review.source_raw` 均直引原B站文件；003-a～003-c与其四步链条一致，003-d～003-p为扩展，核心票底仓和新信号买回处理强票卖飞边界，未发现证据冲突；未改pattern、未重复生成提案
 - 创建 wiki：`knowledge/wiki/每日复盘/2026-10-09-青枫浦上Q强趋势交易4视频.md`；每日复盘 index、wiki log、sources/processed-log 已更新；原B站文件与C2 raw的 unprocessed 均关闭；总索引重建及 discover/Neo4j/Qdrant 由主流程统一处理
 
 
@@ -3341,5 +3341,18 @@ ASR 不可用属预期限制，非采集故障。
 - related_stocks：022 牧原股份 002714（主板可交易）、温氏股份 300498（创业板不可交易）；023 中国电信 601728（主板可交易）；其余全空
 - 创建 wiki：`知识/wiki/每日复盘/2026-10-27-鳄鱼派视频-做反弹需量力而行.md`
 - Gate 1/2/3 通过，已拆分为独立 YAML 并写入 knowledge/claims/claim-20261027-014~023.yaml
+- 索引：claims/index.md + wiki/index.md + wiki/log.md 已更新
+- 后续：discover/migrate/Qdrant 待合并跑
+
+
+## 2026-10-27 | qing-learning ingest | 鳄鱼派 10/27 公众号文章提取（gator-ecyu-0001，9 条）
+
+- 处理 raw：`sources/original/wechat/2026-10-27-股市：葫芦里卖的两种药（2026.10.27）.md`（文章 3922514597，10-27 18:00 发布，像鳄鱼一样思考）
+- 正文补抓：本地 raw 文件正文为空，通过网络重新抓取微信公众号文章全文并补全原始文件
+- 复制到 raw：`sources/raw/财经/2026-10-27-公众号-葫芦里卖的两种药.md`
+- claim-20261027-024 ~ claim-20261027-032（9 条）：market-cycle×6（降低预期不图弹性、权重小票联动、逆情绪打压解药、少数人知情利空是毒药、看反弹继续、市场拐点出现看多做多）、operation×3（6:4仓位配置、做反弹先熬过难熬时长、不查杠杆资金赶科技早晚出问题）。stance 全为 view/market-regime，**未提纯行情事实**
+- related_stocks 全空（无具体个股标的，仅市场层面判断）
+- 创建 wiki：`知识/wiki/每日复盘/2026-10-27-鳄鱼公众号-葫芦里卖的两种药.md`
+- Gate 1/2/3 通过，已拆分为独立 YAML 并写入 knowledge/claims/claim-20261027-024~032.yaml
 - 索引：claims/index.md + wiki/index.md + wiki/log.md 已更新
 - 后续：discover/migrate/Qdrant 待合并跑
