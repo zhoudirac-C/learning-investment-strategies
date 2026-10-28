@@ -1,4 +1,47 @@
 # 操作日志
+## 2026-10-28 | qing-learning ingest | 青枫浦上Q 10/28 动态 11:02 提取（6 条，018~023）
+
+- 来源：B站动态 11:02（充电专属，dynamic_id 1264086953484091396）；C2 raw：`sources/raw/财经/2026-10-28-动态-1102调整周期末端.md`
+- 拆分写入 `knowledge/claims/claim-20261028-018.yaml` ~ `claim-20261028-023.yaml`（6 条）：market-cycle×1、methodology×1、sector-theme×3、operation×1
+- 核心：调整周期末端与资金博弈拐点预期、泛AI非主线但需敢死队冲锋、消费日内分歧、机器人物理AI资金回流与日内卡位、情绪修复的10%涨幅观察条件、错过机器人后的不追高纪律
+- 无具体个股标注，related_stocks 全空；Gate 1/2/3 全过，重复检测无冲突；两处 unprocessed 已关闭；下游 discover/Neo4j/Qdrant 同步待主流程统一处理
+
+## 2026-10-28 | qing-learning ingest | 青枫浦上Q 06/24《交易之道》完整 ASR 提取（20 条，007）
+
+- 来源：dynamic_id 1217508612938661890，01:47:07 完整 ASR；C2 raw：`sources/raw/财经/2026-06-24-视频-交易之道.md`
+- 独立 C2 会话 `20261028_092953_6aa744`；正式文件 `knowledge/claims/claim-20260624-007.yaml`（007-a～007-t，20 条）：methodology×12、risk×1、operation×4、technical-signal×3，related_stocks 全空
+- 核心：趋势确认与分类、震荡方向、五维筛选与破坏信号、模式失败、追高低吸双系统、震荡滚动、级别与生命周期、信号新鲜度、人格行为偏差与可控配置；命理吉凶未作为投资证据
+- Gate 1/2/3 全过，重复检测无冲突，正式 YAML 单文件门禁 20/20 通过；Gate 2 的“值得买”同名公司误报通过改为“构成买入理由”修正，未改全局门禁
+- 创建 wiki：`knowledge/wiki/每日复盘/2026-06-24-青枫浦上Q交易之道视频.md`；claims/wiki 索引、wiki log、sources/processed-log 已更新；原B站文件与C2 raw的 unprocessed 均关闭
+- Pattern：趋势生命周期、追低双系统与滚动、自我适配三组候选仅形成提名，待独立样本与人审；未修改正式 reasoning-patterns/framework/methodology；下游 discover/Neo4j/Qdrant 增量同步并做健康验证
+
+## 2026-10-28 | qing-learning ingest | 青枫浦上Q 07/22《强趋势股交易（2）》完整 ASR 提取（16 条，004）
+
+- 来源：dynamic_id 1227859067553185828，45:10 完整 ASR；C2 raw：`sources/raw/财经/2026-07-22-视频-强趋势股交易2.md`
+- 独立 C2 会话 `20261028_092201_51a24c`；正式文件 `knowledge/claims/claim-20260722-004.yaml`（004-a～004-p，16 条）：methodology×5、risk×4、operation×4、technical-signal×3，related_stocks 全空
+- 核心：止损三参考、容忍度与仓位、均线证伪、次日连跌、两次反馈、执行价格与跌停底线、深套重估、认知分层、未深研标的反馈、公司与买点分离、深套路径与结果责任
+- Gate 1/2/3 全过，重复检测无冲突，正式 YAML 单文件门禁 16/16 通过
+- 创建 wiki：`knowledge/wiki/每日复盘/2026-07-22-青枫浦上Q强趋势股交易2视频.md`；claims/wiki 索引、wiki log、sources/processed-log 已更新；原B站文件与C2 raw的 unprocessed 均关闭
+- Pattern：两次反馈止损、认知分层风险配置两组候选仅形成提名，待独立样本与人审；未修改正式 reasoning-patterns/framework/methodology；下游 discover/Neo4j/Qdrant 增量同步并做健康验证
+
+## 2026-10-28 | qing-learning ingest | 青枫浦上Q 07/19《强趋势股交易（1）》完整 ASR 提取（23 条，023）
+
+- 来源：dynamic_id 1226609193397518368，01:44:46 完整 ASR；C2 raw：`sources/raw/财经/2026-07-19-视频-强趋势股交易1.md`
+- 独立 C2 会话 `20261028_091120_af48eb`；正式文件 `knowledge/claims/claim-20260719-023.yaml`（023-a～023-w，23 条）：methodology×12、risk×6、operation×4、technical-signal×1，related_stocks 全空
+- 核心：风险预算与七问、买点绑定预期、验证而非解释、三层风险与错杀条件、充分演绎、板块个股四象限、新老核心、反弹与二波分层、流动性出口、被套归因与反馈退出；历史行情和个股案例未单列
+- Gate 1/2/3 全过，重复检测无冲突，正式 YAML 单文件门禁 23/23 通过；Gate 2 的“新产业”同名公司误报通过改为“新的产业”修正，未改全局门禁
+- 创建 wiki：`knowledge/wiki/每日复盘/2026-07-19-青枫浦上Q强趋势股交易1视频.md`；claims/wiki 索引、wiki log、sources/processed-log 已更新；原B站文件与C2 raw的 unprocessed 均关闭
+- Pattern：风险反馈、阶段下核心切换、反弹与二波验证三组候选仅形成提名，待独立样本与人审；未修改正式 reasoning-patterns/framework/methodology；下游 discover/Neo4j/Qdrant 统一同步并做健康验证
+
+## 2026-10-28 | qing-learning ingest | 青枫浦上Q 10/03《量价关系（1）》既有提取收尾（20 条，001）
+
+- 来源：dynamic_id 1254796758817439767，BV1knHh61Esp，39:08 完整 ASR；C2 raw：`sources/raw/财经/2026-10-03-视频-量价关系1.md`
+- 预检确认 `knowledge/claims/claim-20261003-001.yaml` 已含 001-a～001-t 共 20 条，不重复提取；正式 YAML 单文件门禁 20/20 通过，related_stocks 全空
+- 核心：成交量度量分歧而非方向、位置与趋势阶段分层、阴阳线量价节奏、突破/跌破过程确认、相对基准量四级量能、VOL 与 AMO 口径、低量能不预设方向
+- 创建 wiki：`knowledge/wiki/每日复盘/2026-10-03-青枫浦上Q量价关系1视频.md`；claims/wiki 索引、wiki log、sources/processed-log 已更新；原B站文件与C2 raw的 unprocessed 均关闭
+- Pattern：`volume_price_regime_validation_20261003` 仅形成提名，待术语画面校订、独立样本验证与人审；未修改正式 reasoning-patterns/framework/methodology
+- 既有 claim 已有 2026-10-27 discover 记录；Neo4j/Qdrant 与后续批次统一同步并做健康验证
+
 ## 2026-10-28 | qing-learning ingest | 青枫浦上Q 10/28 早盘专栏提取（17 条，001~017）
 
 - 来源：B站专栏 08:32（充电专属）；C2 raw：`sources/raw/财经/2026-10-28-专栏-10.28早盘.md`
