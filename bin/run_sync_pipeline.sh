@@ -49,7 +49,10 @@ echo "=== Step 2: Neo4j 同步 migrate_claims_to_neo4j.py ==="
 PYTHONPATH=src .venv/bin/python scripts/migrate_claims_to_neo4j.py
 
 echo "=== Step 3: Qdrant 重建 index_claims_to_qdrant.py --force-recreate ==="
-PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate
+# 2026-10-29 修复：必须带 --skip-agent-kill。
+# 服务端模式下 --force-recreate 无需独占锁，但脚本默认会主动 kill uvicorn
+# （2026-09-22 两次实测复现，重建后 /health rc=7），盘中会打断监控链路。
+PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate --skip-agent-kill
 
 echo "=== Step 4: 验证 Agent（仅当不在线才拉起）==="
 # 2026-09-16 重构：不再无条件 kill + 重启 Agent，也不再重启 Hermes gateway。
