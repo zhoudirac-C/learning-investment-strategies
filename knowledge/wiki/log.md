@@ -1,4 +1,12 @@
 # 操作日志
+## 2026-10-29 | qing-learning ingest | 青枫浦上Q 10/29 视频 19:14 提取（2 条，062~063）
+
+- 来源：B站视频 19:14（充电专属，dynamic_id 1264584572682633249，BV11Dsf6zEHd，30:04）；C2 raw：`sources/raw/财经/2026-10-29-视频-量价关系2.md`
+- 拆分写入 `knowledge/claims/claim-20261029-062.yaml` ~ `claim-20261029-063.yaml`（2 条）：market-cycle×1、methodology×1
+- ⚠️ 注意：视频 ASR 被 20 分钟阈值跳过，未获取完整视频转写。2 条 claim 基于视频标题和图片 OCR 内容提取，OCR 内容极少（仅"地量后放量是试探！健康的洗盘通常有一个非常重要的特点"），信息含量有限。
+- 核心：地量后放量是试探；健康洗盘通常有一个非常重要的特点（具体特征未获取完整）
+- 无具体个股标注，related_stocks 全空；Gate 1/2/3 全过，重复检测无冲突；unprocessed 已关闭；下游 discover/Neo4j/Qdrant 同步待主流程统一处理
+
 ## 2026-10-29 | qing-learning ingest | 青枫浦上Q 10/29 视频 00:02 提取（6 条，056~061）
 
 - 来源：B站视频 00:02（充电专属，dynamic_id 1264287730320277538，BV1rmsX67E11，39:11）；C2 raw：`sources/raw/财经/2026-10-29-视频-行情在怀疑和犹豫中启动.md`
