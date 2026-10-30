@@ -1,4 +1,12 @@
 # 操作日志
+## 2026-10-31 | qing-learning ingest | 鳄鱼派公众号 10/23 复盘 提取（5 条，006~010）
+
+- 来源：公众号「像鳄鱼一样思考」10/23 19:17（article_id 3922514597-4tuUh-NTLEPPFZvH-ln6GQ）；C2 raw：`sources/raw/财经/2026-10-23-公众号-股市-阶段胜利-下一步重点.md`
+- 拆分写入 `knowledge/claims/claim-20261023-006.yaml` ~ `claim-20261023-010.yaml`（5 条）：methodology×1、operation×2、market-cycle×1、macro×1
+- 核心：阶段底部是区间不是点位不可梭哈；操作品种要考虑安全垫（上证50最高）；左右侧交易策略区分；市场拐点出现看多做多右侧信号正在形成；美债收益率下行利好内资风险偏好回升
+- 无具体个股标注，related_stocks 全空；Gate 1/2/3 全过；unprocessed 已关闭；已进入 Neo4j/Qdrant 同步流程
+- 注：10/23 编号 001~005 已被 B站视频等其他源占用，本次从 006 开始
+
 ## 2026-10-30 | qing-learning ingest | 鳄鱼派 10/26 视频 确认处理（3 条，016/021/022）
 
 - 来源：B站视频 10:15（充电专属，dynamic_id 1263332615452098577，时长 6:09）；C2 raw：`sources/raw/财经/2026-10-26-视频-大涨后的分歧-不用怕.md`
