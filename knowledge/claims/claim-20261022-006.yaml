@@ -1,216 +1,28 @@
-- id: claim-20261022-006-a
-  source_path: sources/original/wechat/2026-10-22-股市：绝望出拐点（2026.10.22）.md
-  source_date: '2026-10-22'
-  source_type: 复盘
-  up_id: gator-ecyu-0001
-  school: gator
-  up_name: 像鳄鱼一样思考
-  extracted_at: '2026-10-22'
-  claim_type: market-cycle
-  subject: 市场底形成拐点渐显可试多第六次重申
-  timeframe: short-term
-  statement: 总结：市场底正在形成，拐点渐显，可以开始试多，右侧信号尚未出现——连续第五个交易日重申底部判断（10-16/19/20/21/22），且本篇措辞从「市场底正在形成」强化为「拐点渐显」。
-  evidence_quote: 总结：市场底正在形成，拐点渐显，可以开始试多，右侧信号尚未出现。
-  interpretation: 鳄鱼派底部判断的第五次重申（含 10-16 起连续五篇复盘），措辞增量在「拐点渐显」——比前几日的纯「磨底」表述更偏积极，但右侧信号仍未确认，操作口径不变（试多不重仓）。
-  confidence: high
-  status: active
-  intensity: high
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260915-004-3"]
-  last_discovered: 2026-10-22
-  links:
-  - claim-20261016-004-h
-  - claim-20261019-003-k
-  - claim-20261020-006-e
-  - claim-20261021-008-h
-  topic: 市场周期-底部判断
-  stance: market-regime
-  related_stocks: []
-  tags:
-  - 市场底部
-  - 拐点渐显
-  - 试多
-  - 右侧信号
-  direction:
-    value: bullish
-    basis_kind: index
-    basis_code: sh000300
-    rationale: 市场底拐点渐显，建议试多，方向看多
-    annotated_at: 2026-10-24
-    annotator: m3-direction-v1
-  outcome:
-    result: pending_data
-    reason: 第 5 交易日未到（最新 2026-10-23）
-    evaluated_at: 2026-10-24
-    window_days: 5
-    basis_code: sh000300
-    t0_date: 2026-10-22
-    t0_close: 4036.3
-- id: claim-20261022-006-b
-  source_path: sources/original/wechat/2026-10-22-股市：绝望出拐点（2026.10.22）.md
-  source_date: '2026-10-22'
-  source_type: 复盘
-  up_id: gator-ecyu-0001
-  school: gator
-  up_name: 像鳄鱼一样思考
-  extracted_at: '2026-10-22'
-  claim_type: methodology
-  subject: 信龙哥或空仓二选一不割又传恐慌者销户
-  timeframe: trend
-  statement: 要嘛继续信龙哥护得住，要嘛一开始就不信、空仓看戏——空仓没任何毛病，有些选手就是只做右侧的；但现在又不割、又天天四处传播恐慌的人，那还是销户吧。
-  evidence_quote: 要嘛继续信龙哥护得住，要嘛一开始就不信，空仓看戏。空仓没任何毛病，有些选手就是只做右侧的。但现在，又不割，又天天四处传播恐慌的人，那还是销户吧。跟我们924之前抄底一样，那会儿评论区也是天天一堆冷嘲热讽的。
-  interpretation: 鳄鱼派「二选一纪律」的强化版：空仓是合法策略（右侧选手），持仓信护盘也是合法策略，唯一不合法的是「持仓+传播恐慌」的矛盾态——既承担风险又自我强化负面情绪。924 抄底时的冷嘲热讽者两年没赚钱是历史佐证。销户论第二次出现（10-20 首次）。
-  confidence: high
-  status: active
-  intensity: high
-  supersedes: []
-  contradicts: []
-  supplements: []
-  last_discovered: 2026-10-22
-  links:
-  - claim-20261020-006-c
-  - claim-20261021-008-g
-  topic: 交易纪律-二选一
-  stance: market-regime
-  related_stocks: []
-  tags:
-  - 二选一纪律
-  - 销户论
-  - 护盘信仰
-  direction:
-    value: neutral
-    basis_kind: index
-    basis_code: sh000300
-    rationale: 方法论纪律观点，非方向判断，默认沪深300为基准
-    annotated_at: 2026-10-24
-    annotator: m3-direction-v1
-- id: claim-20261022-006-c
-  source_path: sources/original/wechat/2026-10-22-股市：绝望出拐点（2026.10.22）.md
-  source_date: '2026-10-22'
-  source_type: 复盘
-  up_id: gator-ecyu-0001
-  school: gator
-  up_name: 像鳄鱼一样思考
-  extracted_at: '2026-10-22'
-  claim_type: methodology
-  subject: 不美化没走过的路只赚交易体系内的利润
-  timeframe: permanent
-  statement: 空单如果拿到现在能多赚 500 多万，但算这些没有意义——不要去美化自己没有走过的路，把自己交易体系内的利润赚到，就足够了。
-  evidence_quote: 我中途是有出来，然后又进去，再出来，加息后嗨起来的时候又进去，然后又平仓出来。并没有吃到完整的下跌空间，如果按最开始的起点计算拿到今天，能多赚500多万。但是，算这些没有意义，不要去美化自己没有走过的路，把自己交易体系内的利润赚到，就足够了。
-  interpretation: 鳄鱼派的交易哲学纪律：用「假设性收益」（空单拿满=多赚500万）衡量自己是认知陷阱——中途进出的操作是体系内的真实执行，体系外的理论最大收益不构成评价标准。同理反驳「3700 点做空赶尽杀绝」「中际 1300 梭哈」类幸存者偏差：极限情绪加速交易职业圈百里挑一，普通人学不了。
-  confidence: high
-  status: active
-  intensity: medium
-  supersedes: []
-  contradicts: []
-  supplements: []
-  last_discovered: 2026-10-22
-  links: []
-  topic: 交易纪律-体系内利润
-  stance: market-regime
-  related_stocks: []
-  tags:
-  - 交易纪律
-  - 体系内利润
-  - 幸存者偏差
-  direction:
-    value: neutral
-    basis_kind: index
-    basis_code: sh000300
-    rationale: 交易纪律方法论，无方向判断，仅涉及做空讨论
-    annotated_at: 2026-10-24
-    annotator: m3-direction-v1
-- id: claim-20261022-006-d
-  source_path: sources/original/wechat/2026-10-22-股市：绝望出拐点（2026.10.22）.md
-  source_date: '2026-10-22'
-  source_type: 复盘
-  up_id: gator-ecyu-0001
-  school: gator
-  up_name: 像鳄鱼一样思考
-  extracted_at: '2026-10-22'
-  claim_type: market-cycle
-  subject: 护盘无量响应恐慌是真不信也是真
-  timeframe: intraday
-  statement: 恐慌是真恐慌，大多数人真绝望，护盘也是真护盘，人们不信龙哥也是真不信——下午拉了一下，只放了一点点量，没多少资金响应。
-  evidence_quote: 恐慌，是真恐慌，大多数人也是真绝望，护盘也是真护盘。人们不信龙哥，也是真不信。下午拉了一下，只放了一点点量，没多少资金响应。
-  interpretation: 鳄鱼派对当日盘面的「四真」定性：恐慌/绝望/护盘/不信都是真的。关键观察是「护盘拉升无量响应」——护盘方还在出手但跟风资金已枯竭，这是右侧信号未现的当日实证（与右侧信号清单中「资金敢拉科技/融资余额连增」均未出现互为印证）。
-  confidence: high
-  status: active
-  intensity: high
-  supersedes: []
-  contradicts: []
-  supplements: []
-  last_discovered: 2026-10-22
-  links:
-  - claim-20261019-003-i
-  - claim-20261022-005-f
-  topic: 护盘机制-无量响应
-  stance: market-regime
-  related_stocks: []
-  tags:
-  - 护盘
-  - 无量响应
-  - 四真定性
-  direction:
-    value: bearish
-    basis_kind: index
-    basis_code: sh000300
-    rationale: 护盘无量响应、跟风资金枯竭，右侧信号未现，看空大盘
-    annotated_at: 2026-10-24
-    annotator: m3-direction-v1
-  outcome:
-    result: pending_data
-    reason: 第 5 交易日未到（最新 2026-10-23）
-    evaluated_at: 2026-10-24
-    window_days: 5
-    basis_code: sh000300
-    t0_date: 2026-10-22
-    t0_close: 4036.3
-- id: claim-20261022-006-e
-  source_path: sources/original/wechat/2026-10-22-股市：绝望出拐点（2026.10.22）.md
-  source_date: '2026-10-22'
-  source_type: 复盘
-  up_id: gator-ecyu-0001
-  school: gator
-  up_name: 像鳄鱼一样思考
-  extracted_at: '2026-10-22'
-  claim_type: market-cycle
-  subject: 群体情绪从嘲讽做空到劝做空的钟摆证据
-  timeframe: trend
-  statement: 6 月大盘 4100 多点我做空时像过街老鼠人人喊打，现在人们开始劝网络大 V 们去做空了——真正的交易者注定是孤独的。
-  evidence_quote: 与之前6月大盘4100多点，我做空的时候完全相反。现在已经出现，人们开始劝网络大V们去做空了，怎么我做空的时候，像个过街老鼠似的人人喊打？真应了那句老话：真正的交易者，注定是孤独的。
-  interpretation: 鳄鱼派用自身遭遇记录情绪钟摆的两个极点：4100 点做空被群嘲（贪婪端）→ 现在劝大 V 做空（恐惧端）。群体对做空态度的 180 度翻转是钟摆从贪婪摆到恐惧的微观证据，与 B站视频「钟摆已从贪婪端摆到恐惧端」（claim-20261020-005-a）互为印证。
-  confidence: medium
-  status: active
-  intensity: medium
-  supersedes: []
-  contradicts: []
-  disagrees_with: ["qing-2026-06-08-market-shanghai-bottom-near-001"]
-  supplements: []
-  last_discovered: 2026-10-22
-  links:
-  - claim-20261020-005-a
-  topic: 市场周期-情绪钟摆
-  stance: market-regime
-  related_stocks: []
-  tags:
-  - 情绪钟摆
-  - 做空态度翻转
-  - 孤独交易者
-
-  direction:
-    value: bearish
-    basis_kind: index
-    basis_code: sh000001
-    rationale: 钟摆摆至恐惧端佐证看空；大盘4100点指上证
-    annotated_at: 2026-10-24
-    annotator: m3-direction-v1
-  outcome:
-    result: pending_data
-    reason: 第 5 交易日未到（最新 2026-10-23）
-    evaluated_at: 2026-10-24
-    window_days: 5
-    basis_code: sh000001
-    t0_date: 2026-10-22
-    t0_close: 3658.03
+id: claim-20261022-006
+source_path: sources/raw/财经/2026-10-22-鳄鱼派-视频-基金赎回杀恐慌.md
+source_date: '2026-10-22'
+source_type: 视频
+up_id: gator-ecyu-0001
+up_name: 鳄鱼派
+extracted_at: '2026-10-30T18:13:32+08:00'
+claim_type: market-cycle
+subject: 现货还未止跌，期货空头气势正盛
+timeframe: short-term
+statement: 这周现货还没止跌呢，对吧？期货这边的空头气势正盛的时候就很容易涨。
+evidence_quote: 而且这这周现货还没止跌呢，对吧？期货这边的空头气势正盛的时候就很容易涨。
+interpretation: 现货尚未止跌，期货空头气势正盛时市场反弹概率较大。
+confidence: medium
+status: active
+intensity: medium
+supersedes: []
+contradicts: []
+links: []
+topic: 现货未止跌，期货空头气势正盛易反弹
+stance: market-regime
+related_stocks: []
+tags:
+- 鳄鱼派
+- 基民赎回
+- 杀跌
+- 阶段低点
+- 好东西不用怕

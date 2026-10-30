@@ -1,88 +1,28 @@
-claims:
-- id: claim-20261022-002-a
-  source_path: sources/original/bilibili/2026-10-22-1035-图片-市场的信心太差，每天杀白马股祭天，下周三ETF期权交割，海外.md
-  source_date: '2026-10-22'
-  source_type: 动态
-  up_id: '1420210197'
-  up_name: 青枫浦上Q
-  extracted_at: '2026-10-22T11:26:00+08:00'
-  claim_type: market-cycle
-  subject: 情绪与权重现状
-  timeframe: intraday
-  statement: 当前市场信心极差，白马股几乎每日被杀，资金找不到可托底的方向
-  evidence_quote: 市场的信心太差，每天杀白马股祭天
-  interpretation: 盘中即时情绪定性：把「每天杀白马」定性为信心问题而非个别权重的问题，与专栏「权重调整压制指数」的阶段判断一致，属于同一判断的盘中强化版本（白马=权重），不新增独立方法论。
-  confidence: high
-  status: active
-  intensity: high
-  supersedes: ["claim-20260911-001-020"]
-  contradicts: []
-  supplements: ["claim-20260805-035"]
-  last_discovered: 2026-10-22
-  links:
-    wiki_pages: []
-    methodology_pages: []
-    cases: []
-  topic: 杀白马与信心不足的盘中定性
-  stance: market-regime
-  related_stocks: []
-  tags:
-  - 白马股
-  - 市场信心
-  - 权重调整
-  direction:
-    value: bearish
-    basis_kind: index
-    basis_code: sh000300
-    rationale: 信心极差、权重白马持续被杀，指向指数承压下行
-    annotated_at: 2026-10-24
-    annotator: m3-direction-v1
-  outcome:
-    result: pending_data
-    reason: 第 5 交易日未到（最新 2026-10-23）
-    evaluated_at: 2026-10-24
-    window_days: 5
-    basis_code: sh000300
-    t0_date: 2026-10-22
-    t0_close: 4036.3
-- id: claim-20261022-002-b
-  source_path: sources/original/bilibili/2026-10-22-1035-图片-市场的信心太差，每天杀白马股祭天，下周三ETF期权交割，海外.md
-  source_date: '2026-10-22'
-  source_type: 动态
-  up_id: '1420210197'
-  up_name: 青枫浦上Q
-  extracted_at: '2026-10-22T11:26:00+08:00'
-  claim_type: methodology
-  subject: 事件窗口与操作节奏
-  timeframe: short-term
-  statement: 下周三集中出现三个扰动事件（下周三ETF期权交割、海外巨头公布业绩、大会），在此之前预期是继续磨底，操作上以慢慢做T为主而非加仓
-  evidence_quote: 下周三ETF期权交割，海外巨头公布业绩，大会也是下周，还得磨一阵子，慢慢做T就行。
-  interpretation: 把「事件密集周」直接映射为操作节奏：事件未落地前不期待方向性突破，只做T。这是 UP 对「月底事件窗口」的实操落点，与专栏「方向取决于实际结果与原有预期差距」互为操作层与判断层。
-  confidence: high
-  status: active
-  intensity: medium
-  supersedes: []
-  contradicts: []
-  supplements: []
-  last_discovered: 2026-10-22
-  links:
-    wiki_pages: []
-    methodology_pages: []
-    cases: []
-  supplements: ["claim-20261022-001-d"]
-  topic: 事件密集周做T不追方向
-  stance: view
-  related_stocks: []
-  tags:
-  - ETF期权交割
-  - 事件窗口
-  - 做T
-  - 磨底
-
-  direction:
-    value: neutral
-    basis_kind: index
-    basis_code: sh000300
-    rationale: 方法论观点，仅谈事件窗口操作节奏，无方向判断
-    annotated_at: 2026-10-24
-    annotator: m3-direction-v1
+id: claim-20261022-002
+source_path: sources/raw/财经/2026-10-22-鳄鱼派-视频-基金赎回杀恐慌.md
+source_date: '2026-10-22'
+source_type: 视频
+up_id: gator-ecyu-0001
+up_name: 鳄鱼派
+extracted_at: '2026-10-30T18:13:32+08:00'
+claim_type: market-cycle
+subject: 留末不留初，仍有希望
+timeframe: short-term
+statement: 留末不留初就一定有，没有任何希望吗？其实也不是。
+evidence_quote: 留末不留初就一定有，对吧？没有任何希望吗？其实也不是。
+interpretation: 虽然是牛末不牛初阶段，但仍有反弹希望，不应完全绝望。
+confidence: medium
+status: active
+intensity: medium
+supersedes: []
+contradicts: []
+links: []
+topic: 留末不留初，仍有反弹希望
+stance: market-regime
+related_stocks: []
+tags:
+- 鳄鱼派
+- 基民赎回
+- 杀跌
+- 阶段低点
+- 好东西不用怕

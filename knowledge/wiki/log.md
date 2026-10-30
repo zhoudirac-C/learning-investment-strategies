@@ -1,4 +1,11 @@
 # 操作日志
+## 2026-10-30 | qing-learning ingest | 鳄鱼派 10/22 视频 提取（8 条，001~008）
+
+- 来源：B站视频 11:22（充电专属，dynamic_id 1261865347249602584，BV1qHnC6zE1a，8:07）；C2 raw：`sources/raw/财经/2026-10-22-鳄鱼派-视频-基金赎回杀恐慌.md`
+- 拆分写入 `knowledge/claims/claim-20261022-001.yaml` ~ `claim-20261022-008.yaml`（8 条）：market-cycle×4、methodology×4
+- 核心：基民赎回带来加速杀跌阶段性寻底；留末不留初仍有希望；先杀杠杆再杀基民；龙哥会捞一把；等市场底再干进去；现货未止跌期货空头气势正盛易反弹；廉价好东西今年最后一次阶段低点不要割；好东西拿住不要恐慌
+- 无具体个股标注，related_stocks 全空；Gate 1/2/3 全过，重复检测无冲突；unprocessed 已关闭；下游 discover/Neo4j/Qdrant 同步待主流程统一处理
+
 ## 2026-10-30 | qing-learning ingest | 鳄鱼派 10/28 图片 提取（3 条，001~003）
 
 - 来源：B站图片 10:36（充电专属，dynamic_id 1264080248981422089）；C2 raw：`sources/raw/财经/2026-10-28-鳄鱼派-图片-盘面很明了.md`
