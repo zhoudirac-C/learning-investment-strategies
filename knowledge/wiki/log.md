@@ -1,4 +1,11 @@
 # 操作日志
+## 2026-10-30 | qing-learning ingest | 青枫浦上Q 10/30 图片 10:08 提取（3 条，011~013）
+
+- 来源：B站图片 10:08（充电专属，dynamic_id 1264814959026503684）；C2 raw：`sources/raw/财经/2026-10-30-图片-早盘资金3波.md`
+- 拆分写入 `knowledge/claims/claim-20261030-011.yaml` ~ `claim-20261030-013.yaml`（3 条）：market-cycle×2、methodology×1
+- 核心：早盘资金3波效果有限力度持续性不够；周五资金意愿弱想拉起来不容易；T买点等20以下金叉，止损看收盘价DIF小于-62
+- 无具体个股标注，related_stocks 全空；Gate 1/2/3 全过，重复检测无冲突；unprocessed 已关闭；下游 discover/Neo4j/Qdrant 同步待主流程统一处理
+
 ## 2026-10-30 | qing-learning ingest | 青枫浦上Q 10/30 专栏 08:40 提取（10 条，001~010）
 
 - 来源：B站专栏 08:40（充电专属，dynamic_id 1264792354620964885）；C2 raw：`sources/raw/财经/2026-10-30-专栏-10.30早盘.md`
