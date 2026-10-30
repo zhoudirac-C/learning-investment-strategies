@@ -1,4 +1,11 @@
 # 操作日志
+## 2026-10-30 | qing-learning ingest | 鳄鱼派 10/28 图片 提取（3 条，001~003）
+
+- 来源：B站图片 10:36（充电专属，dynamic_id 1264080248981422089）；C2 raw：`sources/raw/财经/2026-10-28-鳄鱼派-图片-盘面很明了.md`
+- 拆分写入 `knowledge/claims/claim-20261028-001.yaml` ~ `claim-20261028-003.yaml`（3 条）：market-cycle×2、methodology×1
+- 核心：盘面明确机构游资诚心献图；优柔寡断会掉血；不悲观先让自己活下去
+- 无具体个股标注，related_stocks 全空；Gate 1/2/3 全过，重复检测无冲突；unprocessed 已关闭；下游 discover/Neo4j/Qdrant 同步待主流程统一处理
+
 ## 2026-10-30 | qing-learning ingest | 青枫浦上Q 10/30 图片 14:06 提取（1 条，026）
 
 - 来源：B站图片 14:06（充电专属，dynamic_id 1264876441484394496）；C2 raw：`sources/raw/财经/2026-10-30-图片-上证回落离场条件.md`

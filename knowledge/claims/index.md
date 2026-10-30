@@ -894,3 +894,6 @@
 - [claim-20261030-012.yaml](claim-20261030-012.yaml)
 - [claim-20261030-025.yaml](claim-20261030-025.yaml)
 - [claim-20261030-026.yaml](claim-20261030-026.yaml)
+- [claim-20261028-001.yaml](claim-20261028-001.yaml)
+- [claim-20261028-002.yaml](claim-20261028-002.yaml)
+- [claim-20261028-003.yaml](claim-20261028-003.yaml)
