@@ -1,4 +1,11 @@
 # 操作日志
+## 2026-10-30 | qing-learning ingest | 青枫浦上Q 10/30 图片 14:06 提取（1 条，026）
+
+- 来源：B站图片 14:06（充电专属，dynamic_id 1264876441484394496）；C2 raw：`sources/raw/财经/2026-10-30-图片-上证回落离场条件.md`
+- 拆分写入 `knowledge/claims/claim-20261030-026.yaml`（1 条）：methodology×1
+- 核心：上证收盘价低于3612且日线底失败，满足离场标准
+- 无具体个股标注，related_stocks 全空；Gate 1/2/3 全过，重复检测无冲突；unprocessed 已关闭；下游 discover/Neo4j/Qdrant 同步待主流程统一处理
+
 ## 2026-10-30 | qing-learning ingest | 青枫浦上Q 10/30 图片 13:00 提取（12 条，014~025）
 
 - 来源：B站图片 13:00（充电专属，dynamic_id 1264859407628369959）；C2 raw：`sources/raw/财经/2026-10-30-图片-指数运行权重托底.md`
