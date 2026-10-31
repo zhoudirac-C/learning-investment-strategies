@@ -8693,3 +8693,55 @@ patterns:
   - claim-20261003-001-o
   - claim-20261003-001-q
   - claim-20261003-001-s
+
+- pattern_id: earnings_catalyst_test
+  name: 业绩催化检验框架
+  description: 业绩预告/财报落地的高辨识度标的，连接产业景气+机构持仓+短线情绪。核心不看增速数字，看价格反应：利好落地后有无新的持续卖盘、下探能否被接住（承接）、能否带动同类公司（板块跟随）。三问皆正，盈利增长端重新发挥定价作用，可作转折信号；只有单股脉冲、同类不跟，情绪引导价值有限；高开低走/利好兑现走弱，为情形B证据。
+  trigger:
+  - 业绩预告/业绩快报公告落地
+  - 对应方向处于退潮/磨底状态
+  - 标的连接产业景气+机构持仓+短线情绪
+  steps:
+  - step: 1
+    name: 检验持续卖盘
+    question: 利好落地后有无新的持续卖盘？
+    action: 若有持续卖盘，机构重估未完成，不视为转折信号
+    data:
+    - 价格反应
+    - 成交量
+  - step: 2
+    name: 检验承接
+    question: 下探能否被接住？
+    action: 能被接住，空方力量耗尽，支持转折
+    data:
+    - 价格反应
+    - 盘口承接
+  - step: 3
+    name: 检验板块跟随
+    question: 能否带动同类公司？
+    action: 能带动同类，板块转折确认；仅单股脉冲，情绪引导价值有限
+    data:
+    - 板块联动
+  falsification:
+  - 高开低走/利好兑现走弱：情形B证据，不作转折信号
+  - 同类不跟：仅单股脉冲，情绪引导价值有限，资金与估值压力未解除
+  - 三问皆正但次日低开：信号失效，需重新观察
+  validation:
+    historical_hit_rate: pending
+    applicable_regime: null
+    known_failures:
+    - catalysts 公告分类若漏标业绩预告，注入块为空，规则须有「无数据豁免」分支
+    - 框架是「检验方法」不是「看多业绩股」，prompt 措辞须保持状态依赖
+    - 验证窗口 10-13~10-15 已过，命中率待补
+  matched_framework: technical_timing
+  applicable_themes:
+  - 业绩预告
+  - 业绩快报
+  - 财报验证
+  - 价格反应
+  - 板块转折
+  source_raw:
+  - sources/raw/财经/2026-10-11-视频-听雷声滚滚周复盘.md
+  source_claims:
+  - claim-20261011-002-f
+  - claim-20261011-002-g

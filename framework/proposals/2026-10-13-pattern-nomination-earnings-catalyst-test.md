@@ -1,7 +1,10 @@
 ---
 date: 2026-10-13
 type: pattern-nomination
-status: proposed
+status: adjudicated
+adjudicated_at: 2026-10-31
+outcome: 入库 pattern earnings_catalyst_test（仅语义召回，不挂 _CORE_PATTERN_IDS）。source_claims 已修正为 claim-20261011-002-f/002-g（10-11 周复盘业绩验证）；004-h/001-h/001-l 需具体日期待溯源；验证窗口标记 pending
+see: framework/reasoning-patterns.yaml earnings_catalyst_test
 source: 盲判vsUP对比 2026-10-13（10-09~10-12窗口）
 gap_class: ②推理模式未入库
 ---
