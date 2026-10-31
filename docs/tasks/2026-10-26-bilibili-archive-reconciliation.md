@@ -120,7 +120,7 @@ scope: config/bilibili_ups.yaml 中 5 个 enabled UP；动态 ID 为主键
 | R10 | Mark__Huang / 卢本圆复盘 / 鳄鱼 完整对账 | 远端 `-352` 风控 | 三者为「部分对账」 | 官方接口低速重试，不绕过 |
 | ~~R11~~ | ~~\`2026-10-13\` pattern 提案裁决~~ **✅ 2026-10-31 完成** | 已裁决 | \`earnings_catalyst_test\` 已入库 \`framework/reasoning-patterns.yaml\`（仅语义召回，不挂 \`_CORE_PATTERN_IDS\`），source_claims 已修正为 claim-20261011-002-f/002-g，验证窗口标记 pending | 提案文件改 \`status: adjudicated\`，已 commit |
 | ~~R12~~ | ~~如何做T 的 pattern 提名~~ **✅ 2026-10-31 关闭（不需要）** | 现有操作层引用已覆盖 | 15 条 claim 已入库，仅操作层（方法论/position-risk）引用 | 做T 属具体执行纪律，非可复用推理框架，无需单独 pattern 提案 |
-| R13 | 孕线 28 条合并质量抽检 | 无 | 104→28 已合并，检索已排除 superseded | 抽 5 条对照原文，检查是否信息过载/丢条件 |
+| ~~R13~~ | ~~孕线 28 条合并质量抽检~~ **✅ 2026-10-31 完成** | 无 | 104→28 已合并，检索已排除 superseded | 抽 5 条对照原文（007-a/b/l/t/v），无信息过载/丢条件；发现并修复 4 处 supersedes 引用 Bug（007-a/l/v/w），门禁 28/28，discover/Neo4j/Qdrant 已重建 |
 | R14 | 均线参数体系 / 十字星 / MACD 系统课 | **博主未成课** | 均线已有葛兰碧八大法则（14 条），但参数体系未讲；十字星仅 1 条行情观察 | 等课程，不推测补写 |
 
 **已完成的收口项**（不再列为待办）：刺透/乌云补录、孕线 104→28 合并、5 份 pattern 提案裁决、方法论正文合并（长黑/组合形态/均线/关键点/量价分档/刺透乌云）。
@@ -142,3 +142,30 @@ scope: config/bilibili_ups.yaml 中 5 个 enabled UP；动态 ID 为主键
 - 首批原文保存逐条记录：`logs/bilibili_reconcile_20261026_rescue.jsonl`
 - 空占位详情补取：`logs/bilibili_reconcile_20261026_detail_recovery.jsonl`
 - ASR 成本与状态：`logs/bilibili_asr.jsonl`
+
+## 6. 本轮操作汇总（2026-10-31）
+
+### R11 — `earnings_catalyst_test` pattern 提案裁决
+- **结论**：入库 pattern `earnings_catalyst_test`（业绩催化检验框架），`framework/reasoning-patterns.yaml` 第 25 个 pattern，仅语义召回，**不挂入 `_CORE_PATTERN_IDS`**。
+- **source_claims 修正**：提案原溯源 `011-l/004-h/001-h/001-l` 中 `011-l` 不存在，`004-h/001-h/001-l` 日期歧义；已修正为 `claim-20261011-002-f`（十月行情业绩验证）/`claim-20261011-002-g`（财报利润率验证），均来自 10-11 周复盘 `听雷声滚滚`。
+- **验证窗口**：10-13~10-15 已过，标记 `historical_hit_rate: pending`，不阻塞入库。
+- **提案文件**：`status: proposed → adjudicated`，补 `adjudicated_at`/`outcome`/`see`。
+- **提交**：`49feaff1`，已 push。
+
+### R12 — 如何做T pattern 提名
+- **结论**：关闭（不需要）。做T 属具体执行纪律，非可复用推理框架；15 条 claim 已入库，操作层（方法论/position-risk）引用已覆盖，无需单独 pattern 提案。
+- **任务文档**：R12 行标记 ✅ 已关闭。
+
+### R13 — 孕线 28 条合并质量抽检
+- **抽检对照**：5 条新 claim（007-a 定义与观察视角 / 007-b 看涨孕线结构要件 / 007-l 东山精密(002384)案例 / 007-t 有效观察周期 3-5 日 / 007-v 分仓节奏 20-30%/80%+），逐条对照旧 104 条碎片，无信息过载，无丢条件，statement 均比单碎片更完整。
+- **发现并修复 4 处 Bug**：
+  1. `007-v` supersedes 错误引用同文件内 active id `007-w` → 改为旧碎片 `004-z/005-a/b/c`
+  2. `007-w` supersedes 缺失 → 改为 `005-n/o/p`
+  3. `007-a` supersedes 缺失 → 改为 `002-a/b/c/l/m/n`
+  4. `007-l` supersedes 缺失 → 改为 `003-t/u/v/w`
+- **验证**：Gate 28/28 通过；discover 关系已重跑；Neo4j 28/28 迁移；Qdrant 重建完成（6584 点，512 维校验通过）。
+- **提交**：`6890906f`，已 push。
+
+### 下一步提醒
+- **R3（10-25 周复盘，59:35）**：11-01（明天）解锁，建议解锁后手动 ASR 分段转写，正文覆盖现有 OCR claim（如有）。
+- R4/R5/R6/R7 分别在 11-02 / 11-03 / 11-05 / 11-05 解锁，可按 7 天抢先看规则依次处理。
