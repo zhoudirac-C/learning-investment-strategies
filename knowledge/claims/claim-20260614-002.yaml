@@ -1,0 +1,670 @@
+claims:
+- id: claim-20260614-002-a
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 组合K线相对单根K线的信息优势
+  timeframe: permanent
+  statement: 单根K线记录的是一天的市场行为，组合K线记录的是多日的市场行为；单根像照片只给某个瞬间的状态，组合像视频给出状态如何变化。因为市场永远在变，所以「变化」的信号比「状态」的信号更有信息量、更有价值。
+  evidence_quote: 单根K线它记录的是一天的市场行为，而组合K线它记录的是多日的市场行为。……就好比说单根K线它是一张照片，而组合K线它就像更像是一段视频。那么一个照片告诉你的是当天或者是某个瞬间的状态，而一段视频它告诉你的是这个状态在如何的变化。那么这个变化它对于状态来讲就更有信息量。
+  interpretation: 这是整门课的方法论前提：从单根走向两根、三根，不是叠加信息量，而是从「状态判断」升级为「变化判断」。所以判断两根组合时不能把两根K线简单相加（长红+长黑可以回到原点），要看特定的形态对比关系。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-i", "claim-20260624-005-a", "claim-20260630-007-c"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 组合K线的分析逻辑
+  stance: view
+  tags:
+  - 组合K线
+  - K线形态
+  - 方法论
+  - 变化信号
+  related_stocks: []
+- id: claim-20260614-002-b
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 吞没形态是自我完成的信号
+  timeframe: permanent
+  statement: 铁锤线、倒装铁锤线、上吊线、流星线这类单根信号都必须等次日K线确认；吞没形态不同，第一根代表原主导力量、第二根代表反超力量，信号与确认在同一组两根K线内完成，不需要次日再确认。这是吞没形态最大的价值，也是它在K线体系中地位较高的原因。
+  evidence_quote: 像我们之前所有讲到的底部信号，铁锤线、倒装铁锤线，那么这些都是需要后续K线的确认。但看涨吞没它是一个较为完整的确认性信号。……但看跌吞没呢，它就是自己的一个完整的信号加确认。这就是吞没形态它最大的价值，就是自我完成的一个力量切换的信号。
+  interpretation: 「自我完成」直接改变了操作时点：单根信号只能等次日，吞没可以在第二根收盘时按形态成立与否决策，这是它与单根反转K线最本质的差别，不是强度差别而是确认机制差别。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-a", "claim-20260621-007-g", "claim-20260607-002-f"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 吞没形态的确认机制
+  stance: view
+  tags:
+  - 吞没形态
+  - 信号确认
+  - 自我完成
+  - K线体系定位
+  related_stocks: []
+- id: claim-20260614-002-c
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 看涨吞没的四条必要条件
+  timeframe: permanent
+  statement: 看涨吞没成立必须同时满足四条：①前期有一段下跌，至少 5 个交易日（越长越好）；②第一根是阴线（小阴/中阴/大阴均可，通常小阴或中阴，阴线太大反而包不住）；③第二根是阳线；④第二根阳线的实体完全包裹第一根阴线的实体。前四条是必要条件，缺一不成立。
+  evidence_quote: 首先第一条就是前期必须要有一段时间的下跌，并且你下跌时间在五个交易日以上是最好的。……第二根就是第二个条件就是你第一根必须是阴线。然后第三个条件，你第二根必须是阳线。第四个条件就是你第二根阳线的实体是完全包裹住了第一根阳阴线的实体。
+  interpretation: 四条的排序说明位置优先于形态：先有下跌这个前提，才谈两根K线的包裹关系。第二根阳线越大越好，因为只有大阳线才包得住前面的阴线，所以「包不住」通常等价于「反弹力度不够」。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-b", "claim-20260630-007-a"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 看涨吞没的构成条件
+  stance: view
+  tags:
+  - 看涨吞没
+  - 必要条件
+  - 底部反转
+  - 形态定义
+  related_stocks: []
+- id: claim-20260614-002-d
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 吞没的价格判定口径
+  timeframe: permanent
+  statement: 实体包裹的严格判定是两条价格关系：第二根阳线收盘价高于第一根阴线开盘价，且第二根阳线开盘价低于第一根阴线收盘价。看跌吞没镜像成立：第二根阴线开盘价高于第一根阳线收盘价，收盘价低于第一根阳线开盘价。
+  evidence_quote: 你的第二根阳线的收盘价是要大于第一根阴线的开盘价的。那么第二根阳线的开盘价你是要小于第一根阳第一根阴线的收盘价。那么只有满足这两个条件的时候，它第二根阳线的实体也就完全的包裹住了第一根阴线的实体。
+  interpretation: 用开盘/收盘四个价格判断，而不是用最高最低价判断：只要收盘超过前一根开盘、开盘低于前一根收盘，实体就必然完全覆盖。这也解释了为什么吞没允许存在跳空——跳空越大，开盘条件越容易满足。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-c"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 吞没形态的判定口径
+  stance: view
+  tags:
+  - 吞没形态
+  - 判定口径
+  - 实体包裹
+  - 开盘收盘价
+  related_stocks: []
+- id: claim-20260614-002-e
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 看跌吞没的四条必要条件
+  timeframe: permanent
+  statement: 看跌吞没与看涨吞没镜像对称、位置相反、含义相反：①前期有一段上涨，至少 5 个交易日以上（越长越好）；②第一根是阳线（小阳/中阳/大阳均可）；③第二根是阴线，通常是较大的阴线；④第二根阴线实体完全包裹第一根阳线实体。
+  evidence_quote: 你基本上至少要有五天的一个上涨，好吧？上涨时间至少要维持五天以上。第一根K线是阳线，第二根就是阴线，且第二根阴线完全包裹住了第一根阳线的实体。
+  interpretation: 两根吞没共用同一条形态本质——大K线吞没小K线，区别只在出现位置与方向。所以判定逻辑可以复用：先定位（上涨末端/下跌末端），再验四条件。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-c", "claim-20260624-005-b", "claim-20260630-007-a"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 看跌吞没的构成条件
+  stance: view
+  tags:
+  - 看跌吞没
+  - 必要条件
+  - 顶部反转
+  - 形态定义
+  related_stocks: []
+- id: claim-20260614-002-f
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 吞没形态的市场叙事是扭转加反超
+  timeframe: permanent
+  statement: 吞没的叙事不是「昨天跌今天涨」，而是第二根K线既扭转了第一根K线的方向、又反超了第一根K线的全部努力（力量对比越过前一日起点）。因为扭转叠加反超发生在同一根K线内，所以它是最明确的力量切换信号之一，强度高于单纯的方向改变。
+  evidence_quote: 所以这就是整个看涨吞没的一个核心叙事，力量就完整的切换反超，它不是扭转，是直接扭转加反超的。……那么这种反超式的。切换，在K线的整个学习当中就是力量切换最明确的信号之一。
+  interpretation: 这条给出了强度来源的解释：扭转只到平衡，反超才越过起点。判断吞没是否「够强」，本质就是看第二根收盘越过了前一根实体的多少，而不只是看颜色变了。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-a", "claim-20260624-005-c", "claim-20260630-004-b"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 吞没形态的力量含义
+  stance: view
+  tags:
+  - 吞没形态
+  - 力量切换
+  - 扭转反超
+  - 信号强度
+  related_stocks: []
+- id: claim-20260614-002-g
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 吞没的八条件分级结构
+  timeframe: permanent
+  statement: 吞没共 8 个条件：前 4 条（位置方向 + 阴/阳顺序 + 实体包裹）是必要条件，必须全部满足；后 4 条是加分项，满足越多信号越强。B 级 = 前 4 条满足 + 1~2 项加分；C 级 = 勉强满足前 4 条 + 1 项加分。
+  evidence_quote: 那么这也是前面的一个四个条件，这个是四个必须要条必须的条件，后面几个是加分条件。……你前四个条件你是必须要满足的，好吧？就你形态上那四个条件是必须要满足的。你后面四个条件那是加分项，你越多越好。
+  interpretation: 分级不是主观打分，而是「必要条件 + 加分项」的结构：必要条件决定是否成立，加分项决定仓位大小。这也避免了「形态差不多就上」的模糊判断——差一项必要条件就不是吞没，不是弱吞没。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-c"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 吞没形态的分级方法
+  stance: view
+  tags:
+  - 吞没形态
+  - 八条件
+  - 分级
+  - 必要条件
+  related_stocks: []
+- id: claim-20260614-002-h
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 吞没四条加分条件的判定标准
+  timeframe: permanent
+  statement: 加分条件四项目：⑤第二根完全包裹第一根全部K线（含影线）为「完整吞没」，强于仅实体包裹；⑥第二根实体远大于第一根实体，差距越大力量切换越彻底；⑦第二根放量，量比超过 1.5 倍算达标（课中例：34.7 亿 / 21.1 亿 = 1.64）；⑧出现在长期下跌的明显低位（看涨）或长期上涨的明显高位（看跌），位置越极端反转概率越大。
+  evidence_quote: 条件五就是说你第二根，阳线，完全，包裹了第一根阴线的全部K线，就包括它的，影线部分，也都包括了，这个就叫做完整吞没，它比实体的吞没信号会更强。第六个条件，就是你第二根，阳线的实体远大于第一根阴线的实体……第七个条件就是第二根阳线你是要放量的……三十四点七除以二十一点一就等于一点六四，那么是超过一点五的，如果这个是超过一点五，那么就OK
+  interpretation: 量能门槛被量化到 1.5 倍，是本课唯一给出的硬阈值；其余三项（含影线、实体差距、位置）是序关系判断。四项同时满足即进入 A 级候选。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-b", "claim-20260624-005-c"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 吞没形态的加分条件
+  stance: view
+  tags:
+  - 吞没形态
+  - 加分条件
+  - 放量
+  - 完整吞没
+  - 位置
+  related_stocks: []
+- id: claim-20260614-002-i
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: A级看涨吞没的量化门槛
+  timeframe: permanent
+  statement: A 级看涨吞没需同时满足：下跌时间超过 15 个交易日、跌幅超过 25%（课中案例跌幅 36%）、第二根是大阳线且实体远大于第一根、完整吞没（含影线）、当日明显放量、且位于前期重要支撑位附近。
+  evidence_quote: 这波跌幅是百分之三十六，它整个跌幅也很很到位了，基本上你跌幅百分之二十五以上，下跌的时间超过十五日，并且第二根是一个大阴线，远大于第一根，完整吞没，包括说你这一天是明显放量的，这就成立了……还有一个条件就是它出现在了前期重要的支撑位附近
+  interpretation: 这是本课对「A 级」的唯一可执行定义：15 日 / 25% / 完整吞没 / 放量 / 支撑位，五项都能量化或画线验证。转写把「大阳线」误识为「大阴线」，按上下文应为大阳线。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-d"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: A级吞没的判定
+  stance: view
+  tags:
+  - A级吞没
+  - 量化门槛
+  - 跌幅25%
+  - 支撑位
+  related_stocks: []
+- id: claim-20260614-002-j
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 吞没分级与仓位大小的对应
+  timeframe: permanent
+  statement: A 级看涨吞没可以给较大仓位并做验证性持有；B 级只能小仓位试探、等更确认的信号，且必须设严格止盈止损；C 级仅勉强成立、信号更弱。级别决定仓位，不是形态成立就上同等仓位。
+  evidence_quote: 如果是A级的看涨吞没，那肯定你仓位就能够稍微大一点，你就可以去有验证性的。……如果是B级的看涨吞没，那么你肯定是清仓清仓试探了，你就仓位就小一点，等待后续的更更为确认的一个信号，你还要设置严格的止盈止损。
+  interpretation: 分级的作用是风险预算而非择时：形态越弱，允许承担的风险越小、需要的确认越多。转写中「清仓清仓试探」应为「轻仓试探」。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-d", "claim-20261009-003-l", "claim-20260922-001-t"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 吞没形态的仓位映射
+  stance: view
+  tags:
+  - 吞没形态
+  - 仓位映射
+  - 分级操作
+  - 轻仓试探
+  related_stocks: []
+- id: claim-20260614-002-k
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 看涨吞没的止损位与收盘价口径
+  timeframe: permanent
+  statement: 看涨吞没的止损位设在第一根阴线的最低价；判定是否破位看收盘价，盘中跌破但收盘收回不算破位。A 级同样必须设止损，只是仓位可以更大。
+  evidence_quote: 你的止损位肯定也就是第一根阴线的最低点，也就是最低价是五十一块零五……你要。看后面，如果再去跌穿了五十一块零五，肯定就不太合适的。……你要看收盘价的，都收回去了，就还好。
+  interpretation: 止损锚点选「形态起点」而非进场价，逻辑是：吞没成立的前提就是第一根阴线低点不被有效跌破，一旦收盘破位则形态前提被否证。用收盘价判定是为了过滤主力盘中的假破位。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-d", "claim-20260624-005-h", "claim-20260722-004-d"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 吞没形态的止损设置
+  stance: view
+  tags:
+  - 吞没形态
+  - 止损位
+  - 收盘价口径
+  - 假破位
+  related_stocks: []
+- id: claim-20260614-002-l
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 吞没后的验证窗口是5到10个交易日
+  timeframe: permanent
+  statement: 吞没成立后不要期待次日就涨，验证窗口是后续 5 到 10 个交易日能否形成反弹/反转；A 级的验证周期同样按此窗口看，不是隔日兑现。
+  evidence_quote: 你不是说你你这一根进去之后，你就要看明天第二天就要去涨，不是的，你要去看连后续的五个交五到十个交易日的一个反弹和反转。
+  interpretation: 这条把「自我完成」的适用范围限定在信号层面而非收益层面：信号在第二根收盘即成立，但兑现需要时间，所以不能用次日涨跌来否定信号，也不能因为次日不涨就加仓摊低。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-d"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 吞没形态的验证周期
+  stance: view
+  tags:
+  - 吞没形态
+  - 验证窗口
+  - 兑现节奏
+  related_stocks: []
+- id: claim-20260614-002-m
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 形态位置量能三缺一时只能当反弹
+  timeframe: permanent
+  statement: 若吞没形态不完美、位置不对、又缺少量能，只能看作一次小级别反弹，不能按反转对待；位置（调整时间与跌幅）是三者中最不能妥协的一项。
+  evidence_quote: 形态不完美，位置也不对，并且它也缺少量能，这种你就只能看作是顶多可可以看作是一个小一点的反弹，你就没办法看作是反转……最大的点就在于你要看它调整，已经调整很长一段时间了，好吧？它调整时间越久，说明这个位置越安全。
+  interpretation: 三项不是等权：位置决定是不是反转，量能与完整性决定反转的强度。位置不对时，形态再标准也只是反弹，这条直接限制了「见吞没就抄底」的用法。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260630-009-c", "claim-20261014-005-2"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 吞没形态的假信号过滤
+  stance: view
+  tags:
+  - 吞没形态
+  - 假信号
+  - 位置优先
+  - 量能
+  related_stocks: []
+- id: claim-20260614-002-n
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 不追求百分百信号
+  timeframe: permanent
+  statement: 交易不存在百分百的信号，即使八项条件全部满足，次日也可能出黑天鹅；只要调整时间够长、位置够安全、信号够明确，就可以尝试，不需要等到完美无缺。
+  evidence_quote: 你整个介入，肯定不是你炒股没有那种百分百的信号，哪怕说你已经各项全部满足了，好，你第二天出个黑天鹅，这也是有可能的事情。……所以。所以你不能说它你必须要找一个百分百的点位你才能够去弄的，没有必要好吧。
+  interpretation: 这条是分级与止损存在的理由：因为不存在确定性，所以用条件分级控制仓位、用止损位控制单次损失，而不是靠提高标准来追求无风险。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260829-001-013", "claim-20260719-023-g", "claim-20260722-004-n"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 交易的概率思维
+  stance: view
+  tags:
+  - 概率思维
+  - 不确定性
+  - 止损纪律
+  related_stocks: []
+- id: claim-20260614-002-o
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 顶部看跌吞没与高档长黑是同一信号
+  timeframe: permanent
+  statement: 高档长黑天然满足看跌吞没的开盘条件（高开低走 → 开盘价高于前一日阳线收盘价），只要收盘价低于前一日阳线开盘价且实体够长，它就是完整的看跌吞没。因此顶部识别时不需要区分高档长黑与看跌吞没，两者常是同一个信号，可以直接当作长黑使用。
+  evidence_quote: 说看跌吞没和高档的长黑，它经常是同一个东西。……某天的高档的长黑开盘价高于前一天阳线的收盘价，收盘价低于前一天阳线的开盘价，那么这根高档长黑它本身就是一个完整的看跌吞没。……所以看整个看跌吞没其实跟长黑的用法差不多，基本上你就把它当做长黑用就好了。
+  interpretation: 原因在结构而非巧合：顶部前一根通常是阳线，高开低走的开盘价自动满足「高于前阳收盘」，所以两个定义在顶部高度重合。这使顶部识别可以少一层分类成本。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-f", "claim-20260607-002-a"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 顶部信号的合并识别
+  stance: view
+  tags:
+  - 看跌吞没
+  - 高档长黑
+  - 顶部信号
+  - 合并识别
+  related_stocks: []
+- id: claim-20260614-002-p
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 底部低档长红与看涨吞没不对称
+  timeframe: permanent
+  statement: 低档长红 ≠ 看涨吞没：低档长红只要求下跌后出现长红，前一根可以是任何形态（阳线、阴线、十字星）；若前一根是十字星/小阳线，或长红开盘没有低到前一根实体之下，就只是低档长红，不构成看涨吞没。两者必须分开识别。
+  evidence_quote: 但是看涨吞没和低档长红它并不一定是一个东西，它是不对称的。因为低档长红的定义是经过下跌后出现的长红线，前面一根K线可以是任何的形态，你可以是阳线或者阴线、十字星。……那么如果低档长红前面是一个十字星或者是一个小红、小阳线，或者是长红开盘它没有低开到前根K线的实体之下，它就不是看涨吞没，它就是单纯的一个低档长红。
+  interpretation: 不对称的根源：高档长黑是高开低走，开盘价天然在前阳收盘之上；低档长红是低开高走，但也可以平开或高开，未必低于前一根实体，所以定义不能互换。由此推出「底部信号比顶部更需要细分」。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-f", "claim-20260624-005-b"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 底部信号的细分
+  stance: view
+  tags:
+  - 低档长红
+  - 看涨吞没
+  - 底部信号
+  - 不对称
+  related_stocks: []
+- id: claim-20260614-002-q
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 顶底识别的不对称处理
+  timeframe: permanent
+  statement: 顶部识别不需要区分高档长黑与看跌吞没（常为同一信号）；底部识别必须区分低档长红与看涨吞没，因此底部确认应把铁锤线、倒装铁锤线、低档长红、看涨吞没结合使用。
+  evidence_quote: 在顶部的识别上，你不需要去分别高档长黑或者是看跌吞没，因为它们经常是同一个信号。但是你在底部的识别上，你需要去分别低档长虹和看涨吞没，它们表达表达的是不是同一个信号。所以底部信号会比顶部信号更需要细分的一个识别。
+  interpretation: 这解释了为什么逃顶可以快、抄底必须慢：顶部信号重合度高、判定成本低，容错空间大；底部信号彼此不等价，误判概率高，所以要多信号交叉确认。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["claim-20260624-002-c"]
+  supplements: ["claim-20260624-005-f"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 顶底识别的差异
+  stance: view
+  tags:
+  - 顶底识别
+  - 逃顶快抄底慢
+  - 信号细分
+  related_stocks: []
+- id: claim-20260614-002-r
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 看跌吞没的减仓执行标准
+  timeframe: permanent
+  statement: 出现有效看跌吞没直接减仓 80%，剩余 20% 的止损设在吞没形态的最高点；此后没有任何理由加仓，必须等趋势完全确认反转后再重新评估。
+  evidence_quote: 一般看见这种级别的一个看跌吞没了，那你就直接减仓就行了，减80%的仓位没有什么问题，你剩下的仓位就设止损位，就整个看跌吞没一个最高点就好了。好，剩下就没有没有任何的理由去进行一个加仓，只有等待趋势完全确认反转之后再重新进行一个评估。
+  interpretation: 这是加减仓不对称的明确体现：底部 A 级吞没也只是「仓位稍大」，顶部有效吞没直接砍 8 成。减仓幅度大是因为顶部信号重合度高、判定可靠，而抄底误判成本更高。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260630-008-c", "claim-20260624-005-d", "claim-20260823-001-006"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 看跌吞没的仓位动作
+  stance: view
+  tags:
+  - 看跌吞没
+  - 减仓
+  - 止损
+  - 禁止加仓
+  related_stocks: []
+- id: claim-20260614-002-s
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 周线吞没比日线更标准
+  timeframe: permanent
+  statement: 同一吞没形态在周线上往往比日线更标准、更清晰；周线级别出现放量看跌吞没时，应立即减仓 70%~80%，先锁定前期利润，剩余 20%~30% 设止损，且不得加仓。
+  evidence_quote: 这个周线就更更为标准了……那么这就是非常标准的一根看跌吞没的形态。那么我们在，你如果是看见了这种级别的一个看跌吞没，并且它是放量的，明显是放量的……那么这种时候就立刻减仓，你至少要减个七八成的样子。那么你要把你前期的整个利润。先锁定住，你剩余的百分之二十三十，你再去设一个止损的位置，并且遇见这种时候你就不能加仓。
+  interpretation: 周期越大，单根K线包含的交易行为越多、噪声越少，所以形态更标准。周线吞没对应的是级别更大的顶部，因此执行上比日线更果断（70-80% 而非等确认）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-h", "claim-20260823-001-009"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 周线级别的吞没
+  stance: view
+  tags:
+  - 周线吞没
+  - 周期级别
+  - 减仓
+  related_stocks: []
+- id: claim-20260614-002-t
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 看跌吞没与单根顶部信号叠加
+  timeframe: permanent
+  statement: 看跌吞没与上吊线、流星线、高档长红等单根顶部信号叠加时强度更高（上吊线+看跌吞没最强），实战中应把这类顶部信号与看跌吞没组合使用。
+  evidence_quote: 因为长阳加看跌吞没它的组合，它可能那种上吊线加加看跌吞没的组合会会更牛一点其实，其实会会更牛一点。但这种其实也还OK……只是用把长虹上吊线、流星线这种组合跟看跌吞没一起用就好了，基本上效果就非常好。
+  interpretation: 叠加有效的机制是「同一根K线同时满足两种定义」而非两个独立信号相加：上吊线本身就是长下影小实体，若次日被阴线吞没，等于顶部反转+力量反超双重确认。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-c", "claim-20260624-005-f"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 顶部信号的叠加
+  stance: view
+  tags:
+  - 顶部信号
+  - 信号叠加
+  - 上吊线
+  - 流星线
+  related_stocks: []
+- id: claim-20260614-002-u
+  source_path: sources/raw/财经/2026-06-14-视频-技术分析-吞没形态.md
+  source_date: '2026-06-14'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T17:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 吞没与缠论孕线的比较口径
+  timeframe: permanent
+  statement: 吞没只与紧邻的前一根K线比较；缠论孕线是包含关系，可以把多根K线合并看作一根，比较范围更大。两者概念相近但口径不同，讲缠论时会专门展开。
+  evidence_quote: 看涨吞没和看跌吞没你只用跟前面一根去比就就好了。因为掺起来讲话我怕把你们讲混乱了，等到时候专门讲缠论的时候我们再去细聊好吧，大家有兴趣也可以提前去看一下。
+  interpretation: 这条划清了本课与缠论体系的边界：吞没是二K线的固定形态，孕线是包含处理后的结构关系，不能把「包住多根」当成吞没，也不能用吞没口径去简化孕线。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260621-007-g", "claim-20260621-007-z", "claim-20260621-007-y"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 吞没与孕线的区别
+  stance: view
+  tags:
+  - 吞没形态
+  - 缠论孕线
+  - 比较口径
+  - 二K线
+  related_stocks: []
