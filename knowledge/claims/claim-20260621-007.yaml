@@ -1,7 +1,3 @@
-# 孕线课程 claim 合并（2026-10-31）
-# 来源：sources/raw/财经/视频：26-06-21：技术分析-孕线.md
-# 104 条碎片（claim-20260621-002~005）→ 28 条规则级 claim
-# 旧 claim 保留原文，status 置 superseded；新 claim 的 supersedes 列全部原 id
 claims:
 - id: claim-20260621-007-a
   source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
@@ -19,9 +15,18 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes:
+  - claim-20260621-002-a
+  - claim-20260621-002-b
+  - claim-20260621-002-c
+  - claim-20260621-002-l
+  - claim-20260621-002-m
+  - claim-20260621-002-n
   contradicts: []
-  supplements: ["claim-20260621-007-b", "claim-20260621-007-d", "claim-20260621-007-g"]
+  supplements:
+  - claim-20260621-007-b
+  - claim-20260621-007-d
+  - claim-20260621-007-g
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -55,7 +60,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-k"]
+  supplements:
+  - claim-20260621-007-k
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -88,7 +94,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-k"]
+  supplements:
+  - claim-20260621-007-k
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -121,7 +128,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-j"]
+  supplements:
+  - claim-20260621-007-j
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -154,7 +162,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-c", "claim-20260621-007-d"]
+  supplements:
+  - claim-20260621-007-c
+  - claim-20260621-007-d
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -187,7 +197,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260630-006-a", "claim-20260621-007-g", "claim-20260621-007-j"]
+  supplements:
+  - claim-20260630-006-a
+  - claim-20260621-007-g
+  - claim-20260621-007-j
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -220,7 +233,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-i"]
+  supplements:
+  - claim-20260621-007-i
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -253,7 +267,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-i", "claim-20260621-007-p", "claim-20260621-007-t"]
+  supplements:
+  - claim-20260621-007-i
+  - claim-20260621-007-p
+  - claim-20260621-007-t
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -286,7 +303,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-h", "claim-20260621-007-p", "claim-20260621-007-t"]
+  supplements:
+  - claim-20260621-007-h
+  - claim-20260621-007-p
+  - claim-20260621-007-t
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -319,7 +339,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-d", "claim-20260621-007-m"]
+  supplements:
+  - claim-20260621-007-d
+  - claim-20260621-007-m
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -352,7 +374,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-m", "claim-20260621-007-b"]
+  supplements:
+  - claim-20260621-007-m
+  - claim-20260621-007-b
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -383,9 +407,16 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes:
+  - claim-20260621-003-t
+  - claim-20260621-003-u
+  - claim-20260621-003-v
+  - claim-20260621-003-w
   contradicts: []
-  supplements: ["claim-20260621-007-m", "claim-20260621-007-j", "claim-20260621-007-k"]
+  supplements:
+  - claim-20260621-007-m
+  - claim-20260621-007-j
+  - claim-20260621-007-k
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -419,7 +450,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-l", "claim-20260621-007-k", "claim-20260621-007-j"]
+  supplements:
+  - claim-20260621-007-l
+  - claim-20260621-007-k
+  - claim-20260621-007-j
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -453,7 +487,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-t"]
+  supplements:
+  - claim-20260621-007-t
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -486,7 +521,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-t", "claim-20260621-007-y", "claim-20260621-007-aa"]
+  supplements:
+  - claim-20260621-007-t
+  - claim-20260621-007-y
+  - claim-20260621-007-aa
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -519,7 +557,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-h", "claim-20260621-007-j"]
+  supplements:
+  - claim-20260621-007-h
+  - claim-20260621-007-j
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -552,7 +592,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-p", "claim-20260621-007-h", "claim-20260621-007-e"]
+  supplements:
+  - claim-20260621-007-p
+  - claim-20260621-007-h
+  - claim-20260621-007-e
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -585,7 +628,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260901-039-a", "claim-20260621-007-s"]
+  supplements:
+  - claim-20260901-039-a
+  - claim-20260621-007-s
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -617,8 +662,11 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20261026-003"]
-  supplements: ["claim-20260621-007-h", "claim-20260621-007-p"]
+  contradicts:
+  - claim-20261026-003
+  supplements:
+  - claim-20260621-007-h
+  - claim-20260621-007-p
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -651,7 +699,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-o", "claim-20260621-007-h", "claim-20260621-007-i"]
+  supplements:
+  - claim-20260621-007-o
+  - claim-20260621-007-h
+  - claim-20260621-007-i
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -684,7 +735,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-p", "claim-20260624-005-c"]
+  supplements:
+  - claim-20260621-007-p
+  - claim-20260624-005-c
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -716,9 +769,15 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260621-007-w"]
+  supersedes:
+  - claim-20260621-004-z
+  - claim-20260621-005-a
+  - claim-20260621-005-b
+  - claim-20260621-005-c
   contradicts: []
-  supplements: ["claim-20260621-007-h", "claim-20260621-007-p"]
+  supplements:
+  - claim-20260621-007-h
+  - claim-20260621-007-p
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -749,9 +808,15 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
-  contradicts: ["claim-20260729-012-dup1"]
-  supplements: ["claim-20260621-007-v", "claim-20260621-007-p"]
+  supersedes:
+  - claim-20260621-005-n
+  - claim-20260621-005-o
+  - claim-20260621-005-p
+  contradicts:
+  - claim-20260729-012-dup1
+  supplements:
+  - claim-20260621-007-v
+  - claim-20260621-007-p
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -784,7 +849,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260630-006-a", "claim-20260630-006-b", "claim-20260624-005-c"]
+  supplements:
+  - claim-20260630-006-a
+  - claim-20260630-006-b
+  - claim-20260624-005-c
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -817,7 +885,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-b", "claim-20260621-007-o", "claim-20260621-007-d"]
+  supplements:
+  - claim-20260621-007-b
+  - claim-20260621-007-o
+  - claim-20260621-007-d
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -850,7 +921,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-g", "claim-20260621-007-y", "claim-20260621-007-b"]
+  supplements:
+  - claim-20260621-007-g
+  - claim-20260621-007-y
+  - claim-20260621-007-b
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -883,7 +957,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-o", "claim-20260624-007-i", "claim-20260621-007-i"]
+  supplements:
+  - claim-20260621-007-o
+  - claim-20260624-007-i
+  - claim-20260621-007-i
   last_discovered: 2026-10-31
   links:
     wiki_pages:
@@ -916,7 +993,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-007-x", "claim-20260630-006-a", "claim-20260621-007-g"]
+  supplements:
+  - claim-20260621-007-x
+  - claim-20260630-006-a
+  - claim-20260621-007-g
   last_discovered: 2026-10-31
   links:
     wiki_pages:
