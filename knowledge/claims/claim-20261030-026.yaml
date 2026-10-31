@@ -14,8 +14,10 @@ interpretation: 上证指数若持续回落且收盘价低于 3612，则日线�
 confidence: high
 status: active
 intensity: high
-supersedes: []
+supersedes: ["claim-20260929-001-o"]
 contradicts: []
+supplements: ["claim-20261026-003"]
+last_discovered: 2026-10-30
 links: []
 topic: 上证收盘价低于3612且日线底失败，满足离场标准
 stance: view
