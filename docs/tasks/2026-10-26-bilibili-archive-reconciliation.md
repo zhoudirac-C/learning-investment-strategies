@@ -84,7 +84,8 @@ scope: config/bilibili_ups.yaml 中 5 个 enabled UP；动态 ID 为主键
 - 本轮按此规则跳过 5 条：10-25 周复盘（59:35）、10-26 马斯克看空 AI（28:54）、10-27 还抗不扛得住（16:33）、10-29 行情在怀疑和犹豫中启动（39:11，另有 `_1` 重复落盘）、10-29 量价关系（2）（30:04）。
 - **量价关系（2）遗留**：`claim-20261029-062/063` 仅据封面 OCR，其中 063 是半句（「健康的洗盘通常有一个非常重要的特点。」）。解锁完整转写后应以正文 claim 覆盖，当前不作正文替代。
 - **刺透/乌云补录结果**：视频此前无转写、无 claim（教学系列唯一空缺）。2026-10-31 补转写 6,114 字，提 17 条 claim（claim-20260630-004~009），discover 写回 15 条关系（CONTRADICTS×2、SUPPLEMENTS×13），Neo4j 17/17 可见，Qdrant 重建。
-- **仍待办**：framework / methodology 合并（需明确「更新方法论」指令）；5 份 pattern 提案（强趋势 1/2/3、量价 1、交易之道）待人审；孕线 104 条 claim 粒度抽检合并。
+- **pattern 人审已完成（2026-10-31）**：5 份提案共 13 个候选 → 按同一推理链合并为 6 条入库（`strong_trend_stage_qualify` / `strong_trend_feedback_exit` / `strong_trend_entry_mode` / `rebound_second_wave_qualify` / `panic_first_drop_vs_weakness` / `volume_benchmark_levels`），认知分层与行为短板 2 项降级 `methodology/position-risk.md`；5 份提案 `status: adjudicated`，qing pattern 18 → 24。裁决记录 `framework/proposals/2026-10-31-pattern-adjudication.md`。
+- **仍待办**：framework / methodology 正文合并（需明确「更新方法论」指令）；孕线 104 条 claim 粒度抽检合并；量价关系（2）解锁后重提 claim。
 
 ## 4. 执行顺序与关闭条件
 
