@@ -3573,3 +3573,13 @@ ASR 不可用属预期限制，非采集故障。
 - Gate 1/2/3 全过，正式 YAML 单文件门禁 14/14 通过，重复检测无冲突；两倍标准差做T不补造参数，可疑专名未写成可靠事实
 - 创建 wiki：`knowledge/wiki/每日复盘/2026-10-11-青枫浦上Q听雷声滚滚周复盘视频.md`；claims/wiki 索引、wiki log、sources/processed-log 已更新；原B站文件与C2 raw的 unprocessed 均关闭
 - Pattern：`macro_credit_spread_transmission_20261011` 已归入现有 `macro_transmission`；同步已完成（2026-10-27）：本批44条Neo4j节点全部可见，Qdrant共6257条，三件套健康通过
+
+## 2026-10-31 | qing-learning ingest | 青枫浦上Q 06-30《技术分析-刺透形态和乌云盖顶》补转写 + 提取（17 条，004~009）
+
+- 来源：dynamic_id 1219736691680477188，BV1g9Tc6rELU，21:26 完整 ASR（手动链路，mimo-v2.5 中继返回空内容后切 qwen3.8-omni-flash，11/11 段，无部分转写标记）；C2 raw：`sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md`
+- 背景：该视频此前无转写、无 claim（教学系列唯一真空档）；其余 13 条教学视频均已完成
+- 正式文件 `knowledge/claims/claim-20260630-004.yaml` ~ `009.yaml`（004-a～009-c，17 条）：technical-knowledge×14、operation×3
+- 核心：反转三档时态（吞没=完成时/刺透乌云=进行时/孕线=早期预警）、刺透与乌云的镜像四条件、50% 阈值的多空平衡原理、B/A 级分级（70%~90%）、五必要条件与五项顶级叠加、A 级刺透三段建仓与 A 级乌云三步减仓、加仓渐进减仓果断的不对称纪律、跳空诱多诱空与假信号三特征
+- Gate 1/2/3 全过；正式 YAML 单文件门禁 17/17 通过（6 个文件）
+- wiki：`knowledge/wiki/投资方法论/技术分析.md` 新增「刺透形态与乌云盖顶：反转进行时」章节；claims/wiki 索引、本 log、sources/processed-log 已更新；原B站文件与 C2 raw 的 unprocessed 均关闭
+- 待办：framework / methodology 尚未合并本章节（需用户明确「更新方法论」指令）；pattern 候选未提名

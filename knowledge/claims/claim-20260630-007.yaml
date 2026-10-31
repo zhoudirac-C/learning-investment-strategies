@@ -1,0 +1,95 @@
+claims:
+- id: claim-20260630-007-a
+  source_path: sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md
+  source_date: '2026-06-30'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T14:52:00+08:00'
+  claim_type: technical-knowledge
+  subject: 刺透与乌云的五个必要条件
+  timeframe: permanent
+  statement: 两类形态共享五个必要条件：①前期已有明确趋势且至少延续5个交易日（刺透=下跌、乌云=上涨）；②两根K线颜色匹配（阴后阳 / 阳后阴）；③第二根开盘跳空方向正确（低于第一根最低价 / 高于第一根最高价）；④刺入或覆盖实体50%以上；⑤没有完全反超——一旦完全反超即升级为吞没。
+  evidence_quote: 首先就是说，它前期已经有过一段明确的趋势，刺透呢就说明你前期至少有五五个交易日的下跌，那么乌云盖顶呢，你前期也至少要有五个交易日的上涨。其次呢，就是颜色要匹配……条件五就是没有完全反超……如果超过，那就是吞没了。
+  interpretation: 五条是硬门槛，缺一条就不成立；其中第5条决定形态归类（刺透 vs 吞没），不是否决条件而是路由条件。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-b", "claim-20260624-005-c"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 刺透/乌云的五个必要条件
+  stance: view
+  related_stocks: []
+  tags:
+  - 刺透形态
+  - 乌云盖顶
+  - 必要条件
+- id: claim-20260630-007-b
+  source_path: sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md
+  source_date: '2026-06-30'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T14:52:00+08:00'
+  claim_type: technical-knowledge
+  subject: 刺透与乌云的加分条件
+  timeframe: permanent
+  statement: 加分项包括：①刺入/覆盖比例越高信号越强；②第二根放量，说明力量切换有真实资金支撑；③出现在前期高低点或重要支撑压力等关键位置；④前期趋势持续越久、幅度越大越可信；⑤第一根本身就是趋势末端的标志性K线（刺透前为长黑线、乌云前为高档长红），形成多重信号叠加。
+  evidence_quote: 其次呢就是一些加分条件，比如说你刺透或者盖住的比例越高，对吧？那么说明信号越强。其次呢就是说你第二根K线它要放量，如果放量呢就说明力量有切换，有真实的一个资金支撑。第三就出现了关键位置……前期的趋势的持续时间越长，那么幅度越大，整体的反转信号呢就越可信。还有就是说前一根它也是顶部或者底部的那种K线
+  interpretation: 加分项用来在同一形态内部排序，而不是准入条件；实操上应把「比例+放量+位置」三项作为主要权重。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 刺透/乌云的加分条件
+  stance: view
+  related_stocks: []
+  tags:
+  - 刺透形态
+  - 乌云盖顶
+  - 加分条件
+  - 放量
+- id: claim-20260630-007-c
+  source_path: sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md
+  source_date: '2026-06-30'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T14:52:00+08:00'
+  claim_type: technical-knowledge
+  subject: 顶级刺透与乌云信号的组合特征
+  timeframe: permanent
+  statement: 最顶级的刺透或乌云信号需同时满足：前期趋势充分（约15个交易日以上）、刺入或覆盖比例达70%以上、第二根放量、出现在关键位置、且第一根本身是趋势末端的标志性K线；五项叠加时信号强度最高。
+  evidence_quote: 最顶级的那种刺透或者是乌云的信号，那么一般就要满足前期趋势充分，也就是至也就是差不多有十五个交易日或以上，好吧？那么刺透和盖住能够在百分之七十以上，且第二根放放量出现在关键位置，那么前一根本身呢就是趋势末端的标志性K线，那么这种信号就非常的强烈了。
+  interpretation: 这是「5个条件同时成立」的合成标准，可用于把日常形态分成三档：仅满足必要条件（观察）、满足A级比例（可试仓）、五项齐备（重点仓位）。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 顶级刺透/乌云的五项叠加标准
+  stance: view
+  related_stocks: []
+  tags:
+  - 顶级信号
+  - 多重共振
+  - 趋势末端

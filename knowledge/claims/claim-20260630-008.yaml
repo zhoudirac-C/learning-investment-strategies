@@ -1,0 +1,95 @@
+claims:
+- id: claim-20260630-008-a
+  source_path: sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md
+  source_date: '2026-06-30'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T14:52:00+08:00'
+  claim_type: operation
+  subject: A级刺透的三步建仓与止损
+  timeframe: permanent
+  statement: A级刺透的操作分三步：当天试探性建仓；第三天若继续上涨并站上第二根阳线最高点则加仓；第三天出现阳线包掉第二根阳线（三日翻红）可加至目标仓位；若第三天跌破第二根阳线最低点，视为信号失败立即止损，止损位为刺透阳线的最低点。
+  evidence_quote: 如果是A级的刺透，那么就是底部信号，对吧？刺透的当天我们可以试探性的建仓。那么第二步就是观察第三天，如果第三天继续上涨，并且站在了第二天的最高点，我们甚至可以进行一个加仓的动作。……如果第三天跌破了第二天的一个最低点，那么则视为信号失败，立即止损。那么它的止损位。就应该是刺透阳线的最低点。
+  interpretation: 建仓是「试探→确认→加满」的三段式，每段都以次日价格行为作为条件；止损锚定形态自身低点，不随情绪移动。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: A级刺透的建仓节奏与止损位
+  stance: view
+  related_stocks: []
+  tags:
+  - 刺透形态
+  - 建仓节奏
+  - 止损位
+  - 三日确认
+- id: claim-20260630-008-b
+  source_path: sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md
+  source_date: '2026-06-30'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T14:52:00+08:00'
+  claim_type: operation
+  subject: A级乌云盖顶的三步减仓
+  timeframe: permanent
+  statement: A级乌云盖顶出现当天先减仓50%；第三天若继续下跌并跌破第二根阴线最低点，减至80%；第三天若再来一根阴线包掉第二根阴线，则清仓100%。
+  evidence_quote: 你看到乌云盖顶的当天就立刻减仓百分之五十，好吧？……第二步你观察第三天，如果第三天继续下跌，跌破第二天的最低点，减仓到百分之八十。如果第三天再来一根阴线包掉第二天，那么减仓到百分之百，好吧，完全清仓。
+  interpretation: 减仓节奏与建仓镜像但更快：首日即减半，不等确认；后续按第三日价格行为加到80%/100%。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-005-e"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: A级乌云盖顶的减仓节奏
+  stance: view
+  related_stocks: []
+  tags:
+  - 乌云盖顶
+  - 减仓节奏
+  - 清仓条件
+- id: claim-20260630-008-c
+  source_path: sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md
+  source_date: '2026-06-30'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T14:52:00+08:00'
+  claim_type: operation
+  subject: 加减仓的不对称纪律
+  timeframe: permanent
+  statement: 仓位处理在加仓与减仓之间刻意不对称：买入可以渐进试探（首日加20%~30%），卖出必须当日先执行一半（50%）；因为风险处理不允许用「再等等确认」换时间。
+  evidence_quote: 这个和加仓不一样，加仓你第一天你加百分之二十、三十，但是你减仓你第一天要减仓百分之五十。
+  interpretation: 同一套形态信号，买入侧可以给三次确认机会，卖出侧只给一次；对称处理会把止盈止损拖成被动持有。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["claim-20261019-005-e"]
+  supplements: ["claim-20260922-001-t", "claim-20260722-004-i"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 建仓渐进、减仓果断的不对称原则
+  stance: view
+  related_stocks: []
+  tags:
+  - 仓位管理
+  - 加减仓不对称
+  - 风险纪律

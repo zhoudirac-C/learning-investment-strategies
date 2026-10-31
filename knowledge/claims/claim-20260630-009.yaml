@@ -1,0 +1,96 @@
+claims:
+- id: claim-20260630-009-a
+  source_path: sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md
+  source_date: '2026-06-30'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T14:52:00+08:00'
+  claim_type: technical-knowledge
+  subject: 刺透与乌云的跳空反包陷阱
+  timeframe: permanent
+  statement: 两类形态会被反向利用：刺透后第三日跳空低开并跌破第二日最低点（刺透+向下跳空缺口），是空方诱多，目的是让多头进场后再次砸盘、集中套牢盘；乌云后第三日跳空高开并站上第二日最高点（乌云+向上跳空缺口），是多方诱空，目的是让空头进场后再度拉升、打爆空头。
+  evidence_quote: 出现刺透之后，它第三天跳空低开，跌破了第二天的最低点，形成了刺透加跳空缺口下跌，那么这其实就是空方的一个诱多。刺透是为了让多头进场，然后再次砸盘，目的就是让套牢盘更加集中。……出现乌云之后，第三天跳空高开，站在了第二天最高点……那么这就是多方的诱空。
+  interpretation: 第三日的跳空缺口是最强否决信号：它把「力量已切换」的叙事直接反转，见到即按失败处理，不补仓、不摊薄。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 刺透/乌云的诱多诱空陷阱
+  stance: view
+  related_stocks: []
+  tags:
+  - 刺透形态
+  - 乌云盖顶
+  - 诱多诱空
+  - 跳空缺口
+- id: claim-20260630-009-b
+  source_path: sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md
+  source_date: '2026-06-30'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T14:52:00+08:00'
+  claim_type: technical-knowledge
+  subject: 假信号的三个识别特征
+  timeframe: permanent
+  statement: 假信号有三个特征：①第二根量能不足（真信号应明显放量，缩量说明反推力量不真实、只是形态欺骗）；②位置不对（真信号在长期趋势末端的关键位，假信号在反弹或下跌途中的非关键位）；③环境不配合（大盘与板块同步转向时信号极强，只有个股单独出现形态时可信度很低）。
+  evidence_quote: 首先就是说第二天的量能不够，真信号它第二天的会明显的放量……假信号就是第二天缩量反推的力量不真实，那么纯粹上它会出现一个技术面的形态欺骗，其次就是位置不对。……第三就是当前市场环境不支持大盘和板块如果都在做相同方向的反转准备的话，那么这种信号是极为真实且极为强的。但如果大盘和板块没有出现任何反转的迹象，只是个股出现了形态，那么这种独立形态的一个可信度呢就会非常的低。
+  interpretation: 量能、位置、环境构成三重否决：任一缺失就应把信号从「可执行」降级为「不操作」，而不是打折执行。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["claim-20260812-027"]
+  supplements: ["claim-20260913-001-018"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 刺透/乌云假信号的三特征
+  stance: view
+  related_stocks: []
+  tags:
+  - 假信号
+  - 量能不足
+  - 位置
+  - 环境配合
+- id: claim-20260630-009-c
+  source_path: sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md
+  source_date: '2026-06-30'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T14:52:00+08:00'
+  claim_type: operation
+  subject: 形态不合格直接放弃的纪律
+  timeframe: permanent
+  statement: 当形态成立但量能、位置、环境不配合时，正确动作是直接错过、不参与，而不是降低仓位去试；宁可漏掉，也不要为「形态已经出现」找理由进场。
+  evidence_quote: 所以如果只是在形态上满足了刺透或者乌云，但是量能位置、环境都不配合的话，那么这种信号我们可以直接错过，好吧，就不去操作，那么这个样子就会更为稳妥一点。
+  interpretation: 这是信噪比优先的取舍：形态是入场券不是买入理由，三重配合缺一项即放弃，机会成本由纪律承担。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260614-002-b", "claim-20070821-001-b"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 不配合就放弃的操作纪律
+  stance: view
+  related_stocks: []
+  tags:
+  - 操作纪律
+  - 信号过滤
+  - 宁错过

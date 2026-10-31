@@ -1,0 +1,95 @@
+claims:
+- id: claim-20260630-005-a
+  source_path: sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md
+  source_date: '2026-06-30'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T14:52:00+08:00'
+  claim_type: technical-knowledge
+  subject: 乌云盖顶定义与四条件
+  timeframe: permanent
+  statement: 乌云盖顶出现在上涨末段，第一根为阳线（大阳或中阳），第二根为阴线（大阴或中阴）；第二根开盘价须严格高于第一根阳线的最高价（跳空高开），收盘价须深入第一根阳线实体50%以上、但不得跌破第一根阳线的开盘价。
+  evidence_quote: 就要出现在上涨的末段……第一根通常是阳线，那么可以是大阳线或者中阳线，那么第二根是阴线……第二根阴线的开盘价要高于第一根阳线的最高价……第二根阴线的收盘价要深入到第一根阳线的实体部分，但没有超过第一根阳线的一个开盘价。
+  interpretation: 与刺透完全镜像：高开制造加速预期，收盘却反手盖住一半以上实体，属情绪反转的实证。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 乌云盖顶的构成条件
+  stance: view
+  related_stocks: []
+  tags:
+  - 乌云盖顶
+  - K线组合
+  - 顶部反转
+  - 跳空高开
+- id: claim-20260630-005-b
+  source_path: sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md
+  source_date: '2026-06-30'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T14:52:00+08:00'
+  claim_type: technical-knowledge
+  subject: 乌云盖顶与刺透的对称性
+  timeframe: permanent
+  statement: 乌云盖顶与刺透形态完全对称：方向、颜色、跳空方向、收盘位置全部相反；共同点是「反向一方赢了但不彻底」——正因为不彻底，才区别于吞没，才构成独立的一档信号。
+  evidence_quote: 所以乌云盖顶它和刺透形态是完全对称的。……但同样，它和刺透形态是对称的，也就是说空方今天的力量它还没有强到完全包掉昨天的阳线，那么收盘价也没有跌破昨天阳线的开盘价。也就是说空方今天赢了，但赢的不彻底。
+  interpretation: 把两者当作一个信号族统一处理，可减少记忆负担；差别只在方向，判定逻辑（跳空+50%+不完全反超）完全复用。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 刺透与乌云盖顶的镜像对称
+  stance: view
+  related_stocks: []
+  tags:
+  - 乌云盖顶
+  - 刺透形态
+  - 镜像对称
+- id: claim-20260630-005-c
+  source_path: sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md
+  source_date: '2026-06-30'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T14:52:00+08:00'
+  claim_type: technical-knowledge
+  subject: 乌云盖顶强度分级与收盘价口径
+  timeframe: permanent
+  statement: 乌云盖顶同样按覆盖比例分级：50%~70% 为 B 级，70%~90% 为 A 级（接近看跌吞没），90% 以上直接按看跌吞没处理；且判定以收盘价为准——影线超过50%但收盘未过50%不算有效。
+  evidence_quote: 你如果能够盖住百分之五十以上的话，可以构成乌云盖顶。那么能够盖住的越多对吧，百分之五十到百分之七十，那么是B级的乌云盖顶。那么能够遮住百分之七十到百分之九十就是一个A级的乌云盖顶……如果能够盖住百分之九十以上，就直接按照看跌吞没去处理。……它的一个下影线是超过百分之五十，但如果是收盘价的话，它没有超过百分之五十。
+  interpretation: 用影线替代收盘价判定会显著放宽信号，导致假信号增多；口径必须锁死为收盘价，与刺透一致。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 乌云盖顶分级与收盘价判定口径
+  stance: view
+  related_stocks: []
+  tags:
+  - 乌云盖顶
+  - 信号分级
+  - 收盘价口径

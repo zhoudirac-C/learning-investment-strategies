@@ -1,0 +1,65 @@
+claims:
+- id: claim-20260630-006-a
+  source_path: sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md
+  source_date: '2026-06-30'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T14:52:00+08:00'
+  claim_type: technical-knowledge
+  subject: 反转形态的三种时态层级
+  timeframe: permanent
+  statement: 吞没、刺透/乌云、孕线构成反转的三档时态：吞没=反转完成时（力量已彻底转换，执行标准最高）；刺透/乌云=反转进行时（力量已切换大部分，可果断执行）；孕线=反转早期（仅力量衰竭，属警惕信号）。
+  evidence_quote: 吞没呢它代表是反转完成时，就是力量已经彻底转换，它的执行标准就会很高。但是刺透和乌云是相当于是反转进行时，那么力量已经切换了，对吧，已经发发生了大部分，那么可以去果断执行。那么孕线呢它是反转的一个早期，只是力量的衰竭，还没有真正切换，所以是一个警惕的信号。
+  interpretation: 三类形态不是并列关系而是进度条：孕线预警、刺透/乌云执行、吞没确认。判断形态前应先定位「反转走到哪一步」，再决定动作强度。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260621-005-d", "claim-20260621-005-f", "claim-20260621-005-e"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 吞没/刺透乌云/孕线的时态层级
+  stance: view
+  related_stocks: []
+  tags:
+  - 反转形态
+  - 时态层级
+  - 吞没
+  - 孕线
+- id: claim-20260630-006-b
+  source_path: sources/raw/财经/2026-06-30-2241-视频-技术分析-刺透形态和乌云盖顶.md
+  source_date: '2026-06-30'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-31T14:52:00+08:00'
+  claim_type: technical-knowledge
+  subject: 反转信号的出现频率分布
+  timeframe: permanent
+  statement: A股大部分反转并不以完整吞没的形式出现，而是发生在刺透与乌云盖顶；这两类形态的出现频率正常情况下远高于吞没。因此只看吞没会系统性错过大量反转机会。
+  evidence_quote: 但是它们出现的频率，正常情况来讲会比吞没要高得多。……A股的大部分的反转，它其实会发生在刺透和乌云盖顶，就不是完整的吞没。那么如果你只看吞没的话，就会错过大量的反转机会。
+  interpretation: 这是覆盖率的取舍：吞没精度高但样本极少，刺透/乌云精度略低但覆盖绝大多数底部/顶部。两者必须配套使用，不能只留高置信度、低频率的那一档。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260621-005-d"]
+  last_discovered: 2026-10-31
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 刺透与乌云是A股反转的主要形态
+  stance: view
+  related_stocks: []
+  tags:
+  - 刺透形态
+  - 乌云盖顶
+  - 反转覆盖率
+  - 出现频率
