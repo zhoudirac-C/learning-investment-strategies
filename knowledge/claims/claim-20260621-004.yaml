@@ -1,3 +1,4 @@
+# 已合并：见 claim-20260621-007.yaml（2026-10-31）
 claims:
 - id: claim-20260621-004-a
   source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
@@ -13,7 +14,7 @@ claims:
   evidence_quote: 贵州茅台(600519)近期的周线底部走势中出现标准看涨运线，后续第三根周K线低开低走跌破前低，运线被成功化解，原有下跌趋势延续，交易者此时不能抄底，应当继续观望或减仓。
   interpretation: 符合化解标准的后续K线。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -50,7 +51,7 @@ claims:
   evidence_quote: 贵州茅台(600519)近期的周线底部走势中出现标准看涨运线，后续第三根周K线低开低走跌破前低，运线被成功化解，原有下跌趋势延续，交易者此时不能抄底，应当继续观望或减仓。
   interpretation: 验证化解后趋势恢复。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -88,7 +89,7 @@ claims:
   evidence_quote: 贵州茅台(600519)近期的周线底部走势中出现标准看涨运线，后续第三根周K线低开低走跌破前低，运线被成功化解，原有下跌趋势延续，交易者此时不能抄底，应当继续观望或减仓。
   interpretation: 给出化解后的操作建议。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -128,7 +129,7 @@ claims:
   evidence_quote: 日线波动较大运线形态不够清晰，切换到周线观察效果更好。
   interpretation: 周线能过滤日线噪音，使孕线形态更清晰。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -163,7 +164,7 @@ claims:
   evidence_quote: 实战交易中接近小一半的运线会被化解，其中约1/3的运线信号最终完全无效，价格会继续沿着原有趋势运行。
   interpretation: 高化解概率支持其仅作预警的用法。
   confidence: medium
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -198,7 +199,7 @@ claims:
   evidence_quote: 实战交易中接近小一半的运线会被化解，其中约1/3的运线信号最终完全无效，价格会继续沿着原有趋势运行。
   interpretation: 量化无效概率，警示不可直接交易。
   confidence: medium
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -231,7 +232,7 @@ claims:
   evidence_quote: 看跌运线之后可以叠加看跌吞没、下跌缺口、高位流星线、上吊线、长黑K线等顶部信号，确认反转正式成立。
   interpretation: 多种信号共振可提高顶部反转置信度。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -267,7 +268,7 @@ claims:
   evidence_quote: 看涨运线之后可以叠加看涨吞没、上涨缺口、低位锤子线、倒锤子线、长红K线等底部信号，确认反转正式成立。
   interpretation: 多种信号共振可提高底部反转置信度。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -302,7 +303,7 @@ claims:
   evidence_quote: 交易者可以结合之前学习的单根K线多空判断方法，运线出现后先进入观察状态，等明确的单根确认信号出现后再执行交易操作。
   interpretation: 单根K线判断是孕线确认体系的补充。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -338,7 +339,7 @@ claims:
   evidence_quote: 交易者可以结合之前学习的单根K线多空判断方法，运线出现后先进入观察状态，等明确的单根确认信号出现后再执行交易操作。
   interpretation: 观察状态避免仓促交易。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -371,7 +372,7 @@ claims:
   evidence_quote: 交易者可以结合之前学习的单根K线多空判断方法，运线出现后先进入观察状态，等明确的单根确认信号出现后再执行交易操作。
   interpretation: 确认信号是交易执行的前提。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -407,7 +408,7 @@ claims:
   evidence_quote: 第一步预警记录：发现运线信号后，先记录信号的看涨或看跌属性，不立刻进行任何实际交易操作，保持原有仓位继续观察。
   interpretation: 第一步强调记录与观望，避免冲动。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -443,7 +444,7 @@ claims:
   evidence_quote: 第二步三日跟踪：运线出现后的前三天持续跟踪走势，如果第三天直接出现高开高走或低开低走的化解信号，立刻取消预警，恢复原有趋势的交易节奏。
   interpretation: 前三天是信号验证关键窗口。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -477,7 +478,7 @@ claims:
   evidence_quote: 第二步三日跟踪：运线出现后的前三天持续跟踪走势，如果第三天直接出现高开高走或低开低走的化解信号，立刻取消预警，恢复原有趋势的交易节奏。
   interpretation: 化解信号出现时放弃反转预期。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -513,7 +514,7 @@ claims:
   evidence_quote: 第三步信号确认：如果第三天出现吞没、缺口、长黑、长红等反转确认信号，立刻执行对应的反转交易操作。
   interpretation: 确认信号是执行反转操作的触发点。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -548,7 +549,7 @@ claims:
   evidence_quote: 第四步延续观察：如果第三天之后价格依然维持小幅震荡，就继续保持警惕状态，不提前进场交易。
   interpretation: 震荡延续意味着信号未决，继续等待。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -584,7 +585,7 @@ claims:
   evidence_quote: 运线的有效观察周期为3-5个交易日，如果5个交易日内没有出现明确的反转确认信号，运线信号自动失效，价格将继续沿着原有趋势运行。
   interpretation: 时间窗口量化，避免无限期等待。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -618,7 +619,7 @@ claims:
   evidence_quote: 运线的有效观察周期为3-5个交易日，如果5个交易日内没有出现明确的反转确认信号，运线信号自动失效，价格将继续沿着原有趋势运行。
   interpretation: 过期失效规则减少主观判断。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -653,7 +654,7 @@ claims:
   evidence_quote: 半导体板块先收出一根进攻型大阳线，之后连续3根小K线全部被大阳线的实体包裹，形成标准的多K线组合看跌孕线，到第五个交易日收出大阴线形成看跌吞没，反转正式完成。
   interpretation: 案例起点为强势进攻。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -690,7 +691,7 @@ claims:
   evidence_quote: 半导体板块先收出一根进攻型大阳线，之后连续3根小K线全部被大阳线的实体包裹，形成标准的多K线组合看跌孕线，到第五个交易日收出大阴线形成看跌吞没，反转正式完成。
   interpretation: 多根小K线仍满足实体包裹条件。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts:
@@ -728,7 +729,7 @@ claims:
   evidence_quote: 半导体板块先收出一根进攻型大阳线，之后连续3根小K线全部被大阳线的实体包裹，形成标准的多K线组合看跌孕线，到第五个交易日收出大阴线形成看跌吞没，反转正式完成。
   interpretation: 展示多K线孕线形态。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts:
@@ -766,7 +767,7 @@ claims:
   evidence_quote: 半导体板块先收出一根进攻型大阳线，之后连续3根小K线全部被大阳线的实体包裹，形成标准的多K线组合看跌孕线，到第五个交易日收出大阴线形成看跌吞没，反转正式完成。
   interpretation: 孕线最终由吞没完成反转。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts:
@@ -804,7 +805,7 @@ claims:
   evidence_quote: 教学团队在5月29日半导体板块出现看跌吞没信号时，提示全体交易者空仓，减仓后的第二周周一板块直接收出大阴线，下跌趋势正式确认。
   interpretation: 实际案例中空仓信号由吞没触发而非孕线。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes:
   - claim-20260521-002-c
@@ -842,7 +843,7 @@ claims:
   evidence_quote: 教学团队在5月29日半导体板块出现看跌吞没信号时，提示全体交易者空仓，减仓后的第二周周一板块直接收出大阴线，下跌趋势正式确认。
   interpretation: 后续大阴线验证下跌趋势。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts:
@@ -880,7 +881,7 @@ claims:
   evidence_quote: 大阳线进攻→多日运线力量衰竭→看跌吞没空方反超，这个完整的三段式力量切换叙事，信号强度远高于单一的K线反转信号。
   interpretation: 三段式组合比单一形态更可靠。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -916,7 +917,7 @@ claims:
   evidence_quote: 运线信号出现后可以先减仓20%-30%，等吞没确认信号出现后再减仓80%以上，剩余的小部分仓位根据后续走势灵活处理，既不会过早误判踏空，也不会过晚反应被套。
   interpretation: 孕线阶段小仓位降风险，保留灵活性。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []

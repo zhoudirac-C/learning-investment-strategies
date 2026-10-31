@@ -1,0 +1,1037 @@
+# 孕线课程 claim 合并（2026-10-31）
+# 来源：sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+# 104 条碎片（claim-20260621-002~005）→ 28 条规则级 claim
+# 旧 claim 保留原文，status 置 superseded；新 claim 的 supersedes 列全部原 id
+claims:
+- id: claim-20260621-007-a
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 孕线定义与观察视角
+  timeframe: permanent
+  statement: 孕线又称母子线，观察视角从左到右、重点看第一根大K线，与从右向左观察第二根K线的吞没形态完全相反。核心判定是实体包裹实体：第一根大K线包裹第二根小K线，第二根的最高价必须小于第一根实体上端，最低价必须大于第一根实体下端。
+  evidence_quote: 孕线也被称为母子线，观察视角是从左到右，重点关注第一根大K线，和从右向左观察第二根K线的吞没形态完全相反。……运线的核心是实体包裹实体，第二根K线的最高价必须小于第一根K线的实体上端，且第二根K线的最低价必须大于第一根K线的实体下端。……吞没形态是第二根大K线包裹第一根小K线，运线是第一根大K线包裹第二根小K线，二者虽然都是两根K线的包裹结构，但市场逻辑完全不同。
+  interpretation: 定义层：把观察顺序与实体包裹口径固定下来，是与吞没形态区分的第一道门。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-002-a
+  - claim-20260621-002-b
+  - claim-20260621-002-c
+  - claim-20260621-002-l
+  - claim-20260621-002-m
+  - claim-20260621-002-n
+  - claim-20260621-003-b
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 孕线定义与观察视角
+  related_stocks: []
+  tags:
+  - 孕线
+  - 母子线
+  - K线形态
+  - 实体包裹
+  school: qing
+- id: claim-20260621-007-b
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 看涨孕线的结构要件
+  timeframe: permanent
+  statement: 看涨孕线出现在下跌末端：第一根为大阴线或中阴线，第二根为实体更小的K线且被第一根实体包裹；第二根收小阳线的信号效果优于小阴线。
+  evidence_quote: 看涨运线出现在下跌末端，第一根是大阴线或中阴线，第二根是实体更小的K线，小阳线的信号效果优于小阴线。
+  interpretation: 给出看涨孕线的位置、第一根、第二根与颜色优劣四项要件，缺位置即不成立。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-002-d
+  - claim-20260621-002-e
+  - claim-20260621-002-f
+  - claim-20260621-002-g
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 看涨孕线的结构要件
+  related_stocks: []
+  tags:
+  - 孕线
+  - 看涨孕线
+  - 底部反转
+  school: qing
+- id: claim-20260621-007-c
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 看涨孕线的市场叙事
+  timeframe: permanent
+  statement: 看涨孕线的叙事是：第一天收出实体极长的大阴线、空方占据绝对优势；第二天价格高开后全天在大阴线实体范围内小幅震荡、没有延续之前的下跌趋势，说明空方力量耗尽。
+  evidence_quote: 下跌过程中第一天收出实体极长的大阴线，空方占据绝对优势，第二天价格高开后全天在大阴线实体范围内小幅震荡，没有延续之前的下跌趋势。……运线本质是力量衰竭信号，看跌运线代表多方力量完全耗尽没有新资金跟进，看涨运线代表空方力量完全耗尽，属于反转的早期预警信号。
+  interpretation: 叙事层解释「为什么会反转」：不是第二天涨得多，而是第一天的主导方在第二天失去了延续能力。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-002-s
+  - claim-20260621-002-t
+  - claim-20260621-002-u
+  - claim-20260621-002-v
+  - claim-20260621-002-y
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 看涨孕线的市场叙事
+  related_stocks: []
+  tags:
+  - 孕线
+  - 看涨孕线
+  - 力量衰竭
+  school: qing
+- id: claim-20260621-007-d
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 看跌孕线的结构要件
+  timeframe: permanent
+  statement: 看跌孕线出现在上涨末端：第一根为大阳线或中阳线，第二根为实体更小的K线且被第一根实体包裹；第二根收小阴线的信号效果优于小阳线。
+  evidence_quote: 看跌运线出现在上涨末端，第一根是大阳线或中阳线，第二根是实体更小的K线，小阴线的信号效果优于小阳线。
+  interpretation: 与看涨孕线镜像对称，位置换到上涨末端、颜色优劣相反。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-002-h
+  - claim-20260621-002-i
+  - claim-20260621-002-j
+  - claim-20260621-002-k
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 看跌孕线的结构要件
+  related_stocks: []
+  tags:
+  - 孕线
+  - 看跌孕线
+  - 顶部反转
+  school: qing
+- id: claim-20260621-007-e
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 看跌孕线的市场叙事
+  timeframe: permanent
+  statement: 看跌孕线的叙事是：第一天收出实体极长的进攻型大阳线、多方占据绝对优势；第二天价格低开后全天在大阳线实体范围内小幅震荡、没有延续上涨趋势，代表多方力量完全耗尽且没有新资金跟进。
+  evidence_quote: 上涨过程中第一天收出实体极长的进攻型大阳线，多方占据绝对优势，第二天价格低开后全天在大阳线实体范围内小幅震荡，没有延续之前的上涨趋势。……运线本质是力量衰竭信号，看跌运线代表多方力量完全耗尽没有新资金跟进，看涨运线代表空方力量完全耗尽，属于反转的早期预警信号。
+  interpretation: 与看涨孕线镜像：关键在于第二天是否延续，而不是单日涨跌。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-002-o
+  - claim-20260621-002-p
+  - claim-20260621-002-q
+  - claim-20260621-002-r
+  - claim-20260621-002-x
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 看跌孕线的市场叙事
+  related_stocks: []
+  tags:
+  - 孕线
+  - 看跌孕线
+  - 力量衰竭
+  school: qing
+- id: claim-20260621-007-f
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 孕线的本质：力量衰竭的早期预警
+  timeframe: permanent
+  statement: 孕线本质上是力量衰竭信号，属于反转的早期预警，而不是反转的确认。
+  evidence_quote: 运线本质是力量衰竭信号，看跌运线代表多方力量完全耗尽没有新资金跟进，看涨运线代表空方力量完全耗尽，属于反转的早期预警信号。
+  interpretation: 定性层：把孕线归入「预警」而非「信号」，决定了后续所有操作口径。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-002-w
+  - claim-20260621-002-z
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 孕线的本质：力量衰竭的早期预警
+  related_stocks: []
+  tags:
+  - 孕线
+  - 力量衰竭
+  - 反转预警
+  school: qing
+- id: claim-20260621-007-g
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 孕线与吞没的结构与强度对比
+  timeframe: permanent
+  statement: 吞没形态是第二根大K线包裹第一根小K线，代表力量爆发、趋势直接切换；孕线是第一根大K线包裹第二根小K线，代表力量收缩、市场犹豫。因此吞没的信号优先级高于孕线、化解难度也高于孕线，孕线的信号强度弱于吞没、化解难度低于吞没。
+  evidence_quote: 吞没形态是第二根大K线包裹第一根小K线，运线是第一根大K线包裹第二根小K线，二者虽然都是两根K线的包裹结构，但市场逻辑完全不同。……吞没形态代表力量爆发、趋势直接切换，信号优先级高于运线，化解难度也更高；运线代表力量收缩、市场犹豫，信号强度弱于吞没形态，化解难度更低。
+  interpretation: 两者虽然都是两根K线的包裹结构，但包裹方向相反，市场逻辑完全不同，不能互相替代。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-003-a
+  - claim-20260621-003-c
+  - claim-20260621-003-d
+  - claim-20260621-003-e
+  - claim-20260621-003-f
+  - claim-20260621-003-g
+  - claim-20260621-003-h
+  - claim-20260621-003-i
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 孕线与吞没的结构与强度对比
+  related_stocks: []
+  tags:
+  - 孕线
+  - 吞没形态
+  - 形态对比
+  school: qing
+- id: claim-20260621-007-h
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 时态差：吞没是完成时，孕线是进行时
+  timeframe: permanent
+  statement: 吞没形态是反转的完成时，看到信号可以直接执行操作；孕线是反转的进行时，只能作为预警使用、不能直接进场交易。若把看跌孕线当执行信号立刻清仓容易踏空，若把看涨孕线当执行信号立刻抄底容易被套。
+  evidence_quote: 吞没形态是反转的完成时，看到信号可以直接执行操作；运线是反转的进行时，仅作为预警信号使用，不能直接进场交易。……如果把运线当成执行信号直接操作，看到看跌运线立刻清仓很容易踏空，看到看涨运线立刻抄底很容易被套。
+  interpretation: 时态差是孕线全部操作纪律的根源：它给的是反应时间，不是入场理由。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-003-j
+  - claim-20260621-003-k
+  - claim-20260621-003-l
+  - claim-20260621-003-m
+  - claim-20260621-003-n
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 时态差：吞没是完成时，孕线是进行时
+  related_stocks: []
+  tags:
+  - 孕线
+  - 吞没形态
+  - 交易纪律
+  school: qing
+- id: claim-20260621-007-i
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 孕线是吞没的常见前奏
+  timeframe: permanent
+  statement: 孕线是吞没形态的常见前奏；学会孕线可以在吞没信号出现前 1 至 2 个交易日提前警惕，从而给交易者留出充足的反应和容错空间。
+  evidence_quote: 运线是吞没形态的常见前奏，学会运线可以在吞没信号出现前1-2个交易日提前警惕，给交易者留出充足的反应和容错空间。
+  interpretation: 这是孕线的核心使用价值：把确认时点提前，而不是替代确认。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-003-o
+  - claim-20260621-003-p
+  - claim-20260621-003-q
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 孕线是吞没的常见前奏
+  related_stocks: []
+  tags:
+  - 孕线
+  - 吞没形态
+  - 提前预警
+  school: qing
+- id: claim-20260621-007-j
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 看跌孕线的化解条件
+  timeframe: short-term
+  statement: 看跌孕线出现后，若第三根K线高开高走收出大阳线、且收盘价站上第一根大阳线的最高点，代表多方力量重新恢复，看跌孕线信号完全失效。
+  evidence_quote: 看跌运线出现后，第三根K线高开高走收出大阳线，并且收盘价站上第一根大阳线的最高点，代表多方力量重新恢复，运线信号完全失效。
+  interpretation: 化解条件用第一根的最高点作为判定位，而不是第二根或盘中价。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-003-r
+  - claim-20260621-003-s
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 看跌孕线的化解条件
+  related_stocks: []
+  tags:
+  - 孕线
+  - 看跌孕线
+  - 信号化解
+  school: qing
+- id: claim-20260621-007-k
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 看涨孕线的化解条件
+  timeframe: short-term
+  statement: 看涨孕线出现后，若第三根K线低开低走收出大阴线、且收盘价跌破第一根大阴线的最低点，代表空方力量重新恢复，看涨孕线信号完全失效。
+  evidence_quote: 看涨运线出现后，第三根K线低开低走收出大阴线，并且收盘价跌破第一根大阴线的最低点，代表空方力量重新恢复，运线信号完全失效。
+  interpretation: 与看跌孕线镜像：以第一根的最低点作为失效判定位。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-003-x
+  - claim-20260621-003-y
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 看涨孕线的化解条件
+  related_stocks: []
+  tags:
+  - 孕线
+  - 看涨孕线
+  - 信号化解
+  school: qing
+- id: claim-20260621-007-l
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 案例：东山精密(002384)看跌孕线被化解
+  timeframe: permanent
+  statement: 东山精密(002384)周线出现标准看跌孕线，但后续第三根周K线高开高走突破前高，看跌孕线被成功化解，原有上涨趋势延续，此时应当继续持有仓位。
+  evidence_quote: 202X年4月东山精密(002384)的周线走势中出现标准看跌运线，后续第三根周K线高开高走突破前高，运线被成功化解，原有上涨趋势延续，交易者此时应当继续持有仓位。
+  interpretation: 案例说明：形态成立不等于趋势反转，化解后的正确动作是维持原方向而非逆势操作。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes:
+  - claim-20260621-003-t
+  - claim-20260621-003-u
+  - claim-20260621-003-v
+  - claim-20260621-003-w
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 案例：东山精密(002384)看跌孕线被化解
+  related_stocks: []
+  tags:
+  - 孕线
+  - 看跌孕线
+  - 案例
+  - 东山精密(002384)
+  school: qing
+- id: claim-20260621-007-m
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 案例：贵州茅台(600519)看涨孕线被化解
+  timeframe: permanent
+  statement: 贵州茅台(600519)周线底部出现标准看涨孕线，但后续第三根周K线低开低走跌破前低，看涨孕线被成功化解，原有下跌趋势延续，交易者不能抄底，应继续观望或减仓。
+  evidence_quote: 贵州茅台(600519)近期的周线底部走势中出现标准看涨运线，后续第三根周K线低开低走跌破前低，运线被成功化解，原有下跌趋势延续，交易者此时不能抄底，应当继续观望或减仓。
+  interpretation: 与前述看跌孕线案例互为镜像：化解方向决定延续还是反转。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes:
+  - claim-20260621-003-z
+  - claim-20260621-004-a
+  - claim-20260621-004-b
+  - claim-20260621-004-c
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 案例：贵州茅台(600519)看涨孕线被化解
+  related_stocks: []
+  tags:
+  - 孕线
+  - 看涨孕线
+  - 案例
+  - 贵州茅台(600519)
+  school: qing
+- id: claim-20260621-007-n
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 周期选择：日线不清晰时切周线
+  timeframe: permanent
+  statement: 日线波动较大时孕线形态不够清晰，切换到周线观察效果更好。
+  evidence_quote: 日线波动较大运线形态不够清晰，切换到周线观察效果更好。
+  interpretation: 周期是孕线识别的可调参数，不是固定用法。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes:
+  - claim-20260621-004-d
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 周期选择：日线不清晰时切周线
+  related_stocks: []
+  tags:
+  - 孕线
+  - 周期选择
+  - 周线
+  school: qing
+- id: claim-20260621-007-o
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 孕线的失效概率
+  timeframe: permanent
+  statement: 实战交易中接近小一半的孕线会被化解，约三分之一的孕线信号最终完全无效、价格继续沿原有趋势运行。这个概率数据是重要的风险提示，直接否定了看到孕线就直接交易的错误用法。
+  evidence_quote: 实战交易中接近小一半的运线会被化解，其中约1/3的运线信号最终完全无效，价格会继续沿着原有趋势运行。……1/3的运线无效概率是重要的风险提示：接近三分之一的运线信号最终会被化解。……这个明确的概率数据直接否定了看到运线就直接交易的错误用法，提醒交易者必须叠加后续确认信号才能提升交易胜率。
+  interpretation: 用概率否定「见信号即交易」，为「等确认」提供量化依据。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-004-e
+  - claim-20260621-004-f
+  - claim-20260621-005-t
+  - claim-20260621-005-u
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 孕线的失效概率
+  related_stocks: []
+  tags:
+  - 孕线
+  - 失效概率
+  - 风险提示
+  school: qing
+- id: claim-20260621-007-p
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 孕线之后的确认信号清单
+  timeframe: short-term
+  statement: 看跌孕线之后可叠加看跌吞没、下跌缺口、高位流星线、上吊线、长黑K线等顶部信号确认反转成立；看涨孕线之后可叠加看涨吞没、上涨缺口、低位锤子线、倒锤子线、长红K线等底部信号确认反转成立。交易者可结合此前学过的单根K线多空判断方法，等明确的单根确认信号出现后再执行交易操作；必须叠加后续确认信号才能提升交易胜率。
+  evidence_quote: 看跌运线之后可以叠加看跌吞没、下跌缺口、高位流星线、上吊线、长黑K线等顶部信号，确认反转正式成立。……看涨运线之后可以叠加看涨吞没、上涨缺口、低位锤子线、倒锤子线、长红K线等底部信号，确认反转正式成立。……交易者可以结合之前学习的单根K线多空判断方法，运线出现后先进入观察状态，等明确的单根确认信号出现后再执行交易操作。……提醒交易者必须叠加后续确认信号才能提升交易胜率。
+  interpretation: 清单化的确认信号，是孕线与执行之间必须插入的一层。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-004-g
+  - claim-20260621-004-h
+  - claim-20260621-004-i
+  - claim-20260621-004-k
+  - claim-20260621-005-v
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 孕线之后的确认信号清单
+  related_stocks: []
+  tags:
+  - 孕线
+  - 确认信号
+  - 单根K线
+  school: qing
+- id: claim-20260621-007-q
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 孕线的观察与记录流程
+  timeframe: short-term
+  statement: 孕线出现后应先进入观察状态：记录信号的看涨或看跌属性，不立刻进行任何实际交易操作，保持原有仓位继续观察；出现后的前三天应持续跟踪走势，若第三天之后价格依然维持小幅震荡，应继续保持警惕状态、不提前进场交易。
+  evidence_quote: 交易者可以结合之前学习的单根K线多空判断方法，运线出现后先进入观察状态，等明确的单根确认信号出现后再执行交易操作。……第一步预警记录：发现运线信号后，先记录信号的看涨或看跌属性，不立刻进行任何实际交易操作，保持原有仓位继续观察。……第二步三日跟踪：运线出现后的前三天持续跟踪走势，如果第三天直接出现高开高走或低开低走的化解信号，立刻取消预警，恢复原有趋势的交易节奏。……第四步延续观察：如果第三天之后价格依然维持小幅震荡，就继续保持警惕状态，不提前进场交易。
+  interpretation: 把「不交易」写成有步骤的流程，避免临场被形态说服。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-004-j
+  - claim-20260621-004-l
+  - claim-20260621-004-m
+  - claim-20260621-004-p
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 孕线的观察与记录流程
+  related_stocks: []
+  tags:
+  - 孕线
+  - 观察流程
+  - 记录
+  school: qing
+- id: claim-20260621-007-r
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 第三日出现化解信号：取消预警
+  timeframe: short-term
+  statement: 若第三天直接出现高开高走或低开低走的化解信号，应立刻取消预警，恢复原有趋势的交易节奏。
+  evidence_quote: 第二步三日跟踪：运线出现后的前三天持续跟踪走势，如果第三天直接出现高开高走或低开低走的化解信号，立刻取消预警，恢复原有趋势的交易节奏。
+  interpretation: 化解是主动作废，不是继续观望。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-004-n
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 第三日出现化解信号：取消预警
+  related_stocks: []
+  tags:
+  - 孕线
+  - 化解
+  - 预警取消
+  school: qing
+- id: claim-20260621-007-s
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 第三日出现确认信号：执行反转操作
+  timeframe: short-term
+  statement: 若第三天出现吞没、缺口、长黑、长红等反转确认信号，应立刻执行对应的反转交易操作。
+  evidence_quote: 第三步信号确认：如果第三天出现吞没、缺口、长黑、长红等反转确认信号，立刻执行对应的反转交易操作。
+  interpretation: 确认与化解构成第三日的二选一分支，动作相反且都要即时。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-004-o
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 第三日出现确认信号：执行反转操作
+  related_stocks: []
+  tags:
+  - 孕线
+  - 确认信号
+  - 执行
+  school: qing
+- id: claim-20260621-007-t
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 孕线的有效观察周期 3 至 5 个交易日
+  timeframe: short-term
+  statement: 孕线的有效观察周期为 3 至 5 个交易日；若 5 个交易日内未出现明确反转确认信号，孕线信号自动失效，价格将继续沿原有趋势运行。该规则填补了形态识别的模糊地带，不标准的孕线形态无需纠结是否完美，只要时间窗口内没有确认信号就自动失效，从而大幅降低主观判断误差。
+  evidence_quote: 运线的有效观察周期为3-5个交易日，如果5个交易日内没有出现明确的反转确认信号，运线信号自动失效，价格将继续沿着原有趋势运行。……3-5个交易日的有效周期规则填补了形态识别的模糊地带：很多交易者纠结于不标准的运线形态要不要参考。……3-5个交易日的有效周期规则填补了形态识别的模糊地带：很多交易者纠结于不标准的运线形态要不要参考，3-5个交易日的时间标准给出了明确的量化判断依据，不需要纠结形态是否完美，只要时间窗口内没有确认信号就自动失效。……该规则大幅降低了交易的主观判断误差。
+  interpretation: 用时间窗口给信号设自动过期，避免「越看越像」的主观拖延。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-004-q
+  - claim-20260621-004-r
+  - claim-20260621-005-w
+  - claim-20260621-005-x
+  - claim-20260621-005-y
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 孕线的有效观察周期 3 至 5 个交易日
+  related_stocks: []
+  tags:
+  - 孕线
+  - 有效周期
+  - 纪律
+  school: qing
+- id: claim-20260621-007-u
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 案例：半导体板块三段式力量切换
+  timeframe: permanent
+  statement: 半导体板块先收出一根进攻型大阳线，之后连续 3 根小K线全部被大阳线实体包裹，形成标准的多K线组合看跌孕线；到第五个交易日收出大阴线形成看跌吞没，反转正式完成。教学团队在 5 月 29 日半导体板块出现看跌吞没信号时提示全体交易者空仓，减仓后第二周周一收出大阴线、下跌趋势正式确认。大阳线进攻、多日孕线力量衰竭、看跌吞没空方反超的完整三段式叙事，信号强度远高于单一K线反转信号。
+  evidence_quote: 半导体板块先收出一根进攻型大阳线，之后连续3根小K线全部被大阳线的实体包裹，形成标准的多K线组合看跌孕线，到第五个交易日收出大阴线形成看跌吞没，反转正式完成。……教学团队在5月29日半导体板块出现看跌吞没信号时，提示全体交易者空仓，减仓后的第二周周一板块直接收出大阴线，下跌趋势正式确认。……大阳线进攻→多日运线力量衰竭→看跌吞没空方反超，这个完整的三段式力量切换叙事，信号强度远高于单一的K线反转信号。
+  interpretation: 案例的价值在三段式结构：进攻—衰竭—反超，每一段都有可观察的盘面证据。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes:
+  - claim-20260621-004-s
+  - claim-20260621-004-t
+  - claim-20260621-004-u
+  - claim-20260621-004-v
+  - claim-20260621-004-w
+  - claim-20260621-004-x
+  - claim-20260621-004-y
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 案例：半导体板块三段式力量切换
+  related_stocks: []
+  tags:
+  - 孕线
+  - 案例
+  - 半导体
+  - 三段式
+  school: qing
+- id: claim-20260621-007-v
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 分仓节奏：孕线先减 20-30%，吞没确认后再减 80% 以上
+  timeframe: short-term
+  statement: 孕线信号出现后可先减仓 20% 至 30%；吞没确认信号出现后再减仓 80% 以上；剩余小部分仓位根据后续走势灵活处理。该分仓节奏既不会过早误判踏空，也不会过晚反应被套。
+  evidence_quote: 运线信号出现后可以先减仓20%-30%，等吞没确认信号出现后再减仓80%以上，剩余的小部分仓位根据后续走势灵活处理，既不会过早误判踏空，也不会过晚反应被套。
+  interpretation: 把「预警—确认」映射为两段仓位动作，是孕线唯一给出的仓位口径。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-004-z
+  - claim-20260621-005-a
+  - claim-20260621-005-b
+  - claim-20260621-005-c
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 分仓节奏：孕线先减 20-30%，吞没确认后再减 80% 以上
+  related_stocks: []
+  tags:
+  - 孕线
+  - 分仓
+  - 减仓节奏
+  school: qing
+- id: claim-20260621-007-w
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 高阶操作：先减半仓，确认后清仓或反向
+  timeframe: short-term
+  statement: 孕线信号出现后应先减半仓，等吞没确认信号出现后再完成清仓、大幅减仓或反向开仓；上述操作是经验交易者应当养成的标准化交易习惯。
+  evidence_quote: 孕线信号出现后先减半仓，等吞没确认信号出现后再完成清仓、大幅减仓或反向开仓的操作，是有经验的交易者应当养成的标准化交易习惯。
+  interpretation: 与 20-30% 版本并存：仓位比例取决于持仓性质与风险预算，动作顺序一致。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes:
+  - claim-20260621-005-n
+  - claim-20260621-005-o
+  - claim-20260621-005-p
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 高阶操作：先减半仓，确认后清仓或反向
+  related_stocks: []
+  tags:
+  - 孕线
+  - 高阶操作
+  - 减仓
+  school: qing
+- id: claim-20260621-007-x
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 反转形态的三类常见变体
+  timeframe: permanent
+  statement: 反转形态有三类常见变体：①没有孕线过渡，大K线之后直接接吞没的快速反转，信号极强但留给交易者的反应时间很短；②大K线加孕线之后没有出现吞没、孕线被化解，原有趋势延续；③大K线加孕线之后接长黑或长红替代吞没完成反转，是实战中最理想的反转形态。
+  evidence_quote: 第一类是没有运线过渡，直接大K线之后接吞没的快速反转，信号极强但留给交易者的反应时间很短。……第二类是大K线加运线之后没有出现吞没，运线被化解，原有趋势延续。……第三类是大K线加运线之后接长黑或长红替代吞没完成反转，是实战中最理想的反转形态。
+  interpretation: 三类变体覆盖了「无预警直接反转」「预警失效」「替代确认」三种真实路径。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-005-d
+  - claim-20260621-005-e
+  - claim-20260621-005-f
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 反转形态的三类常见变体
+  related_stocks: []
+  tags:
+  - 孕线
+  - 反转形态
+  - 变体
+  school: qing
+- id: claim-20260621-007-y
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 多K线孕线与连续孕线
+  timeframe: permanent
+  statement: 实战中的孕线不一定只有两根K线，也可以是 3 至 4 根连续小K线全部被第一根大K线实体包裹，同样属于有效孕线组合；市场走势中也经常出现孕线被化解之后又生成新孕线组合的情况，交易者需要持续跟踪观察，不能仅凭单一信号下定论。
+  evidence_quote: 实战中的运线不一定只有两根K线，也可以是3-4根连续的小K线全部被第一根大K线的实体包裹，同样属于有效的运线组合。……市场走势是动态变化的，经常会出现运线被化解之后，后续又生成新的运线组合的情况，交易者需要持续跟踪观察，不能仅凭单一信号下定论。
+  interpretation: 形态可扩展到多根，但「被化解后又新生」意味着跟踪是连续的，不是一次性判定。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes:
+  - claim-20260621-005-g
+  - claim-20260621-005-h
+  - claim-20260621-005-i
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 多K线孕线与连续孕线
+  related_stocks: []
+  tags:
+  - 孕线
+  - 多K线孕线
+  - 连续信号
+  school: qing
+- id: claim-20260621-007-z
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 与缠论包含关系的对应
+  timeframe: permanent
+  statement: 孕线对应缠论中的左包右K线包含关系，吞没对应右包左包含关系；缠论的包含规则更严格，需要把引线部分也纳入包裹范围，满足缠论标准的孕线是顶级的标准孕线。
+  evidence_quote: 运线对应缠论中的左包右K线包含关系，吞没对应缠论中的右包左K线包含关系，缠论的包含规则更加严格，需要把K线的引线部分也纳入包裹范围，满足缠论标准的运线是顶级的标准运线。
+  interpretation: 跨体系映射：同一图形在两套方法中的严格程度不同，缠论口径可用来筛「最标准」的孕线。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes:
+  - claim-20260621-005-j
+  - claim-20260621-005-k
+  - claim-20260621-005-l
+  - claim-20260621-005-m
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 与缠论包含关系的对应
+  related_stocks: []
+  tags:
+  - 孕线
+  - 缠论
+  - 包含关系
+  school: qing
+- id: claim-20260621-007-aa
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 孕线的容错价值高于交易价值
+  timeframe: permanent
+  statement: 孕线的容错设计价值远高于直接交易价值：核心作用是提前给交易者留出反应缓冲期，避免在趋势反转关键节点反应过慢，从而大幅降低牛熊切换阶段的踏空和套牢概率。
+  evidence_quote: 运线的容错设计价值远高于直接交易价值：多数新手学习K线形态都追求直接的买卖信号，但运线的核心作用是提前给交易者留出反应缓冲期。……运线的容错设计价值远高于直接交易价值：多数新手学习K线形态都追求直接的买卖信号，但运线的核心作用是提前给交易者留出反应缓冲期，避免在趋势反转的关键节点上反应过慢。……这个设计能大幅降低交易者在牛熊切换阶段的踏空和套牢概率。
+  interpretation: 定位层结论：孕线是风险管理工具，不是信号工具。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260621-005-q
+  - claim-20260621-005-r
+  - claim-20260621-005-s
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 孕线的容错价值高于交易价值
+  related_stocks: []
+  tags:
+  - 孕线
+  - 容错
+  - 风险管理
+  school: qing
+- id: claim-20260621-007-ab
+  source_path: sources/raw/财经/视频：26-06-21：技术分析-孕线.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  source_date: '2026-06-21'
+  source_type: 视频
+  extracted_at: '2026-10-31'
+  claim_type: technical-knowledge
+  subject: 组合形态：大K线加孕线与吞没
+  timeframe: permanent
+  statement: 大K线加孕线加吞没的组合是反转叙事最完整、操作节奏最清晰的形态。
+  evidence_quote: 大K线+孕线+吞没的组合是反转叙事最完整、操作节奏最清晰的形态。
+  interpretation: 把三段式组合定为标准范式，与前文案例一致。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes:
+  - claim-20260621-005-z
+  contradicts: []
+  supplements: []
+  last_discovered: null
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 组合形态：大K线加孕线与吞没
+  related_stocks: []
+  tags:
+  - 孕线
+  - 组合形态
+  - 吞没
+  school: qing

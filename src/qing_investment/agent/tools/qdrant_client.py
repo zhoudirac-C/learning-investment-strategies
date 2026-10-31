@@ -39,6 +39,7 @@ class QdrantClientWrapper:
         collection: str = "qing_knowledge",
         limit: int = 5,
         schools: list[str] | None = None,
+        include_superseded: bool = False,
     ):
         """Semantic search — queries Qdrant server via query_points API.
 
@@ -46,8 +47,11 @@ class QdrantClientWrapper:
 
         Args:
             schools: 学派过滤（2026-10-15 双学派架构）。None = 不过滤（现状兼容）；
-                     ["qing"] / ["gator"] = 单专家模式；["qing","gator","shared"] 等。
+                     ["qing"] / ["gator"] / ["qing","gator","shared"] 等。
                      过滤字段为 payload.school（存量无该字段的点不会被匹配）。
+            include_superseded: 默认 False —— 检索时排除 status=superseded 的 claim。
+                     claim 合并后旧碎片仍留在库中（可追溯），若不过滤会与新合并 claim
+                     同时命中并抢占排名，导致「合并了但检索还是碎片」（2026-10-31 实测）。
         """
         import numpy as np
 
@@ -57,12 +61,20 @@ class QdrantClientWrapper:
             query_vec = np.array(query_vector).flatten()
 
         query_filter = None
+        must: list = []
+        must_not: list = []
         if schools:
-            from qdrant_client.models import FieldCondition, Filter, MatchAny
+            from qdrant_client.models import FieldCondition, MatchAny
 
-            query_filter = Filter(
-                must=[FieldCondition(key="school", match=MatchAny(any=list(schools)))]
-            )
+            must.append(FieldCondition(key="school", match=MatchAny(any=list(schools))))
+        if not include_superseded:
+            from qdrant_client.models import FieldCondition, MatchValue
+
+            must_not.append(FieldCondition(key="status", match=MatchValue(value="superseded")))
+        if must or must_not:
+            from qdrant_client.models import Filter
+
+            query_filter = Filter(must=must or None, must_not=must_not or None)
 
         resp = self._client.query_points(
             collection_name=collection,
