@@ -1,7 +1,10 @@
 ---
 date: 2026-10-28
 type: pattern-nomination
-status: proposed
+status: adjudicated
+adjudicated_at: 2026-10-31
+outcome: N6（可计算增量）+ 并入 volume_source_qualify / position_context_qualify
+see: framework/proposals/2026-10-31-pattern-adjudication.md
 source: 量价关系（1）既有 claim 覆盖复核
 source_raw: sources/raw/财经/2026-10-03-视频-量价关系1.md
 validation: pending

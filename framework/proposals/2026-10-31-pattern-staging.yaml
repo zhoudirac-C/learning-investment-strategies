@@ -1,0 +1,431 @@
+# 2026-10-31 待入库推理模式（13 候选合并为 6 条）
+# 状态：pending-human-approval，勿直接 append 到 reasoning-patterns.yaml
+# 校验：scripts/pattern_schema.validate_patterns_file
+patterns:
+  - pattern_id: strong_trend_stage_qualify
+    name: 强趋势阶段与新鲜度资格框架
+    description: 当一只已经上涨一段的强趋势标的出现震荡、回踩、信号反复或板块后排扩散，需要判断「这波走到哪、还能不能追、要不要取消资格」时使用。核心是把「趋势类型—所处阶段—信号新鲜度」三件事分开：早期看强度，后期看位置；信号重复次数越多、传播越广，边际效用越低。输出是参与资格（可追/只低吸/只滚动/取消），不是买卖指令。
+    trigger:
+      - 强趋势标的已上涨一段，出现高位震荡、连续回踩或突破不再流畅
+      - 同一支撑或同一信号被反复验证三次以上，强度边际下降
+      - 板块内后排批量补涨、低辨识度标的扩散、研报与媒体讨论显著增多
+      - 老龙头滞涨而新标的正创新高，需要判断是否切换核心
+    data_requirements:
+      - name: 个股日K
+        channel: 日K线（infra/data/kline_cache.db，含复权与前复权口径）
+      - name: 板块指数
+        channel: THS 板块指数日K（infra/data/board_kline）
+      - name: 量能序列
+        channel: VOL/AMO 日序列与 5/10/20 日均量基准
+      - name: 传播扩散度
+        channel: 研报标题与资讯计数（可选，用于新鲜度辅助判断）
+    steps:
+      - step: 1
+        name: 定趋势类型与观察级别
+        question: 这是脉冲、强趋势还是普通反弹？观察级别是短线还是中线？
+        action: 用涨幅斜率、回撤幅度、量能结构区分脉冲与趋势；先定级别再谈阶段，级别不同则同一形态的处置不同
+        data:
+          - 个股日K
+          - 量能序列
+      - step: 2
+        name: 定所处阶段
+        question: 现在处于主升、高位震荡还是退潮？
+        action: 用运行时间、阶段涨幅、顶部结构数量、龙头与板块相对强弱四项定位；不预测唯一顶部，只标注阶段
+        data:
+          - 个股日K
+          - 板块指数
+      - step: 3
+        name: 评估信号新鲜度
+        question: 当前信号是第几次出现？还剩多少边际效用？
+        action: 统计同一信号重复次数、走势完美程度、新增资金与新增合力；重复三次以上且无新催化时，把「可追」降级为「只低吸」
+        data:
+          - 量能序列
+          - 传播扩散度
+      - step: 4
+        name: 板块与个股四象限
+        question: 板块和个股分别处于起势还是充分演绎？
+        action: 分别标注后形成四象限：双起势重点跟踪；板块起势而个股充分演绎防兑现；板块充分演绎而个股刚起势找新核心；双充分演绎不追高、严控仓位
+        data:
+          - 板块指数
+          - 个股日K
+      - step: 5
+        name: 输出参与资格
+        question: 现在允许的动作集合是什么？
+        action: 输出四档之一——可追高、只可低吸、只可滚动降仓、取消资格；资格不等同于买入信号，买入仍需买点与失效条件
+        data:
+          - 个股日K
+    falsification:
+      - 出现新的产业催化或业绩上修，且价格重心重新上移、成交量良性放大，撤销时间衰减判断
+      - 分时拖沓但次日放量突破前高并带动板块，原滞涨判断证伪
+      - 老龙头在新催化下突破前高并持续带动板块，中军化判断撤销
+      - 仅走势漂亮或多次支撑有效，不足以证明新鲜度仍在
+    validation:
+      historical_hit_rate: pending-m1
+      applicable_regime: null
+      known_failures:
+        - 课程案例为事后回看，未做独立窗口验证，不得当作胜率
+        - 「成立日期/二十个交易日/涨幅70%」等阈值需保留各自语境，不可机械化为通用买卖线
+    matched_framework: technical_timing
+    applicable_themes:
+      - 强趋势
+      - 主升浪
+      - 高位震荡
+      - 龙头切换
+      - 充分演绎
+    source_raw:
+      - sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
+      - sources/raw/财经/2026-07-19-视频-强趋势股交易1.md
+      - sources/raw/财经/2026-06-24-视频-交易之道.md
+    source_claims:
+      - claim-20260823-001-002
+      - claim-20260823-001-003
+      - claim-20260823-001-021
+      - claim-20260719-023-g
+      - claim-20260719-023-h
+      - claim-20260719-023-q
+      - claim-20260624-007-b
+      - claim-20260624-007-c
+      - claim-20260624-007-n
+      - claim-20260624-007-o
+
+  - pattern_id: strong_trend_feedback_exit
+    name: 反馈退出与首阴资格框架
+    description: 当强趋势标的买入后出现第一根明显阴线、跌破预设失效位或修复不及预期，需要决定「是否还能拿、减多少、什么时候必须走」时使用。核心纪律是只给两次反馈、没有第三次：第一反馈决定降风险，第二反馈决定去留，之后只优化执行价格，不再修改结论。首阴能否博弈取决于阴线前三到五个交易日有没有弱化史。
+    trigger:
+      - 强趋势持仓出现第一根明显阴线或跌破预设失效位
+      - 买入后首个交易日反馈不佳，次日进入修复观察
+      - 修复日出现低开、破位或翻红后再度走弱
+    data_requirements:
+      - name: 持仓与成本
+        channel: config/stock_monitor/positions.yaml（成本、仓位、建仓日）
+      - name: 个股日K
+        channel: 日K线（infra/data/kline_cache.db）
+      - name: 分时与量能
+        channel: 分时行情与当日量能
+    steps:
+      - step: 1
+        name: 事前风险预算核对
+        question: 买之前写下的失效位、最大亏损和仓位是多少？
+        action: 用建仓时冻结的规则核对，不用「高位」「危险」等形容词临时改口；容忍度与仓位必须反向匹配
+        data:
+          - 持仓与成本
+      - step: 2
+        name: 首阴资格审查
+        question: 这根阴线是首阴，还是弱化史之后的兑现？
+        action: 回看前三到五个交易日，排除连续冲高回落、放量滞涨、多次突破失败与分时走弱；存在弱化史则不再按首阴处理
+        data:
+          - 个股日K
+          - 分时与量能
+      - step: 3
+        name: 第一反馈处置
+        question: 第一反馈是否达标？
+        action: 次日看主动反包、低开高走、红盘震荡与重心抬升；不达标即降风险，允许一次修复的标的才进入第二反馈
+        data:
+          - 个股日K
+          - 分时与量能
+      - step: 4
+        name: 第二反馈定去留
+        question: 第二反馈是否主动止跌并站回关键位？
+        action: 要求主动止跌、站回关键位、强于板块且不再破位；不达标执行退出，不允许出现第三反馈
+        data:
+          - 个股日K
+      - step: 5
+        name: 执行价格与减仓节奏
+        question: 已决定退出，怎么卖？
+        action: 退出结论触发后只优化执行价格；信号驱动的减仓当日执行（如形态信号减半），做T回合允许跨日但不得用来规避信号减仓
+        data:
+          - 持仓与成本
+          - 分时与量能
+    falsification:
+      - 第二反馈主动站回关键位、相对板块转强、日内重心持续抬高且后续不再破位，撤销连跌判断
+      - 阴线前已有明确弱化史、板块同步退潮或连续阴线下移，首阴资格不成立
+      - 单纯低开、盘中破线或瞬时翻红，不足以独立确认修复
+      - 红盘退出窗口不是每次必然出现，不得预设
+    validation:
+      historical_hit_rate: pending-m1
+      applicable_regime: null
+      known_failures:
+        - 两次反馈的严格程度为课程口径，未做参数化回测
+        - 与「做T不必当日完成」并存，需按触发源分层，不可互相否定
+    matched_framework: operation_strategy
+    applicable_themes:
+      - 强趋势
+      - 首阴
+      - 止损
+      - 反馈验证
+      - 减仓
+    source_raw:
+      - sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
+      - sources/raw/财经/2026-07-19-视频-强趋势股交易1.md
+      - sources/raw/财经/2026-07-22-视频-强趋势股交易2.md
+    source_claims:
+      - claim-20260823-001-001
+      - claim-20260823-001-007
+      - claim-20260719-023-a
+      - claim-20260719-023-b
+      - claim-20260719-023-w
+      - claim-20260722-004-a
+      - claim-20260722-004-h
+      - claim-20260630-008-c
+
+  - pattern_id: strong_trend_entry_mode
+    name: 追高、低吸与滚动的模式选择框架
+    description: 当决定参与一个强趋势标的时，先回答「用哪种方式参与」——追高买的是强者恒强的延续，低吸买的是止跌修复，滚动只在震荡期成立。选错模式的代价是把修复交易拖成新主升，或用短线分时打断中线逻辑。本框架输出参与模式与对应失效条件，不输出标的推荐。
+    trigger:
+      - 准备参与强趋势标的，需要决定追高、回踩低吸还是等震荡期滚动
+      - 持仓未按原模式演绎，需要区分「模式失败」与「长期判断失败」
+      - 出现仅以「跌得多会反弹」为依据的候选买点
+    data_requirements:
+      - name: 个股日K与分时
+        channel: 日K线（infra/data/kline_cache.db）与分时行情
+      - name: 板块强弱
+        channel: THS 板块指数日K与板块内个股相对强弱
+      - name: 量能
+        channel: VOL 日序列与 5/10/20 日均量基准
+    steps:
+      - step: 1
+        name: 定性参与模式
+        question: 这笔交易是追高、低吸还是滚动？
+        action: 买入前冻结模式、成本、容错、反馈速度与失效条件；模式必须与买点位置一致，不做事后改口
+        data:
+          - 个股日K与分时
+      - step: 2
+        name: 追高五查
+        question: 追高的五个前提是否同时成立？
+        action: 检查环境配合、板块合力、个股辨识度、超预期催化、连阳预期；任一缺失即降级为低吸或不参与
+        data:
+          - 板块强弱
+          - 个股日K与分时
+      - step: 3
+        name: 低吸前提与五维过滤
+        question: 低吸的两前提是否成立？买点质量够不够？
+        action: 前提是已有趋势且尚未失败（边界破坏即停止）；再过滤支撑位（新逻辑/新催化/板块共振/有效突破/明确止跌）、收益是否覆盖失败路径、是否板块核心、新趋势还是老票修复、检验位是否清晰
+        data:
+          - 个股日K与分时
+          - 板块强弱
+      - step: 4
+        name: 滚动仅限震荡期
+        question: 现在是主升还是震荡？
+        action: 主升期不滚动；强趋势转震荡后才用大部分仓锁定结果、小部分仓观察并等重新转强
+        data:
+          - 个股日K与分时
+    falsification:
+      - 追高后持续连阳、突破有效且板块共振延续，原模式继续有效
+      - 低吸后支撑有效、承接增强并恢复趋势结构，失败预警撤销
+      - 模式失败后最终解套，不能倒推原交易正确，也不得自动改成中线
+      - 仅以跌幅大、跌幅久作为买点依据，一律视为不合格买点
+    validation:
+      historical_hit_rate: pending-m1
+      applicable_regime: null
+      known_failures:
+        - 五维过滤的机会成本对比未量化，只能定性执行
+    matched_framework: operation_strategy
+    applicable_themes:
+      - 追高
+      - 低吸
+      - 滚动
+      - 买点质量
+      - 强趋势
+    source_raw:
+      - sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
+      - sources/raw/财经/2026-06-24-视频-交易之道.md
+    source_claims:
+      - claim-20260823-001-011
+      - claim-20260823-001-012
+      - claim-20260823-001-019
+      - claim-20260624-007-h
+      - claim-20260624-007-i
+      - claim-20260624-007-l
+
+  - pattern_id: rebound_second_wave_qualify
+    name: 暴跌反弹性质分层框架
+    description: 当市场或个股暴跌后出现快速反弹，需要判断这是超跌反抽、旧主线修复、新趋势起势还是真正二波时使用。核心是「反弹本身不证明趋势重启」：反抽快而短、修复需要核心止跌与板块联动、二波需要新高与梯队重建。本框架只做性质定性，不出仓位动作（仓位动作走 position_by_cycle）。
+    trigger:
+      - 暴跌后出现快速反弹或连续阳线修复
+      - 老龙头大幅回撤后再度上涨，需要判断是否二波
+      - 板块普跌后出现单日联动反弹
+    data_requirements:
+      - name: 个股日K
+        channel: 日K线（infra/data/kline_cache.db）
+      - name: 板块指数
+        channel: THS 板块指数日K
+      - name: 量能
+        channel: VOL/AMO 日序列与基准量
+    steps:
+      - step: 1
+        name: 先分层性质
+        question: 这是反抽、旧线修复、新趋势还是二波？
+        action: 反抽看速度与持续性（快而短、不重建原趋势）；旧线修复看核心是否止跌、板块是否联动；新趋势需要新边际催化与独立强度；二波需要新高与梯队重建
+        data:
+          - 个股日K
+          - 板块指数
+      - step: 2
+        name: 检查催化与资金
+        question: 有没有新增基本面催化或新增资金？
+        action: 无新催化的上涨按反抽或情绪修复处理；资金驱动型行情对流动性变化高度敏感，需同步看融资余额与成交结构
+        data:
+          - 量能
+      - step: 3
+        name: 二波五条件
+        question: 二波成立的证据是否齐备？
+        action: 龙头突破前高、成交良性放大、板块梯队重建、回调重心稳定、新增资金持续进入；缺两项以上不认定二波
+        data:
+          - 个股日K
+          - 板块指数
+          - 量能
+      - step: 4
+        name: 去杠杆期特别检查
+        question: 是否处于去杠杆/集中赎回阶段？
+        action: 该阶段前期涨幅大、拥挤度高、融资盘多的龙头反而容易成为集中抛售出口，不能把「龙头多条命」当成不会大跌
+        data:
+          - 量能
+    falsification:
+      - 只有快速大阳线、老核心辨识度或单日板块联动，不足以确认二波
+      - 反弹无法突破关键压力、重心继续下移或修复逐次变弱，退回反抽或退潮判断
+      - 高位放量但价格不再新高，二波判断撤销
+    validation:
+      historical_hit_rate: pending-m1
+      applicable_regime: null
+      known_failures:
+        - 二波的五项条件为定性清单，未量化权重
+        - 与 position_by_cycle 分工：本框架只定性，不出仓位
+    matched_framework: technical_timing
+    applicable_themes:
+      - 暴跌反弹
+      - 二波
+      - 超跌反抽
+      - 老龙头
+    source_raw:
+      - sources/raw/财经/2026-07-19-视频-强趋势股交易1.md
+    source_claims:
+      - claim-20260719-023-l
+      - claim-20260719-023-n
+      - claim-20260719-023-o
+      - claim-20260719-023-p
+      - claim-20260719-023-r
+      - claim-20260719-023-v
+
+  - pattern_id: panic_first_drop_vs_weakness
+    name: 首次恐慌下杀与明确走弱分层框架（次新龙头）
+    description: 当上市时间短但已大幅重估、辨识度高的次新龙头出现首次跳水或连续走弱时使用。核心是把「此前极强、无滞涨的首次恐慌下杀」与「已经明确走弱后的连续下跌」分开：前者只能小仓严格反馈博弈，后者必须等止跌证据。上市天数不等于趋势初期，不能用「没涨够二十天」代替阶段判断。
+    trigger:
+      - 次新龙头出现首次跳水（放量长阴或跌停）
+      - 次新龙头连续走弱、重心持续下移
+      - 出现以「上市天数少、跌得多」为依据的低吸提议
+    data_requirements:
+      - name: 个股日K
+        channel: 日K线（infra/data/kline_cache.db，含上市日期）
+      - name: 量能与换手
+        channel: VOL 与换手率日序列
+      - name: 板块强弱
+        channel: THS 板块指数日K
+    steps:
+      - step: 1
+        name: 充分演绎判定
+        question: 是否已经充分演绎？
+        action: 用信息传播、认知一致度、价格重估幅度判断，不用上市天数代替；传播广、涨幅大、研报密集即按充分演绎处理
+        data:
+          - 个股日K
+          - 量能与换手
+      - step: 2
+        name: 首次下杀 vs 明确走弱
+        question: 这是首次恐慌，还是走弱后的又一次下跌？
+        action: 首次恐慌的前提是此前极强且无滞涨；若阴线前已有冲高回落、放量滞涨或多次突破失败，归入明确走弱
+        data:
+          - 个股日K
+          - 量能与换手
+      - step: 3
+        name: 分层处置
+        question: 允许的动作是什么？
+        action: 首次恐慌仅作高波动小仓博弈并要求当日反馈；明确走弱必须等量缩、低开快速拉回、更高低点、连续两日重心稳定、板块回流、主动反包、分时承接增强
+        data:
+          - 个股日K
+          - 板块强弱
+      - step: 4
+        name: 适用性排除
+        question: 这笔交易是否超出可承受范围？
+        action: 板块同步退潮或无止跌证据时不连续低吸；无风险预算与反馈纪律者不适用
+        data:
+          - 个股日K
+    falsification:
+      - 首次跳水前已出现滞涨、板块共振下杀、持续创新低，首阴资格不成立
+      - 没有风险预算或反馈纪律时，「跌得多」「上市天数少」均不构成买入理由
+      - 明确走弱后未出现止跌证据即连续低吸，视为违规
+    validation:
+      historical_hit_rate: pending-m1
+      applicable_regime: null
+      known_failures:
+        - 适用范围限次新龙头，未验证其他高辨识度标的
+    matched_framework: operation_strategy
+    applicable_themes:
+      - 次新
+      - 恐慌下杀
+      - 低吸
+      - 龙头
+    source_raw:
+      - sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
+    source_claims:
+      - claim-20260823-001-015
+      - claim-20260823-001-016
+      - claim-20260823-001-017
+      - claim-20260823-001-020
+
+  - pattern_id: volume_benchmark_levels
+    name: 基准量分档框架（推升量与出货量）
+    description: 当需要判断成交量是否达到「明显放量」级别时使用。核心是先用 5/10/20 日均量构建相对基准，再用黄金分割设上下轨，把量能分成推升量/出货量、正常区、凹动量、极动量四档；同一档位在上涨与下跌中的含义不同。参数为课程口径待画面校订，使用时须标注 provisional。
+    trigger:
+      - 需要判断某日成交量是否达到有效放量级别
+      - 上涨突破或下跌破位是否需要量能确认
+      - 出现长期下跌后的极低量能，需要判断是否变盘前兆
+    data_requirements:
+      - name: 量能序列
+        channel: VOL（个股）/AMO（指数）日序列
+      - name: 价格序列
+        channel: 日K线（infra/data/kline_cache.db）
+    steps:
+      - step: 1
+        name: 构建基准量
+        question: 这只标的的正常量能水平是多少？
+        action: 基准量 = (5日均量 + 10日均量 + 20日均量) / 3；个股用 VOL，指数用 AMO，不跨标的比较绝对量
+        data:
+          - 量能序列
+      - step: 2
+        name: 分档
+        question: 当日量能落在哪个档位？
+        action: 上轨 = 基准×1.382（上涨中为推升量、下跌中为出货量）；正常区 = 基准×0.618 至 ×1.382；凹动量 = 低于 ×0.618；极动量 = 低于 ×0.5。判定按收盘值，不看盘中预估
+        data:
+          - 量能序列
+      - step: 3
+        name: 结合位置解释
+        question: 同一档位在当前位置意味着什么？
+        action: 低位放量偏机会、高位放量偏风险；上涨初期要推升量确认、上涨中期缩量可健康；形态反推场景缩量=反推无力，上涨途中缩量=筹码稳定。低量能只下状态结论，不预判方向
+        data:
+          - 量能序列
+          - 价格序列
+    falsification:
+      - 推升量出现后价格重新跌回压力区，或二次上攻仍无价格推动，突破判断失效
+      - 缩量整理期间重新放量下杀，不能沿用筹码稳定的解释
+      - 高位放量能持续换取价格新高，不能仅凭放量判出货
+      - 低位巨量后仍持续扩大跌幅、缺少承接，不得提前认定恐慌出清
+    validation:
+      historical_hit_rate: pending-m1
+      applicable_regime: null
+      known_failures:
+        - 术语「凹动量」「极动量」为语音转写音译，系数 1.382/0.618/0.5 与边界含等号与否待课件画面校订
+        - 未经独立样本回测，入库后应挂 provisional
+    matched_framework: technical_timing
+    applicable_themes:
+      - 量价关系
+      - 推升量
+      - 出货量
+      - 基准量
+      - 缩量
+    source_raw:
+      - sources/raw/财经/2026-10-03-视频-量价关系1.md
+    source_claims:
+      - claim-20261003-001-a
+      - claim-20261003-001-l
+      - claim-20261003-001-m
+      - claim-20261003-001-o
+      - claim-20261003-001-q
+      - claim-20261003-001-s

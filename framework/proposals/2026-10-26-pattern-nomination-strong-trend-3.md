@@ -1,7 +1,10 @@
 ---
 date: 2026-10-26
 type: pattern-nomination
-status: proposed
+status: adjudicated
+adjudicated_at: 2026-10-31
+outcome: N1/N2/N3/N5（4 个候选全部合并或入库）
+see: framework/proposals/2026-10-31-pattern-adjudication.md
 source: 强趋势股交易（3） claim  fidelity 复核
 source_raw: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
 validation: pending

@@ -1,7 +1,10 @@
 ---
 date: 2026-10-28
 type: pattern-nomination
-status: proposed
+status: adjudicated
+adjudicated_at: 2026-10-31
+outcome: N1/N3（候选1、2）/ methodology（候选3 降级）
+see: framework/proposals/2026-10-31-pattern-adjudication.md
 source: 交易之道 C2 提取
 source_raw: sources/raw/财经/2026-06-24-视频-交易之道.md
 validation: pending

@@ -1,7 +1,10 @@
 ---
 date: 2026-10-28
 type: pattern-nomination
-status: proposed
+status: adjudicated
+adjudicated_at: 2026-10-31
+outcome: N2（候选1）/ methodology（候选2 降级）
+see: framework/proposals/2026-10-31-pattern-adjudication.md
 source: 强趋势股交易（2）C2 提取
 source_raw: sources/raw/财经/2026-07-22-视频-强趋势股交易2.md
 validation: pending
