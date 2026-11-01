@@ -1,4 +1,11 @@
 # 操作日志
+## 2026-11-02 | qing-learning ingest | 青枫浦上Q 11.1复盘专栏 提取（14 条，001~014）
+
+- 来源：B站专栏 dynamic_id 1265745120056049665（2026-11-01 22:17发布）；C2 raw：`sources/raw/财经/2026-11-01-专栏-11.1复盘-周五指数冲高回落.md`
+- 拆分写入 `knowledge/claims/claim-20261101-001.yaml` ~ `knowledge/claims/claim-20261101-014.yaml`（14 条）：market-cycle×4、general×2、sector-theme×4、stock-view×4、macro×1
+- 核心：周五指数冲高回落情绪触冰点，周一看作冰点后反弹窗口；重点跟踪机器人共振、红利向弹性扩散、东方海洋加速兑现、桂林三金红利补涨；11月2日回购增持再贷款会议预期
+- 涉及个股：桂林三金 002275、东方海洋 002086、金杨精密 301210（创业板不可交易）、西部材料 002149、百洋股份 002696；Gate 1/2/3 全过；unprocessed 已关闭；已进入 Neo4j/Qdrant 同步流程
+
 ## 2026-10-31 | qing-learning ingest | 鳄鱼派公众号 10/23 复盘 提取（5 条，006~010）
 
 - 来源：公众号「像鳄鱼一样思考」10/23 19:17（article_id 3922514597-4tuUh-NTLEPPFZvH-ln6GQ）；C2 raw：`sources/raw/财经/2026-10-23-公众号-股市-阶段胜利-下一步重点.md`
