@@ -14,6 +14,7 @@ class TriggerRequest(BaseModel):
     watchlist: list[dict] = Field(default_factory=list, description="观察池关键标的")
     sector_strengths: list[dict] = Field(default_factory=list, description="板块强弱数据")
     external_sector_boards: dict = Field(default_factory=dict, description="外部行情源板块数据（概念+行业）")
+    external_market: dict = Field(default_factory=dict, description="外围市场数据（隔夜外盘/全球宏观/期货外盘，供外力内生归因）")
     buy_signal_candidates: list[dict] = Field(default_factory=list, description="买入信号候选列表（trigger.kind=buy_signal_candidate时填充）")
     watchlist_shard: dict | None = Field(default=None, description="当前批次分析的 watchlist 子集（分片请求时使用）")
     shard_size: int | None = Field(default=None, description="watchlist 内部分片大小，None 表示使用环境默认值")
@@ -21,6 +22,7 @@ class TriggerRequest(BaseModel):
     session_id: str = Field(default="default", description="会话ID")
     query: str = Field(default="", description="用户原始问题")
     analysis_type: str = Field(default="market", description="分析类型：market/stock/portfolio")
+    data_as_of: str | None = Field(default=None, description="输入数据的明确截止时间（ISO 8601）")
 
 
 class TriggerResponse(BaseModel):
@@ -32,6 +34,8 @@ class TriggerResponse(BaseModel):
     citation_report: dict | None = Field(default=None, description="引用校验报告")
     reasoning_steps: list[str] = Field(default_factory=list, description="思考步骤")
     cost_info: dict = Field(default_factory=dict, description="LLM 调用成本信息")
+    record_id: str | None = Field(default=None, description="成功冻结的验证记录 ID")
+    record_status: str | None = Field(default=None, description="已冻结记录状态")
 
 
 class ChatRequest(BaseModel):

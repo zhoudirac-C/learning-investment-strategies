@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import copy
+import hashlib
 import json
 import logging
 import os
@@ -34,6 +35,10 @@ from qing_investment.agent.tools.llm_client import (
 )
 from qing_investment.agent.tools.mem0_client import Mem0ClientWrapper
 from qing_investment.agent.tools.neo4j_client import Neo4jClient
+from qing_investment.agent.tools.pattern_policy import (
+    filter_production_patterns,
+    project_pattern,
+)
 from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
 from qing_investment.agent.tools.cost_tracker import CostTracker
 from qing_investment.agent.tools.external_market_fetcher import fetch_pre_market_brief
@@ -987,6 +992,7 @@ def _ensure_patterns_cache() -> list[dict]:
 
     双学派架构（2026-10-15）：qingside 默认给每条 pattern 打 school 标签
     （缺失视为 qing），gator 侧 pattern 自带 school=gator。
+    缓存建立前执行生产准入，保证 embedding 与关键词索引使用同一候选集。
     """
     global _PATTERNS_CACHE
     if _PATTERNS_CACHE:
@@ -1010,7 +1016,7 @@ def _ensure_patterns_cache() -> list[dict]:
                 patterns.append(p)
         except Exception:
             continue
-    _PATTERNS_CACHE = patterns
+    _PATTERNS_CACHE = filter_production_patterns(patterns)
     return _PATTERNS_CACHE
 
 
@@ -1285,18 +1291,14 @@ def _load_reasoning_patterns(state: AgentState) -> list[dict]:
             for idx, sim in candidates:
                 p = patterns[idx]
                 if p.get("pattern_id") == pid:
-                    selected_patterns.append({
-                        "pattern_id": p.get("pattern_id", ""),
-                        "name": p.get("name", ""),
-                        "description": p.get("description", ""),
-                        "reasoning_chain": p.get("reasoning_chain", []),
-                        "risk_factors": p.get("risk_factors", []),
-                        "confidence_indicators": p.get("confidence_indicators", []),
+                    projected = project_pattern(p)
+                    projected.update({
                         "match_themes": [],
                         "match_name_keywords": [],
                         "match_score": round(sim, 3),
                         "rerank_reason": reason,
                     })
+                    selected_patterns.append(projected)
                     break
 
         if selected_patterns:
@@ -1346,18 +1348,14 @@ def _load_reasoning_patterns(state: AgentState) -> list[dict]:
         matched_themes = list(set(kw for kw, ft, _ in fields if ft == "theme"))[:5]
         matched_name_kws = list(set(kw for kw, ft, _ in fields if ft == "name"))[:3]
 
-        matched.append({
-            "pattern_id": p.get("pattern_id", ""),
-            "name": p.get("name", ""),
-            "description": p.get("description", ""),
-            "reasoning_chain": p.get("reasoning_chain", []),
-            "risk_factors": p.get("risk_factors", []),
-            "confidence_indicators": p.get("confidence_indicators", []),
+        projected = project_pattern(p)
+        projected.update({
             "match_themes": matched_themes,
             "match_name_keywords": matched_name_kws,
             "match_score": score,
             "rerank_reason": "keyword fallback",
         })
+        matched.append(projected)
 
     return matched
 
@@ -1893,7 +1891,7 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
 
     few_shot = _load_few_shot_examples(query)
 
-    # ── Phase 2 新增：Context Builder — Claims 实时注入 ──
+    # Context Builder 保留原始采集；派生 direction_signals 不进入 LLM 输入投影。
     stock_contexts: list[dict] = []
     direction_signals: dict = {}
     try:
@@ -2000,13 +1998,7 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
 
 
 def _filter_methodology_only(claims: list[dict]) -> list[dict]:
-    """过滤claims，只保留方法论相关的，移除具体观点claim。
-
-    保留：
-    - 含方法论关键词的claim（如"框架"、"周期"、"冰点"、"纪律"）
-    - ≤7天的 market-cycle 周期判断（UP近期观点）
-    移除：具体看多/看空某股的claim
-    """
+    """只保留方法论相关claim，不把近期观点提升为当前信号。"""
     methodology_keywords = {
         "框架", "周期", "方法论", "规则", "纪律", "策略", "体系",
         "冰点", "回暖", "高潮", "退潮", "轮动", "主线", "扩散",
@@ -2015,21 +2007,12 @@ def _filter_methodology_only(claims: list[dict]) -> list[dict]:
     filtered = []
     for c in claims:
         stmt = (c.get("statement") or "").lower()
-        # 如果claim包含方法论关键词，保留
         if any(kw in stmt for kw in methodology_keywords):
             filtered.append(c)
             continue
         subj = (c.get("subject") or "").lower()
         if any(kw in subj for kw in methodology_keywords):
             filtered.append(c)
-            continue
-        # ≤7天的 market-cycle claim 保留（UP近期周期判断）
-        ct = c.get("claim_type", "")
-        days = c.get("days_ago", 999)
-        if ct == "market-cycle" and days <= 7:
-            filtered.append(c)
-            continue
-        # 否则过滤掉（具体观点claim）
     return filtered
 
 
@@ -2218,6 +2201,116 @@ def _build_degraded_digest(market_snapshot: dict, esb: dict) -> dict:
     return {"summary_text": "；".join(parts), "emotion_signals": sentiment}
 
 
+_MARKET_VALIDATION_OUTPUT_CONTRACT = """
+【每日验证结构化输出补充契约】
+在原有 JSON 字段基础上增加以下顶层字段，不得省略原有字段：
+- final_judgment: {"market_stage": "...", "evidence": ["..."], "direction": ["..."], "targets": [], "horizon": "T+5或空", "trigger_conditions": ["..."], "invalidation_conditions": ["..."]}
+- directions: [{"direction_id": "稳定且唯一的方向或标的ID", "stock_code": "6位股票代码", "horizon": "T+5", "polarity": "long/short/neutral", "invalidation": "明确失效条件", "trigger_conditions": ["..."]}]
+- expert_views: [{"school": "qing或其他LLM可归属学派", "view": "...", "evidence": ["..."], "horizon": "..."}]
+directions 只记录明确面向未来、可独立结算的判断；缺少 ID、代码、期限、方向或失效条件时不得编造，无法合规给出则输出 []。非正向判断必须如实标 polarity，不得改写为 long。
+expert_views 不得输出 school=gator；系统会直接附加确定性 gator 规则快照，LLM 不得伪造该快照。
+"""
+
+
+def _validation_digest(value: object) -> str:
+    canonical = json.dumps(
+        value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str
+    )
+    return "sha256:" + hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
+def _attach_market_validation_contract(
+    result: dict,
+    *,
+    reasoning_patterns: list[dict],
+    gator_rules_snapshot: dict,
+    school_conflicts: str,
+    prompt_material: str,
+) -> dict:
+    errors = []
+    result.pop("_validation_contract_errors", None)
+    pattern_refs = [copy.deepcopy(project_pattern(p)) for p in reasoning_patterns]
+    result["pattern_refs"] = pattern_refs
+    result["gator_rules_snapshot"] = copy.deepcopy(gator_rules_snapshot)
+
+    raw_judgment = result.get("final_judgment")
+    if raw_judgment is not None and not isinstance(raw_judgment, dict):
+        errors.append("final_judgment must be an object")
+        raw_judgment = None
+    judgment = dict(raw_judgment or {})
+    judgment.setdefault("market_stage", result.get("market_phase") or "")
+    reasoning = result.get("phase_reasoning") or ""
+    judgment.setdefault("evidence", [reasoning] if reasoning else [])
+    judgment.setdefault("direction", [])
+    judgment.setdefault("targets", [])
+    judgment.setdefault("horizon", "")
+    judgment.setdefault("trigger_conditions", [])
+    judgment.setdefault("invalidation_conditions", [])
+    judgment["score_eligible"] = bool(judgment.get("score_eligible"))
+    result["final_judgment"] = judgment
+
+    raw_directions = result.get("directions")
+    if raw_directions is None:
+        raw_directions = []
+    if not isinstance(raw_directions, list):
+        errors.append("directions must be a list")
+        raw_directions = []
+    result["directions"] = [
+        dict(direction) for direction in raw_directions if isinstance(direction, dict)
+    ]
+
+    raw_views = result.get("expert_views")
+    if raw_views is None:
+        raw_views = []
+    if not isinstance(raw_views, list):
+        errors.append("expert_views must be a list")
+        raw_views = []
+    expert_views = []
+    for view in raw_views:
+        if not isinstance(view, dict):
+            errors.append("expert view must be an object")
+            continue
+        school = view.get("school")
+        if not isinstance(school, str) or not school.strip():
+            errors.append("expert view school is required")
+            continue
+        school = school.strip().lower()
+        if school == "gator":
+            errors.append("LLM gator view rejected; deterministic snapshot is authoritative")
+            continue
+        if not isinstance(view.get("view"), str) or not view.get("view", "").strip():
+            errors.append(f"expert view content is required: {school}")
+            continue
+        normalized = dict(view, school=school)
+        normalized.setdefault("evidence", [])
+        normalized.setdefault("horizon", "")
+        expert_views.append(normalized)
+    if gator_rules_snapshot.get("available"):
+        expert_views.append(
+            {
+                "school": "gator",
+                "view": (gator_rules_snapshot.get("stop_falling") or {}).get("stance")
+                or "见确定性规则快照",
+                "evidence": copy.deepcopy(gator_rules_snapshot),
+                "horizon": gator_rules_snapshot.get("horizon") or "",
+                "source": "deterministic_rules",
+                "validation_status": "draft_not_independently_validated",
+            }
+        )
+    result["expert_views"] = expert_views
+    if errors:
+        result["_validation_contract_errors"] = errors
+    result["prompt_version"] = _validation_digest(prompt_material)
+    result["rules_version"] = _validation_digest(
+        {
+            "pattern_refs": pattern_refs,
+            "gator_rules_snapshot": gator_rules_snapshot,
+            "school_conflicts": school_conflicts,
+        }
+    )
+    return result
+
+
 def market_summary(state: AgentState) -> AgentState:
     """市场/板块分析节点：只输出精简市场背景，不处理个股。"""
     logger = logging.getLogger(__name__)
@@ -2237,17 +2330,18 @@ def market_summary(state: AgentState) -> AgentState:
     framework_context = _load_framework_files(analysis_type)
     reasoning_patterns = _load_reasoning_patterns(state)
     esb = state.get("external_sector_boards", {})
+    em = state.get("external_market", {})
 
-    # 实时数据可用性守卫：market/portfolio 分析缺失实时数据时注入降级说明
+    # 实时数据不可用时只允许整理历史方法论，不能由历史观点补出当前结论。
     has_realtime_data = bool(
-        esb.get("available") or market_snapshot.get("quotes")
+        esb.get("available") or market_snapshot.get("quotes") or em.get("available")
     )
     _data_missing_note = ""
     if analysis_type in ("market", "portfolio") and not has_realtime_data:
         _data_missing_note = (
-            "【注意】实时行情数据暂时无法获取（数据源限流或网络问题）。"
-            "本次分析将基于 UP 历史观点（claims）和策略框架进行，"
-            "缺少实时价格验证，分析结论的时效性可能受限。"
+            "【数据不足】实时行情数据暂时无法获取（数据源限流或网络问题）。"
+            "只能整理带日期的历史方法论与已有证据，不能据此形成当前市场判断、"
+            "方向优先级或操作建议；必须明确说明实时数据不足。"
         )
 
     logger.info(
@@ -2311,6 +2405,9 @@ def market_summary(state: AgentState) -> AgentState:
 
     prompt_template_filled = prompt_template_filled.replace("{pre_market_brief}", pre_market_brief)
     prompt_template_filled = prompt_template_filled.replace("{core_assumption_0926}", core_assumption_0926)
+    prompt_template_filled = (
+        f"{prompt_template_filled}\n\n{_MARKET_VALIDATION_OUTPUT_CONTRACT}"
+    )
 
     # Phase 6: 收盘复盘前自动刷新机会状态
     refreshed_opportunities: list[dict] = []
@@ -2332,18 +2429,19 @@ def market_summary(state: AgentState) -> AgentState:
 
     context = {
         "today": _now_cn_str("%Y-%m-%d") + " 周" + "一二三四五六日"[datetime.now(_CN_TZ).weekday()],
+        "data_as_of": state.get("data_as_of") or market_snapshot.get("timestamp") or "",
         "market_snapshot": market_snapshot,
         "macd_multi_tf_report": market_snapshot.get("macd_multi_tf_report", ""),
         "td_sequential_report": market_snapshot.get("td_sequential_report", ""),
         "fibonacci_time_report": market_snapshot.get("fibonacci_time_report", ""),
         "sector_strengths": state.get("sector_strengths", []),
         "external_sector_boards": esb,
+        "external_market": em,
         "sector_context": state.get("sector_context", []),
         "claims": methodology_claims,
         "wiki_snippets": wiki_snippets,
         "framework_rules": framework_context,
         "reasoning_patterns": reasoning_patterns,
-        "direction_signals": state.get("direction_signals", {}),
         "memories": state.get("memories", []),
         "daily_state_summary": daily_state_summary,
         "pre_market_brief": pre_market_brief if trigger_id == "pre_market" else "",
@@ -2372,6 +2470,10 @@ def market_summary(state: AgentState) -> AgentState:
 
     context_json = json.dumps(context, ensure_ascii=False, indent=2, default=str)
     _dual_school_block = _load_dual_school_contract(context)
+    validation_prompt_material = (
+        f"{prompt_template}\n{analysis_framework}\n"
+        f"{_MARKET_VALIDATION_OUTPUT_CONTRACT}\n{_dual_school_block}"
+    )
     prompt = f"""{prompt_template_filled}
 
 {_data_missing_note}
@@ -2427,6 +2529,13 @@ def market_summary(state: AgentState) -> AgentState:
         degraded = _build_degraded_digest(market_snapshot, esb)
         result["market_summary"] = degraded["summary_text"]
         result["emotion_signals"] = degraded["emotion_signals"]
+        result = _attach_market_validation_contract(
+            result,
+            reasoning_patterns=[],
+            gator_rules_snapshot=context["gator_rules_snapshot"],
+            school_conflicts=context["school_conflicts"],
+            prompt_material=validation_prompt_material,
+        )
         _fallback_ct = CostTracker()
         return {
             "market_summary_context": result,
@@ -2475,6 +2584,14 @@ def market_summary(state: AgentState) -> AgentState:
         result["sector_strength"] = result["sector_map"]
     elif "sector_strength" in result and "sector_map" not in result:
         result["sector_map"] = result["sector_strength"]
+
+    result = _attach_market_validation_contract(
+        result,
+        reasoning_patterns=context["reasoning_patterns"],
+        gator_rules_snapshot=context["gator_rules_snapshot"],
+        school_conflicts=context["school_conflicts"],
+        prompt_material=validation_prompt_material,
+    )
 
     # 成本追踪
     _ms_ct = CostTracker()
@@ -2605,7 +2722,6 @@ def _build_watchlist_summary(
             "watch_reason_short": (w_item.get("watch_reason") or "")[:80],
             "reduce_zone": w_item.get("reduce_zone_desc", ""),
             "risk_zone": w_item.get("risk_zone_desc", ""),
-            "up_sentiment": w_item.get("up_sentiment", ""),
         }
 
         if _is_mainboard(code):
@@ -2818,7 +2934,6 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
         "watchlist_summary": watchlist_summary,
         "reference_stocks": reference_stocks,
         "stock_contexts": stock_contexts,
-        "direction_signals": state.get("direction_signals") or {},
     }
 
     prompt_template_filled = prompt_template.replace("{shard_name}", shard_name).replace(
@@ -2851,7 +2966,6 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
                 "watchlist_summary",
                 "reference_stocks",
                 "positions",
-                "direction_signals",
             ],
         )
         context["_truncated"] = True
@@ -3070,38 +3184,77 @@ _POSITION_KEYWORDS = {
 }
 
 
-def _extract_up_position_from_claims(stock_code: str, claims: list[dict]) -> tuple[str, str]:
-    """从 claims 中提取 UP 对该股的地位标注。
+def _is_qing_claim(claim: dict) -> bool:
+    school = str(claim.get("school") or "")
+    if school:
+        return school == "qing"
+    up_id = str(claim.get("up_id") or "")
+    if not up_id:
+        return False
+    try:
+        from qing_investment.schools import school_of_up
 
-    返回 (position_description, source_hint)。
-    如果没有找到，返回 ('', '')。
-    """
+        return school_of_up(up_id) == "qing"
+    except Exception:
+        return False
+
+
+def _is_recent_qing_view(claim: dict) -> bool:
+    if not _is_qing_claim(claim):
+        return False
+    if claim.get("claim_type") in ("methodology", "operation"):
+        return False
+    if claim.get("freshness_label") in ("最新", "近期"):
+        return True
+    days = claim.get("days_ago")
+    return isinstance(days, (int, float)) and not isinstance(days, bool) and days <= 30
+
+
+def _project_stock_claims_for_prompt(claims: list[dict]) -> list[dict]:
+    """过滤近期qing观点，其他学派原样保留，qing旧材料显式标为历史证据。"""
+    projected: list[dict] = []
+    for claim in claims:
+        if _is_recent_qing_view(claim):
+            continue
+        if _is_qing_claim(claim):
+            claim = {
+                **claim,
+                "evidence_role": "historical_or_methodology_reference",
+                "current_signal": False,
+            }
+        projected.append(claim)
+    return projected
+
+
+def _extract_up_position_from_claims(stock_code: str, claims: list[dict]) -> tuple[str, str]:
+    """提取带日期的qing历史地位标注；近期观点和其他学派不作此用途。"""
     pure_code = stock_code.replace("sh", "").replace("sz", "").replace(".", "")
     matches: list[str] = []
     sources: set[str] = set()
 
     for c in claims:
+        if c.get("school") and not _is_qing_claim(c):
+            continue
+        if _is_recent_qing_view(c):
+            continue
         stmt = c.get("statement", "")
         subject = c.get("subject", "")
-        # 只处理与该股票相关的 claim
         if pure_code not in subject and subject not in stmt:
-            # 简单模糊匹配：如果 claim 中既没有股票代码也没有股票名称，跳过
             continue
 
-        # 提取包含地位关键词的句子片段
         for kw in _POSITION_KEYWORDS:
             if kw in stmt:
-                # 提取关键词所在句子（简单按句号/分号分割）
                 for sentence in stmt.replace("；", "。").split("。"):
                     if kw in sentence and pure_code in sentence:
                         matches.append(sentence.strip())
-                        sources.add(c.get("source_path", "") or c.get("id", ""))
+                        source_date = c.get("source_date") or "日期未知"
+                        origin = c.get("source_path", "") or c.get("id", "")
+                        sources.add(f"{source_date} {origin}".strip())
                         break
 
     if not matches:
         return "", ""
 
-    # 去重并拼接
     unique = []
     seen = set()
     for m in matches:
@@ -3110,7 +3263,7 @@ def _extract_up_position_from_claims(stock_code: str, claims: list[dict]) -> tup
             unique.append(m)
 
     position = "；".join(unique[:3])
-    source = list(sources)[0] if sources else ""
+    source = sorted(sources)[0] if sources else "日期未知"
     return position, source
 
 
@@ -3134,7 +3287,7 @@ def _fetch_stock_external_info(stock_code: str, stock_name: str) -> list[dict]:
 
 
 def _get_stock_sector_positioning(stock_code: str, up_position: str, up_source: str) -> dict:
-    """获取个股板块定位（三层定位法）。"""
+    """获取实时优先的个股定位；异常时不得由历史标注充当当前定位。"""
     try:
         from qing_investment.agent.tools.stock_sector_mapper import (
             get_stock_positioning,
@@ -3143,11 +3296,16 @@ def _get_stock_sector_positioning(stock_code: str, up_position: str, up_source: 
         result = get_stock_positioning(stock_code, up_position, up_source)
         return to_agent_format(result)
     except Exception as e:
+        history_note = (
+            f"；Qing历史参考：{up_position}（{up_source or '日期未知'}）"
+            if up_position else ""
+        )
         return {
             "stock_code": stock_code,
             "up_position": up_position,
-            "final_position": up_position or "未知",
-            "final_reason": f"板块定位获取失败: {e}",
+            "up_position_source": up_source,
+            "final_position": "未知",
+            "final_reason": f"实时板块定位获取失败，当前定位降级为未知: {e}{history_note}",
             "sector_details": [],
         }
 
@@ -3202,12 +3360,14 @@ def stock_analyst(state: AgentState) -> AgentState:
         "stock_name": stock_name,
         "external_validation": external_validation,
         "positions": state.get("positions", []),
-        "watchlist": watchlist,
-        "claims": claims,
+        "watchlist": [
+            {k: v for k, v in item.items() if k != "up_sentiment"}
+            for item in _normalize_watchlist(watchlist)
+        ],
+        "claims": _project_stock_claims_for_prompt(claims),
         "market_context": state.get("market_context", {}),
         "sector_positioning": sector_positioning,
-        "stock_context": current_stock_ctx,  # Phase 2 新增
-        "direction_signals": state.get("direction_signals", {}),  # Phase 2 新增
+        "stock_context": current_stock_ctx,
         "trigger_kind": trigger.get("kind", ""),
         "buy_signal_candidate": current_candidate if is_buy_signal_mode else None,
     }
@@ -3612,6 +3772,7 @@ def style_writer(state: AgentState) -> AgentState:
         "styled_output": styled,
         "reasoning_steps": ["风格化生成完成"],
         "cost_tracking": [_sw_cost],
+        "_style_writer_failed": not bool(content),
     }
 
 

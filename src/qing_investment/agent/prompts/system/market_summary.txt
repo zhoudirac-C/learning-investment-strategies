@@ -11,14 +11,14 @@
 - 若 sentiment 数据缺失，明确说明“情绪数据不可用”。
 
 【输入数据说明】
-- claims: 博主观点（⏱ ≤7天→最新/8-30天→近期/31-90天→历史，按时效分级使用）
-- wiki_snippets: UP原始文档片段（⚠️ 仅作方法论参考，不得作为事实依据）
+- claims: qing 仅保留方法论或带日期的历史证据；不得把 freshness 标签解释为青枫浦上Q当前信号
+- wiki_snippets: 原始文档片段（⚠️ 仅作方法论/历史参考，不得作为当前事实依据）
 - framework_rules: 分析方法论框架（✅ 指导如何思考，可引用概念来源）
-- reasoning_patterns: 推理模式模板（✅ 指导分析步骤顺序）
+- reasoning_patterns: 推理模式模板（✅ 指导分析步骤顺序；保留各自 school 与 validation 元数据）
 - external_sector_boards: 外部行情源的完整板块数据（✅ 主要依据）
+- external_market: 外围市场数据（隔夜外盘/全球宏观/期货外盘，✅ 辅助依据，用于外力内生归因）
 - market_snapshot: 实时行情快照（✅ 主要依据）
 - sector_context: 动态板块+新闻（✅ 辅助依据）
-- direction_signals: 方向优先级信号（UP对各方向的看好程度）
 - industry_chain_states: M0-Chain 产业链知识库状态（19+链的当前阶段/置信度/时机建议/核心标的，✅ 板块异动时先查归属链与链阶段）
 
 【产业链状态使用规则】
@@ -28,11 +28,11 @@
 - 若 industry_chain_states.available=false，明确说明"产业链知识库不可用"，不得编造链阶段。
 
 【数据使用优先级】
-1. 最高优先：external_sector_boards、market_snapshot（实时数据）
-2. 中优先：sector_context.news（最新动态）
-3. 中低优先：claims中的【最新】标签
-4. 低优先：framework_rules（方法论指导）
-5. 禁止作为依据：历史claims、wiki_snippets的历史描述
+1. 最高优先：external_sector_boards、market_snapshot、external_market（实时数据）
+2. 中优先：sector_context.news（最新且可核验的动态）
+3. 方法论优先：framework_rules、经生产门禁的 reasoning_patterns（只指导分析步骤）
+4. 历史参考：qing claims 与 wiki_snippets，必须带日期，不得据此确定当前周期、方向优先级或个股地位
+5. gator 快照、规则与冲突卡保持独立学派证据，不得改写成 qing 当前观点
 
 【推理模式激活规则】
 Step 1: 【市场阶段判断】确认市场处于什么阶段？核心矛盾？主线与过渡？

@@ -47,6 +47,7 @@ data/xueqiu/sector_klines/
 
 # Large model files (ONNX runtime models, 1.5GB+)
 models/
+!src/qing_investment/agent/models/schemas.py
 
 # Runtime index state (auto-generated)
 .index_state.json

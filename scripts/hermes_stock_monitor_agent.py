@@ -697,7 +697,57 @@ def _load_overnight_us(day: str | None = None) -> dict | None:
     return {"data_note": "昨夜美股收盘涨跌幅", "themes": themes}
 
 
-def _post_analyze_trigger(payload: dict, timeout: float | None = None) -> dict | None:
+def _record_agent_failure(data: dict, message: str) -> Path | None:
+    from investment_engine.qing_validation import records as validation_records
+
+    try:
+        quote_snapshot = data.get("quote_snapshot") or {}
+        payload = data.get("_qing_agent_payload")
+        input_payload = payload or {
+            key: value for key, value in data.items() if not key.startswith("_qing_agent_")
+        }
+        market_snapshot = (payload or {}).get("market_snapshot") or quote_snapshot
+        external_boards = (payload or {}).get("external_sector_boards") or {}
+        data_as_of = str(
+            (payload or {}).get("data_as_of")
+            or data.get("timestamp")
+            or market_snapshot.get("timestamp")
+            or ""
+        )
+        has_market_data = bool(market_snapshot.get("quotes")) or (
+            external_boards.get("available") is True
+        )
+        status = "missing" if not data_as_of or not has_market_data else "error"
+        failure = dict(data.get("_qing_agent_failure") or {})
+        failure.setdefault("type", "qing_agent_call_failed")
+        failure.setdefault("message", message)
+        record = validation_records.build_record(
+            trigger=data.get("trigger") or {},
+            data_as_of=data_as_of,
+            input_payload=input_payload,
+            raw_output="",
+            status=status,
+            input_availability={
+                "market_snapshot": bool(market_snapshot.get("quotes")),
+                "external_sector_boards": external_boards.get("available") is True,
+                "position_snapshot_stored": False,
+                "gaps": ["qing_agent_response"],
+            },
+            data_version=data_as_of or None,
+            error=failure,
+            supersedes_record_id=(data.get("trigger") or {}).get("supersedes_record_id"),
+        )
+        return validation_records.save_record(record)
+    except Exception as exc:
+        print(f"[qing-agent] 留痕失败: {exc}", file=sys.stderr)
+        return None
+
+
+def _post_analyze_trigger(
+    payload: dict,
+    timeout: float | None = None,
+    failure: dict | None = None,
+) -> dict | None:
     """发送单个 /analyze/trigger 请求，返回响应 JSON。
 
     包含重试与指数退避；不执行 health check（调用方应已确认服务可用）。
@@ -712,10 +762,18 @@ def _post_analyze_trigger(payload: dict, timeout: float | None = None) -> dict |
 
     import time as _time
 
-    t0 = _time.perf_counter()
     response: dict | None = None
     last_error: str | None = None
     post_timeout = timeout if timeout is not None else QING_AGENT_TIMEOUT
+
+    def record_failure(kind: str, message: str, attempt: int, **extra) -> None:
+        nonlocal last_error
+        last_error = message
+        if failure is not None:
+            failure.clear()
+            failure.update(
+                {"type": kind, "message": message, "attempts": attempt, **extra}
+            )
 
     for attempt in range(1, QING_AGENT_MAX_RETRIES + 1):
         try:
@@ -724,7 +782,9 @@ def _post_analyze_trigger(payload: dict, timeout: float | None = None) -> dict |
                 return response
         except urllib.error.HTTPError as e:
             err_body = e.read().decode("utf-8") if e.fp else ""
-            last_error = f"HTTP {e.code}: {err_body}"
+            record_failure(
+                "http_error", f"HTTP {e.code}: {err_body}"[:500], attempt, status=e.code
+            )
             if 500 <= e.code < 600:
                 print(f"[qing-agent HTTP {e.code} retry {attempt}/{QING_AGENT_MAX_RETRIES}] {err_body}", file=sys.stderr)
                 if attempt < QING_AGENT_MAX_RETRIES:
@@ -733,67 +793,78 @@ def _post_analyze_trigger(payload: dict, timeout: float | None = None) -> dict |
             print(f"[qing-agent HTTP {e.code}] {err_body}", file=sys.stderr)
             return None
         except urllib.error.URLError as e:
-            last_error = f"URLError: {e.reason}"
+            record_failure("unreachable", f"URLError: {e.reason}", attempt)
             print(f"[qing-agent unreachable retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e.reason}", file=sys.stderr)
             if attempt < QING_AGENT_MAX_RETRIES:
                 _time.sleep(2 ** attempt)
                 continue
             return None
         except (TimeoutError, OSError) as e:
-            last_error = f"timeout: {e}"
+            record_failure("timeout", f"timeout: {e}", attempt)
             print(f"[qing-agent timeout retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e}", file=sys.stderr)
             if attempt < QING_AGENT_MAX_RETRIES:
                 _time.sleep(2 ** attempt)
                 continue
             return None
         except Exception as e:
-            last_error = f"error: {e}"
+            record_failure("request_error", f"error: {e}", attempt)
             print(f"[qing-agent error retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e}", file=sys.stderr)
             if attempt < QING_AGENT_MAX_RETRIES:
                 _time.sleep(2 ** attempt)
                 continue
             return None
 
-    elapsed_ms = (_time.perf_counter() - t0) * 1000
-    _log_request_payload(payload, body, response, error=last_error, elapsed_ms=elapsed_ms)
     return response
 
 
 def call_qing_agent(data: dict) -> dict | None:
     """POST the context dict to qing-agent and return the response JSON."""
-    if not _wait_for_agent_health(QING_AGENT_HEALTH_URL, max_wait_s=60):
-        print("[qing-agent] agent not ready (cold start?), falling back", file=sys.stderr)
-        return None
+    from qing_investment.agent.models.schemas import TriggerRequest
 
     market_snapshot, quote_lookup = _build_market_snapshot(data)
-
     payload = {
         "query": f"{data.get('trigger', {}).get('title', '')}：{data.get('trigger', {}).get('reason', '')}",
         "session_id": f"hermes-{data.get('timestamp', 'now')}",
         "stock_code": data.get("stock_code", ""),
         "analysis_type": data.get("analysis_type", "market"),
+        "data_as_of": data.get("timestamp") or market_snapshot.get("timestamp") or "",
         "trigger": data.get("trigger", {}),
         "alerts": data.get("alerts", []),
         "buy_signal_candidates": data.get("buy_signal_candidates", []),
         "market_snapshot": market_snapshot,
         "positions": _normalize_positions(data.get("positions", {}), quote_lookup),
         "watchlist": _normalize_watchlist(data.get("watchlist", []), quote_lookup),
-        # 2026-08-24: 显式传 core_only，只扫 P1+持仓（原依赖 agent 进程环境变量
-        # WATCHLIST_CORE_ONLY，但 uvicorn 进程没有该变量导致 73 只全量进 22 个 shard，
-        # 单轮 analyze 1600s 击穿 cron 900s 超时）
         "core_only": os.environ.get("WATCHLIST_CORE_ONLY", "0").lower() in ("1", "true", "yes", "on"),
         "sector_strengths": data.get("sector_strengths", []),
         "external_sector_boards": data.get("external_sector_boards", {}),
+        "external_market": data.get("external_market", {}),
     }
+    payload = TriggerRequest(**payload).model_dump()
+    data["_qing_agent_payload"] = payload
+
+    if not _wait_for_agent_health(QING_AGENT_HEALTH_URL, max_wait_s=60):
+        print("[qing-agent] agent not ready (cold start?), falling back", file=sys.stderr)
+        data["_qing_agent_failure"] = {
+            "type": "health_unavailable",
+            "message": "Qing-Agent health check failed",
+            "attempts": 1,
+        }
+        return None
 
     trigger_id = (data.get("trigger") or {}).get("id", "")
     post_timeout = 90.0 if trigger_id == "pre_market" else None
-    response = _post_analyze_trigger(payload, timeout=post_timeout)
+    failure = {}
+    response = _post_analyze_trigger(payload, timeout=post_timeout, failure=failure)
+    if response is None:
+        data["_qing_agent_failure"] = failure or {
+            "type": "empty_response",
+            "message": "Qing-Agent returned no response",
+        }
     _log_request_payload(
         data,
         json.dumps(payload, ensure_ascii=False).encode("utf-8"),
         response,
-        error=None,
+        error=failure.get("message") if failure else None,
         elapsed_ms=None,
     )
 
@@ -814,39 +885,10 @@ def call_qing_agent(data: dict) -> dict | None:
     return response
 
 
-# ── 幻觉检测模式 ──
-# Only flag future years (2027+) and genuine hallucination templates.
-# "数据缺失/暂无数据" is legitimate status report when live quotes are unavailable.
-_HALLUCINATION_FUTURE_YEAR = re.compile(r"20(2[7-9]|[3-9]\d)年")
-_HALLUCINATION_META = re.compile(r"数据恢复是最关键")
-# 日期复盘模板：只标记“未来日期”的复盘，当前/历史日期的复盘是正常表述
-_HALLUCINATION_DATE_REVIEW = re.compile(r"这是(20\d{2})年(\d{1,2})月(\d{1,2})日(盘后)?复盘")
-
-
 def _is_hallucinated(output: str) -> bool:
-    """Only flags future years (2027+) or known hallucination templates.
-    Past/current years (<=2026) are valid references."""
-    from datetime import datetime
-    current_year = datetime.now().year
+    from qing_investment.agent.validators.output_guard import is_hallucinated_output
 
-    # Future year check — 2027+ is definitely hallucination
-    if _HALLUCINATION_FUTURE_YEAR.search(output):
-        return True
-
-    # Meta-hallucination
-    if _HALLUCINATION_META.search(output):
-        return True
-
-    # Date review template: only flag if the year is in the future
-    for m in _HALLUCINATION_DATE_REVIEW.finditer(output):
-        try:
-            year = int(m.group(1))
-            if year > current_year:
-                return True
-        except Exception:
-            pass
-
-    return False
+    return is_hallucinated_output(output)
 
 
 def main():
@@ -874,7 +916,11 @@ def main():
 
     # 3. Citation validation (new)
     citation_warning = ""
-    if response and response.get("final_output"):
+    if (
+        response
+        and response.get("final_output")
+        and response.get("record_status") not in {"error", "missing"}
+    ):
         try:
             from qing_investment.agent.validators.citation_validator import CitationValidator
             validator = CitationValidator(coverage_threshold=0.6)
@@ -886,7 +932,11 @@ def main():
             citation_warning = f"[引用检查未运行: {e}]"
 
     # 4. Output with hallucination check + citation warning
-    if response and response.get("final_output"):
+    if (
+        response
+        and response.get("final_output")
+        and response.get("record_status") not in {"error", "missing"}
+    ):
         output = response["final_output"]
         if _is_hallucinated(output):
             import logging
@@ -902,6 +952,8 @@ def main():
         return 0
 
     # 4. Fallback: qing-agent unavailable or returned empty
+    if not (response and response.get("record_status") in {"error", "missing"}):
+        _record_agent_failure(data, "Qing-Agent unavailable or returned empty output")
     if not QING_AGENT_FALLBACK_ENABLED:
         print("[Qing-Agent ✗ FALLBACK DISABLED] 本地规则输出已关闭，仅记录错误", file=sys.stderr)
         # 向 Bridge stdout 输出简短提示，避免 cron 任务静默失败、用户收不到飞书通知

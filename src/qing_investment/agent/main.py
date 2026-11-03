@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import copy
+import hashlib
 import logging
 import os
 import re
@@ -100,21 +102,16 @@ _SECTOR_KEYWORDS: dict[str, list[str]] = {
 
 
 def _format_claim_line(c: dict) -> str:
-    """Format a single claim for display in the prompt context.
-
-    Claim ID is placed at the front so downstream LLMs can cite it directly.
-    """
+    """把 qing claim 格式化为带日期的历史材料，而非当前观点。"""
     claim_id = c.get("id", "N/A")
     parts = [f"[{claim_id}]"]
-    parts.append(f" ({c.get('source_date','')})")
+    parts.append(f" ({c.get('source_date','') or '日期未知'})")
     if c.get("claim_type"):
         parts.append(f" [{c.get('claim_type')}]")
-    label = c.get("freshness_label", "")
-    if label:
-        parts.append(f" [{label}]")
+    parts.append(" [历史证据]")
     intensity = c.get("intensity", "medium")
     intensity_tag = {"high": "🔴", "medium": "🟡", "low": "⚪"}.get(intensity, "⚪")
-    parts.append(f" [{intensity_tag}]")
+    parts.append(f" [历史材料强度:{intensity_tag}]")
     parts.append(f": {c.get('statement', '')[:200]}")
     if c.get("superseded_by"):
         parts.append(f" [已被 {', '.join(c['superseded_by'][:2])} 取代]")
@@ -168,6 +165,160 @@ async def health():
     return {"status": "ok", "version": "0.1.0"}
 
 
+def _final_validation_summary(result: dict) -> dict:
+    return result.get("market_context") or result.get("market_summary_context") or {}
+
+
+def _trigger_record_status(req: TriggerRequest, result: dict, final_output: str) -> str:
+    from qing_investment.agent.validators.output_guard import is_hallucinated_output
+
+    data_as_of = req.data_as_of or str(req.market_snapshot.get("timestamp") or "")
+    has_market_data = bool(req.market_snapshot.get("quotes")) or (
+        req.external_sector_boards.get("available") is True
+    )
+    if not data_as_of or not has_market_data:
+        return "missing"
+    if not final_output:
+        return "error"
+    summary = _final_validation_summary(result)
+    if (
+        summary.get("_fallback_reason")
+        or summary.get("_validation_contract_errors")
+        or summary.get("_scan_failed")
+        or result.get("_style_writer_failed")
+    ):
+        return "error"
+    if is_hallucinated_output(final_output):
+        return "error"
+    return "pending_maturity"
+
+
+def _trigger_record_error(
+    status: str, result: dict, final_output: str
+) -> dict | None:
+    summary = _final_validation_summary(result)
+    if status == "missing":
+        return {"type": "missing_input", "message": "数据时点或实时输入快照缺失"}
+    if not final_output:
+        return {"type": "empty_output", "message": "Qing-Agent returned empty output"}
+    if summary.get("_fallback_reason"):
+        return {
+            "type": "generation_fallback",
+            "message": summary["_fallback_reason"],
+        }
+    if summary.get("_scan_failed"):
+        return {"type": "generation_fallback", "message": "stock_scanner_failed"}
+    if result.get("_style_writer_failed"):
+        return {"type": "generation_fallback", "message": "style_writer_failed"}
+    if summary.get("_validation_contract_errors"):
+        return {
+            "type": "validation_contract_error",
+            "message": "; ".join(summary["_validation_contract_errors"]),
+        }
+    if status == "error":
+        return {"type": "output_rejected", "message": "输出未通过幻觉验收"}
+    return None
+
+
+def _content_version(value: object) -> str:
+    import json
+
+    canonical = json.dumps(
+        value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str
+    )
+    return "sha256:" + hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
+def _pipeline_versions(summary: dict) -> tuple[str, str]:
+    repo_root = Path(__file__).resolve().parents[3]
+    prompt_dir = Path(__file__).resolve().parent / "prompts" / "system"
+    prompt_files = {
+        path.name: hashlib.sha256(path.read_bytes()).hexdigest()
+        for path in sorted(prompt_dir.glob("*.txt"))
+    }
+    prompt_version = _content_version(
+        {"files": prompt_files, "market_summary": summary.get("prompt_version")}
+    )
+    code_paths = [
+        "src/qing_investment/agent/graph/nodes.py",
+        "src/qing_investment/agent/tools/pattern_policy.py",
+        "src/qing_investment/monitor/rules/gator_rules.py",
+    ]
+    code_versions = {}
+    for relative in code_paths:
+        path = repo_root / relative
+        code_versions[relative] = (
+            hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else "missing"
+        )
+    rules_version = _content_version(
+        {"market_summary": summary.get("rules_version"), "code": code_versions}
+    )
+    return prompt_version, rules_version
+
+
+def _freeze_trigger_result(
+    req: TriggerRequest, result: dict, final_output: str
+) -> Path | None:
+    from investment_engine.qing_validation import records as validation_records
+
+    try:
+        data_as_of = req.data_as_of or str(req.market_snapshot.get("timestamp") or "")
+        summary = _final_validation_summary(result)
+        status = _trigger_record_status(req, result, final_output)
+        prompt_version, rules_version = _pipeline_versions(summary)
+        gaps = []
+        if not data_as_of:
+            gaps.append("data_as_of")
+        if result.get("_data_missing_note"):
+            gaps.append(result["_data_missing_note"])
+        if summary.get("_fallback_reason"):
+            gaps.append(f"market_summary:{summary['_fallback_reason']}")
+        raw_judgment = summary.get("final_judgment")
+        judgment = copy.deepcopy(raw_judgment) if isinstance(raw_judgment, dict) else {}
+        judgment.setdefault("data_as_of", data_as_of)
+        judgment["view"] = final_output
+        for key in ("position_plans", "opportunity_scan"):
+            judgment[key] = copy.deepcopy(summary.get(key) or [])
+        if result.get("stock_analysis"):
+            judgment["stock_analysis"] = copy.deepcopy(result["stock_analysis"])
+        record = validation_records.build_record(
+            trigger=req.trigger,
+            data_as_of=data_as_of,
+            input_payload=req.model_dump(),
+            final_judgment=judgment,
+            directions=summary.get("directions") or [],
+            expert_views=summary.get("expert_views") or [],
+            raw_output=final_output,
+            status=status,
+            input_availability={
+                "market_snapshot": bool(req.market_snapshot.get("quotes")),
+                "external_sector_boards": req.external_sector_boards.get("available") is True,
+                "positions_provided": bool(req.positions),
+                "position_snapshot_stored": False,
+                "watchlist_count": len(req.watchlist),
+                "gaps": gaps,
+            },
+            data_version=data_as_of or None,
+            rules_version=rules_version,
+            prompt_version=prompt_version,
+            review={
+                "passed": result.get("review_passed", False),
+                "notes": result.get("review_notes", []),
+            },
+            citations=result.get("citation_report") or summary.get("citations") or [],
+            error=_trigger_record_error(status, result, final_output),
+            supersedes_record_id=req.trigger.get("supersedes_record_id"),
+        )
+        record["pattern_refs"] = copy.deepcopy(summary.get("pattern_refs") or [])
+        record["gator_rules_snapshot"] = copy.deepcopy(
+            summary.get("gator_rules_snapshot") or {}
+        )
+        return validation_records.save_record(record)
+    except Exception as exc:
+        logger.error("Qing-Agent 留痕失败: %s", exc, exc_info=True)
+        return None
+
+
 @app.post("/analyze/trigger", response_model=TriggerResponse)
 async def analyze_trigger(req: TriggerRequest):
     shard_size = req.shard_size
@@ -181,6 +332,7 @@ async def analyze_trigger(req: TriggerRequest):
     state = {
         "query": req.query or f"{req.trigger.get('title', '')}：{req.trigger.get('reason', '')}",
         "session_id": req.session_id,
+        "data_as_of": req.data_as_of or str(req.market_snapshot.get("timestamp") or ""),
         "trigger": req.trigger,
         "alerts": req.alerts,
         "market_snapshot": req.market_snapshot,
@@ -191,6 +343,7 @@ async def analyze_trigger(req: TriggerRequest):
         "shard_size": shard_size,
         "core_only": core_only,
         "external_sector_boards": req.external_sector_boards,
+        "external_market": req.external_market,
         "buy_signal_candidates": req.buy_signal_candidates,
         "sector_context": [],
         "claims": [],
@@ -248,6 +401,8 @@ async def analyze_trigger(req: TriggerRequest):
     if final_output:
         final_output = f"[{provider_summary}]\n\n{final_output}"
 
+    record_path = _freeze_trigger_result(req, result, final_output)
+
     return TriggerResponse(
         final_output=final_output,
         claims_cited=result.get("claims_cited", []),
@@ -257,6 +412,10 @@ async def analyze_trigger(req: TriggerRequest):
         citation_report=result.get("citation_report"),
         reasoning_steps=result.get("reasoning_steps", []),
         cost_info=_aggregate_cost(result.get("cost_tracking", [])),
+        record_id=record_path.stem if record_path else None,
+        record_status=(
+            _trigger_record_status(req, result, final_output) if record_path else None
+        ),
     )
 
 
@@ -592,7 +751,7 @@ async def chat(req: ChatRequest):
     context_parts = []
 
     # 实时数据部分
-    has_realtime_data = bool(market_snapshot.get("quotes")) or external_sector_boards.get("available")
+    has_realtime_data = bool(market_snapshot.get("quotes")) or external_sector_boards.get("available") or req.external_market.get("available")
     if has_realtime_data:
         context_parts.append("【实时行情数据】（✅ 主要分析依据）")
         if market_snapshot.get("quotes"):
@@ -630,6 +789,26 @@ async def chat(req: ChatRequest):
             concept_leaders = external_sector_boards.get("concept", {}).get("leaders", [])
             for item in concept_leaders[:5]:
                 context_parts.append(f"  {item['name']}: {item['pct_change']}%")
+
+        if req.external_market.get("available"):
+            context_parts.append("\n- 外围市场数据:")
+            gm = req.external_market.get("global_macro") or {}
+            if gm:
+                us_idx = gm.get("美股三指数", {})
+                for idx in ["^IXIC", "^DJI", "^GSPC"]:
+                    if idx in us_idx:
+                        d = us_idx[idx]
+                        context_parts.append(f"  美股{d.get('name', idx)}: {d.get('pct_change', 'N/A')}%")
+            ov = req.external_market.get("overnight_us") or {}
+            if ov:
+                themes = ov.get("themes", [])
+                for t in themes[:3]:
+                    context_parts.append(f"  映射股主题: {t.get('name', '')} ({t.get('pct_change', 'N/A')}%)")
+            pmb = req.external_market.get("pre_market_brief") or {}
+            if pmb:
+                ca = pmb.get("core_assumption", "")
+                if ca:
+                    context_parts.append(f"  核心假设: {ca}")
     else:
         context_parts.append("【实时行情数据】（❌ 无法获取）")
 
@@ -659,36 +838,19 @@ async def chat(req: ChatRequest):
             if c.get('claim_type') not in ('methodology', 'operation')
         ]
 
-        # 方法论块（不受时效限制）
+        # 方法论只指导分析步骤，不提供当前市场结论。
         if method_claims:
-            context_parts.append("\n【博主选股方法论/操作框架】（🔧 UP的分析框架，可以作为方法论指导引用）")
+            context_parts.append("\n【Qing历史方法论/操作框架】（仅作方法论指导，必须与实时数据配合）")
             for c in method_claims[:5]:
-                claim_line = _format_claim_line(c)
-                context_parts.append(claim_line)
+                context_parts.append(_format_claim_line(c))
 
-        # 按时效等级分组
-        fresh_views = [c for c in view_claims if c.get("freshness_label") == "最新"]
-        recent_views = [c for c in view_claims if c.get("freshness_label") == "近期"]
-        historical_views = [c for c in view_claims if c.get("freshness_label") == "历史"]
-
-        # 个股查询：过滤 low intensity，避免 UP 随口一提被当作操作依据
+        # 青枫浦上Q停止新增实时输入；所有观点统一按带日期的历史证据呈现。
         if fetched_stock_code:
-            fresh_views = [c for c in fresh_views if c.get("intensity") != "low"]
-            recent_views = [c for c in recent_views if c.get("intensity") != "low"]
+            view_claims = [c for c in view_claims if c.get("intensity") != "low"]
 
-        if fresh_views:
-            context_parts.append("\n【UP最新观点】（≤7天，可作为判断的辅助参考，需搭配实时数据使用）")
-            for c in fresh_views[:5]:
-                context_parts.append(_format_claim_line(c))
-
-        if recent_views:
-            context_parts.append("\n【UP近期观点】（8-30天，参考价值递减，请注意时效）")
-            for c in recent_views[:4]:
-                context_parts.append(_format_claim_line(c))
-
-        if historical_views:
-            context_parts.append("\n【UP历史观点】（31-90天，仅供参考，不得作为当前判断依据）")
-            for c in historical_views[:3]:
+        if view_claims:
+            context_parts.append("\n【Qing历史观点】（带日期的历史证据，不是当前信号；实时数据与证据等级优先）")
+            for c in view_claims[:12]:
                 context_parts.append(_format_claim_line(c))
 
     # 注入持仓数据
@@ -716,42 +878,30 @@ async def chat(req: ChatRequest):
         "【分析框架——必须严格按此顺序执行】",
         "",
         "第一步：判断市场周期和情绪阶段",
-        "- 看大盘指数（上证/深证/创业板/科创50）的涨跌和量能",
-        "- 🔑 优先使用【UP最新观点】中的周期判断（如有≤7天的market-cycle观点）",
-        "  UP每天复盘解读盘面，他的周期定位比LLM自己看几个数字更准",
-        "- 实时数据用来验证UP的周期判断，而不是推翻（除非出现明显背离：如UP说磨底但指数放量跌破关键位）",
-        "- 结论格式：「UP观点：...（采纳/修正/放弃，原因是...）」",
+        "- 只根据大盘指数（上证/深证/创业板/科创50）的实时涨跌、量能和情绪数据判断",
+        "- 【Qing历史观点】中的 market-cycle 内容只能作为带日期的历史案例，不得采纳为当前周期结论",
+        "- 实时数据不足时明确标记数据不足，不能用历史观点补齐当前判断",
         "",
         "第二步：判断所属板块是否是当前主线",
-        "- 🔒 此步只能基于实时板块数据（板块涨跌幅、资金流向）",
-        "- 板块轮动快，以当日数据为准，UP的方向判断仅作补充参考",
-        "- 判断板块是主线/支线/边缘/退潮方向",
-        "- 如果是支线或边缘，要说明为什么",
+        "- 此步只能基于实时板块数据（板块涨跌幅、资金流向）",
+        "- 板块轮动快，以当日数据为准，历史方向判断不得参与当前优先级排序",
+        "- 判断板块是主线/支线/边缘/退潮方向，并给出实时证据",
         "",
         "第三步：判断个股地位",
-        "- ⭐ 如果UP在claim中明确给出了个股地位标签（龙头/中军/核心/趋势/跟风），优先采用",
-        "  UP的个股定位经过产业逻辑验证，比看一天K线准，且大票定性不频繁变化",
-        "- 如果UP从未提及该股，用量化数据判断（板块内相对强弱、市值、换手率）",
-        "- 个股地位不受时效衰减影响（中军就是中军，不会因为两周过去变成跟风）",
+        "- 当前地位优先根据实时板块内排名、相对强弱、市值和换手率判断",
+        "- Qing历史claim中的龙头/中军/核心等标签仅作带日期的历史参考，不是当前权威定位",
+        "- 没有实时排名时必须明确降级为未知，不得由历史标签直接决定当前地位",
         "",
-        "第四步：检索博主历史提及（如有）",
-        "- 查看【UP最新观点】中是否有该票或相关方向的提及——≤7天的可作为辅助参考",
-        "- 查看【UP近期观点】——参考价值递减，需注意时效",
-        "- 查看【UP历史观点】——仅供参考，不得作为判断依据",
-        "- ⚠️ 【引用纪律——每引用一条claim必须配对至少一条实时数据】",
-        "  格式：（数据）...→（UP观点）...→（结论）...",
-        "  如果找不到对应的数据支撑，该claim不得引用",
-        "- 🔧 如果存在【博主选股方法论/操作框架】，必须明确引用UP的选股方法/操作纪律",
-        "（如「找低位+一季报超预期」），方法论指导不受时效限制",
+        "第四步：检索历史提及与方法论（如有）",
+        "- 查看【Qing历史观点】时必须同时展示日期，并明确其不是当前信号",
+        "- 引用纪律：实时数据与证据等级先于历史claim，格式为（实时数据）→（历史参考）→（独立结论）",
+        "- 如果存在【Qing历史方法论/操作框架】，只引用其分析步骤和操作纪律，不继承其中的市场结论",
         "",
         "第五步：结合技术位置和资金面判断风险收益",
         "- 看90日K线：趋势、支撑、压力、量能变化",
         "- 看当日分时：开盘/盘中/尾盘结构，资金流向",
         "- 看实时行情：价格、涨跌幅、换手率（如有）",
-        "- 判断当前位置的风险收益比",
-        "- 引用UP方法论时，必须同时给出对应的实时数据交叉验证",
-        "  ✅ 正确：该票自5月初下跌30%（数据），Q1净利润+150%（数据）→ 符合UP「找低位+业绩」方法论",
-        "  ❌ 错误：UP说磨底期做低位方向，所以买这个票（用claim替代了数据分析）",
+        "- 判断当前位置的风险收益比；历史观点不能替代数据分析",
         "",
         "第六步：输出证伪条件和跟踪字段",
         "- 如果看多，什么信号出现会证伪这个判断？",
@@ -764,23 +914,16 @@ async def chat(req: ChatRequest):
         "- 所有操作建议必须附带条件（'若X则Y'），禁止无条件买卖指令",
         "",
         "【核心原则】",
-        "1. 【实时数据是客观基准】——所有判断起点必须是实时数据，不能编造，获取不到时明确说明",
-        "2. 【UP周期判断优先】——≤7天的market-cycle观点优先于LLM自主周期判断（UP每天复盘更准）",
-        "3. 【UP个股定位优先】——UP点名过的个股地位是权威来源，不随时效衰减",
-        "4. 【UP方法论可引用】——选股方法论/操作框架不受时效限制，但必须和当前数据配合使用",
-        "5. 【引用纪律——数据必在claim前】——每引用一条claim必须有对应实时数据交叉验证",
-        "6. 【UP最新观点（≤7天）可作为辅助参考，但不得替代实时数据】",
-        "7. 【UP近期观点（8-30天）参考价值递减，需标注时效】",
-        "8. 【UP历史观点（31-90天）仅供背景参考，不得作为判断依据】",
-        "9. 禁止引用claim ID支持当前观点",
-        "10. 如果【实时行情数据】为空，请明确说明无法获取数据，不要编造",
-        "11. 如果知识库中没有相关信息，请明确说明，不要编造\n"
-        "12. 【输出格式】回复开头必须标注：'[Qing-Agent 分析]'，然后空一行再写正文\n"
-        "13. 分析必须按上述六步框架执行，不能跳过步骤\n"
-        "14. 【intensity分级】UP观点按分析深度分级，引用时需注意：\n"
-        "    🔴 high = UP专题分析/视频重点推荐 → 可引用，但必须配实时数据交叉验证\n"
-        "    🟡 medium = UP复盘提及/方向判断 → 参考价值中等，需标注时效\n"
-        "    ⚪ low = UP盘中随口/转发/评论回复 → 仅供参考背景，不得作为操作依据\n"
+        "1. 【实时数据与证据等级优先】——当前判断必须基于实时、可核验数据，获取不到时明确降级",
+        "2. 【Qing观点均为历史证据】——不因freshness、intensity或claim日期较近而视为当前信号",
+        "3. 【方法论与观点分离】——方法论可指导分析，历史周期、方向和个股定位不得直接成为当前结论",
+        "4. 【其他学派独立】——不得删除或改写gator等其他UP的独立输入，也不得归到qing名下",
+        "5. 禁止引用claim ID支持当前观点",
+        "6. 如果【实时行情数据】为空，请明确说明无法形成当前判断，不要编造",
+        "7. 如果知识库中没有相关信息，请明确说明，不要编造\n"
+        "8. 【输出格式】回复开头必须标注：'[Qing-Agent 分析]'，然后空一行再写正文\n"
+        "9. 分析必须按上述六步框架执行，不能跳过步骤\n"
+        "10. intensity只描述历史材料的分析深度，不代表UP当前推荐强度\n",
         "",
         *context_parts,
         f"\n用户：{req.message}\n",

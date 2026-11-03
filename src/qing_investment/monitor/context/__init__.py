@@ -1333,6 +1333,77 @@ def _build_external_sector_boards() -> dict:
         return {"available": False, "error": str(e)}
 
 
+def _build_external_market() -> dict:
+    """聚合隔夜外围数据供外力/内生归因。
+
+    聚合三个独立数据源，单源失败不阻塞：
+    1. global_macro 落盘（Yahoo v8 chart，美股/亚太/美债/商品收盘）
+    2. overnight_us 落盘（腾讯美股映射股隔夜涨跌）
+    3. external_market_fetcher.fetch_pre_market_brief（A50/期货/美元指数/美债实时）
+
+    返回结构：{"available": bool, "global_macro": dict|None, "overnight_us": dict|None,
+               "pre_market_brief": dict|None, "errors": list[str]}
+    """
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+
+    _CN_TZ = ZoneInfo("Asia/Shanghai")
+    today = datetime.now(_CN_TZ).strftime("%Y-%m-%d")
+    today_compact = today.replace("-", "")
+
+    result: dict = {
+        "available": False,
+        "global_macro": None,
+        "overnight_us": None,
+        "pre_market_brief": None,
+        "errors": [],
+        "date": today,
+    }
+
+    # ── 1) global_macro 落盘 ──
+    try:
+        from investment_engine.global_macro import load_global_macro
+        gm = load_global_macro(today)
+        if gm:
+            result["global_macro"] = gm
+            result["available"] = True
+        else:
+            result["errors"].append("global_macro: 今日落盘文件不存在")
+    except Exception as e:
+        result["errors"].append(f"global_macro: {e}")
+
+    # ── 2) overnight_us 落盘 ──
+    try:
+        import json
+        from pathlib import Path
+        ov_path = Path(f"infra/data/overnight_us/{today_compact}.json")
+        if ov_path.exists():
+            ov = json.loads(ov_path.read_text(encoding="utf-8"))
+            result["overnight_us"] = ov
+            result["available"] = True
+        else:
+            result["errors"].append("overnight_us: 今日落盘文件不存在")
+    except Exception as e:
+        result["errors"].append(f"overnight_us: {e}")
+
+    # ── 3) external_market_fetcher 实时 ──
+    try:
+        from qing_investment.agent.tools.external_market_fetcher import fetch_pre_market_brief
+        import asyncio
+        pmb = asyncio.run(fetch_pre_market_brief())
+        if pmb and not pmb.get("error"):
+            result["pre_market_brief"] = pmb
+            result["available"] = True
+        elif pmb and pmb.get("error"):
+            result["errors"].append(f"pre_market_brief: {pmb.get('error')}")
+        else:
+            result["errors"].append("pre_market_brief: 返回空结果")
+    except Exception as e:
+        result["errors"].append(f"pre_market_brief: {e}")
+
+    return result
+
+
 def _build_industry_chain_states() -> dict:
     """M0-Chain 产业链状态视图（19 链 compact 版，注入 LLM context）。
 
@@ -1385,6 +1456,7 @@ def _agent_context_data(
         "positions": position_rows(config),
         "watchlist": watchlist_stock_rows(config),
         "external_sector_boards": _build_external_sector_boards(),
+        "external_market": _build_external_market(),
         "tech_signals": _build_tech_signals_for_context(quote_snapshot),
         "industry_chain_states": _build_industry_chain_states(),
     }
