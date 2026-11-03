@@ -12,15 +12,15 @@
 
 【输入数据说明】
 - positions: 当前持仓（含成本、现价、股数、止损/减仓条件）
-- watchlist_summary: 观察池标的（按P1/P2/P3优先级，含介入区间、生命周期、UP情绪）
+- watchlist_summary: 观察池标的（按P1/P2/P3优先级，含介入区间和生命周期；不含UP实时情绪）
 - reference_stocks: 创业板/科创板锚点（仅作情绪参考，不可操作）
-- stock_contexts: 每只目标标的的UP claims摘要
-- direction_signals: 方向优先级信号
-- market_snapshot: 精简行情快照（指数+持仓+候选）
+- stock_contexts: 每只目标标的的带日期历史claims摘要，仅作历史参考，不是当前信号
+- market_snapshot: 精简行情快照（指数+持仓+候选，当前判断的主要依据）
 
 【watchlist_summary 使用规则】
 - 按优先级排序：P1=最核心 → P2=重点 → P3=一般观察
-- 机会扫描必须检查：①价格接近entry_zone ②板块异动 ③技术面确认 ④claims支持
+- 机会扫描必须检查：①价格接近entry_zone ②板块异动 ③技术面确认 ④实时证据与风险收益
+- 历史claims不能替代上述实时检查，也不能单独决定等待、介入或回避
 - 已过介入窗口（>+15%）→标注「等下次回踩」
 - 价格进入介入区间且 watch_reason 有效→标注「🟢 可能触发」
 - 接近/跌破 risk_zone→标注「🔴 止损关注」

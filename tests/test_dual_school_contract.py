@@ -120,6 +120,13 @@ class TestDualSchoolContract:
             assert seg in text, f"契约缺段落: {seg}"
         assert "严禁自行选边" in text
         assert "长期并列" in text
+        assert "standing" in text
+        assert "[gator]" in text
+        qing_section = text.split("二、青枫浦上Q 视角", 1)[1].split(
+            "三、鳄鱼派视角", 1
+        )[0]
+        assert "历史" in qing_section
+        assert "不得作为当前信号" in qing_section
 
     def test_contract_gating_no_gator(self):
         """context 无 gator 内容 → 不注入契约（保持既有输出形态）。"""

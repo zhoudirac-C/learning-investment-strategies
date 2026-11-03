@@ -1,5 +1,7 @@
 # M4 预备：毕业判分器 实施计划
 
+> **历史实施计划**：对应旧 M4 预备判分器，实施资产保留，但不是新 M4 本体的执行计划。2026-11-02 起不再等待 `graduated` 才拆除青枫浦上Q/qing 实时锚定；gator 等其他专家保留。新方向见 `docs/superpowers/specs/2026-11-02-m4-independent-operation-design.md`。
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** 读 `evals/shadow/predictions/*.json`，滚动 8 个自然周窗口聚合阶段一致率与方向超额命中率，对照主计划 10.4 毕业线输出判定报告。

@@ -422,3 +422,108 @@ def test_qing_agent_internal_sharding(monkeypatch, tmp_path):
     assert result.get("review_passed") is True
     # 至少调用了 market_summary + 多个 stock_scanner_shard + style + reviewer
     assert len(fake_llm.calls) >= 5
+
+
+def test_qing_agent_graph_output_can_be_frozen_without_qing_current_input(
+    monkeypatch, tmp_path
+):
+    monkeypatch.setenv("QING_AGENT_MOCK_QUOTES", "1")
+    monkeypatch.setenv("QING_AGENT_IGNORE_TRADING_TIME", "1")
+    monkeypatch.setenv("KIMI_CODE_ACP_FIRST", "0")
+    monkeypatch.setenv("KIMI_CODE_CLI_FIRST", "0")
+    monkeypatch.setenv("QING_AGENT_VALIDATION_ROOT", str(tmp_path / "records"))
+
+    config = make_mock_monitor_config()
+    agent_json_text = run_tick(
+        config,
+        datetime(2026, 5, 22, 10, 30, tzinfo=CN_TZ),
+        emit_status=False,
+        ignore_trading_time=False,
+        agent_json_context=True,
+        state_path=tmp_path / "state.json",
+    )
+    agent_json = json.loads(agent_json_text)
+    query = agent_json["trigger"]["title"] + "：" + agent_json["trigger"]["reason"]
+    state = _build_agent_state(agent_json, query)
+    state["data_as_of"] = agent_json["timestamp"]
+
+    async def fake_retrieve_knowledge(state_in: dict) -> dict:
+        return {
+            "claims": [],
+            "wiki_snippets": [],
+            "knowledge_graph": {},
+            "memories": [],
+            "few_shot_examples": [],
+        }
+
+    import qing_investment.agent.graph.builder as builder_module
+    import qing_investment.agent.graph.nodes as nodes_module
+
+    monkeypatch.setattr(builder_module, "retrieve_knowledge", fake_retrieve_knowledge)
+    monkeypatch.setattr(nodes_module, "retrieve_knowledge", fake_retrieve_knowledge)
+    snapshot = {
+        "available": True,
+        "school": "gator",
+        "stop_falling": {"met": 2, "total": 5, "stance": "等待", "signals": []},
+    }
+    monkeypatch.setattr(nodes_module, "_load_gator_rules_snapshot", lambda: snapshot)
+    monkeypatch.setattr(
+        nodes_module,
+        "_load_reasoning_patterns",
+        lambda value: [
+            {"pattern_id": "gator-draft", "school": "gator", "validation": {}}
+        ],
+    )
+
+    fake_llm = _FakeLangChainLLM()
+    monkeypatch.setattr(nodes_module, "get_llm_client", lambda provider=None: fake_llm)
+
+    import qing_investment.agent.agents.devils_advocate as da_module
+
+    class _FakeDevilsAdvocateResult:
+        findings = []
+        errors = []
+        cost_usd = 0.0
+
+    class _FakeDevilsAdvocateAgent:
+        def __init__(self, llm=None):
+            pass
+
+        async def run(self, **kwargs):
+            return _FakeDevilsAdvocateResult()
+
+    monkeypatch.setattr(da_module, "DevilsAdvocateAgent", _FakeDevilsAdvocateAgent)
+
+    import asyncio
+
+    from qing_investment.agent.graph.builder import build_graph
+    from qing_investment.agent.models.schemas import TriggerRequest
+
+    result = asyncio.run(build_graph().ainvoke(state))
+
+    from qing_investment.agent import main as agent_main
+
+    request = TriggerRequest(
+        query=query,
+        trigger=state["trigger"],
+        data_as_of=agent_json["timestamp"],
+        market_snapshot=state["market_snapshot"],
+        positions=state["positions"],
+        watchlist=state["watchlist"],
+    )
+    record_path = agent_main._freeze_trigger_result(
+        request, result, result["final_output"]
+    )
+
+    assert record_path is not None
+    record = json.loads(record_path.read_text(encoding="utf-8"))
+    assert record["raw_output"] == result["final_output"]
+    assert record["data_as_of"] == agent_json["timestamp"]
+    assert record["final_judgment"]["market_stage"] == "磨底期"
+    assert [p["pattern_id"] for p in record["pattern_refs"]] == ["gator-draft"]
+    assert record["gator_rules_snapshot"] == snapshot
+    assert record["expert_views"]
+    gator = next(v for v in record["expert_views"] if v["school"] == "gator")
+    assert gator["evidence"] == snapshot
+    assert record["prompt_version"].startswith("sha256:")
+    assert record["rules_version"].startswith("sha256:")

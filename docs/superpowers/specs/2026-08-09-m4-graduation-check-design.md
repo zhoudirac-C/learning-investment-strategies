@@ -1,8 +1,10 @@
 # M4 预备：毕业判分器 — 设计文档
 
 日期：2026-08-09
-状态：已与用户对齐，待写实施计划
+状态：历史设计；判分器已实现，2026-11-02 起仅作可靠性参考
 分支：`feat/m4-graduation-check`
+
+> **方向变更**：本文记录的是旧 M4 预备判分器，不再规定 M4 本体的启动条件。`graduated/not_yet` 保留为历史与滚动统计结果，不再决定能否拆除青枫浦上Q/qing 实时锚定。新 M4 为“多专家独立运行与 Qing-Agent 每日市场验证”，gator 等其他专家保留，见 `docs/superpowers/specs/2026-11-02-m4-independent-operation-design.md`。
 
 ## 定位与边界
 

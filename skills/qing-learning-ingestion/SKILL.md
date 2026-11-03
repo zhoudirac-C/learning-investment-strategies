@@ -132,6 +132,22 @@ done
    3. 如果全文只有比喻没有直白观点，走低信息含量帖文跳过规则
    4. 如果用户指出理解错误，重读原文只关注字面意思，删除所有自己添加的映射
 
+## 隔离区 claim 同步到主库（2026-10-29 新增）
+
+当 watchlist 学派 UP 的 claim 需要迁入主库时（如用户指令"同步到主库"），按以下流程：
+
+1. **检查编号冲突**：`ls knowledge/claims/claim-YYYYMMDD-*.yaml`，确认新编号不被占用。从该日期最大现有编号 + 1 开始递增。
+2. **重新编号**：隔离区编号 `claim-YYYYMMDD-NNN-x`（带字母后缀）→ 主库编号 `claim-YYYYMMDD-NNN`（纯数字递增，无字母后缀）。
+3. **单文件拆分**：隔离区 YAML 可能是列表结构（一个文件包含多条 claim），需拆分为主库单条 YAML 文件（每条 claim 一个文件，文件名 = id）。
+4. **格式转换**：
+   - 移除 `school`、`disagrees_with` 字段（watchlist 专用，主库不保留）。
+   - `links` 改为列表形式（`links: []` 或 URL 列表），移除嵌套 dict `wiki_pages`/`methodology_pages`/`cases`。
+   - `last_discovered` 确保为字符串格式（YAML 可能将 `2026-10-28` 解析为 date 对象，写回时需保持字符串，不要带引号）。
+   - 确认 `stance`、`claim_type`、`timeframe`、`confidence`、`status` 等枚举值符合主库 Gate 1 约束（见 `qing-claim-gate-troubleshoot` 的 Gate 1 速查）。
+5. **更新索引**：将新文件追加到 `knowledge/claims/index.md`，按日期+编号顺序插入。
+6. **提交**：`git add knowledge/claims/ knowledge/claims/index.md` → commit → push。
+   - 原文件保留：隔离区原文件 `archive/schools/watchlist/claims-quarantine.yaml` 不做删除，主库是增量写入。
+
 ## 参考文件
 
 | 场景 | 参考文件 |

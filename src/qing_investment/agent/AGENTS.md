@@ -195,28 +195,26 @@ nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8
 
 ---
 
-## 6.5 个股板块定位（三层定位法）
+## 6.5 个股板块定位（实时优先，历史参考）
 
 ### 6.5.1 架构
 
-`stock_analyst` 节点通过 `stock_sector_mapping.json` 实现**三层定位法**（映射由 `scripts/build_sector_mapping.py` 生成）：
+`stock_analyst` 节点通过 `stock_sector_mapping.json` 获取实时板块排名，并将 qing 历史标注单独作为参考（映射由 `scripts/build_sector_mapping.py` 生成）：
 
 ```
 ┌─────────────────────────────────────────┐
-│  第一层：UP 知识库定位（最可靠）          │
-│  - 从 claims 中提取地位关键词             │
-│  - 例：龙头、中军、趋势、情绪载体、先锋    │
-│  - 优点：包含产业逻辑和情绪判断           │
-│  - 缺点：只覆盖 UP 提到过的个股           │
-├─────────────────────────────────────────┤
-│  第二层：实时板块排名定位                 │
+│  当前定位：实时板块排名                   │
 │  - 新浪 getHQNodeData 获取板块成分股      │
 │  - 按涨幅排序，计算个股排名               │
 │  - 量化标签：日内龙头/前排/中军/趋势/跟风  │
 ├─────────────────────────────────────────┤
-│  第三层：综合判断                         │
-│  - UP 有标注 → 优先采用，实时数据验证      │
-│  - UP 无标注 → 完全依赖量化判断            │
+│  历史参考：Qing 知识库标注                │
+│  - 从非近期 qing claims 提取地位关键词     │
+│  - 必须带 source_date；日期未知要明示      │
+│  - 不得覆盖实时排名，也不是当前信号        │
+├─────────────────────────────────────────┤
+│  降级：无实时排名时 final_position=未知   │
+│  - 不得由UP历史标注直接决定当前定位        │
 └─────────────────────────────────────────┘
 ```
 
@@ -273,7 +271,7 @@ print(to_agent_format(result))
 - 新浪接口被封时，`get_stock_sectors` 会降级到快速反查模式（只查最热门的 20 个板块）
 - 反查模式耗时约 30-40 秒，适合应急，不适合高频调用
 - 全量缓存过期后，首次查询会返回空列表，需手动重建缓存
-- `stock_analyst.txt` prompt 已注入 `sector_positioning` 字段，LLM 会基于三层定位法给出地位判断
+- `stock_analyst.txt` prompt 已注入 `sector_positioning` 字段；实时排名优先，历史标注只作带日期参考，无实时排名时必须降级为未知
 
 ---
 
@@ -382,12 +380,13 @@ POST /analyze/trigger
 |------|------|------|------|
 | `query` | string | ✅ | 分析标题，例如 "每日收盘复盘"；若为空则从 `trigger.title` + `trigger.reason` 拼接 |
 | `analysis_type` | string | ❌ | 分析类型：`market`（默认）/ `stock` / `portfolio` |
+| `data_as_of` | string | ❌ | 输入数据的明确截止时间（ISO 8601）；wrapper 从监控上下文 `timestamp` 传入，缺失时记录不得进入预测评分 |
 | `session_id` | string | ❌ | 会话 ID，默认 `"default"`；Hermes 传入为 `"hermes-{timestamp}"` |
 | `trigger` | dict | ✅ | 触发信息：`{title, reason, type, time_frame, urgency}` — 控制分析标题和紧急度 |
 | `alerts` | list[dict] | ❌ | 规则信号列表：`[{type, message, stock_code, priority, ...}]` |
 | `market_snapshot` | dict | ❌ | 行情快照：`{timestamp, quotes: [{code, name, price, change_pct, volume, ...}], index_quotes: [...], limit_up_stocks: [], limit_down_stocks: []}` |
 | `positions` | list[dict] | ❌ | 当前持仓：`[{code, name, shares, cost, current_price, profit_pct, position_ratio, ...}]` |
-|| `watchlist` | list[dict] | ❌ | 观察池标的（Phase 8.1 增强）：`[{code, name, theme, role, priority, latest, pct_change, watch_reason, entry_price_range, entry_hard_stop, lifecycle_stage, reduce_zone_desc, risk_zone_desc, up_sentiment, ...}]` — 含UP设定的介入区间/止损/生命周期/减仓条件，供机会扫描使用 |
+| `watchlist` | list[dict] | ❌ | 观察池标的：`[{code, name, theme, role, priority, latest, pct_change, watch_reason, entry_price_range, entry_hard_stop, lifecycle_stage, reduce_zone_desc, risk_zone_desc, up_sentiment, ...}]` — 监控输入仍可含 `up_sentiment`，但 Qing-Agent 的 LLM 输入投影会移除该字段 |
 | `sector_strengths` | list[dict] | ❌ | 板块强弱数据（内部样本）：`[{sector_name, strength, top_stocks, ...}]` |
 | `external_sector_boards` | dict | ✅ | **外部全量板块数据**（东财/新浪双源）：`{available: bool, concept: {...}, industry: {...}}`。`market`/`portfolio` 分析时 `available` 必须为 `true`，否则 `market_analyst` 返回「数据不可用」拒绝生成分析 |
 
@@ -403,6 +402,10 @@ POST /analyze/trigger
 | `confidence` | string | 置信度：`"high"` / `"medium"` / `"low"` |
 | `review_passed` | bool | 事实核查是否通过（reviewer 最多打回 3 次） |
 | `reasoning_steps` | list[string] | 分析思考步骤 |
+| `record_id` | string/null | 成功冻结的验证记录 ID；留痕失败时为 `null` |
+| `record_status` | string/null | 已冻结状态：`pending_maturity` / `error` / `missing`；留痕失败时为 `null` |
+
+**验证留痕**：每次 `/analyze/trigger` 完成后，将最终合成判断、专家视角、实际 pattern 引用、数据时点、prompt/rules 版本和原文写入 `infra/data/qing_agent/<date>/<track>/<record_id>.json`。盘前、盘中、收盘分轨，排他创建，重跑通过 `supersedes_record_id` 链接版本。输入快照只保存哈希和可用性摘要，不另存持仓输入；`raw_output` 可能含持仓计划，因此整个目录是 gitignored 私有数据区，不得当作公开报告外发。wrapper 传输失败补记 `error`，原输入缺失记 `missing`，本地 fallback 不得生成 `pending_maturity`。
 
 **LangGraph 工作流**（按顺序执行 7 节点）：
 

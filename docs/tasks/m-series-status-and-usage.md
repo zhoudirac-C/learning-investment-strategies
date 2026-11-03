@@ -9,13 +9,13 @@
 | 里程碑 | 状态 | 关键结论 |
 |---|---|---|
 | M0 蒸馏+回测基建 | ✅ 完成 | 10 框架来源中立改写 + validation 区块；K 线缓存 217 只（2026-04-27 起）；真实回测 1507 信号、5 日命中率 51.8%（`logs/m0-acceptance.md`） |
-| M1 盲测 eval | ✅ 完成 | 基线：阶段一致率 66.2%（n=71，毕业线 70% 未达）、方向超额 61.1%（n=175，达标线 60%）、标的超额 56.6%（n=350）（`logs/m1-baseline-20260808.md`） |
-| M2 影子双轨 | ✅ 完成 | 每日盲判→到期结算→归因→状态报告全链路；2026-08-07 首日 e2e 真实跑通；cron 已挂 |
+| M1 盲测 eval | ✅ 完成 | 基线：阶段一致率 66.2%（n=71，参考线 70%）、方向超额 61.1%（n=175，参考线 60%）、标的超额 56.6%（n=350）（`logs/m1-baseline-20260808.md`） |
+| M2 影子双轨 | ✅ 机制完成 | 每日盲判→到期结算→归因→状态报告全链路；2026-08-07 首日 e2e 真实跑通；cron 已挂。机制完成不代表近期无缺报，运行缺口以 `logs/shadow-status.md` 为准 |
 | M3 前置（patterns 回填） | ✅ 完成 | 5 个模式写入 M1 实测命中率 + 分环境段明细；technical_timing/operation_strategy 保持 M0 回测值 0.5182；3 个未使用模式保持 pending-m1；提案制机制（生成→人审→应用）落地（`framework/proposals/20260809-pattern-validation-m1.yaml`） |
-| M4 预备（毕业判分器） | ✅ 完成 | 8 周窗口聚合判定可用；首期报告 verdict=insufficient_data（`logs/graduation-2026-08-09.md`）。判据 3（路径 A 假设证伪率）v1 可计算口径 2026-10-25 落地（spec `docs/superpowers/specs/2026-10-25-criterion3-computable-definition.md`）：agent 59.1%（n=93）vs 历史基准 57.9%（n=518，up 桶已结算）+10pct，达标；verdict 仍由判据 2 卡 not_yet |
-| M3 剩余 | ✅ 完成（2026-10-24）：回写机制落地（`claim_direction` LLM 判向 1499 条 → `claim_outcome` 5 日 forward 结算 689 条 → `up_hit_profile` 画像 + evaluate_vs_market 出数）。存量口径：up 桶命中率 42.1%(n=518)；青枫浦上Q 总览 42.5%（stock-view 46.5%/market-cycle 37.3%/sector-theme 31.5%/operation 16.7%，以 logs/claims-vs-market-2026-10-24.md 为准）；鳄鱼派样本不足（观点多在 pending 窗口）。109 条 pending_data 窗口到点重跑 settle 转终态。30 条判向人审错向 3.3%（<10% 门槛）。confidence 原字段未动，调整规则待画像积累后另定 | 下次毕业判决（11 月初）数据源就绪 |
-| M4 本体（prompt 拆锚定） | ⏳ 等毕业判决 | 连续 8 周达标后才允许动 `src/qing_investment/agent/prompts/` |
-| M5 校准常态化 | ⏳ 毕业后 | 季度分桶校准 + 产业链保鲜巡检（巡检器已存在 `scripts/industry_chain_freshness_check.py`，已列入下方周五例行；上次跑出 2026-08-16） |
+| M4 预备（历史判分器） | ✅ 完成，转为可靠性参考 | 8 周窗口聚合工具保留。最近报告 `logs/graduation-2026-10-25.md` 为 `not_yet`：方向超额 40.9%（n=93），低于 60% 参考线；该历史结果不得改写为已通过。2026-11-02 起，判分结果不再是 M4 启动门禁 |
+| M3 剩余 | ✅ 完成（2026-10-24） | 回写机制落地（`claim_direction` LLM 判向 1499 条 → `claim_outcome` 5 日 forward 结算 689 条 → `up_hit_profile` 画像 + evaluate_vs_market 出数）。存量口径：up 桶命中率 42.1%(n=518)；青枫浦上Q 总览 42.5%（stock-view 46.5%/market-cycle 37.3%/sector-theme 31.5%/operation 16.7%，以 logs/claims-vs-market-2026-10-24.md 为准）；鳄鱼派样本不足。109 条 pending_data 窗口到点重跑 settle 转终态。30 条判向人审错向 3.3%。这些 UP 结果此后只作历史基线 |
+| M4 本体（多专家独立运行 + Qing-Agent 每日市场验证） | 🔄 2026-11-02 方向启动，工程待实施 | 不再等待连续 8 周达标；仅青枫浦上Q/qing 退出新增实时输入与每日差异对照，gator、观察池及双学派平权规则保留。实施项：prompt 拆 qing 实时锚定、专家视角与最终合成的分轨留痕、市场到期结算、每日完整性与滚动可靠性报告。设计见 `docs/superpowers/specs/2026-11-02-m4-independent-operation-design.md`；启动不等于可靠性已达标 |
+| M5 校准常态化 | ⏳ M4 上线并积累样本后 | 季度分桶校准 + 产业链保鲜巡检；不再等待旧式毕业。巡检器已存在 `scripts/industry_chain_freshness_check.py`，已列入下方周五例行 |
 
 ## 数据资产现状
 
@@ -23,7 +23,7 @@
 - **涨停梯队** `infra/data/limit_pool/`：2026-07-27 起（东财涨停池历史仅保留约 1 个月，更早无法回填，2026-08-15 实测），cron 15:37 日更续接
 - **研报/公告** `infra/data/research/{reports,notices}/`：东财公开源（report/list + 公告大全），2026-08-15 管线 v1 落地并回填 2026-04-27 起；研报元数据含 PDF 直链（`download_pdf` 按需下载）
 - **盲测基线** `evals/blindtest/results.jsonl`：71 天（2026-04-27~08-07）历史回放，一次性产物
-- **影子数据** `evals/shadow/predictions/`：每日新增，毕业判定的数据源（当前 2 天）
+- **影子数据** `evals/shadow/predictions/`：历史与实验对照样本；旧判分器的数据源。新 M4 的每日验证对象是 Qing-Agent，不能把 shadow 成绩直接当作 Qing-Agent 可靠性
 - **推理模式库** `framework/reasoning-patterns.yaml`：validation 区块回填状态见上表 M3 前置
 
 ## 日常使用说明
@@ -46,7 +46,7 @@
 ### 按需手动
 
 ```bash
-# 毕业进度查询（建议每周五收盘后跑一次；数据满 8 周才出有效判决）
+# 历史/滚动可靠性参考（不再决定 M4 能否启动；建议每周五收盘后跑一次）
 .venv/bin/python scripts/graduation_check.py
 
 # 模式命中率回填（有新证据源时）：先生成提案 → 人工评审 → 应用
@@ -78,12 +78,11 @@ PYTHONPATH=third_party/chanpy .venv/bin/pytest tests/ -q   # 全仓（当前 601
 
 | 时点 | 触发条件 | 动作 |
 |---|---|---|
-| 每周五收盘后 | — | 跑 `graduation_check.py` 看毕业进度 + `score_qing_review_vs_market.py --report` 刷新 qing 对比臂（logs/qing-vs-shadow-*.md）+ `industry_chain_freshness_check.py` 产业链保鲜巡检（logs/industry-chain-freshness.md）+ `evaluate_vs_market.py --report` 分桶巡检（logs/claims-vs-market-*.md，other 桶 >0 即需评审映射表） |
-| 2026-10-26 收盘后 | 10-19~10-23 预测的 T+5 到期结算入窗 | 重跑 `graduation_check.py`，看 10-19 周方向超额（10-25 跑时 n=0，verdict 卡点在判据 2）；会话 cron 已挂一条 18:07 提醒，会话不在则以本行备忘为准 |
-| 2026-09 初 | 影子满 ~4 周 | 启动主计划 M3 剩余项（市场结果回写置信度、UP 命中率画像；分桶与 evaluate_vs_market 基建已于 2026-08-16 提前落地，研报管线 ✅） |
-| 2026-10 初 | 影子满 8 周 | 毕业判分首次有效判决；`graduated` 才进入 M4 |
-| 毕业后 | verdict=graduated | M4 prompt 改造（拆 UP 实时锚定），evals 全绿才可合入 |
-| M4 后 | — | M5 校准常态化（季度校准 + 保鲜巡检） |
+| 每个交易日（M4 新链路上线后） | Qing-Agent 产生盘前/盘中/收盘判断 | 分轨冻结输出并核对数据时点；到期后市场结算；错误、缺失、未到期分别记录。该链路目前工程待实施，不得当作已有 cron |
+| 每周五收盘后 | — | 跑 `graduation_check.py` 看历史/滚动参考指标 + `score_qing_review_vs_market.py --report` 刷新历史对比 + `industry_chain_freshness_check.py` 保鲜巡检 + `evaluate_vs_market.py --report` 分桶巡检；同时检查 `logs/shadow-status.md` 的缺报与归因。M4 上线后改看 Qing-Agent 每日完整性和滚动可靠性报告 |
+| 2026-10-26 起（已到期） | 10-19~10-23 预测的 T+5 到期结算入窗 | 补跑到期结算并核对缺口；旧 `verdict` 仅作历史基线，不再作为 M4 启动条件 |
+| 2026-11-02 起 | 青枫浦上Q/qing 不再提供新增动态，无需等待毕业判决 | 实施 M4：prompt 拆 qing 实时锚定，保留 gator 等多专家输入；Qing-Agent 专家视角与最终合成结果分轨留痕、市场结算接入、每日完整性与滚动可靠性报告；按新 spec 验收 |
+| M4 上线并积累足够样本后 | 新链路验收通过且有可结算样本 | 启动 M5 季度校准 + 保鲜巡检；可靠性验证每日持续，不设一次性终点 |
 
 ## 当前分支与推送状态
 

@@ -1,7 +1,7 @@
-# 影子双轨完整性报告（2026-10-27）
+# 影子双轨完整性报告（2026-11-02）
 
-- 记录日数: 140，完整: 140
-- 提案: open 50 / 已解决 90（applied 26 / merged 26 / implemented 35 / done 3） / pending 16 / rejected 0 / retracted 8 / proposed 25 / archived 1
+- 记录日数: 148，完整: 148
+- 提案: open 51 / 已解决 90（applied 26 / merged 26 / implemented 35 / done 3） / pending 16 / rejected 0 / retracted 8 / proposed 23 / archived 1
 
 | 日期 | 阶段判定 | 状态 | 归因 | 完整 |
 |---|---|---|---|---|
@@ -145,6 +145,14 @@
 | 2026-10-26 | - | error | - | ✅ |
 | 2026-10-27 | - | pending_maturity | - | ✅ |
 | 2026-10-27 | - | error | - | ✅ |
+| 2026-10-28 | - | pending_maturity | - | ✅ |
+| 2026-10-28 | - | error | - | ✅ |
+| 2026-10-29 | - | pending_maturity | - | ✅ |
+| 2026-10-29 | - | error | - | ✅ |
+| 2026-10-30 | - | pending_maturity | - | ✅ |
+| 2026-10-30 | - | error | - | ✅ |
+| 2026-11-02 | - | pending_maturity | - | ✅ |
+| 2026-11-02 | - | error | - | ✅ |
 
 ## 待处理提案（open 置顶）
 
@@ -198,3 +206,4 @@
 - 2026-10-23-glossary-patch-note.md
 - 2026-10-23-pattern-patch-bottom-date.md
 - 2026-10-23-pattern-patch-note.md
+- 2026-10-31-pattern-staging.yaml

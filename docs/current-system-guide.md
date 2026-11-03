@@ -7,28 +7,29 @@
 
 ## 0. 一句话理解这个系统
 
-把一套人工投资方法论变成 **AI 自动执行 + 市场自动评分** 的系统：
-AI 每个交易日收盘后独立判断市场阶段和方向（不看任何 UP 主观点），系统记录下来，
-5 个交易日后用真实走势结算对错。攒够 8 周数据、达标就「毕业」——
-证明 AI 学会的是方法而不是模仿某个人。
+把一套人工投资方法论变成 **多专家 AI 独立运行 + 市场持续评分** 的系统：
+目标形态是 Qing-Agent 每个交易日分轨留痕各专家视角和最终合成判断，方向和标的在约定期限后用真实走势结算；
+青枫浦上Q/qing 的历史内容只作教材和历史基线，不再需要其每日动态；gator 等其他专家继续参与。
+独立运行不等于可靠性已获证明，可靠性要靠每天新增的市场样本持续验证。
 
-**当前阶段：影子双轨积累期**（总计划 M2 完成，M3 等数据）。系统每天自动跑，
-你基本不用干预，只需要知道去哪里看结果。
+**当前阶段：M4 独立运行方向已启动，工程待实施**（2026-11-02）。现有 shadow 任务仍是历史/实验对照，
+不能把它已经跑通写成 Qing-Agent 每日验证已经上线。新 M4 定义见
+`docs/superpowers/specs/2026-11-02-m4-independent-operation-design.md`。
 
 ## 1. 总计划 vs 当前进度
 
-总计划（v2.1）是一条 M0→M5 的路线，当前状态：
+总计划（v2.3）是一条 M0→M5 的路线，当前状态：
 
 | 里程碑 | 干什么 | 状态 | 产物在哪看 |
 |---|---|---|---|
 | M0 蒸馏+回测基建 | 把 UP 推理模式改写成来源中立、可验证的方法论；建 K 线缓存和回测 | ✅ | `framework/reasoning-patterns.yaml`（带 validation 区块）；回测结论 `logs/m0-acceptance.md` |
-| M1 盲测 eval | 历史回放 71 天，AI 盲判 vs 市场真值 | ✅ | 基线报告 `logs/m1-baseline-20260808.md`：阶段一致率 66.2%（毕业线 70% 未达）、方向超额 61.1%（过 60% 线） |
-| M2 影子双轨 | 每个交易日 AI 盲判 → 到期结算 → 判错归因 | ✅ 运行中 | 每日记录 `evals/shadow/predictions/`；完整性报告 `logs/shadow-status.md` |
+| M1 盲测 eval | 历史回放 71 天，AI 盲判 vs 市场真值 | ✅ | 基线报告 `logs/m1-baseline-20260808.md`：阶段一致率 66.2%、方向超额 61.1%、标的超额 56.6% |
+| M2 影子双轨 | 每个交易日 AI 盲判 → 到期结算 → 判错归因 | ✅ 机制完成，保留为对照 | 每日记录 `evals/shadow/predictions/`；完整性报告 `logs/shadow-status.md` |
 | M3 前置 | 模式命中率回填（提案制：机器生成→人审→应用） | ✅ | `framework/proposals/` |
-| M4 预备 | 毕业判分器（8 周窗口聚合） | ✅ | `logs/graduation-2026-08-09.md`（当前 verdict=insufficient_data，正常——数据不够） |
-| M3 主体 | claims 分桶、evaluate_vs_market、研报管线扩容 | 分桶+eval 基建 ✅（2026-08-16）；回写置信度/UP 画像 ⏳ 2026-09 初 | `scripts/evaluate_vs_market.py`（logs/claims-vs-market-*.md）；回写机制等影子数据攒 ~4 周 |
-| M4 本体 | 毕业后拆 prompt 里的 UP 实时锚定 | ⏳ 等毕业判决 | 连续 8 周达标才动 |
-| M5 | 季度校准常态化 | ⏳ 毕业后 | — |
+| M4 预备 | 历史判分器（8 周窗口聚合），现仅作可靠性参考 | ✅ | 最近报告 `logs/graduation-2026-10-25.md` 为 `not_yet`，不再作为 M4 启动门禁 |
+| M3 主体 | claims 分桶、evaluate_vs_market、研报管线扩容、市场结果回写 | ✅ 2026-10-24 | `scripts/evaluate_vs_market.py`；`logs/claims-vs-market-2026-10-24.md`；UP 画像仅作历史基线 |
+| M4 本体 | 仅拆青枫浦上Q/qing 实时锚定，保留 gator；每日冻结各专家视角与最终合成判断并做市场验证 | 🔄 方向已确定，工程待实施 | 新设计 `docs/superpowers/specs/2026-11-02-m4-independent-operation-design.md` |
+| M5 | M4 上线并积累样本后，季度校准常态化 | ⏳ 不再等旧式毕业 | — |
 
 另有 2026-08-10 新增的 **KPL（开盘啦）数据接入**：每日拉打板情绪+产业资讯，属总计划
 「数据底座」的扩容（补 M1 发现的「涨停池/情绪无缓存」缺口 + 产业链推导的新闻原料）。
@@ -56,22 +57,23 @@ AI 每个交易日收盘后独立判断市场阶段和方向（不看任何 UP �
                 ┌──────────── 产 出（都在 git 里可回看）────────────┐
                 │ evals/shadow/predictions/<日期>.json  每日盲判档案   │
                 │ logs/shadow-status.md                 完整性报告    │
-                │ logs/graduation-*.md                  毕业进度      │
+                │ logs/graduation-*.md                  历史可靠性参考 │
                 └──────────────────────────────────────────────────┘
 ```
 
 图里没画但同样存在的两大件：
 
 - **Qing-Agent 个股/市场分析体系**（`src/qing_investment/`，总计划的 v2.0 底子）：
-  9 节点 LangGraph 工作流、监控规则引擎、复盘通道。它是「按需使用」的分析能力
-  （通过 Hermes/技能触发），本机没有挂定时任务。M4 毕业改造的对象就是它的 prompt。
+  9 节点 LangGraph 工作流、监控规则引擎、复盘通道。它目前仍是「按需使用」的分析能力
+  （通过 Hermes/技能触发），本机没有挂定时任务。新 M4 要改造它的 prompt，并把它的每日输出
+  分轨留痕后接入市场结算；这些工程目前尚未完成。
 - **知识底座**：`knowledge/claims`（451 张观点卡）、`knowledge/industry-chains/`
-  （产业链知识库）、`sources/raw/财经`（550 篇 UP 语料，现降级为教材/对照）、
+  （产业链知识库）、`sources/raw/财经`（550 篇 UP 语料，现降级为教材/历史对照）、
   Neo4j + Qdrant（观点演化图与向量检索，同步流程见 `docs/neo4j-relation-pipeline.md`）。
 
 ## 3. 日常使用
 
-### 每天（什么都不用做）
+### 每天（现有自动任务）
 
 三条 cron 工作日自动跑（本机，详见 ops 文档）：
 
@@ -80,6 +82,10 @@ AI 每个交易日收盘后独立判断市场阶段和方向（不看任何 UP �
 | 15:35 | 续拉 217 只个股 + 指数的日 K 线 | `log/pre_fetch_klines.log` |
 | 17:45 | KPL：拉打板情绪快照 + 当日资讯全文 + 龙虎榜 | `log/kpl_daily_fetch.log` |
 | 18:05 | 影子双轨：AI 盲判当日市场（数据包含 KPL 情绪/资讯标题/龙虎榜）→ 到期结算 → 归因 → 刷新报告 | `log/shadow_daily.log` |
+
+注意：新 M4 要求的 Qing-Agent 专家视角与最终合成结果分轨留痕、每日市场验证尚未挂入本表；
+现有 shadow 运行不能替代 Qing-Agent 本身的可靠性验证。不再需要青枫浦上Q每日动态，
+gator 等其他专家输入继续保留。
 
 ### 收盘后想看结果（按这个顺序）
 
@@ -106,7 +112,7 @@ AI 每个交易日收盘后独立判断市场阶段和方向（不看任何 UP �
 ### 每周五收盘后
 
 ```bash
-.venv/bin/python scripts/graduation_check.py   # 看毕业进度（满 8 周才出有效判决）
+.venv/bin/python scripts/graduation_check.py   # 看历史/滚动可靠性参考；不再决定 M4 是否启动
 ```
 
 ### 出问题了怎么手动补跑

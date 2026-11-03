@@ -88,10 +88,10 @@ class StockPositioningResult:
     """个股综合定位结果。"""
 
     stock_code: str
-    up_position: str = ""  # UP知识库中的标注
+    up_position: str = ""  # 带日期的Qing历史标注，不是当前信号
     up_position_source: str = ""
     sector_positions: list[StockSectorPosition] = field(default_factory=list)
-    # 综合判断（优先UP标注，其次量化判断）
+    # 当前定位由实时排名决定；无实时数据时为未知
     final_position: str = ""
     final_reason: str = ""
 
@@ -483,62 +483,44 @@ def get_stock_positioning(
     up_position: str = "",
     up_position_source: str = "",
 ) -> StockPositioningResult:
-    """三层定位法：获取个股综合定位。
-
-    第一层：UP知识库定位（最可靠，如果存在）
-    第二层：板块排名定位（实时验证）
-    第三层：综合判断
-    """
+    """实时排名决定当前定位，UP标注只作为带日期的历史参考。"""
     result = StockPositioningResult(
         stock_code=code,
         up_position=up_position,
         up_position_source=up_position_source,
     )
 
-    # 第二层：获取板块内排名
     sectors = get_stock_sectors(code)
     sector_positions: list[StockSectorPosition] = []
 
-    for sector in sectors[:3]:  # 最多取前3个关联板块
+    for sector in sectors[:3]:
         pos = get_stock_rank_in_sector(code, sector["node"])
         if pos:
             sector_positions.append(pos)
 
     result.sector_positions = sector_positions
-
-    # 第三层：综合判断
+    history_reference = ""
     if up_position:
-        # UP有标注 → 优先使用，但用实时数据验证
-        if sector_positions:
-            best = sector_positions[0]
-            result.final_position = up_position
-            result.final_reason = (
-                f"【UP定位】{up_position}"
-                f"（来源：{up_position_source}）\n"
-                f"【实时验证】在{best.sector_name}板块内排名"
-                f"{best.rank}/{best.total}，涨幅{best.changepercent:.2f}%，"
-                f"量化标签：{best.position_tag}"
-            )
-        else:
-            result.final_position = up_position
-            result.final_reason = (
-                f"【UP定位】{up_position}"
-                f"（来源：{up_position_source}）\n"
-                f"【实时验证】无法获取板块排名数据，UP定位为唯一参考"
-            )
+        history_reference = (
+            f"\n【Qing历史参考】{up_position}"
+            f"（来源/日期：{up_position_source or '日期未知'}；不构成当前信号）"
+        )
+
+    if sector_positions:
+        best = sector_positions[0]
+        result.final_position = best.position_tag
+        result.final_reason = (
+            f"【实时定位】基于{best.sector_name}板块实时排名："
+            f"{best.rank}/{best.total}，涨幅{best.changepercent:.2f}%，"
+            f"量化标签：{best.position_tag}；{best.position_reason}"
+            f"{history_reference}"
+        )
     else:
-        # UP无标注 → 完全依赖量化判断
-        if sector_positions:
-            best = sector_positions[0]
-            result.final_position = best.position_tag
-            result.final_reason = (
-                f"【无UP标注】基于{best.sector_name}板块实时数据判断：\n"
-                f"排名{best.rank}/{best.total}，涨幅{best.changepercent:.2f}%，"
-                f"{best.position_reason}"
-            )
-        else:
-            result.final_position = "未知"
-            result.final_reason = "无法获取UP标注，也无法获取板块排名数据"
+        result.final_position = "未知"
+        result.final_reason = (
+            "【降级】实时板块排名不可用，无法确认当前个股定位；"
+            f"历史标注不得替代实时定位。{history_reference}"
+        )
 
     return result
 

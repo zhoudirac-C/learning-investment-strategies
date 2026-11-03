@@ -765,6 +765,7 @@ end note
 | 文件 | 类型 | 用途 | 关键消费方 |
 |------|------|------|-----------|
 | `kline_cache.db` | SQLite | 指数/个股 K 线缓存，含 MACD/成交量 | `kline_cache.py`, `BuySignalRuleEngine` |
+| `qing_agent/<date>/<track>/<record_id>.json` | JSON | Qing-Agent 盘前/盘中/收盘不可变验证记录；输入仅存哈希，原文可能含持仓，目录为 gitignored 私有数据区 | `agent/main.py`, `investment_engine.qing_validation.records` |
 | `local_memories.json` | JSON | mem0 本地 fallback | `Mem0ClientWrapper` |
 | `hot_scores_history.db` | SQLite | hot score 历史 | `hot_score.py` |
 | `qdrant_local/` | 目录 | 已废弃（2026-06-16 后只连 Qdrant server） | - |

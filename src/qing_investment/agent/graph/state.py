@@ -31,6 +31,7 @@ class AgentState(TypedDict, total=False):
     # 输入层
     query: str
     session_id: str
+    data_as_of: str | None
     trigger: dict | None
     alerts: list[dict]
     market_snapshot: dict
@@ -67,6 +68,7 @@ class AgentState(TypedDict, total=False):
 
     # 【新增】数据降级标记
     _data_missing_note: str     # 实时数据缺失时的降级说明
+    _style_writer_failed: bool
 
     # 分析层
     market_context: dict
