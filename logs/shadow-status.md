@@ -1,6 +1,6 @@
-# 影子双轨完整性报告（2026-11-02）
+# 影子双轨完整性报告（2026-11-03）
 
-- 记录日数: 148，完整: 148
+- 记录日数: 150，完整: 150
 - 提案: open 51 / 已解决 90（applied 26 / merged 26 / implemented 35 / done 3） / pending 16 / rejected 0 / retracted 8 / proposed 23 / archived 1
 
 | 日期 | 阶段判定 | 状态 | 归因 | 完整 |
@@ -153,6 +153,8 @@
 | 2026-10-30 | - | error | - | ✅ |
 | 2026-11-02 | - | pending_maturity | - | ✅ |
 | 2026-11-02 | - | error | - | ✅ |
+| 2026-11-03 | - | pending_maturity | - | ✅ |
+| 2026-11-03 | - | error | - | ✅ |
 
 ## 待处理提案（open 置顶）
 
