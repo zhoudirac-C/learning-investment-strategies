@@ -1,4 +1,18 @@
 # 操作日志
+## 2026-11-03 | qing-learning ingest | 鳄鱼派 11/3 公众号 提取（5 条，001~005）
+
+- 来源：公众号「像鳄鱼一样思考」11/3 18:00（救市，不救赌徒）；C2 raw：`sources/raw/财经/2026-11-03-公众号-救市不救赌徒.md`
+- 拆分写入 `knowledge/claims/claim-20261103-001.yaml` ~ `knowledge/claims/claim-20261103-005.yaml`（5 条）：general×3、market-cycle×2
+- 核心：救市继续买指数 ETF 但不救赌徒；上证 50 定海神针稳健 ETF 放量；非科技板块持续性给科技新股民震撼；3700/3600 看多；宽基百亿买盘下抛盘与接力
+- 无具体个股标注，related_stocks 全空；Gate 1/2/3 全过；unprocessed 已关闭；已进入 Neo4j/Qdrant 同步流程
+
+## 2026-11-03 | qing-learning ingest | 鳄鱼派 11/2 公众号 提取（6 条，001~006）
+
+- 来源：公众号「像鳄鱼一样思考」11/2 18:00（耐心等连阳）；C2 raw：`sources/raw/财经/2026-11-02-公众号-耐心等连阳.md`
+- 拆分写入 `knowledge/claims/claim-20261102-001.yaml` ~ `knowledge/claims/claim-20261102-006.yaml`（6 条）：sector-theme×1、market-cycle×1、risk×1、operation×2、general×1
+- 核心：互换便利操作预热下证券等金融工具板块可能拉升；资金流入非科技板块是1-3年主旋律；上杠杆赌科技多已爆仓；右侧买点需等三根阳线；裁判扫货宽基ETF跟裁判站一边；左侧选手耐心等连阳
+- 无具体个股标注，related_stocks 全空；Gate 1/2/3 全过；unprocessed 已关闭；已进入 Neo4j/Qdrant 同步流程
+
 ## 2026-11-02 | qing-learning ingest | 青枫浦上Q 11.1复盘专栏 提取（14 条，001~014）
 
 - 来源：B站专栏 dynamic_id 1265745120056049665（2026-11-01 22:17发布）；C2 raw：`sources/raw/财经/2026-11-01-专栏-11.1复盘-周五指数冲高回落.md`
