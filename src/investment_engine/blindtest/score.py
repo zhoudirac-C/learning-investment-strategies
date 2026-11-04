@@ -46,13 +46,20 @@ def stage_accuracy(results: list[dict], truth: dict[str, str]) -> dict:
     }
 
 
-def _forward(db_path, code: str, day: str, horizon: int) -> float | None:
+def _forward(
+    db_path,
+    code: str,
+    day: str,
+    horizon: int,
+    *,
+    as_of: str = "2999-12-31",
+) -> float | None:
     # 指数（IDX 别名）读 index_klines 表，个股读 stocks_kline 表
     from investment_engine.backtest.history import INDEX_ALIAS_TO_CODE
     if code in INDEX_ALIAS_TO_CODE:
-        klines = get_index_daily(code, day, "2999-12-31", db_path=db_path)
+        klines = get_index_daily(code, day, as_of, db_path=db_path)
     else:
-        klines = get_klines_range(code, day, "2999-12-31", db_path=db_path)
+        klines = get_klines_range(code, day, as_of, db_path=db_path)
     return forward_return(klines, day, horizon)
 
 
@@ -137,17 +144,21 @@ def _industry_alias_members(config_dir, direction_id: str) -> list[str]:
 
 
 def direction_scores(results: list[dict], *, config_dir, db_path=None,
-                     bench_code: str = BENCH_CODE, horizon: int = 5) -> dict:
+                     bench_code: str = BENCH_CODE, horizon: int = 5,
+                     as_of: str = "2999-12-31") -> dict:
     hits = samples = 0
     details = []
     for r in results:
         for d in r["result"].get("directions", []):
             members = _direction_members(config_dir, d["direction_id"])
             rets = [
-                v for v in (_forward(db_path, c, r["date"], horizon) for c in members)
+                v for v in (
+                    _forward(db_path, c, r["date"], horizon, as_of=as_of)
+                    for c in members
+                )
                 if v is not None
             ]
-            bench = _forward(db_path, bench_code, r["date"], horizon)
+            bench = _forward(db_path, bench_code, r["date"], horizon, as_of=as_of)
             if not rets or bench is None:
                 continue
             dir_ret = sum(rets) / len(rets)
@@ -161,16 +172,17 @@ def direction_scores(results: list[dict], *, config_dir, db_path=None,
 
 
 def stock_scores(results: list[dict], *, db_path=None,
-                 bench_code: str = BENCH_CODE, horizon: int = 5) -> dict:
+                 bench_code: str = BENCH_CODE, horizon: int = 5,
+                 as_of: str = "2999-12-31") -> dict:
     hits = samples = 0
     details = []
     for r in results:
-        bench = _forward(db_path, bench_code, r["date"], horizon)
+        bench = _forward(db_path, bench_code, r["date"], horizon, as_of=as_of)
         if bench is None:
             continue
         for d in r["result"].get("directions", []):
             for code in d.get("stocks", []):
-                ret = _forward(db_path, code, r["date"], horizon)
+                ret = _forward(db_path, code, r["date"], horizon, as_of=as_of)
                 if ret is None:
                     continue
                 hit = (ret - bench) > 1e-9  # 严格正超额；eps 挡浮点尾差

@@ -9,7 +9,7 @@
 - validation 门禁只过滤 qing 的来源中立生产规则，并保留 school/validation 元数据。gator 的现有专家 patterns 保持原召回行为，同时如实标注草案/未独立验证；不得伪填命中率或关闭 gator 规则、冲突卡和双学派契约。新 spec 中相应句子需同步改成这个按学派处理的口径。
 - 不改 `config/schools.yaml`，不删除其他 UP，不改监控器全局 `up_sentiment` 字段，不接交易接口，不安装新 cron，不执行 commit/push。
 
-## 实施进度（2026-11-03）
+## 实施进度（更新至 2026-11-04）
 
 > 本节记录工程进度，不代表 M4 已通过最终验收；设计文档的实施状态仅在真实链路验收通过后调整。
 
@@ -17,18 +17,28 @@
 |---|---|---|
 | Task 1 | 已有实现与回归测试改动，待逐项验收 | qing 实时锚定清理、按学派 pattern 门禁及相关 prompt/图测试已写入工作区；最终回归与真实链路验收尚未完成 |
 | Task 2 | 工程实现已落地，定向测试通过 | 分轨不可变记录、结构化判断、成功冻结与 wrapper 错误补记已实现；两个定向测试文件合计 `88 passed, 1 warning`；尚未做真实 Qing-Agent 触发验收 |
-| Task 3 | 未开始 | `settle.py`、`attribute.py` 及对应测试尚未创建 |
+| Task 3 | 工程实现已完成，定向与相关回归通过 | 已实现 T+5 到期结算、最终/专家分轨评分、缺行情与异常隔离、待复核归因、历史补跑防前视及并发写保护；真实链路验收留待第三步 |
 | Task 4 | 未开始 | `report.py`、`scripts/qing_agent_validation.py` 及对应测试尚未创建；未安装新 cron |
 
 ### 验证记录
 
 - 2026-11-03 Task 2 定向测试：`PYTHONPATH=third_party/chanpy .venv/bin/pytest tests/investment_engine/test_qing_validation_records.py tests/test_qing_agent_trigger_freeze.py -q`，结果 **88 passed, 1 warning**；警告为既有 Pydantic V2 弃用提示。
+- 2026-11-04 Task 3 定向与相关回归：运行两个新测试文件及 `test_qing_validation_records.py`、`test_score.py`、`test_maturity.py`、`test_daily.py`，结果 **137 passed, 1 warning**。覆盖真实合成 SQLite 评分、T+4/T+5、严格正超额、非 long、缺失行情、最终/专家隔离、归因历史保留、股票代码归一化、历史补跑防前视和并发冲突保护。
+- 2026-11-04 扩大回归：`PYTHONPATH=third_party/chanpy .venv/bin/pytest tests/investment_engine tests/test_qing_agent_trigger_freeze.py -q`，结果 **994 passed, 3 failed, 2 warnings**。失败为 11-03 已有记录中的 `test_chain_tracker_core.py::TestTick` 两项和 `test_qing_review.py::TestNormalizeStage::test_real_file_labels_all_mapped` 一项；本次未修改对应实现，尚未做干净基线复跑，不记为全仓全绿。
 - 2026-11-03 标准全仓命令 `PYTHONPATH=third_party/chanpy .venv/bin/pytest tests/ -q` 已完成，结果 **2207 passed, 4 failed, 4 skipped, 2 deselected, 3 warnings**（1175.32 秒）。全仓未全绿，不能记为验收通过。
   - `test_chain_tracker_core.py::TestTick` 2 项失败：量价护栏拦截后 `changes` 实际为 1、预期为 2。
   - `test_qing_review.py::TestNormalizeStage::test_real_file_labels_all_mapped`：真实 summary 出现 2 个未映射阶段标签。
   - `test_bilibili_video_asr.py::test_asr_video_preview_only_logs_and_returns_empty`：预期空字符串，实际返回长视频跳过提示。
   - 上述 4 项在全仓运行前的 `.pytest_cache/v/cache/lastfailed` 中已有记录，且均不在 Task 2 的两个定向测试文件内；尚未用干净基线 worktree 复跑，因此只记为“已有失败记录、归因未完成”，不宣称已证明与 M4 改动无关。
 - 无 qing 当日输入的真实 Qing-Agent 触发、留痕到报告的端到端闭环均未验收；不得用 mock 测试代替该项结论。
+
+## 本轮三步核心执行计划（2026-11-04）
+
+1. **市场结算与错因归因**：新建 `qing_validation/settle.py`、`attribute.py` 及定向测试。只读扫描冻结记录，复用 `blindtest.score` 的沪深300相对收益口径，对最终判断和可独立结算的专家视角分别做 T+5 结算；按 `record_id + target + target_id` 追加结果，不改原判断。未到期、缺行情、异常和缺失分别保留为 `pending_maturity`、`insufficient_data`、`error/missing`，均不得误计命中；非 long 不按多头评分。市场 miss 只生成数据缺、步骤缺、概念/学派归属错误、信息差的待复核归因候选，不自动修改规则。
+2. **每日完整性与滚动可靠性报告**：新建 `qing_validation/report.py` 和 `scripts/qing_agent_validation.py`。日报覆盖三轨完整性、异常、缺报和到期状态；4/8 周滚动报告将最终判断与专家视角分表，统计方向/标的超额、样本数、环境分布及候选归因。提供 `settle/report/run` 三个手动 CLI 子命令，默认读取 `infra/data/qing_agent`、写入 `logs/qing-agent-*`，不新增 cron。
+3. **真实链路验收**：在无 qing 当日输入且保留 gator 输入的条件下触发一次真实 Qing-Agent 流程，核对冻结原文、专家视角、gator 快照、数据时点和规则/prompt 版本，再执行统一 CLI 检查留痕到报告的回链。未到期必须保持 `pending_maturity`，不得为验收伪造 T+5 结果；随后完成相关测试、prompt/evals 与全仓回归，并通过后再更新 M4 实施状态。
+
+完成标准：一条真实判断能够按“冻结 → 回链 → 到期结算 → 归因 → 报告”流转，异常、缺失和未到期均不会进入命中统计。
 
 ## Task 1：拆除 qing 实时锚定，保护多专家与生产模式门禁
 
@@ -82,7 +92,9 @@
 
 **主要文件**
 - 新增 `src/investment_engine/qing_validation/{settle.py,attribute.py}`
-- 新增 `tests/investment_engine/test_qing_validation_settle.py`、`test_qing_validation_attribute.py`
+- 扩展 `src/investment_engine/blindtest/score.py`：可选 `as_of` 限制评分读取截止日期，默认行为不变
+- 扩展 `src/investment_engine/qing_validation/records.py`：以共享目录锁保护版本创建与结算写入
+- 新增 `tests/investment_engine/test_qing_validation_settle.py`、`test_qing_validation_attribute.py`，扩展 `test_score.py`
 
 **步骤**
 1. 写结算失败测试：T+4 不结算、T+5 到期、严格正超额、非 long 不按多头评分、缺失行情为 insufficient_data、pending/error/missing 不进分母。

@@ -1,11 +1,14 @@
 from __future__ import annotations
 
 import copy
+import fcntl
 import hashlib
 import json
 import os
 import re
 import tempfile
+from collections.abc import Iterator
+from contextlib import contextmanager
 from datetime import date as date_type
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -17,6 +20,18 @@ from qing_investment.paths import repo_root
 _VALID_TRACKS = {"pre_market", "intraday", "closing"}
 _VALID_STATUSES = {"pending_maturity", "scored", "error", "missing"}
 _RECORD_ID_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]{0,127}\Z")
+
+
+@contextmanager
+def record_directory_lock(path: Path) -> Iterator[None]:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    lock_path = path.parent / ".record.lock"
+    with lock_path.open("a+b") as handle:
+        fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
 
 
 def resolve_track(trigger: dict) -> str:
@@ -341,35 +356,35 @@ def _find_auto_supersedes(record: dict, path: Path) -> str | None:
 
 def save_record(record: dict, *, root: Path | str | None = None) -> Path:
     path = record_path(record, root=root)
-    record_to_save = dict(record)
-    supersedes_record_id = record_to_save.get("supersedes_record_id")
-    if supersedes_record_id is not None and supersedes_record_id != "":
-        _validate_explicit_supersedes(record_to_save, path)
-    else:
-        record_to_save["supersedes_record_id"] = _find_auto_supersedes(
-            record_to_save, path
-        )
+    with record_directory_lock(path):
+        record_to_save = dict(record)
+        supersedes_record_id = record_to_save.get("supersedes_record_id")
+        if supersedes_record_id is not None and supersedes_record_id != "":
+            _validate_explicit_supersedes(record_to_save, path)
+        else:
+            record_to_save["supersedes_record_id"] = _find_auto_supersedes(
+                record_to_save, path
+            )
 
-    serialized = json.dumps(
-        record_to_save,
-        ensure_ascii=False,
-        sort_keys=True,
-        indent=2,
-        allow_nan=False,
-    ) + "\n"
-    path.parent.mkdir(parents=True, exist_ok=True)
-    fd, temporary_name = tempfile.mkstemp(
-        prefix=f".{path.stem}.",
-        suffix=".tmp",
-        dir=path.parent,
-    )
-    temporary_path = Path(temporary_name)
-    try:
-        with os.fdopen(fd, "w", encoding="utf-8") as handle:
-            handle.write(serialized)
-            handle.flush()
-            os.fsync(handle.fileno())
-        os.link(temporary_path, path)
-    finally:
-        temporary_path.unlink(missing_ok=True)
+        serialized = json.dumps(
+            record_to_save,
+            ensure_ascii=False,
+            sort_keys=True,
+            indent=2,
+            allow_nan=False,
+        ) + "\n"
+        fd, temporary_name = tempfile.mkstemp(
+            prefix=f".{path.stem}.",
+            suffix=".tmp",
+            dir=path.parent,
+        )
+        temporary_path = Path(temporary_name)
+        try:
+            with os.fdopen(fd, "w", encoding="utf-8") as handle:
+                handle.write(serialized)
+                handle.flush()
+                os.fsync(handle.fileno())
+            os.link(temporary_path, path)
+        finally:
+            temporary_path.unlink(missing_ok=True)
     return path

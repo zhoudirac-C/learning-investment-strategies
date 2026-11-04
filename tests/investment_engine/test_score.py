@@ -82,3 +82,41 @@ class TestDirectionAndStockScores:
         s = direction_scores(self._results(tmp_path), config_dir="x", db_path=self.db, horizon=5)
         # 等权 (10% + -10%)/2 = 0 → 超额 0，不记命中（严格 >0）
         assert s["samples"] == 1 and s["hits"] == 0
+
+
+def test_as_of_limits_forward_data_and_default_behavior_is_unchanged(tmp_path, monkeypatch):
+    db_path = tmp_path / "score.db"
+    init_db(db_path=db_path)
+    stock_bars = [
+        bar for bar in _klines("002371", [10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11])
+        if bar["date"] != "2026-06-06"
+    ]
+    benchmark_bars = [
+        bar for bar in _klines("IDX000300", [4000.0] * 12)
+        if bar["date"] != "2026-06-06"
+    ]
+    save_klines("002371", stock_bars, db_path=db_path)
+    save_index_klines("sh000300", benchmark_bars, db_path=db_path)
+    results = [
+        {
+            "date": "2026-06-01",
+            "ok": True,
+            "result": {
+                "directions": [{"direction_id": "d1", "stocks": ["002371"]}]
+            },
+        }
+    ]
+    monkeypatch.setattr(
+        "investment_engine.blindtest.score._direction_members",
+        lambda config_dir, direction_id: ["002371"],
+    )
+
+    assert stock_scores(results, db_path=db_path)["samples"] == 1
+    assert direction_scores(results, config_dir="x", db_path=db_path)["samples"] == 1
+    assert stock_scores(results, db_path=db_path, as_of="2026-06-06")["samples"] == 0
+    assert direction_scores(
+        results,
+        config_dir="x",
+        db_path=db_path,
+        as_of="2026-06-06",
+    )["samples"] == 0
