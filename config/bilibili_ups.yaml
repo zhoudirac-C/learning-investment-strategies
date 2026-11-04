@@ -24,7 +24,8 @@ version: 2
 ups:
   - uid: "1420210197"
     name: "青枫浦上Q"
-    enabled: true
+    enabled: false
+    # 2026-11-04 用户拍板：青枫浦上Q 未充电，后续看不到动态内容，文字动态不再推送/抓取
     priority: core
 
   - uid: "525121722"
