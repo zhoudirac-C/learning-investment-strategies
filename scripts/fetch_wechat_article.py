@@ -148,12 +148,13 @@ def ts_to_dt(ts) -> str:
         return datetime.now().strftime("%Y-%m-%d")
 
 
-def export_article(row: dict, out_dir: Path) -> Path:
+def export_article(row: dict, out_dir: Path) -> tuple[Path, bool]:
     title = row["title"] or "untitled"
     date = ts_to_dt(row["publish_time"])
     fname = f"{date}-{safe_filename(title)}.md"
     path = out_dir / fname
     body = html_to_text(row["content"] or "")
+    has_body = bool(body)
     if not body:
         body = f"> [TODO] 正文未抓到（content 空），检查容器内文章补抓任务后重跑本脚本"
     fm = (
@@ -170,7 +171,7 @@ def export_article(row: dict, out_dir: Path) -> Path:
         f"> 来源：公众号 [{UP_NAME}]({row['url'] or ''})\n\n"
     )
     path.write_text(fm + body + "\n", encoding="utf-8")
-    return path
+    return path, has_body
 
 
 def main() -> int:
@@ -237,7 +238,7 @@ def main() -> int:
 
     written: list[Path] = []
     for r in new_rows:
-        p = export_article(r, OUT_DIR)
+        p, has_body = export_article(r, OUT_DIR)
         written.append(p)
         try:
             import pwd
@@ -245,7 +246,11 @@ def main() -> int:
             os.chown(p, u.pw_uid, u.pw_gid)
         except Exception:
             pass
-        state["exported_ids"].append(r["id"])
+        # 只有正文成功抓取才标记为已导出；正文为空时保留在 pending，等待下次重试
+        if has_body:
+            state["exported_ids"].append(r["id"])
+        else:
+            log_fetch("export_pending_content", article_id=r["id"], title=r.get("title", ""))
 
     # 状态文件只保留最近 500 个 id，防膨胀
     state["exported_ids"] = state["exported_ids"][-500:]
