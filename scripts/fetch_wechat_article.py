@@ -15,8 +15,9 @@ sources/original/wechat/<date>-<title>.md，仿 fetch_bilibili_up_v2 模式。
 说明:
     - we-mp-rss DB 为 root 属主，脚本需 sudo 运行（cron 同理）
     - 状态文件 ~/.hermes/wechat_mp_state.json 记录已导出 article id
-    - 正文优先取 content（纯文本/HTML→markdown 近似），空则留 TODO 由
-      content 补抓任务（容器内 fetch_articles_without_content）稍后补
+    - 正文优先取 content（纯文本/HTML→markdown 近似），空则自动 fallback：
+      用 iPhone 微信 User-Agent 直接抓取文章页面，提取 content_noencode 字段；
+      若 URL 含 ~ 会自动重试替换为 _（微信服务端对 ~ 返回空壳）
 """
 
 from __future__ import annotations
@@ -28,6 +29,8 @@ import os
 import re
 import sqlite3
 import sys
+
+import requests
 from datetime import datetime
 from pathlib import Path
 
@@ -136,6 +139,69 @@ def html_to_text(raw: str) -> str:
     return t.strip()
 
 
+WECHAT_MP_UA = (
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) "
+    "AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 "
+    "MicroMessenger/8.0.48(0x18003035) NetType/WIFI Language/zh_CN"
+)
+
+
+def fetch_wechat_content_fallback(url: str) -> str:
+    """当 we-mp-rss 容器内正文抓取失败时，使用微信客户端 UA 作为 fallback 重新抓取。
+
+    从文章页面 HTML 中提取 content_noencode 字段（JS 转义字符串），
+    处理 JS 转义序列 + HTML 解码，再剥离标签得到纯文本正文。
+    """
+    if not url:
+        return ""
+    # 微信文章 URL 中的 ~ 会导致服务端返回空壳，尝试替换为 _
+    urls_to_try = [url]
+    if "~" in url:
+        urls_to_try.append(url.replace("~", "_"))
+    for try_url in urls_to_try:
+        try:
+            session = requests.Session()
+            session.headers.update({
+                "User-Agent": WECHAT_MP_UA,
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Accept-Language": "zh-CN,zh;q=0.9",
+                "Referer": "https://mp.weixin.qq.com/",
+            })
+            session.get("https://mp.weixin.qq.com/", timeout=15)
+            r = session.get(try_url, timeout=30)
+            if r.status_code != 200:
+                continue
+
+            html_text = r.text
+
+            m = re.search(r"content_noencode:\s*'((?:\\.|[^\\']*)*)'", html_text, re.DOTALL)
+            if not m:
+                m = re.search(r'content_noencode:\s*"((?:\\.|[^\\"]*)*)"', html_text, re.DOTALL)
+            if not m:
+                continue
+
+            content_encoded = m.group(1)
+
+            def replace_hex(mm):
+                return chr(int(mm.group(1), 16))
+
+            def replace_unicode(mm):
+                return chr(int(mm.group(1), 16))
+
+            s = re.sub(r"\\x([0-9a-fA-F]{2})", replace_hex, content_encoded)
+            s = re.sub(r"\\u([0-9a-fA-F]{4})", replace_unicode, s)
+            s = s.replace("\\'", "'")
+            s = s.replace("\\\\", "\\")
+
+            s = html.unescape(s)
+
+            return html_to_text(s)
+        except Exception as exc:
+            print(f"WARN: wechat content fallback failed for {try_url}: {exc}", file=sys.stderr)
+            continue
+    return ""
+
+
 def safe_filename(title: str) -> str:
     t = re.sub(r'[\\/:*?"<>|\s]+', "-", title).strip("-.")
     return t[:80]
@@ -155,6 +221,21 @@ def export_article(row: dict, out_dir: Path) -> tuple[Path, bool]:
     path = out_dir / fname
     body = html_to_text(row["content"] or "")
     has_body = bool(body)
+    # 正文为空时，尝试用微信客户端 UA 作为 fallback 重新抓取
+    if not body:
+        url_val = None
+        if hasattr(row, "get"):
+            url_val = row.get("url")
+        else:
+            try:
+                url_val = row["url"]
+            except (KeyError, TypeError):
+                pass
+        if url_val:
+            fallback_body = fetch_wechat_content_fallback(url_val)
+            if fallback_body:
+                body = fallback_body
+                has_body = True
     if not body:
         body = f"> [TODO] 正文未抓到（content 空），检查容器内文章补抓任务后重跑本脚本"
     fm = (
