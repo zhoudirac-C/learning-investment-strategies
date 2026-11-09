@@ -320,7 +320,7 @@ def get_llm_client_with_fallback(
             api_key=fb_api_key,
             base_url=fb_cfg["base_url"],
             temperature=0.3,
-            max_tokens=max_tokens or 4096,
+            max_tokens=max_tokens or 10000,
             request_timeout=120,
         ))
     return FallbackChatOpenAI(clients)
@@ -354,7 +354,7 @@ def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -
     Args:
         provider: 目标 provider，如 'kimi', 'deepseek', 'kimi-code-cli', 'kimi-code-acp'。
             None 则使用 settings.llm_provider。
-        max_tokens: 覆盖默认的 4096 输出上限（长输出任务如批量提取建议 16384）；
+        max_tokens: 覆盖默认的 10000 输出上限（长输出任务如批量提取建议 16384）；
             仅对标准 OpenAI 协议 provider 生效。
 
     Returns:
@@ -403,7 +403,7 @@ def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -
                 # 2026-10-09：k3（api.kimi.com/coding）只允许 temperature=1，
                 # 传 0.3 报 400 invalid temperature；hermes_global 跟随全局模型，统一用 1
                 temperature=1,
-                max_tokens=max_tokens or 4096,
+                max_tokens=max_tokens or 10000,
                 request_timeout=120,
             )
         # 降级到 .env 主通道
@@ -458,7 +458,7 @@ def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -
         api_key=api_key,
         base_url=base_url,
         temperature=0.3,
-        max_tokens=max_tokens or 4096,
+        max_tokens=max_tokens or 10000,
         request_timeout=120,  # 防止 API hang 死
     )
 

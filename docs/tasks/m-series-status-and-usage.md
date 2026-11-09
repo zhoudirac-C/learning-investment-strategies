@@ -14,7 +14,7 @@
 | M3 前置（patterns 回填） | ✅ 完成 | 5 个模式写入 M1 实测命中率 + 分环境段明细；technical_timing/operation_strategy 保持 M0 回测值 0.5182；3 个未使用模式保持 pending-m1；提案制机制（生成→人审→应用）落地（`framework/proposals/20260809-pattern-validation-m1.yaml`） |
 | M4 预备（历史判分器） | ✅ 完成，转为可靠性参考 | 8 周窗口聚合工具保留。最近报告 `logs/graduation-2026-10-25.md` 为 `not_yet`：方向超额 40.9%（n=93），低于 60% 参考线；该历史结果不得改写为已通过。2026-11-02 起，判分结果不再是 M4 启动门禁 |
 | M3 剩余 | ✅ 完成（2026-10-24） | 回写机制落地（`claim_direction` LLM 判向 1499 条 → `claim_outcome` 5 日 forward 结算 689 条 → `up_hit_profile` 画像 + evaluate_vs_market 出数）。存量口径：up 桶命中率 42.1%(n=518)；青枫浦上Q 总览 42.5%（stock-view 46.5%/market-cycle 37.3%/sector-theme 31.5%/operation 16.7%，以 logs/claims-vs-market-2026-10-24.md 为准）；鳄鱼派样本不足。109 条 pending_data 窗口到点重跑 settle 转终态。30 条判向人审错向 3.3%。这些 UP 结果此后只作历史基线 |
-| M4 本体（多专家独立运行 + Qing-Agent 每日市场验证） | 🔄 2026-11-02 方向启动，工程待实施 | 不再等待连续 8 周达标；仅青枫浦上Q/qing 退出新增实时输入与每日差异对照，gator、观察池及双学派平权规则保留。实施项：prompt 拆 qing 实时锚定、专家视角与最终合成的分轨留痕、市场到期结算、每日完整性与滚动可靠性报告。设计见 `docs/superpowers/specs/2026-11-02-m4-independent-operation-design.md`；启动不等于可靠性已达标 |
+| M4 本体（多专家独立运行 + Qing-Agent 每日市场验证） | 🔄 回归全绿；真实留痕与报告回链已验收，完整闭环未完成 | 2026-11-09 最终标准全仓 `2271 passed, 4 skipped, 5 deselected, 3 warnings`。2026-11-06 的 9 条真实响应均与冻结原文一致，统一 CLI 已生成日报与滚动报告；2026-11-09 截至 13:01 的 5 条真实记录为 3 条 pending、2 条 error，两批实际可独立结算项均为 0，真实 T+5 结算与归因仍待验收。仅青枫浦上Q/qing 退出新增实时输入与每日差异对照，gator、观察池及双学派平权规则保留；未安装新 cron。设计见 `docs/superpowers/specs/2026-11-02-m4-independent-operation-design.md`；启动不等于可靠性已达标 |
 | M5 校准常态化 | ⏳ M4 上线并积累样本后 | 季度分桶校准 + 产业链保鲜巡检；不再等待旧式毕业。巡检器已存在 `scripts/industry_chain_freshness_check.py`，已列入下方周五例行 |
 
 ## 数据资产现状
@@ -56,17 +56,26 @@
 
 # 手动补跑影子某日
 .venv/bin/python scripts/shadow_daily.py --date 2026-08-07
+
+# Qing-Agent 已有冻结记录：分别结算、出报告，或按“结算→报告”一次执行
+.venv/bin/python scripts/qing_agent_validation.py settle --date 2026-11-04
+.venv/bin/python scripts/qing_agent_validation.py report --date 2026-11-04
+.venv/bin/python scripts/qing_agent_validation.py run --date 2026-11-04
 ```
+
+Qing-Agent 验证默认读取 `infra/data/qing_agent/` 和 `infra/data/kline_cache.db`，写入
+`logs/qing-agent-daily-<date>.md` 与 `logs/qing-agent-reliability-<date>.md`；可用
+`--root/--db/--out-dir` 重定向，`settle/run` 另支持 `--config-dir`。`report` 不改冻结记录。
+当前只有手动入口，未安装 cron。2026-11-06 真实响应到冻结与报告的回链已验收；现有记录没有可独立结算项，真实 T+5 到期结算与 miss 归因仍未验收。
 
 ### 测试与回归
 
 ```bash
-.venv/bin/pytest tests/investment_engine -q          # 引擎测试（当前 275 passed）
-PYTHONPATH=third_party/chanpy .venv/bin/pytest tests/ -q   # 全仓（当前 601 passed + 3 个已存在环境型失败）
+.venv/bin/pytest tests/investment_engine -q
+PYTHONPATH=third_party/chanpy .venv/bin/pytest tests/ -q
 ```
 
-已存在的环境型失败（基线，非回归）：`test_evaluate_agent_vs_up×2`、
-`test_kimi_code_cli_short_output`。
+2026-11-09 M4 验收相关回归为 **268 passed, 1 warning**；最终标准全仓为 **2271 passed, 4 skipped, 5 deselected, 3 warnings**（446.93 秒），命令退出码 0。11-07 的真实复盘标签映射、ASR 试看、买入信号价格区间拒绝 3 项失败均已清零；本轮另修复 120 分钟 bar 窗口边界，并将真实调用 localhost Agent 的 Phase 7 三项归入既有 live 分组（5 deselected = 原有 2 项 + 该 3 项），未删除测试或伪造响应。全仓后正式冻结目录无 mock 记录。
 
 ### 操作纪律（本系列实证过的坑）
 
@@ -78,7 +87,7 @@ PYTHONPATH=third_party/chanpy .venv/bin/pytest tests/ -q   # 全仓（当前 601
 
 | 时点 | 触发条件 | 动作 |
 |---|---|---|
-| 每个交易日（M4 新链路上线后） | Qing-Agent 产生盘前/盘中/收盘判断 | 分轨冻结输出并核对数据时点；到期后市场结算；错误、缺失、未到期分别记录。该链路目前工程待实施，不得当作已有 cron |
+| 每个交易日（M4 新链路上线后） | Qing-Agent 产生盘前/盘中/收盘判断 | 分轨冻结输出并核对数据时点；到期后市场结算；错误、缺失、未到期分别记录。真实留痕与报告回链已验收，仍无可独立结算的真实样本；不得当作已有 cron |
 | 每周五收盘后 | — | 跑 `graduation_check.py` 看历史/滚动参考指标 + `score_qing_review_vs_market.py --report` 刷新历史对比 + `industry_chain_freshness_check.py` 保鲜巡检 + `evaluate_vs_market.py --report` 分桶巡检；同时检查 `logs/shadow-status.md` 的缺报与归因。M4 上线后改看 Qing-Agent 每日完整性和滚动可靠性报告 |
 | 2026-10-26 起（已到期） | 10-19~10-23 预测的 T+5 到期结算入窗 | 补跑到期结算并核对缺口；旧 `verdict` 仅作历史基线，不再作为 M4 启动条件 |
 | 2026-11-02 起 | 青枫浦上Q/qing 不再提供新增动态，无需等待毕业判决 | 实施 M4：prompt 拆 qing 实时锚定，保留 gator 等多专家输入；Qing-Agent 专家视角与最终合成结果分轨留痕、市场结算接入、每日完整性与滚动可靠性报告；按新 spec 验收 |

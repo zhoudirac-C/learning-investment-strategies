@@ -2,8 +2,9 @@
 Phase 7 验收测试 — 模拟场景验证
 覆盖：7.1 烂板竞价, 7.2 四种持仓类型, 7.3 tomorrow_scenarios
 
-运方式：.venv/bin/python tests/test_phase7_scenarios.py
-前置条件：qing-agent 运行在 localhost:8000
+运行方式：.venv/bin/python -m pytest -m live tests/test_phase7_scenarios.py
+前置条件：隔离的 qing-agent 运行在 localhost:8000，且 QING_AGENT_VALIDATION_ROOT
+指向临时目录；不得连接写入正式冻结账本的生产实例。
 """
 from __future__ import annotations
 
@@ -13,6 +14,10 @@ import urllib.request
 import urllib.error
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+
+import pytest
+
+pytestmark = pytest.mark.live
 
 CN_TZ = timezone(timedelta(hours=8))
 QING_AGENT_URL = "http://localhost:8000/analyze/trigger"

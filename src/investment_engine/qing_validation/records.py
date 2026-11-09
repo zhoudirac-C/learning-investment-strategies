@@ -22,6 +22,18 @@ _VALID_STATUSES = {"pending_maturity", "scored", "error", "missing"}
 _RECORD_ID_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]{0,127}\Z")
 
 
+def normalize_day(day: str) -> str:
+    if not isinstance(day, str):
+        raise ValueError("day must be a canonical YYYY-MM-DD string")
+    try:
+        parsed = date_type.fromisoformat(day)
+    except ValueError as exc:
+        raise ValueError("day must be a canonical YYYY-MM-DD string") from exc
+    if parsed.isoformat() != day:
+        raise ValueError("day must be a canonical YYYY-MM-DD string")
+    return day
+
+
 @contextmanager
 def record_directory_lock(path: Path) -> Iterator[None]:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -307,6 +319,12 @@ def _validate_explicit_supersedes(record: dict, path: Path) -> None:
         raise ValueError("supersedes_record_id generated_at values must be comparable") from exc
     if target_is_newer:
         raise ValueError("supersedes_record_id target generated_at must not be newer")
+    for candidate_path in path.parent.glob("*.json"):
+        if candidate_path == path:
+            continue
+        candidate = _read_existing_record(candidate_path)
+        if candidate and candidate.get("supersedes_record_id") == supersedes_record_id:
+            raise ValueError("supersedes_record_id target is already superseded")
 
 
 def _generated_at_sort_key(path: Path, record: dict) -> tuple[datetime, int, str]:

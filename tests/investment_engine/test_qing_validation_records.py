@@ -113,6 +113,23 @@ def test_rerun_adds_linked_version_without_changing_old_bytes(tmp_path):
     assert json.loads(first_path.read_text(encoding="utf-8"))["raw_output"] == "第一次判断"
 
 
+def test_save_rejects_second_explicit_supersession_of_same_target(tmp_path):
+    first = _record(record_id="lineage-001")
+    second = _record(record_id="lineage-002", supersedes_record_id="lineage-001")
+    third = _record(record_id="lineage-003", supersedes_record_id="lineage-001")
+    first_path = save_record(first, root=tmp_path)
+    second_path = save_record(second, root=tmp_path)
+    first_bytes = first_path.read_bytes()
+    second_bytes = second_path.read_bytes()
+
+    with pytest.raises(ValueError, match="already superseded"):
+        save_record(third, root=tmp_path)
+
+    assert first_path.read_bytes() == first_bytes
+    assert second_path.read_bytes() == second_bytes
+    assert not record_path(third, root=tmp_path).exists()
+
+
 def test_save_uses_exclusive_creation_and_never_overwrites(tmp_path):
     record = _record(record_id="exclusive-001", raw_output="原始内容")
     path = save_record(record, root=tmp_path)

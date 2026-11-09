@@ -418,7 +418,7 @@ def test_asr_video_preview_only_logs_and_returns_empty(monkeypatch, tmp_path):
     monkeypatch.setattr(asr, "check_ffmpeg", lambda: True)
     monkeypatch.setattr(
         asr, "fetch_video_meta",
-        lambda b, s, c=None: {"cid": "123", "duration_ms": 4470000},
+        lambda b, s, c=None: {"cid": "123", "duration_ms": 600000},
     )
 
     def boom(b, c, s, cfg=None, expected_duration_ms=None):

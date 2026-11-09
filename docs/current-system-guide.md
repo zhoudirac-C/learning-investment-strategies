@@ -12,7 +12,7 @@
 青枫浦上Q/qing 的历史内容只作教材和历史基线，不再需要其每日动态；gator 等其他专家继续参与。
 独立运行不等于可靠性已获证明，可靠性要靠每天新增的市场样本持续验证。
 
-**当前阶段：M4 独立运行方向已启动，工程待实施**（2026-11-02）。现有 shadow 任务仍是历史/实验对照，
+**当前阶段：M4 回归已全绿，真实留痕与报告回链已验收，完整闭环尚未通过**（2026-11-09）。最终标准全仓为 **2271 passed, 4 skipped, 5 deselected, 3 warnings**；Phase 7 的 3 项真实服务集成测试已归入既有 live 分组。2026-11-06 的 9 条真实 Qing-Agent 响应均已回链到冻结原文和报告；2026-11-09 截至 13:01 的 5 条真实记录为 3 条 pending、2 条 error，实际可独立结算项仍为 0。真实 T+5 结算与归因仍待验收，也未安装新 cron。现有 shadow 任务仍是历史/实验对照，
 不能把它已经跑通写成 Qing-Agent 每日验证已经上线。新 M4 定义见
 `docs/superpowers/specs/2026-11-02-m4-independent-operation-design.md`。
 
@@ -28,7 +28,7 @@
 | M3 前置 | 模式命中率回填（提案制：机器生成→人审→应用） | ✅ | `framework/proposals/` |
 | M4 预备 | 历史判分器（8 周窗口聚合），现仅作可靠性参考 | ✅ | 最近报告 `logs/graduation-2026-10-25.md` 为 `not_yet`，不再作为 M4 启动门禁 |
 | M3 主体 | claims 分桶、evaluate_vs_market、研报管线扩容、市场结果回写 | ✅ 2026-10-24 | `scripts/evaluate_vs_market.py`；`logs/claims-vs-market-2026-10-24.md`；UP 画像仅作历史基线 |
-| M4 本体 | 仅拆青枫浦上Q/qing 实时锚定，保留 gator；每日冻结各专家视角与最终合成判断并做市场验证 | 🔄 方向已确定，工程待实施 | 新设计 `docs/superpowers/specs/2026-11-02-m4-independent-operation-design.md` |
+| M4 本体 | 仅拆青枫浦上Q/qing 实时锚定，保留 gator；每日冻结各专家视角与最终合成判断并做市场验证 | 🔄 真实留痕与报告回链已验收，完整闭环未完成 | 11-06 真实验收记录见 `docs/superpowers/plans/2026-11-02-m4-independent-operation.md`；新设计见 `docs/superpowers/specs/2026-11-02-m4-independent-operation-design.md` |
 | M5 | M4 上线并积累样本后，季度校准常态化 | ⏳ 不再等旧式毕业 | — |
 
 另有 2026-08-10 新增的 **KPL（开盘啦）数据接入**：每日拉打板情绪+产业资讯，属总计划
@@ -64,9 +64,8 @@
 图里没画但同样存在的两大件：
 
 - **Qing-Agent 个股/市场分析体系**（`src/qing_investment/`，总计划的 v2.0 底子）：
-  9 节点 LangGraph 工作流、监控规则引擎、复盘通道。它目前仍是「按需使用」的分析能力
-  （通过 Hermes/技能触发），本机没有挂定时任务。新 M4 要改造它的 prompt，并把它的每日输出
-  分轨留痕后接入市场结算；这些工程目前尚未完成。
+  9 节点 LangGraph 工作流、监控规则引擎、复盘通道。它可通过 Hermes/技能按需触发，既有监控任务也会按计划调用；M4 市场验证报告入口未新增 cron。分轨留痕、市场结算和手动报告代码已落地；
+  2026-11-06 真实响应到冻结与报告的回链已验收；2026-11-09 截至 13:01 的 5 条真实记录仍没有实际可独立结算项，真实 T+5 与归因闭环尚未验收，不能当作已上线自动验证。
 - **知识底座**：`knowledge/claims`（451 张观点卡）、`knowledge/industry-chains/`
   （产业链知识库）、`sources/raw/财经`（550 篇 UP 语料，现降级为教材/历史对照）、
   Neo4j + Qdrant（观点演化图与向量检索，同步流程见 `docs/neo4j-relation-pipeline.md`）。
@@ -127,6 +126,17 @@ set -a && source .env && set +a && .venv/bin/python scripts/kpl_daily_fetch.py -
 # K线补拉
 .venv/bin/python scripts/pre_fetch_klines.py
 ```
+
+### Qing-Agent 市场验证报告（手动，未挂 cron）
+
+```bash
+.venv/bin/python scripts/qing_agent_validation.py settle --date 2026-11-04  # 只结算已有冻结记录
+.venv/bin/python scripts/qing_agent_validation.py report --date 2026-11-04  # 只读记录并生成日报+4/8周报告
+.venv/bin/python scripts/qing_agent_validation.py run --date 2026-11-04     # 先 settle 再 report
+```
+
+默认读取 `infra/data/qing_agent/`，输出 `logs/qing-agent-daily-<date>.md` 和
+`logs/qing-agent-reliability-<date>.md`。该入口不会触发 Qing-Agent 或安装调度；2026-11-06 真实留痕到报告的回链已验收，完整 T+5 闭环仍待可独立结算样本。零有效样本显示 `insufficient_data`，不输出毕业门禁结论。
 
 ## 4. 数据源逐个说
 
@@ -195,7 +205,7 @@ set -a && source .env && set +a && .venv/bin/python scripts/kpl_daily_fetch.py -
   `docs/design/kpl-api-inventory.md` 的 Reqable 流程重抓，更新 `.env` 三个 `kpl_*` 值。
 - **换电脑/云部署**：需要 `.env`（deepseek_api_key、kpl_*）、`.venv`、
   以及按 ops 文档重建调度并注销本机 cron。
-- **跑测试**：`.venv/bin/pytest tests/investment_engine -q`（引擎测试，当前 168 全绿）。
+- **跑测试**：`.venv/bin/pytest tests/investment_engine -q`（引擎测试）；标准全仓命令与最新通过记录见 `docs/tasks/m-series-status-and-usage.md` 的「测试与回归」。
 - **哪些东西不进 git**：`.env`（密钥）、`config/stock_monitor/positions.yaml`（持仓）、
   `infra/data/`（K线/KPL 数据）、`temp/kpl_capture/`（抓包，含 token）。
   提交前 `git status --short` 确认没误加。

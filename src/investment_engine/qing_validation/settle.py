@@ -11,7 +11,7 @@ from investment_engine.backtest.history import list_trading_days
 from investment_engine.blindtest.score import direction_scores, stock_scores
 from investment_engine.blindtest.truth import load_truth
 from investment_engine.qing_validation.attribute import attribute_record
-from investment_engine.qing_validation.records import record_directory_lock
+from investment_engine.qing_validation.records import normalize_day, record_directory_lock
 
 
 _HORIZON = 5
@@ -23,24 +23,117 @@ _ITEM_STATUSES = (
 )
 
 
-def _load_records(root: Path) -> list[tuple[Path, dict]]:
-    entries = []
-    if not root.exists():
-        return entries
-    for path in sorted(root.rglob("*.json")):
-        try:
-            record = json.loads(path.read_text(encoding="utf-8"))
-        except (OSError, UnicodeError, json.JSONDecodeError):
+def _integrity_issue(path: Path, code: str) -> dict:
+    return {
+        "code": code,
+        "record_id": path.stem,
+        "date": path.parent.parent.name,
+        "track": path.parent.name,
+    }
+
+
+def _ambiguous_lineages(entries: list[tuple[Path, dict]]) -> tuple[set[Path], list[dict]]:
+    paths = {path for path, _record in entries}
+    supersedes = {}
+    adjacency = {path: set() for path in paths}
+    target_sources = {}
+    for path, record in entries:
+        target_id = record.get("supersedes_record_id")
+        if not isinstance(target_id, str) or not target_id or Path(target_id).name != target_id:
             continue
-        if isinstance(record, dict):
+        target = path.parent / f"{target_id}.json"
+        if target not in paths:
+            continue
+        supersedes[path] = target
+        adjacency[path].add(target)
+        adjacency[target].add(path)
+        target_sources.setdefault(target, set()).add(path)
+
+    branch_seeds = set()
+    for target, sources in target_sources.items():
+        if len(sources) > 1:
+            branch_seeds.add(target)
+            branch_seeds.update(sources)
+    cycle_seeds = set()
+    visited = set()
+    for start in supersedes:
+        if start in visited:
+            continue
+        chain = []
+        positions = {}
+        current = start
+        while current in supersedes and current not in positions and current not in visited:
+            positions[current] = len(chain)
+            chain.append(current)
+            current = supersedes[current]
+        if current in positions:
+            cycle_seeds.update(chain[positions[current]:])
+        visited.update(chain)
+
+    ambiguous = set()
+    issues = []
+    seeds = branch_seeds | cycle_seeds
+    for seed in sorted(seeds, key=str):
+        if seed in ambiguous:
+            continue
+        component = set()
+        pending = [seed]
+        while pending:
+            current = pending.pop()
+            if current in component:
+                continue
+            component.add(current)
+            pending.extend(adjacency[current] - component)
+        if component & branch_seeds and component & cycle_seeds:
+            code = "supersession_ambiguous"
+        elif component & branch_seeds:
+            code = "supersession_branch"
+        else:
+            code = "supersession_cycle"
+        for path in component:
+            issues.append(_integrity_issue(path, code))
+        ambiguous.update(component)
+    return ambiguous, issues
+
+
+def load_active_records(root: Path, *, include_issues: bool = False):
+    """Load active records and optionally return per-file integrity issues."""
+    entries = []
+    issues = []
+    if root.exists():
+        for path in sorted(root.rglob("*.json")):
+            try:
+                record = json.loads(path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                issues.append(_integrity_issue(path, "invalid_json"))
+                continue
+            except (OSError, UnicodeError):
+                issues.append(_integrity_issue(path, "unreadable_record"))
+                continue
+            if not isinstance(record, dict):
+                issues.append(_integrity_issue(path, "nonobject_record"))
+                continue
             entries.append((path, record))
 
+    ambiguous, lineage_issues = _ambiguous_lineages(entries)
+    issues.extend(lineage_issues)
     superseded = set()
     for path, record in entries:
         record_id = record.get("supersedes_record_id")
         if isinstance(record_id, str) and record_id and Path(record_id).name == record_id:
             superseded.add(path.parent / f"{record_id}.json")
-    return [(path, record) for path, record in entries if path not in superseded]
+    active = [
+        (path, record) for path, record in entries
+        if path not in superseded and path not in ambiguous
+    ]
+    if include_issues:
+        return active, sorted(issues, key=lambda issue: (
+            issue["date"], issue["track"], issue["record_id"], issue["code"]
+        ))
+    return active
+
+
+_load_records = load_active_records
 
 
 def _is_due(record_day: str, day: str, *, db_path=None) -> bool:
@@ -204,6 +297,7 @@ def _write_atomic(path: Path, record: dict) -> None:
 
 def settle_records(day: str, *, root, config_dir, db_path=None) -> dict:
     """Settle eligible frozen records through day without changing their judgments."""
+    day = normalize_day(day)
     entries = [
         (path, record)
         for path, record in _load_records(Path(root))

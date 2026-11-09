@@ -91,7 +91,7 @@ def test_120min_prefers_tencent_native(script, monkeypatch):
 
 @pytest.mark.parametrize("script", list(SCRIPTS))
 def test_120min_bar_shape(script):
-    """腾讯 m120 返回的 bar 结构正确，且每日恰好 2 根、跨午休。"""
+    """腾讯 m120 的完整交易日恰好 2 根，窗口首尾和盘中允许截断。"""
     mod = _load(script)
     if script == "pre_fetch_index_klines.py":
         rows = mod.fetch_index_klines("sh000001", 120, 20)
@@ -114,10 +114,15 @@ def test_120min_bar_shape(script):
         assert r["high"] >= max(r["open"], r["close"]) - 1e-6
         assert r["low"] <= min(r["open"], r["close"]) + 1e-6
 
-    # 每日恰好 2 根
+    # 最近 N 根的首日可被窗口截断，当日盘中可能只有上午 bar；中间完整交易日必须恰好 2 根。
     from collections import Counter
     per_day = Counter(r["bar_time"][:10] for r in rows)
-    assert set(per_day.values()) == {2}, f"每日根数异常: {dict(per_day)}"
+    assert all(count in (1, 2) for count in per_day.values()), f"每日根数异常: {dict(per_day)}"
+    days = sorted(per_day)
+    complete_days = days[1:-1]
+    assert complete_days
+    incomplete = {day: per_day[day] for day in complete_days if per_day[day] != 2}
+    assert not incomplete, f"完整交易日根数异常: {incomplete}; 全部: {dict(per_day)}"
 
 
 def test_tencent_field_order_is_open_close_high_low():

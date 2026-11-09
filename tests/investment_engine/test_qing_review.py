@@ -15,12 +15,15 @@ class TestNormalizeStage:
     def test_families(self):
         assert normalize_stage("回暖期") == "震荡"
         assert normalize_stage("高位震荡尾期→调整预警") == "震荡"
+        assert normalize_stage("退潮末期→修复试探期") == "震荡"
+        assert normalize_stage("回暖期（底部结构确认中，未获中阳验证）") == "震荡"
         assert normalize_stage("退潮期") == "调整"
         assert normalize_stage("磨底期") == "调整"
         assert normalize_stage("调整期/恐慌冰点") == "恐慌"
 
     def test_excluded_and_unmapped(self):
         assert normalize_stage("未判断") is None
+        assert normalize_stage("数据缺失，无法确定") is None
         assert normalize_stage(None) is None
         with pytest.raises(KeyError, match="未映射"):
             normalize_stage("主升浪")

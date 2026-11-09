@@ -164,6 +164,20 @@ def test_t4_pending_t5_scored_with_real_sqlite_scorer(tmp_path):
     assert len(_items(record, root)) == 2
 
 
+def test_settle_rejects_noncanonical_day_before_rewriting_records(tmp_path):
+    db_path = tmp_path / "klines.db"
+    root = tmp_path / "records"
+    _market(db_path, TRADING_DAYS, {"000001": [10] * len(TRADING_DAYS)})
+    record = _record()
+    path = save_record(record, root=root)
+    before = path.read_bytes()
+
+    with pytest.raises(ValueError):
+        settle_records("20261104", root=root, config_dir=tmp_path / "config", db_path=db_path)
+
+    assert path.read_bytes() == before
+
+
 def test_natural_days_cannot_replace_missing_trading_days(tmp_path):
     db_path = tmp_path / "klines.db"
     root = tmp_path / "records"
