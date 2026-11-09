@@ -9,11 +9,14 @@ data/xueqiu/posts/{uid}.json 作为基线，避免把历史帖当增量刷屏。
 from __future__ import annotations
 
 import argparse
+import asyncio
 import json
 import sys
 import time
 from datetime import datetime
 from pathlib import Path
+
+from playwright.async_api import async_playwright
 
 REPO = Path(__file__).resolve().parents[2]
 DATA = REPO / "data" / "xueqiu"
@@ -31,8 +34,76 @@ FETCH_INTERVAL = 4        # 单个请求间隔（秒）
 FETCH_BATCH = 5           # 每 N 个请求后批量休息
 FETCH_BATCH_SLEEP = 60    # 批量休息秒数（需覆盖雪球 WAF 风控窗口，实测需≥60s）
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from timeline_backtest import fetch_page  # noqa: E402
+API_COUNT = 20            # 雪球 count 上限=20（30+ 返回空）
+CDP_ENDPOINT = "http://localhost:9222"
+
+
+def load_xq_cookies() -> list[dict]:
+    """从 ~/xq_cookies.json 加载雪球登录态 cookies。"""
+    cookies_path = Path.home() / "xq_cookies.json"
+    if not cookies_path.exists():
+        return []
+    cookies = json.loads(cookies_path.read_text(encoding="utf-8"))
+    return [
+        {
+            "name": c["name"],
+            "value": c["value"],
+            "domain": c.get("domain", ".xueqiu.com").lstrip("."),
+            "path": c.get("path", "/"),
+        }
+        for c in cookies
+        if "xueqiu" in (c.get("domain") or "")
+    ]
+
+
+async def _fetch_page_cdp(uid: str, page_no: int):
+    """使用 Playwright CDP 连接已运行的 Chrome，绕过雪球 WAF。
+
+    返回 dict | str("waf") | None。
+    """
+    url = (
+        f"https://www.xueqiu.com/v4/statuses/user_timeline.json"
+        f"?user_id={uid}&page={page_no}&count={API_COUNT}"
+    )
+    xq_cookies = load_xq_cookies()
+    if not xq_cookies:
+        return None
+    try:
+        async with async_playwright() as p:
+            try:
+                browser = await p.chromium.connect_over_cdp(CDP_ENDPOINT, timeout=10000)
+            except Exception:
+                return None
+            contexts = browser.contexts
+            context = contexts[0] if contexts else await browser.new_context()
+            await context.add_cookies(xq_cookies)
+            pages = context.pages
+            page = pages[0] if pages else await context.new_page()
+            try:
+                response = await page.goto(url, wait_until="domcontentloaded", timeout=15000)
+                if response is None:
+                    await browser.close()
+                    return None
+                body = await page.evaluate("() => document.body.innerText")
+            except Exception:
+                await browser.close()
+                return None
+            await browser.close()
+    except Exception:
+        return "waf"
+
+    txt = (body or "").strip()
+    if not txt.startswith("{"):
+        return "waf"
+    try:
+        return json.loads(txt)
+    except Exception:
+        return "waf"
+
+
+def fetch_page(uid: str, page_no: int = 1):
+    """同步包装器：调用 CDP 异步抓取雪球用户时间线。"""
+    return asyncio.run(_fetch_page_cdp(uid, page_no))
 
 
 def log_err(msg: str) -> None:
@@ -101,10 +172,6 @@ def main() -> None:
     if not cookies_path.exists():
         print("⚠️ 雪球监控缺少 /home/ubuntu/xq_cookies.json，无法抓 timeline")
         return
-    cookies = json.loads(cookies_path.read_text(encoding="utf-8"))
-    pw_cookies = [{"name": c["name"], "value": c["value"],
-                   "domain": c.get("domain", ".xueqiu.com"), "path": c.get("path", "/")}
-                  for c in cookies if "xueqiu" in (c.get("domain") or "")]
 
     lines: list[str] = []
     errors: list[str] = []
