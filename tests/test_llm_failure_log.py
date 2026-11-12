@@ -3,7 +3,7 @@
 背景：2026-10-26 尾盘条件单 job(4e52348bc00f) 报 market_summary LLM 节点失效（llm_empty），
 失败证据仅存于内存 tracker + 进程日志，重启即丢失，无法定位当时是超时/限流/5xx。
 本测试锁定：失败时落盘 JSONL（provider/stage/prompt_len/elapsed_s/error_type/status_code/error_body），
-且 _safe_llm_invoke 失败语义不变（返回 ""，由调用方重试/降级）。
+且 _safe_llm_invoke 在 provider 链耗尽后返回 ""，由调用方诚实降级。
 """
 
 from __future__ import annotations
@@ -34,6 +34,7 @@ class _FakeAPIError(Exception):
 def failure_log(tmp_path, monkeypatch):
     path = tmp_path / "llm_failures.jsonl"
     monkeypatch.setattr(nodes, "_LLM_FAILURE_LOG_PATH", path)
+    monkeypatch.setenv("QING_AGENT_FALLBACK_PROVIDERS", "")
     return path
 
 
@@ -113,3 +114,53 @@ def test_safe_llm_invoke_failure_body_truncated(failure_log, monkeypatch):
     nodes._safe_llm_invoke("p")
     rec = _read_records(failure_log)[0]
     assert len(rec["error_body"]) <= 500
+
+
+def test_safe_llm_invoke_default_fallbacks_log_failures_and_continue(
+    failure_log, monkeypatch
+):
+    from unittest.mock import MagicMock
+
+    from qing_investment.agent.tools import llm_client
+
+    monkeypatch.delenv("QING_AGENT_FALLBACK_PROVIDERS")
+    monkeypatch.setattr(nodes.settings, "llm_provider", "sensenova")
+    monkeypatch.delenv("KIMI_CODE_ACP_FIRST", raising=False)
+    client_calls = []
+
+    def fake_get_llm_client(provider=None):
+        client_calls.append(provider)
+        if provider == "zhipu":
+            raise ValueError("ZHIPU_API_KEY missing")
+        fake = MagicMock()
+        if provider == "deepseek":
+            fake.invoke.return_value = MagicMock(content="")
+        else:
+            fake.invoke.side_effect = _FakeAPIError()
+        return fake
+
+    monkeypatch.setattr(nodes, "get_llm_client", fake_get_llm_client)
+    llm_client.reset_provider_usage()
+
+    content = nodes._safe_llm_invoke("测试 prompt")
+
+    assert content == ""
+    assert client_calls == [None, "zhipu", "deepseek"]
+    records = _read_records(failure_log)
+    assert [record["provider"] for record in records] == [
+        "sensenova", "zhipu", "deepseek"
+    ]
+    assert [record["stage"] for record in records] == [
+        "configured_attempt", "provider_fallback", "provider_fallback"
+    ]
+    assert [
+        (record["provider"], record["status"])
+        for record in llm_client.get_provider_usage_records()
+    ] == [
+        ("sensenova", "attempt"),
+        ("sensenova", "failed"),
+        ("zhipu", "attempt"),
+        ("zhipu", "failed"),
+        ("deepseek", "attempt"),
+        ("deepseek", "failed"),
+    ]

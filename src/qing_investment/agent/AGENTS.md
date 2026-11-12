@@ -114,11 +114,15 @@ nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8
 |------|---------|-----------|---------|
 | `parse_query` | `graph/nodes.py` | ✅ | 意图解析 JSON 格式 |
 | `retrieve_knowledge` | `graph/nodes.py` | ❌ | Qdrant(wiki+claims) + Neo4j(图遍历+关键词) + mem0 查询、来源 boost 排序、时效衰减过滤、矛盾检测 |
-| `market_analyst` | `graph/nodes.py` | ✅ | 板块数据可用性守卫、framework 显式加载、**推理模式匹配（Embedding召回+LLM重排序）**、动态分析框架片段注入、时效性自检 |
+| `market_summary` | `graph/nodes.py` | ✅ | 板块数据可用性守卫、framework 显式加载、推理模式匹配、时效性自检 |
+| `stock_scanner_shard` | `graph/nodes.py` | ✅ | 分片扫描观察池，输出机会与持仓计划 |
+| `merge_scanner_results` | `graph/nodes.py` | ❌ | 合并所有分片结果，完成后才允许进入反方节点 |
 | `stock_analyst` | `graph/nodes.py` | ✅ | 个股分析 JSON 字段、外部标的业务校验（DuckDuckGo） |
+| `devils_advocate` | `graph/nodes.py` | ✅ | 等待扫描合并与个股分析均完成，只执行一次反向质疑 |
 | `synthesize` | `graph/nodes.py` | ❌ | 草稿拼接、【参考来源】注入、持仓计划注入 |
-| `style_writer` | `graph/nodes.py` | ✅ | UP 人格 prompt、口吻风格化、强制保留来源标注 |
-| `reviewer` | `graph/nodes.py` | ✅ | 禁用词检测、claims 引用验证、citation 缺失检查（最多3次打回） |
+| `style_writer` | `graph/nodes.py` | ✅ | UP 人格 prompt、口吻风格化、强制保留来源与数据时点标注 |
+| `citation_validator` | `graph/nodes.py` | ❌ | 纯规则校验数字 claim 是否有来源标注 |
+| `reviewer` | `graph/nodes.py` | ✅ | 禁用词检测、claims 引用验证、citation 缺失检查（最多 2 次打回） |
 
 ### 4.2 修改节点时的 checklist
 
@@ -403,29 +407,41 @@ POST /analyze/trigger
 | `review_passed` | bool | 事实核查是否通过（reviewer 最多打回 3 次） |
 | `reasoning_steps` | list[string] | 分析思考步骤 |
 | `record_id` | string/null | 成功冻结的验证记录 ID；留痕失败时为 `null` |
-| `record_status` | string/null | 已冻结状态：`pending_maturity` / `error` / `missing`；留痕失败时为 `null` |
+| `record_status` | string/null | 已冻结状态：`pending_maturity` / `error` / `missing`；留痕失败时为 `null`。普通内容审核未通过仍保留记录，但所有评分资格均为 false；reviewer LLM 自身失败记 `error` |
 
 **验证留痕**：每次 `/analyze/trigger` 完成后，将最终合成判断、专家视角、实际 pattern 引用、数据时点、prompt/rules 版本和原文写入 `infra/data/qing_agent/<date>/<track>/<record_id>.json`。盘前、盘中、收盘分轨，排他创建，重跑通过 `supersedes_record_id` 链接版本。输入快照只保存哈希和可用性摘要，不另存持仓输入；`raw_output` 可能含持仓计划，因此整个目录是 gitignored 私有数据区，不得当作公开报告外发。wrapper 传输失败补记 `error`，原输入缺失记 `missing`，本地 fallback 不得生成 `pending_maturity`。
 
-**LangGraph 工作流**（按顺序执行 7 节点）：
+**LangGraph 工作流**：
 
 ```
-parse_query → retrieve_knowledge → market_analyst → synthesize → style_writer → reviewer → 返回 final_output
+parse_query → retrieve_knowledge → market_summary + stock_analyst
+market_summary → stock_scanner_shard（可分片并行）→ merge_scanner_results
+（merge_scanner_results + stock_analyst 均完成）→ devils_advocate
+→ synthesize → style_writer → citation_validator → reviewer → 返回 final_output
 ```
 
 关键路径说明：
 
 1. **`parse_query`** — 解析 `query` + `analysis_type` 为结构化意图
 2. **`retrieve_knowledge`** — Qdrant 召回 claims(12条) + wiki(10条)，mem0 用户记忆(2条)，sector_ctx 板块上下文(3条)；检测 claim 时效性和冲突
-3. **`market_analyst`** — ✅ **核心分析节点**：加载推理模式匹配（ONNX Embedding 召回 + LLM rerank）、显式注入分析 framework 片段、生成结构化 `market_context`
-4. **`synthesize`** — 拼接草稿、注入【参考来源】、持仓计划
-5. **`style_writer`** — UP 口吻风格化（人格 prompt），强制保留来源标注
-6. **`reviewer`** — 事实核查、禁用词检测、citation 检查（最多 3 次打回）
-7. 返回 `TriggerResponse`
+3. **`market_summary` / `stock_analyst`** — 并行生成市场与个股分析；市场节点加载推理模式和 framework 片段
+4. **`stock_scanner_shard` / `merge_scanner_results`** — 分片扫描观察池并合并机会与持仓计划
+5. **`devils_advocate`** — 必须等待扫描合并与个股分析都完成后只执行一次，反向质疑主分析结论
+6. **`synthesize` / `style_writer`** — 汇合完整草稿后再风格化，不得在合并前提前执行
+7. **`citation_validator` / `reviewer`** — 规则引用校验与事实核查；reviewer 最多打回 2 次
+8. 返回 `TriggerResponse`
 
 **daily_state 持久化**（2026-06-10 新增）：
 
-`market_analyst` 节点返回后，自动从 `market_context` 提取大盘阶段判断等结构化字段，持久化到 `config/stock_monitor/daily_state.json`。此文件被 `stock_monitor.py` 用于位置条件驱动轮询（见陷阱 13）。
+`market_summary` 和扫描节点返回后，从 `market_context` 提取大盘阶段判断等结构化字段，持久化到 `config/stock_monitor/daily_state.json`。此文件被 `stock_monitor.py` 用于位置条件驱动轮询（见陷阱 13）。
+
+**输出契约与数据质量**（2026-11-12）：
+
+- cron 专属字段先规范化为通用市场 schema；`daily_state` 使用顶层 JSON 对象，旧 Markdown 代码块仅作兼容输入。
+- `open_confirm` 使用 `cron_open_confirm`，不得复用 09:26 的 `cron_opening`。
+- 风格化头部、风格化 prompt 和 reviewer 共享同一数据质量视图；全零板块按不可用/降级处理，不得进入 gator 确定性判断。
+- 空持仓与空观察池是合法输入，正文明确“未执行全市场扫描”，reviewer 不得强迫补造机会、价格或赔率。
+- `_validation_contract_errors`、`_fallback_reason` 或 `_scan_failed` 时，跳过 LLM 风格化与审核，输出确定性降级正文并保留 `error`，不得继续扩写矛盾内容。
 
 **调用示例**：
 
@@ -443,13 +459,14 @@ curl -s --max-time 240 -X POST http://localhost:8000/analyze/trigger \
   }'
 ```
 
-**超时与重试**（由 `hermes_stock_monitor_agent.py` 实现）：
+**超时与重试**（wrapper 与 LLM provider 链）：
 
 | 参数 | 默认值 | 说明 |
 |------|--------|------|
-| `QING_AGENT_TIMEOUT` | 240s | 单次请求超时（LangGraph 含多次 LLM 调用，通常 30-60s） |
-| `QING_AGENT_MAX_RETRIES` | 3 | 超时/5xx 时的指数退避重试次数（2s → 4s → 8s） |
-| `CRON_WRAPPER_TIMEOUT` | 260s | cron 脚本级超时，必须 ≥ `QING_AGENT_TIMEOUT` + 20s |
+| `QING_AGENT_TIMEOUT` | 1200s | 单次 POST 超时；所有触发类型共用，`pre_market` 不再单独缩短为 90s |
+| `QING_AGENT_MAX_RETRIES` | 2 | 连接错误/5xx 最多尝试 2 次；读超时不重复 POST，避免服务端仍在执行时重复分析 |
+| `QING_AGENT_LLM_CHAIN_TIMEOUT` | 300s | 单个 LLM 节点跨 provider 的共享时间预算，后续 client 只获得剩余 request timeout |
+| `CRON_WRAPPER_TIMEOUT` | 1300s | cron 脚本级超时，为健康检查与请求预留余量 |
 
 **降级路径**：若 `/analyze/trigger` 不可达（Qing-Agent 离线或超时），`hermes_stock_monitor_agent.py` 自动回退到纯文本 LLM fallback（通过 `stock_monitor.py --agent-context-on-trigger`），输出格式与 UP 风格不一致，属于降级运行。
 

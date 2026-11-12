@@ -1,7 +1,7 @@
-# 影子双轨完整性报告（2026-11-03）
+# 影子双轨完整性报告（2026-11-11）
 
-- 记录日数: 150，完整: 150
-- 提案: open 51 / 已解决 90（applied 26 / merged 26 / implemented 35 / done 3） / pending 16 / rejected 0 / retracted 8 / proposed 23 / archived 1
+- 记录日数: 162，完整: 159
+- 提案: open 59 / 已解决 90（applied 26 / merged 26 / implemented 35 / done 3） / pending 16 / rejected 0 / retracted 8 / proposed 23 / archived 1
 
 | 日期 | 阶段判定 | 状态 | 归因 | 完整 |
 |---|---|---|---|---|
@@ -131,30 +131,42 @@
 | 2026-10-15 | 错 | scored | 有 | ✅ |
 | 2026-10-16 | 错 | scored | 有 | ✅ |
 | 2026-10-16 | 错 | scored | 有 | ✅ |
-| 2026-10-19 | 对 | pending_maturity | - | ✅ |
-| 2026-10-19 | 对 | pending_maturity | - | ✅ |
-| 2026-10-20 | 对 | pending_maturity | - | ✅ |
-| 2026-10-20 | 对 | pending_maturity | - | ✅ |
-| 2026-10-21 | 对 | pending_maturity | - | ✅ |
-| 2026-10-21 | 对 | pending_maturity | - | ✅ |
-| 2026-10-22 | 错 | pending_maturity | 有 | ✅ |
-| 2026-10-22 | 对 | pending_maturity | 有 | ✅ |
-| 2026-10-23 | 错 | pending_maturity | 有 | ✅ |
-| 2026-10-23 | 错 | pending_maturity | 有 | ✅ |
-| 2026-10-26 | - | pending_maturity | - | ✅ |
+| 2026-10-19 | 对 | scored | 有 | ✅ |
+| 2026-10-19 | 对 | scored | 有 | ✅ |
+| 2026-10-20 | 对 | scored | - | ✅ |
+| 2026-10-20 | 对 | scored | - | ✅ |
+| 2026-10-21 | 对 | scored | 有 | ✅ |
+| 2026-10-21 | 对 | scored | 有 | ✅ |
+| 2026-10-22 | 错 | scored | 有 | ✅ |
+| 2026-10-22 | 对 | scored | 有 | ✅ |
+| 2026-10-23 | 错 | scored | 有 | ✅ |
+| 2026-10-23 | 错 | scored | 有 | ✅ |
+| 2026-10-26 | 错 | scored | - | ❌ |
 | 2026-10-26 | - | error | - | ✅ |
-| 2026-10-27 | - | pending_maturity | - | ✅ |
+| 2026-10-27 | 对 | scored | - | ✅ |
 | 2026-10-27 | - | error | - | ✅ |
-| 2026-10-28 | - | pending_maturity | - | ✅ |
+| 2026-10-28 | 对 | scored | - | ✅ |
 | 2026-10-28 | - | error | - | ✅ |
-| 2026-10-29 | - | pending_maturity | - | ✅ |
-| 2026-10-29 | - | error | - | ✅ |
-| 2026-10-30 | - | pending_maturity | - | ✅ |
+| 2026-10-29 | 错 | scored | 有 | ✅ |
+| 2026-10-29 | - | error | 有 | ✅ |
+| 2026-10-30 | 对 | scored | - | ✅ |
 | 2026-10-30 | - | error | - | ✅ |
-| 2026-11-02 | - | pending_maturity | - | ✅ |
+| 2026-11-02 | 错 | scored | - | ❌ |
 | 2026-11-02 | - | error | - | ✅ |
-| 2026-11-03 | - | pending_maturity | - | ✅ |
+| 2026-11-03 | 错 | scored | - | ❌ |
 | 2026-11-03 | - | error | - | ✅ |
+| 2026-11-04 | 对 | scored | - | ✅ |
+| 2026-11-04 | 对 | scored | - | ✅ |
+| 2026-11-05 | 对 | pending_maturity | - | ✅ |
+| 2026-11-05 | 对 | pending_maturity | - | ✅ |
+| 2026-11-06 | 对 | pending_maturity | - | ✅ |
+| 2026-11-06 | 对 | pending_maturity | - | ✅ |
+| 2026-11-09 | 对 | pending_maturity | - | ✅ |
+| 2026-11-09 | - | error | - | ✅ |
+| 2026-11-10 | 对 | pending_maturity | - | ✅ |
+| 2026-11-10 | - | error | - | ✅ |
+| 2026-11-11 | 对 | pending_maturity | 有 | ✅ |
+| 2026-11-11 | 错 | pending_maturity | 有 | ✅ |
 
 ## 待处理提案（open 置顶）
 
@@ -204,8 +216,16 @@
 - 2026-10-13-pattern-patch-note.md
 - 2026-10-14-glossary-patch-note.md
 - 2026-10-14-pattern-patch-note.md
+- 2026-10-19-glossary-patch-note.md
+- 2026-10-19-pattern-patch-note.md
+- 2026-10-21-glossary-patch-note.md
+- 2026-10-21-pattern-patch-note.md
 - 2026-10-23-capability-boundary-note.md
 - 2026-10-23-glossary-patch-note.md
 - 2026-10-23-pattern-patch-bottom-date.md
 - 2026-10-23-pattern-patch-note.md
+- 2026-10-29-glossary-patch-cycle-state.md
+- 2026-10-29-pattern-patch-note.md
 - 2026-10-31-pattern-staging.yaml
+- 2026-11-11-glossary-patch-note.md
+- 2026-11-11-pattern-patch-note.md

@@ -210,7 +210,9 @@ def build_record(
     judgment = copy.deepcopy(final_judgment) if final_judgment is not None else {}
     frozen_directions = copy.deepcopy(directions) if directions is not None else []
     frozen_expert_views = copy.deepcopy(expert_views) if expert_views is not None else []
-    status_allows_scoring = status not in {"error", "missing"}
+    status_allows_scoring = status not in {"error", "missing"} and (
+        review or {}
+    ).get("passed") is not False
 
     _score_direction_items(
         frozen_directions,

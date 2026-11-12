@@ -1,6 +1,6 @@
 """market_summary 节点 fallback 可靠性测试（2026-08-11 早盘 3/5 次"未配置"摆烂归因驱动）。
 
-覆盖：LLM 空返回（含重试一次）、JSON 解析失败、prompt 超上限——三条路径都必须
+覆盖：LLM 空返回（不重复整链）、JSON 解析失败、prompt 超上限——三条路径都必须
 带 _fallback_reason 且 market_summary 含规则拼装的原始数据（情绪/板块/指数），
 market_phase 保持"未配置"（daily_state 持久化守卫不动）。
 """
@@ -96,9 +96,9 @@ class TestDegradedDigest:
 
 
 class TestMarketSummaryFallback:
-    def test_llm_empty_retries_once_and_degrades(self, patched):
+    def test_llm_empty_does_not_retry_and_degrades(self, patched):
         result = nodes.market_summary(_state())["market_summary_context"]
-        assert len(patched) == 2  # 空返回重试一次
+        assert len(patched) == 1
         assert result["_fallback_reason"] == "llm_empty"
         assert result["market_phase"] == "未配置"  # 持久化守卫依赖该值，不变
         assert result["main_themes"] == []  # 不污染 direction_priority
@@ -118,13 +118,13 @@ class TestMarketSummaryFallback:
         steps = nodes.market_summary(_state())["reasoning_steps"]
         assert "fallback: llm_empty" in steps[0]
 
-    def test_success_after_retry(self, monkeypatch, patched):
+    def test_llm_empty_does_not_use_later_success(self, monkeypatch, patched):
         seq = iter(["", VALID_JSON])
         monkeypatch.setattr(nodes, "_safe_llm_invoke",
                             lambda prompt, **kw: next(seq))
         result = nodes.market_summary(_state())["market_summary_context"]
-        assert result["market_phase"] == "回暖期"
-        assert "_fallback_reason" not in result
+        assert result["market_phase"] == "未配置"
+        assert result["_fallback_reason"] == "llm_empty"
 
     def test_missing_phase_reasoning_not_filled_with_sentinel(self, monkeypatch, patched):
         """LLM 成功但省略 phase_reasoning 时，不得用 fallback 哨兵串填充——

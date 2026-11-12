@@ -53,9 +53,7 @@ def build_graph():
         ["stock_scanner_shard"],
     )
     builder.add_edge("stock_scanner_shard", "merge_scanner_results")
-    builder.add_edge("merge_scanner_results", "devils_advocate")
-
-    builder.add_edge("stock_analyst", "devils_advocate")
+    builder.add_edge(["merge_scanner_results", "stock_analyst"], "devils_advocate")
     # devil's advocate 完成后 → synthesize
     builder.add_edge("devils_advocate", "synthesize")
     builder.add_edge("synthesize", "style_writer")

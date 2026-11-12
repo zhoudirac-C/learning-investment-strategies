@@ -29,7 +29,7 @@ def test_safe_llm_invoke_falls_back_on_short_local_output(monkeypatch):
 
     monkeypatch.setattr(nodes, "get_llm_client", fake_get_llm_client)
 
-    result = nodes._safe_llm_invoke("prompt", min_length=150)
+    result = nodes._safe_llm_invoke("prompt", min_length=20)
     assert result == "fallback remote content"
     local.invoke.assert_called_once()
     remote.invoke.assert_called_once()

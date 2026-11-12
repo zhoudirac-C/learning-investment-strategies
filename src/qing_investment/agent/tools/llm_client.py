@@ -7,9 +7,24 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 
+DEFAULT_MAX_TOKENS = 10000
+
 from langchain_openai import ChatOpenAI
 
 from qing_investment.agent.config import settings
+
+_MODEL_DEFAULT_MAX_TOKENS = {
+    "gpt-4o": 16384,
+}
+
+
+def _resolve_max_tokens(model: str | None, max_tokens: int | None) -> int:
+    if max_tokens is not None:
+        return max_tokens
+    return _MODEL_DEFAULT_MAX_TOKENS.get(
+        (model or "").strip().lower(), DEFAULT_MAX_TOKENS
+    )
+
 
 # [DEPRECATED] 本地 Kimi Code CLI 调用（通过子进程 `kimi -p`）已废弃，保留代码仅作历史参考。
 # _KIMI_CODE_CLI_PROVIDER = "kimi-code-cli"
@@ -292,6 +307,7 @@ def get_llm_client_with_fallback(
     provider: str | None = None,
     max_tokens: int | None = None,
     fallback_models: list[str] | None = None,
+    request_timeout: float = 120,
 ) -> Any:
     """带 fallback 的 LLM 客户端：主模型失败时按链切换。
 
@@ -300,7 +316,9 @@ def get_llm_client_with_fallback(
     2026-09-01：fallback 链支持跨 provider——链条目形如 "provider:model"，
     无前缀则沿用主 provider（向后兼容旧的纯模型名条目）。
     """
-    base_client = get_llm_client(provider=provider, max_tokens=max_tokens)
+    base_client = get_llm_client(
+        provider=provider, max_tokens=max_tokens, request_timeout=request_timeout
+    )
     chain = fallback_models or SENSENOVA_FALLBACK_MODELS
     primary_model = getattr(base_client, "model_name", None) or "unknown"
 
@@ -320,8 +338,8 @@ def get_llm_client_with_fallback(
             api_key=fb_api_key,
             base_url=fb_cfg["base_url"],
             temperature=0.3,
-            max_tokens=max_tokens or 10000,
-            request_timeout=120,
+            max_tokens=_resolve_max_tokens(fb_model, max_tokens),
+            request_timeout=request_timeout, max_retries=0,
         ))
     return FallbackChatOpenAI(clients)
 
@@ -348,14 +366,19 @@ class FallbackChatOpenAI:
         raise RuntimeError(f"All fallback models failed. Last error: {last_error}")
 
 
-def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -> Any:
+def get_llm_client(
+    provider: str | None = None,
+    max_tokens: int | None = None,
+    request_timeout: float = 120,
+) -> Any:
     """根据配置的 provider 返回对应的 LLM 客户端。
 
     Args:
         provider: 目标 provider，如 'kimi', 'deepseek', 'kimi-code-cli', 'kimi-code-acp'。
             None 则使用 settings.llm_provider。
-        max_tokens: 覆盖默认的 10000 输出上限（长输出任务如批量提取建议 16384）；
+        max_tokens: 覆盖按模型解析的默认输出上限（一般为 10000，gpt-4o 为 16384）；
             仅对标准 OpenAI 协议 provider 生效。
+        request_timeout: 标准 OpenAI 协议 client 的请求超时秒数，默认 120。
 
     Returns:
         ChatOpenAI — 标准 OpenAI 协议 provider
@@ -381,7 +404,7 @@ def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -
         from .kimi_code_acp_client import KimiCodeAcpClient
 
         logger.info("[get_llm_client] using local Kimi Code ACP")
-        return KimiCodeAcpClient()
+        return KimiCodeAcpClient(timeout=max(1, int(request_timeout)))
 
     if target not in LLM_PROVIDERS:
         raise ValueError(
@@ -403,8 +426,8 @@ def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -
                 # 2026-10-09：k3（api.kimi.com/coding）只允许 temperature=1，
                 # 传 0.3 报 400 invalid temperature；hermes_global 跟随全局模型，统一用 1
                 temperature=1,
-                max_tokens=max_tokens or 10000,
-                request_timeout=120,
+                max_tokens=_resolve_max_tokens(g["model"], max_tokens),
+                request_timeout=request_timeout, max_retries=0,
             )
         # 降级到 .env 主通道
         fallback_target = (settings.llm_provider or "").lower()
@@ -421,14 +444,16 @@ def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -
 
     config = LLM_PROVIDERS[target]
     api_key = _get_provider_api_key(settings, config["api_key_env"])
-    base_url = settings.llm_base_url or config["base_url"]
     # 2026-08-24 修复：LLM_MODEL 是主 provider 的模型名（如 stealth/ox-alpha），
     # 不能透传给 fallback provider——deepseek 收到会报 400 invalid model name。
-    # 仅当目标就是主 provider 时才用 settings.llm_model，否则用该 provider 默认模型。
+    # 仅当目标就是主 provider 时才用 settings.llm_model / llm_base_url，
+    # 否则用该 provider 默认模型和自有 base_url。
     if target == (settings.llm_provider or "").lower():
         model = settings.llm_model or config["default_model"]
+        base_url = settings.llm_base_url or config["base_url"]
     else:
         model = config["default_model"]
+        base_url = config["base_url"]
     logger.info("[get_llm_client] target=%s model=%s base_url=%s has_key=%s", target, model, base_url, bool(api_key))
 
     if not api_key:
@@ -445,6 +470,7 @@ def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -
             api_key=api_key,
             model=model,
             base_url=base_url,
+            timeout=max(1, int(request_timeout)),
         )
 
     # 标准 OpenAI 协议 provider
@@ -458,8 +484,8 @@ def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -
         api_key=api_key,
         base_url=base_url,
         temperature=0.3,
-        max_tokens=max_tokens or 10000,
-        request_timeout=120,  # 防止 API hang 死
+        max_tokens=_resolve_max_tokens(model, max_tokens),
+        request_timeout=request_timeout, max_retries=0,  # 防止 API hang 死
     )
 
 

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import logging
+import math
 import re
 import time
 import urllib.error
@@ -153,6 +154,39 @@ def _to_float(value: object) -> float | None:
         return float(text)
     except ValueError:
         return None
+
+
+def _items_have_market_data(items: object) -> bool:
+    if not isinstance(items, list | tuple):
+        return False
+    for item in items:
+        if isinstance(item, SectorBoardItem):
+            values = (item.pct_change, item.latest, item.amount)
+        elif isinstance(item, dict):
+            values = (item.get("pct_change"), item.get("latest"), item.get("amount"))
+        else:
+            continue
+        for value in values:
+            if isinstance(value, bool):
+                continue
+            number = _to_float(value)
+            if number is not None and math.isfinite(number) and number != 0:
+                return True
+    return False
+
+
+def boards_have_market_data(boards: object) -> bool:
+    """Return whether agent-formatted boards contain any valid nonzero quote."""
+    if not isinstance(boards, dict):
+        return False
+    for board_type in ("concept", "industry"):
+        bundle = boards.get(board_type)
+        if not isinstance(bundle, dict):
+            continue
+        for key in ("leaders", "laggards", "items"):
+            if _items_have_market_data(bundle.get(key)):
+                return True
+    return False
 
 
 def _request_with_retry(
@@ -507,12 +541,13 @@ def _fetch_with_fallback(
 ) -> tuple[list[SectorBoardItem], str]:
     """Try providers in order; return (items, provider_name).
 
-    优先读 20 分钟缓存；所有 provider 失败时回退到过期缓存。
-    Raises SectorDataUnavailableError if every provider fails and no cache.
+    优先读 20 分钟缓存；所有 provider 失败时仅回退到含有效行情的过期缓存。
+    Raises SectorDataUnavailableError if every provider fails and no usable cache.
     """
     # 1. 检查缓存
     cached_items, cached_provider, is_fresh = _sector_cache.get(board_type)
-    if cached_items and is_fresh:
+    cached_has_market_data = _items_have_market_data(cached_items)
+    if cached_items and is_fresh and cached_has_market_data:
         return _dicts_to_items(cached_items, board_type)[:top_n], f"{cached_provider}_cache"
 
     # 2. 按优先级拉取
@@ -526,17 +561,20 @@ def _fetch_with_fallback(
     for provider_name, fn in providers:
         try:
             items = fn(board_type, top_n, retries=retries, timeout=timeout)
-            if items:
-                _sector_cache.set(board_type, _items_to_dicts(items), provider_name)
-                logger.info("[sector_data] %s fetched from %s, items=%d", board_type, provider_name, len(items))
-                return items[:top_n], provider_name
+            if not _items_have_market_data(items):
+                raise urllib.error.URLError(
+                    f"{provider_name} returned no valid nonzero market data for {board_type}"
+                )
+            _sector_cache.set(board_type, _items_to_dicts(items), provider_name)
+            logger.info("[sector_data] %s fetched from %s, items=%d", board_type, provider_name, len(items))
+            return items[:top_n], provider_name
         except Exception as e:
             logger.warning("[sector_data] provider %s failed for %s: %s", provider_name, board_type, e)
             last_exception = e
             continue
 
-    # 3. 所有 provider 失败，回退到过期缓存
-    if cached_items:
+    # 3. 所有 provider 失败，回退到含有效行情的过期缓存
+    if cached_items and cached_has_market_data:
         logger.warning("[sector_data] all providers failed for %s, using stale cache", board_type)
         return _dicts_to_items(cached_items, board_type)[:top_n], f"{cached_provider}_stale"
 
@@ -591,7 +629,7 @@ def boards_to_agent_format(
             "rank": item.rank,
         }
 
-    out: dict[str, dict] = {"available": True}
+    out: dict[str, dict] = {"available": False}
     for board_type in ("concept", "industry"):
         bundle = boards.get(board_type) or {}
         items = bundle.get("items", [])
@@ -605,6 +643,7 @@ def boards_to_agent_format(
             "count": len(items),
             "source": provider,
         }
+    out["available"] = boards_have_market_data(out) or boards_have_market_data(boards)
     return out
 
 

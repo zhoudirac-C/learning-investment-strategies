@@ -51,7 +51,9 @@ Step 3: 【上游周期品分析】如涉及涨价链，确认真实性、供需
 
 {analysis_framework}
 
-输出格式：严格JSON
+输出格式：严格 JSON 对象（适配 response_format=json_object）
+- 只输出一个 JSON 对象，不要使用 Markdown 代码块，不要在 JSON 前后附加解释。
+- 保留以下通用字段；`daily_state` 是同一 JSON 对象的顶层键，不得在末尾另起 Markdown 或 `daily_state` 代码块。
 {
   "market_summary": "当日定调的一句话总结（基于实时数据）",
   "market_phase": "回暖期",
@@ -76,15 +78,14 @@ Step 3: 【上游周期品分析】如涉及涨价链，确认真实性、供需
   "volume_note": "...",
   "emotion_signals": {"涨停": 50, "跌停": 8, "连板高度": 5, "炸板率": "35%"},
   "risk_notes": "...",
-  "citations": ["framework/market-cycle-framework.md"]
+  "citations": ["framework/market-cycle-framework.md"],
+  "daily_state": {
+    "market_phase": "回暖期",
+    "main_themes": ["半导体"],
+    "position_stance": "5成仓内灵活滚动"
+  }
 }
 
-【daily_state 输出格式】
-在最终回复末尾，**必须**用 ```daily_state 代码块输出今日盘中观点的结构化摘要。
-根据当前分析时间点，输出对应字段：
-- 09:26 / 09:45 / 10:00 / 10:30 / 11:20 / 13:10 / 14:00 / 14:55 / 15:20 等
-
-示例（仅用于格式，内容请按实际分析替换）：
-```daily_state
-{"market_phase": "回暖期", "main_themes": ["半导体"], "position_stance": "5成仓内灵活滚动"}
-```
+【daily_state 输出要求】
+- `daily_state` 必须作为顶层 JSON 键输出今日盘中观点的结构化摘要，并根据当前分析时间点填写对应内容。
+- 适用时间点：09:26 / 09:45 / 10:00 / 10:30 / 11:20 / 13:10 / 14:00 / 14:55 / 15:20 等。

@@ -270,6 +270,91 @@ async def test_internal_generation_failures_are_error_not_pending(
 
 
 @pytest.mark.asyncio
+async def test_reviewer_llm_failure_is_error_not_pending(monkeypatch, tmp_path):
+    root = tmp_path / "records"
+    monkeypatch.setenv("QING_AGENT_VALIDATION_ROOT", str(root))
+    result = _graph_result()
+    result.update(
+        review_passed=False,
+        review_notes=["reviewer_llm_failed"],
+        _reviewer_error=True,
+    )
+
+    response = await _call_with_result(monkeypatch, result)
+
+    record = _only_record(root)
+    assert response.record_status == "error"
+    assert record["status"] == "error"
+    assert record["error"]["message"] == "reviewer_llm_failed"
+    assert record["directions"][0]["score_eligible"] is False
+    assert record["final_judgment"]["score_eligible"] is False
+
+
+@pytest.mark.asyncio
+async def test_content_review_failure_is_preserved_but_not_score_eligible(
+    monkeypatch, tmp_path
+):
+    root = tmp_path / "records"
+    monkeypatch.setenv("QING_AGENT_VALIDATION_ROOT", str(root))
+    result = _graph_result()
+    result.update(review_passed=False, review_notes=["需要人工复核"])
+
+    response = await _call_with_result(monkeypatch, result)
+
+    record = _only_record(root)
+    assert response.record_status == "pending_maturity"
+    assert response.final_output
+    assert record["status"] == "pending_maturity"
+    assert record["review"]["passed"] is False
+    assert record["directions"][0]["score_eligible"] is False
+    assert record["expert_views"][0]["score_eligible"] is False
+    assert record["final_judgment"]["score_eligible"] is False
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    ("override", "expected_status"),
+    [
+        ({"market_phase": "未配置"}, "error"),
+        ({"market_phase": "数据不可用"}, "error"),
+        ({"_fallback_reason": "llm_empty"}, "error"),
+        ({"market_phase": "震荡"}, "pending_maturity"),
+    ],
+)
+async def test_market_contract_rejects_unavailable_predictions_but_keeps_valid_directions(
+    monkeypatch, tmp_path, override, expected_status
+):
+    from qing_investment.agent.graph import nodes
+
+    root = tmp_path / "records"
+    monkeypatch.setenv("QING_AGENT_VALIDATION_ROOT", str(root))
+    result = _graph_result()
+    summary = dict(result["market_summary_context"])
+    summary.update(override)
+    summary["expert_views"] = []
+    result["market_summary_context"] = nodes._attach_market_validation_contract(
+        summary,
+        reasoning_patterns=summary.get("pattern_refs", []),
+        gator_rules_snapshot=summary.get("gator_rules_snapshot", {}),
+        school_conflicts="",
+        prompt_material="test-contract",
+    )
+
+    response = await _call_with_result(monkeypatch, result)
+
+    record = _only_record(root)
+    assert response.record_status == expected_status
+    assert record["status"] == expected_status
+    assert record["directions"]
+    if expected_status == "error":
+        assert result["market_summary_context"]["_validation_contract_errors"]
+        assert record["directions"][0]["score_eligible"] is False
+    else:
+        assert "_validation_contract_errors" not in result["market_summary_context"]
+        assert record["directions"][0]["score_eligible"] is True
+
+
+@pytest.mark.asyncio
 async def test_missing_input_snapshot_is_missing_not_pending(monkeypatch, tmp_path):
     root = tmp_path / "records"
     monkeypatch.setenv("QING_AGENT_VALIDATION_ROOT", str(root))
@@ -417,3 +502,81 @@ def test_wrapper_does_not_present_error_response_as_success(
     assert "[Qing-Agent ✓]" not in output
     assert "ERROR FALLBACK" in output
     assert not list(root.rglob("*.json"))
+
+
+def test_wrapper_pre_market_uses_global_post_timeout(monkeypatch):
+    captured = {}
+    data = {
+        "timestamp": "2026-11-02T09:00:00+08:00",
+        "trigger": {"id": "pre_market", "title": "盘前验证", "reason": "测试"},
+        "positions": {"accounts": []},
+        "watchlist": {"themes": []},
+    }
+    monkeypatch.setattr(wrapper, "QING_AGENT_TIMEOUT", 1234.0)
+    monkeypatch.setattr(wrapper, "_wait_for_agent_health", lambda *args, **kwargs: True)
+    monkeypatch.setattr(
+        wrapper,
+        "_build_market_snapshot",
+        lambda value: ({"timestamp": value["timestamp"], "quotes": []}, {}),
+    )
+    monkeypatch.setattr(wrapper, "_normalize_positions", lambda value, lookup: [])
+    monkeypatch.setattr(wrapper, "_normalize_watchlist", lambda value, lookup: [])
+    monkeypatch.setattr(wrapper, "_log_request_payload", lambda *args, **kwargs: None)
+
+    def fake_post(payload, timeout=None, failure=None):
+        captured["effective_timeout"] = (
+            wrapper.QING_AGENT_TIMEOUT if timeout is None else timeout
+        )
+        return {"final_output": "ok"}
+
+    monkeypatch.setattr(wrapper, "_post_analyze_trigger", fake_post)
+
+    assert wrapper.call_qing_agent(data) == {"final_output": "ok"}
+    assert captured["effective_timeout"] == 1234.0
+
+
+def test_wrapper_review_failure_is_not_reported_as_accepted(monkeypatch, capsys):
+    data = {
+        "timestamp": "2026-11-02T10:00:00+08:00",
+        "trigger": {"id": "morning_confirm", "title": "十点确认", "reason": "测试"},
+        "quote_snapshot": {"timestamp": "2026-11-02T10:00:00+08:00", "quotes": [{"code": "000001"}]},
+    }
+    response = {
+        "final_output": "保留审核未通过的分析正文",
+        "review_passed": False,
+        "record_status": "pending_maturity",
+    }
+    monkeypatch.setattr(wrapper, "fetch_json_context", lambda root: data)
+    monkeypatch.setattr(wrapper, "call_qing_agent", lambda value: response)
+    monkeypatch.setattr(wrapper, "_is_hallucinated", lambda output: False)
+
+    assert wrapper.main() == 0
+
+    output = capsys.readouterr().out
+    assert "[Qing-Agent ✓]" not in output
+    assert "审核未通过/不纳入预测评分" in output
+    assert response["final_output"] in output
+
+
+@pytest.mark.parametrize(
+    "error",
+    [
+        TimeoutError("timed out"),
+        wrapper.urllib.error.URLError(TimeoutError("timed out")),
+    ],
+)
+def test_wrapper_does_not_retry_read_timeout(monkeypatch, error):
+    calls = []
+    failure = {}
+
+    def fake_urlopen(request, timeout):
+        calls.append(timeout)
+        raise error
+
+    monkeypatch.setattr(wrapper.urllib.request, "urlopen", fake_urlopen)
+    monkeypatch.setattr(wrapper, "QING_AGENT_MAX_RETRIES", 2)
+
+    assert wrapper._post_analyze_trigger({}, failure=failure) is None
+    assert len(calls) == 1
+    assert failure["type"] == "timeout"
+    assert failure["attempts"] == 1

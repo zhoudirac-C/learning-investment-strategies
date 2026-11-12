@@ -1,8 +1,8 @@
 # Qing-Agent 架构梳理文档
 
-> **版本**：v2026-06-30  
+> **版本**：v2026-11-12
 > **对应仓库**：`learning-investment-strategies`  
-> **最后更新**：2026-06-30（新增 provider 路由可观测性、修复大盘技术面框架注入、新增技术面信号 → UP 历史操作建议检索）  
+> **最后更新**：2026-11-12（修复并行分支汇合、provider 超时预算、审核评分门禁及市场输出契约/数据质量）
 > **目标读者**：后续维护 Qing-Agent 与监控层的开发者  
 
 ---
@@ -450,7 +450,7 @@ SHNOTE ..> [人类参考] : 不进 LLM
 
 ## 4. 分析层（Agent Layer）架构详解
 
-分析层基于 **LangGraph** 构建有向图工作流，当前为 **9 个节点** + 1 条条件边。
+分析层基于 **LangGraph** 构建有向图工作流，当前为 **11 个业务节点** + 2 条条件路由。
 
 ### 4.1 LangGraph 节点拓扑
 
@@ -465,21 +465,28 @@ title Qing-Agent LangGraph 节点拓扑
 
 [*] --> parse_query
 parse_query --> retrieve_knowledge
-retrieve_knowledge --> market_analyst
+retrieve_knowledge --> market_summary
 retrieve_knowledge --> stock_analyst
-market_analyst --> devils_advocate
+market_summary --> stock_scanner_shard : 分片 fan-out
+stock_scanner_shard --> merge_scanner_results
+merge_scanner_results --> devils_advocate
 stock_analyst --> devils_advocate
 devils_advocate --> synthesize
 synthesize --> style_writer
 style_writer --> citation_validator
 citation_validator --> reviewer
 reviewer --> [*] : pass
-reviewer --> style_writer : fail (max 3)
+reviewer --> style_writer : fail (max 2)
 
-note right of market_analyst
+note right of market_summary
   大盘/板块维度分析
   强制 JSON 输出
   更新 daily_state.json
+end note
+
+note right of merge_scanner_results
+  合并全部分片结果
+  与 stock_analyst 均完成后才进入反方节点
 end note
 
 note right of stock_analyst
@@ -489,8 +496,8 @@ note right of stock_analyst
 end note
 
 note right of devils_advocate
-  强制用 Kimi
-  反向质疑主分析结论
+  独立反向质疑主分析结论
+  等待两个上游分支都完成，只执行一次
 end note
 
 note right of citation_validator
@@ -1036,13 +1043,16 @@ end note
 - 关键节点（market_analyst、style_writer、reviewer 等）记录结构化日志。
 - 环境变量 `QING_AGENT_LOG_LEVEL=DEBUG` 开启模块级 DEBUG。
 
-### 9.7 Provider 路由可观测性（2026-06-30）
+### 9.7 Provider 路由可观测性与超时治理（2026-06-30；2026-11-12 更新）
 
 - `llm_client.py` 新增 `contextvars` 隔离的 provider 使用轨迹跟踪：
   - `reset_provider_usage()` / `record_provider_usage()` / `format_provider_usage_summary()`
 - `_safe_llm_invoke()` 与 `devils_advocate()` 每次调用本地 Kimi Code CLI 或远端 provider 时记录 attempt / success / failed / fallback。
 - `/analyze/trigger` 请求结束时把轨迹摘要写入日志，并拼接到 `final_output` 顶部（如 `[模型路由：最终走 远端 deepseek]`）。
 - `hermes_stock_monitor_agent.py` fallback 路径输出 `[模型路由：未调用 Qing-Agent，走本地规则 fallback]`。
+- 通用默认 `max_tokens=10000`（`gpt-4o` 为 16384），长输出任务必须显式覆盖，避免把上下文窗口误当输出上限。
+- `_safe_llm_invoke()` 支持 `QING_AGENT_FALLBACK_PROVIDERS` 跨 provider 降级，并以 `QING_AGENT_LLM_CHAIN_TIMEOUT=300s` 作为单次调用的共享时间预算；后续 client 只获得剩余 request timeout。ChatOpenAI 显式 `max_retries=0`，ACP/Kimi Coding 同样接收剩余 timeout，避免 client 内部重试绕过预算。
+- wrapper 对连接错误/5xx 有限重试，但读超时不重复 POST，避免服务端仍在执行时产生重复分析与留痕。
 
 ### 9.8 大盘技术面分析框架注入修复（2026-06-30）
 
@@ -1056,6 +1066,14 @@ end note
 - 通过 `Neo4jClient.get_claims_by_keyword()` 检索 UP 在同类信号下的历史 claim，去重后按日期倒序取前 15 条。
 - 检索结果以 `tech_signal_claims` 字段注入 `market_analyst` prompt，作为"UP 历史如何应对"的参考，要求 LLM 在 `phase_reasoning` 中注明一致/矛盾关系。
 - `stock_analyst` 买入确认模式的三层门控新增要求：必须参考 `market_context.phase_reasoning` 中的多级别技术面结论。
+
+### 9.10 输出契约与数据质量（2026-11-12）
+
+- cron 专属输出先经 `_normalize_market_summary_result()` 映射为通用市场 schema，统一 `market_phase` 与 `final_judgment.market_stage`；`daily_state` 采用顶层 JSON 对象，兼容旧 Markdown 输入。
+- `open_confirm` 路由至 `cron_open_confirm`，不再复用竞价节点 prompt。
+- 风格化头部、风格化 prompt 和 reviewer 共用 `_build_data_quality_view()`；全零板块在抓取、缓存、Agent 格式和 gator 快照中均视为不可用。
+- scanner 在空持仓/空观察池时仍保留指数白名单；合成明确标注“未执行全市场扫描”和“当前无持仓”，reviewer 不强迫补造机会。
+- `_validation_contract_errors`、`_fallback_reason`、`_scan_failed` 触发确定性降级，跳过 LLM 风格化与审核，避免将契约错误扩写为长文。
 
 ---
 

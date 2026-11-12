@@ -24,6 +24,7 @@ class TestNormalizeStage:
     def test_excluded_and_unmapped(self):
         assert normalize_stage("未判断") is None
         assert normalize_stage("数据缺失，无法确定") is None
+        assert normalize_stage("未知（实时数据缺失，无法判断）") is None
         assert normalize_stage(None) is None
         with pytest.raises(KeyError, match="未映射"):
             normalize_stage("主升浪")

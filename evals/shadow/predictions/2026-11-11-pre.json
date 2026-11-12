@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-11",
+  "result": {
+    "market_stage": "调整",
+    "nature": "主动降速",
+    "stage_reason": "昨日两市成交额15048亿（环比前日14826.1亿，温和放大、量能低分位16.7%），涨停93家却炸板150家、封板率83.0357%，情绪分歧；隔夜纳指-0.74%、费半-0.35%、标普-0.38%，外部链条不成立/平稳；美债30Y 5.35%（+9.4bp）突破4.70%阈值、13W 4.115%（+8.0bp）同步上行，构成宏观压制，但英伟达GR00T 2与字节AI终端等AI催化部分证伪宏观压制，整体偏主动降速而非内生瓦解；数据缺失（sector_intraday），信息差风险。",
+    "scenarios": [
+      {
+        "name": "情形A",
+        "condition": "开盘成交额(亿)守住15000且连板梯队晋级率回升至15%附近",
+        "conclusion": "情绪修复，市场维持震荡，可轻仓试错主线",
+        "key": "成交额(亿)与晋级率"
+      },
+      {
+        "name": "情形B",
+        "condition": "开盘放量破位且跌停家数扩散",
+        "conclusion": "反弹超预期兑现，市场转入调整，降仓观望",
+        "key": "成交额(亿)与跌停家数"
+      }
+    ],
+    "watch_next": [
+      "昨日连板梯队独苗闽发铝业（7板）今日是否再封板或温和断板，若断板且无换龙承接则情绪退潮证伪",
+      "昨日首板73家×约15%晋级率折算今日二板健康区间约10-11家，观察今日二板家数是否落在该区间"
+    ],
+    "invalidation": [
+      "今日成交额(亿)显著放大并收复5日均线，或连板高度创新高，则反弹超预期/调整判断失效",
+      "隔夜外盘出现费半≤-2%或纳指≤-1.5%等系统性冲击，则开盘定价后可能延续下跌"
+    ],
+    "directions": [
+      {
+        "direction_id": "robot_observation",
+        "reason": "英伟达发布机器人基模GR00T 2（overnight_us映射：机器人概念+2.83%，通力科技+19.99%），概念即时净流入87.42亿居首，机构净买入家数26家占优；同属C7主题事件簇，取证据更强者。失效条件：绿的谐波跌破5日均线或机器人概念与大盘背离放大。",
+        "posture": "波段",
+        "trend": "维持",
+        "stocks": [
+          "688017"
+        ]
+      },
+      {
+        "direction_id": "edge_ai_endpoint",
+        "reason": "字节新机定档12月2日押注下一代AI终端（catalysts_since_prev_day：AI眼镜+4.49%，国光电器+10.03%），端侧AI有隔夜催化但方向无T+5历史样本，证据不足；同属C1 AI硬件簇，取证据更强者。失效条件：国光电器跌破5日均线或端侧AI板块与大盘背离放大。",
+        "posture": "波段",
+        "trend": "维持",
+        "stocks": [
+          "002045"
+        ]
+      }
+    ],
+    "used_patterns": [
+      "sentiment_cycle",
+      "mainline_identification",
+      "position_by_cycle",
+      "promotion_rate_benchmark"
+    ],
+    "operation": {
+      "position": "反弹超预期",
+      "action": "获利了结、降仓位、不急着表态",
+      "basis": "科创50/创业板指/上证指数 rebound_day 分别为 13/12/15 天，均超过 theoretical_window 6-8 天上限；两市成交额 15048 亿（量能低分位 16.7%，环比微增）；涨停 93 家但炸板 150 家，情绪分歧。"
+    },
+    "cycle_state": {
+      "rebound_day": 13,
+      "bottom_level": "90min",
+      "bottom_date": "2026-10-23",
+      "theoretical_window": "6-8天",
+      "note": "各指数 bottom_date 分歧（上证10-21、科创50 10-23、创业板 10-26），按科技主线（科创50/创业板指）锚定，rebound_day 均已超过 theoretical_window 上限。"
+    }
+  },
+  "raw": "{\"market_stage\": \"调整\", \"nature\": \"主动降速\", \"stage_reason\": \"昨日两市成交额15048亿（环比前日14826.1亿，温和放大、量能低分位16.7%），涨停93家却炸板150家、封板率83.0357%，情绪分歧；隔夜纳指-0.74%、费半-0.35%、标普-0.38%，外部链条不成立/平稳；美债30Y 5.35%（+9.4bp）突破4.70%阈值、13W 4.115%（+8.0bp）同步上行，构成宏观压制，但英伟达GR00T 2与字节AI终端等AI催化部分证伪宏观压制，整体偏主动降速而非内生瓦解；数据缺失（sector_intraday），信息差风险。\", \"scenarios\": [{\"name\": \"情形A\", \"condition\": \"开盘成交额(亿)守住15000且连板梯队晋级率回升至15%附近\", \"conclusion\": \"情绪修复，市场维持震荡，可轻仓试错主线\", \"key\": \"成交额(亿)与晋级率\"}, {\"name\": \"情形B\", \"condition\": \"开盘放量破位且跌停家数扩散\", \"conclusion\": \"反弹超预期兑现，市场转入调整，降仓观望\", \"key\": \"成交额(亿)与跌停家数\"}], \"watch_next\": [\"昨日连板梯队独苗闽发铝业（7板）今日是否再封板或温和断板，若断板且无换龙承接则情绪退潮证伪\", \"昨日首板73家×约15%晋级率折算今日二板健康区间约10-11家，观察今日二板家数是否落在该区间\"], \"invalidation\": [\"今日成交额(亿)显著放大并收复5日均线，或连板高度创新高，则反弹超预期/调整判断失效\", \"隔夜外盘出现费半≤-2%或纳指≤-1.5%等系统性冲击，则开盘定价后可能延续下跌\"], \"directions\": [{\"direction_id\": \"robot_observation\", \"reason\": \"英伟达发布机器人基模GR00T 2（overnight_us映射：机器人概念+2.83%，通力科技+19.99%），概念即时净流入87.42亿居首，机构净买入家数26家占优；同属C7主题事件簇，取证据更强者。失效条件：绿的谐波跌破5日均线或机器人概念与大盘背离放大。\", \"posture\": \"波段\", \"trend\": \"维持\", \"stocks\": [\"688017\"]}, {\"direction_id\": \"edge_ai_endpoint\", \"reason\": \"字节新机定档12月2日押注下一代AI终端（catalysts_since_prev_day：AI眼镜+4.49%，国光电器+10.03%），端侧AI有隔夜催化但方向无T+5历史样本，证据不足；同属C1 AI硬件簇，取证据更强者。失效条件：国光电器跌破5日均线或端侧AI板块与大盘背离放大。\", \"posture\": \"波段\", \"trend\": \"维持\", \"stocks\": [\"002045\"]}], \"used_patterns\": [\"sentiment_cycle\", \"mainline_identification\", \"position_by_cycle\", \"promotion_rate_benchmark\"], \"operation\": {\"position\": \"反弹超预期\", \"action\": \"获利了结、降仓位、不急着表态\", \"basis\": \"科创50/创业板指/上证指数 rebound_day 分别为 13/12/15 天，均超过 theoretical_window 6-8 天上限；两市成交额 15048 亿（量能低分位 16.7%，环比微增）；涨停 93 家但炸板 150 家，情绪分歧。\"}, \"cycle_state\": {\"rebound_day\": 13, \"bottom_level\": \"90min\", \"bottom_date\": \"2026-10-23\", \"theoretical_window\": \"6-8天\", \"note\": \"各指数 bottom_date 分歧（上证10-21、科创50 10-23、创业板 10-26），按科技主线（科创50/创业板指）锚定，rebound_day 均已超过 theoretical_window 上限。\"}}",
+  "prompt_version": "v24",
+  "stage_hit": true,
+  "due_scores": null,
+  "status": "pending_maturity",
+  "validation": {
+    "status": "passed",
+    "violations": [],
+    "retried": true,
+    "first_violations": [
+      "规则25: pack 含 global_macro 美债收益率数据，stage_reason 未做宏观三条件检验（美联储/油价80美元/十年期4.70%）——须给出宏观压制 vs AI证伪的定性质结论"
+    ]
+  },
+  "meta": {
+    "prev_day": "2026-11-10",
+    "overnight_date": "2026-11-11"
+  }
+}

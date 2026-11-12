@@ -171,6 +171,19 @@ def test_missing_data_as_of_disables_scoring_even_for_complete_direction():
     assert record["directions"][0]["score_eligible"] is False
 
 
+def test_failed_review_disables_scoring_without_changing_lifecycle_status():
+    record = _record(
+        final_judgment=_final_judgment(),
+        directions=[_direction()],
+        expert_views=[_direction(school="gator")],
+        review={"passed": False, "notes": ["需要人工复核"]},
+    )
+
+    assert record["status"] == "pending_maturity"
+    assert record["review"]["passed"] is False
+    _assert_all_score_gates_false(record)
+
+
 def test_error_and_missing_are_independent_and_never_score_eligible():
     final_judgment = {"market_stage": "震荡", "score_eligible": True}
     error = _record(

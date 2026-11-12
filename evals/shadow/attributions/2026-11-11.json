@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-11",
+  "triggers": [
+    "stage_miss"
+  ],
+  "types": [
+    "步骤缺",
+    "概念误用"
+  ],
+  "analysis": "AI在cycle_state中虽然note提及三指数bottom_date分歧(上证10-21/科创50 10-23/创业板10-26)且rebound_day区间13~16，但正式字段仍单点取科创50的rebound_day=14作为唯一锚，未按审计要求输出区间或中位并显式标注分歧。取14相对区间中位14.5偏向更短天数，更支持“超窗反弹延续”的预设结论，而事后真值为调整，该单点锚定归入「概念误用」。另外，AI已观察到创业板指30min顶部divergence(11-10)与60min td9 up count 8在位，但以“未构成60min及以上顶部结构”为由忽略，在rebound_day已超6-8天窗口上限的背景下，缺少“短周期顶部信号与周期末端叠加时强制降级”的方法论步骤，导致将当日放量普涨(成交额16762.8亿、涨3537家、涨停85家)误判为“震荡市放量攻击”，而非提前识别为调整前的诱多高潮。",
+  "proposal_refs": [
+    "framework/proposals/2026-11-11-pattern-patch-note.md",
+    "framework/proposals/2026-11-11-glossary-patch-note.md",
+    "framework/proposals/2026-11-11-pattern-patch-note.md"
+  ]
+}

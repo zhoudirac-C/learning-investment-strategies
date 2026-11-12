@@ -186,6 +186,7 @@ def _trigger_record_status(req: TriggerRequest, result: dict, final_output: str)
         or summary.get("_validation_contract_errors")
         or summary.get("_scan_failed")
         or result.get("_style_writer_failed")
+        or result.get("_reviewer_error")
     ):
         return "error"
     if is_hallucinated_output(final_output):
@@ -210,6 +211,8 @@ def _trigger_record_error(
         return {"type": "generation_fallback", "message": "stock_scanner_failed"}
     if result.get("_style_writer_failed"):
         return {"type": "generation_fallback", "message": "style_writer_failed"}
+    if result.get("_reviewer_error"):
+        return {"type": "generation_fallback", "message": "reviewer_llm_failed"}
     if summary.get("_validation_contract_errors"):
         return {
             "type": "validation_contract_error",

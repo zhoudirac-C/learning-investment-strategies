@@ -750,7 +750,8 @@ def _post_analyze_trigger(
 ) -> dict | None:
     """发送单个 /analyze/trigger 请求，返回响应 JSON。
 
-    包含重试与指数退避；不执行 health check（调用方应已确认服务可用）。
+    连接错误与 5xx 包含重试；读超时不重复 POST，避免服务端仍在执行时重复分析。
+    不执行 health check（调用方应已确认服务可用）。
     """
     body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
     req = urllib.request.Request(
@@ -793,6 +794,10 @@ def _post_analyze_trigger(
             print(f"[qing-agent HTTP {e.code}] {err_body}", file=sys.stderr)
             return None
         except urllib.error.URLError as e:
+            if isinstance(e.reason, TimeoutError):
+                record_failure("timeout", f"timeout: {e.reason}", attempt)
+                print(f"[qing-agent timeout] {e.reason}; not retrying POST", file=sys.stderr)
+                return None
             record_failure("unreachable", f"URLError: {e.reason}", attempt)
             print(f"[qing-agent unreachable retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e.reason}", file=sys.stderr)
             if attempt < QING_AGENT_MAX_RETRIES:
@@ -801,10 +806,7 @@ def _post_analyze_trigger(
             return None
         except (TimeoutError, OSError) as e:
             record_failure("timeout", f"timeout: {e}", attempt)
-            print(f"[qing-agent timeout retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e}", file=sys.stderr)
-            if attempt < QING_AGENT_MAX_RETRIES:
-                _time.sleep(2 ** attempt)
-                continue
+            print(f"[qing-agent timeout] {e}; not retrying POST", file=sys.stderr)
             return None
         except Exception as e:
             record_failure("request_error", f"error: {e}", attempt)
@@ -852,9 +854,8 @@ def call_qing_agent(data: dict) -> dict | None:
         return None
 
     trigger_id = (data.get("trigger") or {}).get("id", "")
-    post_timeout = 90.0 if trigger_id == "pre_market" else None
     failure = {}
-    response = _post_analyze_trigger(payload, timeout=post_timeout, failure=failure)
+    response = _post_analyze_trigger(payload, failure=failure)
     if response is None:
         data["_qing_agent_failure"] = failure or {
             "type": "empty_response",
@@ -944,7 +945,10 @@ def main():
             print("[Qing-Agent ✗ HALLUCINATION]")
             print(fetch_fallback_text_context(root, data))
             return 0
-        print("[Qing-Agent ✓]" + (f" {citation_warning}" if citation_warning else ""))
+        if response.get("review_passed") is False:
+            print("[Qing-Agent ✗ REVIEW] 审核未通过/不纳入预测评分")
+        else:
+            print("[Qing-Agent ✓]" + (f" {citation_warning}" if citation_warning else ""))
         print(f"[qing-agent OUTPUT] len={len(output)}chars ~{len(output)//4}tk hallucinated=False", file=sys.stderr)
         print(output)
         if response.get("claims_cited"):

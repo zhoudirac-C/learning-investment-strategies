@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import copy
 import hashlib
+import inspect
 import json
 import logging
 import os
@@ -70,7 +71,7 @@ def _load_prompt_for_trigger(trigger_id: str | None, default_name: str) -> str:
     prompt_map = {
         "pre_market": "cron_pre_market",
         "open_auction": "cron_opening",
-        "open_confirm": "cron_opening",
+        "open_confirm": "cron_open_confirm",
         "morning_confirm": "cron_morning_confirm",
         "closing_review": "cron_closing",
     }
@@ -196,7 +197,11 @@ def _gator_sector_snapshot() -> dict:
         from qing_investment.agent.tools import sector_data
         snap = sector_data.get_sector_strength_snapshot(top_n=1)
         leaders = snap.get("industry", {}).get("leaders", [])
-        if not leaders:
+        if (
+            not leaders
+            or snap.get("available") is False
+            or not sector_data.boards_have_market_data(snap)
+        ):
             return {"top_sector_name": None, "top_sector_pct": None, "top_sector_red_ratio": None}
         top = leaders[0]
         # 红盘比需要从成分股统计，sector_data 当前不返回 up_count/down_count
@@ -1419,18 +1424,22 @@ def _safe_llm_invoke(
     - KIMI_CODE_ACP_FIRST=1 / true：优先本地 Kimi Code ACP（stdio JSON-RPC）
     - KIMI_CODE_CLI_FIRST=1 / true：[已废弃] 优先本地 Kimi Code CLI（kimi -p，受 argv 限制）
     - 否则：直接走 settings.llm_provider
+    - QING_AGENT_FALLBACK_PROVIDERS：配置 provider 失败后的跨 provider 链，
+      逗号分隔，默认 sensenova,zhipu,deepseek；空字符串禁用。
+    - QING_AGENT_LLM_CHAIN_TIMEOUT：单次调用跨 provider 的共享时间预算，
+      默认 300 秒；后续 client 只获得剩余 request timeout。
 
     Args:
         prompt: 发送给 LLM 的提示。
-        min_length: 本地调用返回内容的最小可接受长度（字符数）。
-            若返回内容长度低于此值，视为失败并 fallback 到配置 provider。
+        min_length: 返回内容的最小可接受长度（字符数）。
+            空正文或长度低于此值均视为失败并尝试下一 provider。
         use_acp_first: 是否优先本地 ACP。None 时从环境变量读取；
             False 时强制走配置 provider（用于 style_writer / reviewer 等 retry 节点，避免本地 ACP 拖慢）。
     """
     import os
 
     if use_acp_first is None:
-        # 默认不优先本地 ACP（2026-08-03 起：监控链路全面走远端 deepseek，
+        # 默认不优先本地 ACP（2026-08-03 起：监控链路全面走远端 provider，
         # 避免每次 LLM 调用都 spawn `kimi acp` 子进程产生僵尸/反复重启）。
         acp_first = os.environ.get("KIMI_CODE_ACP_FIRST", "0").lower() not in ("0", "false", "no")
     else:
@@ -1444,6 +1453,32 @@ def _safe_llm_invoke(
     # if cli_first:
     #     local_providers.append("kimi-code-cli")
 
+    try:
+        chain_timeout = max(
+            1.0, float(os.environ.get("QING_AGENT_LLM_CHAIN_TIMEOUT", "300"))
+        )
+    except ValueError:
+        chain_timeout = 300.0
+    chain_deadline = time.monotonic() + chain_timeout
+
+    def _get_client(provider=None):
+        remaining = chain_deadline - time.monotonic()
+        if remaining <= 0:
+            raise TimeoutError("LLM provider chain deadline exceeded")
+        kwargs = {}
+        try:
+            supports_timeout = "request_timeout" in inspect.signature(
+                get_llm_client
+            ).parameters
+        except (TypeError, ValueError):
+            supports_timeout = False
+        if supports_timeout:
+            kwargs["request_timeout"] = min(120.0, max(1.0, remaining))
+        return get_llm_client(provider=provider, **kwargs)
+
+    def _deadline_exceeded():
+        return time.monotonic() >= chain_deadline
+
     # JSON 模式（2026-10-12，k3 间歇性 ```json 围栏包裹的 API 层双保险）：
     # kimi coding 端点实测支持 response_format={"type":"json_object"}；
     # 只在「期望 JSON dict 输出」的节点开启， prose/list 输出节点勿开。
@@ -1451,20 +1486,52 @@ def _safe_llm_invoke(
 
     def _invoke(llm_obj):
         if _invoke_kwargs:
+            invoke = llm_obj.invoke
             try:
-                return llm_obj.invoke(prompt, **_invoke_kwargs).content
-            except TypeError:
-                # 客户端不接受 kwargs（如本地 ACP），降级裸调用
-                return llm_obj.invoke(prompt).content
+                parameters = inspect.signature(invoke).parameters.values()
+                supports_response_format = any(
+                    parameter.kind == inspect.Parameter.VAR_KEYWORD
+                    or (
+                        parameter.name == "response_format"
+                        and parameter.kind != inspect.Parameter.POSITIONAL_ONLY
+                    )
+                    for parameter in parameters
+                )
+            except (TypeError, ValueError):
+                supports_response_format = True
+            if supports_response_format:
+                return invoke(prompt, **_invoke_kwargs).content
+            # 客户端不接受 kwargs（如本地 ACP），调用前确定使用裸调用
+            return invoke(prompt).content
         return llm_obj.invoke(prompt).content
+
+    def _validate_content(content, provider):
+        if not isinstance(content, str) or not content.strip():
+            raise RuntimeError(f"{provider} returned empty content")
+        if min_length > 0 and len(content) < min_length:
+            raise RuntimeError(
+                f"{provider} returned too short output ({len(content)} chars, min={min_length})"
+            )
+        return content
+
+    def _stop_client(llm_obj):
+        if llm_obj is None:
+            return
+        try:
+            stop = getattr(llm_obj, "stop", None)
+            if callable(stop):
+                stop()
+        except Exception:
+            pass
 
     for local_provider in local_providers:
         logger.info("[_safe_llm_invoke] 优先尝试 %s", local_provider)
         record_provider_usage(local_provider, "attempt", "local-first enabled")
-        local_llm = get_llm_client(provider=local_provider)
+        local_llm = None
         _local_t0 = time.time()
         try:
-            content = _invoke(local_llm)
+            local_llm = _get_client(provider=local_provider)
+            content = _validate_content(_invoke(local_llm), local_provider)
             record_provider_usage(local_provider, "success", f"content_len={len(content)}")
             logger.info(
                 "[_safe_llm_invoke] %s 成功, content_len=%d, tracker=%s",
@@ -1472,10 +1539,6 @@ def _safe_llm_invoke(
                 len(content),
                 format_provider_usage_summary(get_provider_usage_records()),
             )
-            if min_length > 0 and len(content) < min_length:
-                raise RuntimeError(
-                    f"{local_provider} returned too short output ({len(content)} chars, min={min_length})"
-                )
             return content
         except Exception as e:
             _persist_llm_failure(
@@ -1491,42 +1554,95 @@ def _safe_llm_invoke(
                 local_provider, e, settings.llm_provider,
             )
         finally:
-            try:
-                local_llm.stop()
-            except Exception:
-                pass
+            _stop_client(local_llm)
 
     # fallback / 直接走配置 provider
-    logger.info("[_safe_llm_invoke] 调用配置 provider: %s", settings.llm_provider)
-    record_provider_usage(settings.llm_provider, "fallback" if local_providers else "attempt")
+    configured_provider = settings.llm_provider or "unknown"
+    logger.info("[_safe_llm_invoke] 调用配置 provider: %s", configured_provider)
+    record_provider_usage(configured_provider, "fallback" if local_providers else "attempt")
+    llm = None
     _cfg_t0 = time.time()
     try:
-        llm = get_llm_client()
-        content = _invoke(llm)
-        record_provider_usage(settings.llm_provider, "success", f"content_len={len(content)}")
+        llm = _get_client()
+        content = _validate_content(_invoke(llm), configured_provider)
+        record_provider_usage(configured_provider, "success", f"content_len={len(content)}")
         logger.info(
             "[_safe_llm_invoke] provider %s 成功, content_len=%d, tracker=%s",
-            settings.llm_provider,
+            configured_provider,
             len(content),
             format_provider_usage_summary(get_provider_usage_records()),
         )
         return content
     except Exception as e:
         _persist_llm_failure(
-            provider=settings.llm_provider or "unknown",
+            provider=configured_provider,
             stage="configured_attempt",
             prompt=prompt,
             elapsed_s=time.time() - _cfg_t0,
             error=e,
         )
-        record_provider_usage(settings.llm_provider, "failed", str(e)[:120])
+        record_provider_usage(configured_provider, "failed", str(e)[:120])
         logger.warning(
             "[_safe_llm_invoke] provider %s 失败: %s, tracker=%s",
-            settings.llm_provider,
+            configured_provider,
             e,
             format_provider_usage_summary(get_provider_usage_records()),
         )
+    finally:
+        _stop_client(llm)
+
+    if _deadline_exceeded():
+        logger.warning("[_safe_llm_invoke] provider chain deadline exceeded")
         return ""
+
+    configured_key = (settings.llm_provider or "").strip().lower()
+    seen_providers = {configured_key}
+    seen_providers.update(local_providers)
+    fallback_providers = os.environ.get(
+        "QING_AGENT_FALLBACK_PROVIDERS", "sensenova,zhipu,deepseek"
+    ).split(",")
+    for fallback_provider in fallback_providers:
+        if _deadline_exceeded():
+            logger.warning("[_safe_llm_invoke] provider chain deadline exceeded")
+            break
+        fallback_provider = fallback_provider.strip().lower()
+        if not fallback_provider or fallback_provider in seen_providers:
+            continue
+        seen_providers.add(fallback_provider)
+        logger.info("[_safe_llm_invoke] 调用 fallback provider: %s", fallback_provider)
+        record_provider_usage(fallback_provider, "attempt")
+        fallback_llm = None
+        _fallback_t0 = time.time()
+        try:
+            fallback_llm = _get_client(provider=fallback_provider)
+            content = _validate_content(_invoke(fallback_llm), fallback_provider)
+            record_provider_usage(fallback_provider, "success", f"content_len={len(content)}")
+            logger.info(
+                "[_safe_llm_invoke] fallback provider %s 成功, content_len=%d, tracker=%s",
+                fallback_provider,
+                len(content),
+                format_provider_usage_summary(get_provider_usage_records()),
+            )
+            return content
+        except Exception as e:
+            _persist_llm_failure(
+                provider=fallback_provider,
+                stage="provider_fallback",
+                prompt=prompt,
+                elapsed_s=time.time() - _fallback_t0,
+                error=e,
+            )
+            record_provider_usage(fallback_provider, "failed", str(e)[:120])
+            logger.warning(
+                "[_safe_llm_invoke] fallback provider %s 失败: %s, tracker=%s",
+                fallback_provider,
+                e,
+                format_provider_usage_summary(get_provider_usage_records()),
+            )
+        finally:
+            _stop_client(fallback_llm)
+
+    return ""
 
 
 def parse_query(state: AgentState) -> AgentState:
@@ -2021,18 +2137,26 @@ def _pure_index_code(raw: str | None) -> str:
     return _pure_stock_code(raw)
 
 
+_MARKET_INDEX_CODES = {
+    "000001", "399001", "399006", "000688", "000985", "000016",
+    "000300", "000905", "000852", "399303",
+}
+
+
+def _is_market_index_quote(quote: dict) -> bool:
+    return (
+        _pure_index_code(quote.get("secid")) in _MARKET_INDEX_CODES
+        or _pure_index_code(quote.get("code")) in _MARKET_INDEX_CODES
+        or "指数" in (quote.get("label") or "")
+    )
+
+
 def _slim_market_snapshot_for_summary(market_snapshot: dict) -> dict:
     """为 market_summary 保留指数+关键市场数据，去掉个股明细。"""
     if not market_snapshot:
         return {}
     quotes = market_snapshot.get("quotes", []) or []
-    market_indexes = {"000001", "399001", "399006", "000688", "000985", "000016", "000300", "000905", "000852", "399303"}
-    slim_quotes = [
-        q for q in quotes
-        if _pure_index_code(q.get("secid")) in market_indexes
-        or _pure_index_code(q.get("code")) in market_indexes
-        or "指数" in (q.get("label") or "")
-    ]
+    slim_quotes = [q for q in quotes if _is_market_index_quote(q)]
     return {
         **market_snapshot,
         "quotes": slim_quotes,
@@ -2219,6 +2343,109 @@ def _validation_digest(value: object) -> str:
     return "sha256:" + hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
+def _normalize_market_summary_result(
+    result: dict, market_snapshot: dict
+) -> tuple[dict, dict | None]:
+    normalized = dict(result)
+    daily_state = normalized.pop("daily_state", None)
+    daily_state = copy.deepcopy(daily_state) if isinstance(daily_state, dict) else None
+    judgment = normalized.get("final_judgment")
+    judgment = judgment if isinstance(judgment, dict) else {}
+    daily_stage = (daily_state or {}).get("market_stage") or {}
+    phase = (
+        judgment.get("market_stage")
+        or daily_stage.get("phase")
+        or (daily_state or {}).get("market_phase")
+        or ""
+    )
+    phase = str(phase).strip()
+    if phase and phase not in {"未配置", "数据不可用"} and not phase.startswith(
+        "未知（实时数据缺失"
+    ):
+        if not normalized.get("market_phase"):
+            normalized["market_phase"] = phase
+        if daily_state is not None:
+            daily_market_stage = daily_state.setdefault("market_stage", {})
+            if isinstance(daily_market_stage, dict):
+                daily_market_stage["phase"] = normalized["market_phase"]
+
+    if not normalized.get("market_summary"):
+        scenario = normalized.get("scenario_validation") or {}
+        summary = next(
+            (
+                value
+                for value in (
+                    normalized.get("narrative"),
+                    normalized.get("core_assumption"),
+                    normalized.get("corrected_assumption"),
+                    normalized.get("assumption_validation"),
+                    scenario.get("deviation") if isinstance(scenario, dict) else "",
+                )
+                if isinstance(value, str) and value.strip()
+            ),
+            "",
+        )
+        if summary:
+            normalized["market_summary"] = summary
+        elif market_snapshot:
+            normalized["market_summary"] = _build_degraded_digest(
+                market_snapshot, {}
+            )["summary_text"]
+
+    if not normalized.get("phase_reasoning"):
+        reasoning = next(
+            (
+                value
+                for value in (
+                    normalized.get("core_assumption"),
+                    normalized.get("corrected_assumption"),
+                    normalized.get("assumption_validation"),
+                    normalized.get("narrative"),
+                )
+                if isinstance(value, str) and value.strip()
+            ),
+            "",
+        )
+        if reasoning:
+            normalized["phase_reasoning"] = reasoning
+
+    def direction_names(values) -> list[str]:
+        if not isinstance(values, list):
+            return []
+        names = []
+        for value in values:
+            name = value if isinstance(value, str) else (
+                value.get("direction") or value.get("name") if isinstance(value, dict) else ""
+            )
+            if name and str(name) not in names:
+                names.append(str(name))
+        return names
+
+    if not normalized.get("main_themes"):
+        themes = direction_names(normalized.get("direction_priority"))
+        if not themes:
+            themes = direction_names(judgment.get("direction"))
+        if not themes and daily_state is not None:
+            themes = direction_names(daily_state.get("direction_priority"))
+        if not themes and daily_state is not None:
+            themes = direction_names(daily_state.get("main_themes"))
+        if themes:
+            normalized["main_themes"] = themes
+    if daily_state is not None and normalized.get("main_themes"):
+        if not daily_state.get("direction_priority"):
+            daily_state["direction_priority"] = [
+                {"direction": name, "intensity": ""}
+                for name in normalized["main_themes"]
+            ]
+
+    if not normalized.get("emotion_signals"):
+        sentiment = (market_snapshot or {}).get("sentiment")
+        if isinstance(sentiment, dict) and sentiment:
+            normalized["emotion_signals"] = copy.deepcopy(sentiment)
+
+    return normalized, daily_state
+
+
 def _attach_market_validation_contract(
     result: dict,
     *,
@@ -2258,6 +2485,11 @@ def _attach_market_validation_contract(
     result["directions"] = [
         dict(direction) for direction in raw_directions if isinstance(direction, dict)
     ]
+    market_phase = str(result.get("market_phase") or "").strip()
+    if result["directions"] and (
+        market_phase in {"未配置", "数据不可用"} or result.get("_fallback_reason")
+    ):
+        errors.append("directions must be empty when market analysis is unavailable")
 
     raw_views = result.get("expert_views")
     if raw_views is None:
@@ -2545,10 +2777,6 @@ def market_summary(state: AgentState) -> AgentState:
         }
 
     content = _safe_llm_invoke(prompt, json_mode=True)
-    if not content:
-        # 空返回（超时/限流等瞬时失败）重试一次
-        logger.warning("market_summary_llm: empty content, retrying once")
-        content = _safe_llm_invoke(prompt, json_mode=True)
     _t1 = time.time()
     logger.info(
         "market_summary_llm: duration=%.1fs prompt_len=%d content_len=%d",
@@ -2556,6 +2784,7 @@ def market_summary(state: AgentState) -> AgentState:
     )
 
     result = _parse_llm_json_content(content)
+    daily_state_override = None
     # 判定真实失败原因：有返回内容但解析不出 dict → json_parse_error；无内容 → llm_empty
     _json_parse_failed = bool(content) and not result
 
@@ -2572,6 +2801,9 @@ def market_summary(state: AgentState) -> AgentState:
             "盘面概述为系统按规则拼装的原始数据，未经 LLM 加工"
         )
     else:
+        result, daily_state_override = _normalize_market_summary_result(
+            result, market_snapshot
+        )
         for key, value in fallback.items():
             if key not in result:
                 result[key] = value
@@ -2599,7 +2831,7 @@ def market_summary(state: AgentState) -> AgentState:
     _ms_cost = _ms_ct.snapshot()
 
     # 提取并持久化 daily_state；同时把 override 传给下游 stock_scanner 用于合并
-    daily_state_override = _extract_daily_state_block(content)
+    daily_state_override = daily_state_override or _extract_daily_state_block(content)
     source_tag = f"market_summary:{analysis_type}"
 
     # Phase 2: 分片请求时，只让 priority shard 持久化市场阶段/历史，避免 theme shard 重复写入 daily_state
@@ -2853,7 +3085,8 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
             codes_to_keep.add(code)
     filtered = [
         q for q in all_quotes
-        if (_pure_stock_code(q.get("code")) in codes_to_keep)
+        if _is_market_index_quote(q)
+        or (_pure_stock_code(q.get("code")) in codes_to_keep)
         or (_pure_stock_code(q.get("secid")) in codes_to_keep)
     ]
     market_snapshot["quotes"] = filtered
@@ -2902,7 +3135,8 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
         all_quotes = market_snapshot.get("quotes", []) or []
         filtered_quotes = [
             q for q in all_quotes
-            if _pure_stock_code(q.get("code")) in shard_codes
+            if _is_market_index_quote(q)
+            or _pure_stock_code(q.get("code")) in shard_codes
             or _pure_stock_code(q.get("secid")) in shard_codes
         ]
         market_snapshot["quotes"] = filtered_quotes
@@ -3588,6 +3822,94 @@ def _build_position_plan_lines(market_context: dict, positions: list[dict]) -> l
     return lines
 
 
+def _validation_issues(state: AgentState) -> list[str]:
+    issues = []
+    for context in (
+        state.get("market_context") or {},
+        state.get("market_summary_context") or {},
+    ):
+        for error in context.get("_validation_contract_errors") or []:
+            if str(error) not in issues:
+                issues.append(str(error))
+        fallback = context.get("_fallback_reason")
+        if fallback:
+            item = f"market_summary:{fallback}"
+            if item not in issues:
+                issues.append(item)
+        if context.get("_scan_failed") and "stock_scanner_failed" not in issues:
+            issues.append("stock_scanner_failed")
+    return issues
+
+
+def _build_data_quality_view(state: AgentState) -> dict:
+    from qing_investment.agent.tools.sector_data import boards_have_market_data
+
+    snapshot = state.get("market_snapshot") or {}
+    quotes = snapshot.get("quotes") or []
+    sentiment = snapshot.get("sentiment") or {}
+    boards = state.get("external_sector_boards") or {}
+    boards_usable = (
+        boards.get("available") is not False and boards_have_market_data(boards)
+    )
+    positions = state.get("positions") or []
+    watchlist = state.get("watchlist") or []
+    market_context = state.get("market_context") or state.get("market_summary_context") or {}
+    opportunities = market_context.get("opportunity_scan") or []
+
+    available_sources = []
+    degraded_sources = []
+    if quotes or sentiment:
+        available_sources.append("market_snapshot")
+    else:
+        degraded_sources.append("market_snapshot")
+    (available_sources if boards_usable else degraded_sources).append(
+        "external_sector_boards"
+    )
+    for name, values in (
+        ("claims", state.get("claims") or []),
+        ("wiki", state.get("wiki_snippets") or []),
+    ):
+        (available_sources if values else degraded_sources).append(name)
+
+    errors = _validation_issues(state)
+    lines = [
+        (
+            f"market_snapshot: {'可用' if quotes or sentiment else '不可用'}"
+            f"（quotes={len(quotes)}，sentiment={'已提供' if sentiment else '未提供'}）"
+        ),
+        (
+            "external_sector_boards: 可用（含非零行情）"
+            if boards_usable
+            else "external_sector_boards: 降级（全零或缺少非零行情）"
+        ),
+        (
+            f"positions={len(positions)}，watchlist={len(watchlist)}，"
+            f"opportunity_scan={len(opportunities)}"
+        ),
+        f"validation_errors={errors or []}",
+    ]
+    return {
+        "available_sources": available_sources,
+        "degraded_sources": degraded_sources,
+        "has_candidates": bool(positions or watchlist),
+        "validation_errors": errors,
+        "text": "\n".join(lines),
+    }
+
+
+def _data_quality_header(state: AgentState, view: dict) -> str:
+    data_as_of = (
+        state.get("data_as_of")
+        or (state.get("market_snapshot") or {}).get("timestamp")
+        or "未提供"
+    )
+    return (
+        f"【数据时点】{data_as_of}\n"
+        f"【实际可用数据来源】{'、'.join(view['available_sources']) or '无'}\n"
+        f"【缺失/降级数据来源】{'、'.join(view['degraded_sources']) or '无'}"
+    )
+
+
 def synthesize(state: AgentState) -> AgentState:
     logger = logging.getLogger(__name__)
     market = state.get("market_context", {})
@@ -3689,8 +4011,16 @@ def synthesize(state: AgentState) -> AgentState:
         sector_joined = '\n'.join(sector_lines) if sector_lines else '暂无'
         theme_joined = '\n'.join(theme_lines) if theme_lines else '暂无'
         index_joined = '\n'.join(index_lines) if index_lines else '暂无'
-        opportunity_joined = '\n'.join(opportunity_lines) if opportunity_lines else ''
-        position_joined = '\n'.join(position_lines) if position_lines else ''
+        if opportunity_lines:
+            opportunity_joined = '\n'.join(opportunity_lines)
+        elif positions or state.get("watchlist"):
+            opportunity_joined = "【机会扫描】未发现满足触发条件的候选，不生成个股买卖建议"
+        else:
+            opportunity_joined = "【机会扫描】当前持仓与观察池均为空，未执行全市场扫描，不生成个股买卖建议"
+        if position_lines:
+            position_joined = '\n'.join(position_lines)
+        else:
+            position_joined = "【持仓操作计划】当前无持仓，不生成持仓操作建议"
 
         draft = f"""【盘面】{market.get('market_summary', '暂无')}
 
@@ -3730,8 +4060,25 @@ def synthesize(state: AgentState) -> AgentState:
 
 def style_writer(state: AgentState) -> AgentState:
     logger = logging.getLogger(__name__)
-    prompt_template = _load_prompt("style_writer")
     draft = state.get("draft_analysis", "")
+    quality = _build_data_quality_view(state)
+    header = _data_quality_header(state, quality)
+    if quality["validation_errors"]:
+        styled = (
+            f"{header}\n\n【分析降级】{'；'.join(quality['validation_errors'])}\n\n{draft}"
+        )
+        logger.warning(
+            "style_writer skipped due to validation errors: %s",
+            quality["validation_errors"],
+        )
+        return {
+            "styled_output": styled,
+            "reasoning_steps": ["验证契约失败，跳过风格化并输出确定性降级"],
+            "cost_tracking": [],
+            "_style_writer_failed": False,
+        }
+
+    prompt_template = _load_prompt("style_writer")
     market_phase = state.get("market_context", {}).get("market_phase", "")
     examples = "\n\n".join(state.get("few_shot_examples", []))
     tone = _get_tone_by_market_phase(market_phase)
@@ -3747,22 +4094,25 @@ def style_writer(state: AgentState) -> AgentState:
         tone=tone,
         revision_hint=revision_hint,
         today=_now_cn_str("%Y-%m-%d") + " 周" + "一二三四五六日"[datetime.now(_CN_TZ).weekday()],
+        data_quality=quality["text"],
     )
 
-    # Log input summary before LLM call
     has_vague_terms = any(w in draft for w in ["等回踩", "等分歧", "逢低关注", "逢低布局"])
     logger.info(
         f"style_writer: draft_len={len(draft)} market_phase={market_phase} "
         f"has_vague_terms={has_vague_terms} review_round={len(review_notes)}"
     )
 
-    # style_writer 会被 reviewer 多次调用，优先走远端 deepseek 以避免本地 ACP 拖慢整体耗时
+    # style_writer 会被 reviewer 多次调用，禁用本地 ACP 优先，使用远端 provider 链以避免本地 ACP 拖慢整体耗时
     content = _safe_llm_invoke(prompt, min_length=150, use_acp_first=False)
-    styled = content if content else f"[UP风格化] {draft}"
+    styled = content if content else (f"[UP风格化] {draft}" if draft.strip() else "")
+    if styled.strip() and not styled.startswith(header):
+        styled = f"{header}\n\n{styled}"
+    elif not styled.strip():
+        styled = ""
 
     logger.info(f"style_writer: output_len={len(styled)} generated={bool(content)} content_len={len(content) if content else 0}")
 
-    # 成本追踪
     _sw_ct = CostTracker()
     _sw_ct.record_call(provider=(settings.llm_provider or "deepseek"))
     _sw_cost = _sw_ct.snapshot()
@@ -3877,10 +4227,31 @@ def reviewer(state: AgentState) -> AgentState:
     output = state.get("styled_output", "")
     claims = state.get("claims", [])
     retry_count = state.get("_retry_count", 0)
+    quality = _build_data_quality_view(state)
+    if quality["validation_errors"]:
+        logger.warning(
+            "reviewer skipped due to validation errors: %s",
+            quality["validation_errors"],
+        )
+        return {
+            "review_passed": False,
+            "_reviewer_error": False,
+            "review_notes": quality["validation_errors"],
+            "claims_cited": [],
+            "data_sources": [],
+            "confidence": "low",
+            "final_output": output,
+            "reasoning_steps": ["事实核查: 跳过（验证契约失败）"],
+            "cost_tracking": [],
+            "_retry_count": retry_count,
+        }
 
     prompt = f"""{prompt_template}
 
 今日日期：{_now_cn_str("%Y-%m-%d") + " 周" + "一二三四五六日"[datetime.now(_CN_TZ).weekday()]}
+
+【输入数据质量视图】
+{quality['text']}
 
 待审核输出：
 {output}
@@ -3890,7 +4261,7 @@ def reviewer(state: AgentState) -> AgentState:
 
 请输出JSON：
 """
-    # reviewer 每次 retry 都调 LLM，优先走远端 deepseek 以避免本地 ACP 拖慢整体耗时
+    # reviewer 每次 retry 都调 LLM，禁用本地 ACP 优先，使用远端 provider 链以避免本地 ACP 拖慢整体耗时
     content = _safe_llm_invoke(prompt, use_acp_first=False, json_mode=True)
 
     # 成本追踪
@@ -3900,13 +4271,13 @@ def reviewer(state: AgentState) -> AgentState:
     logger.info("[reviewer] cost_tracking: calls=%s cost=%s", _rv_cost["llm_calls"], _rv_cost["total_cost_usd"])
 
     result = _parse_llm_json_content(content)
+    reviewer_llm_failed = not result
 
-    if not result:
-        # 简单规则检查 fallback
+    if reviewer_llm_failed:
         has_forbidden = any(w in output for w in ["无条件买入", "无条件卖出", "一定涨", "一定跌"])
         result = {
-            "passed": not has_forbidden,
-            "issues": ["检测到禁用词汇"] if has_forbidden else [],
+            "passed": False,
+            "issues": ["reviewer_llm_failed"] + (["检测到禁用词汇"] if has_forbidden else []),
             "verified_claims": [],
         }
 
@@ -3938,6 +4309,7 @@ def reviewer(state: AgentState) -> AgentState:
 
     return {
         "review_passed": passed,
+        "_reviewer_error": reviewer_llm_failed,
         "review_notes": review_notes,
         "claims_cited": result.get("verified_claims", []),
         "data_sources": [],

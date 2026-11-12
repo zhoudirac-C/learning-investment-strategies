@@ -217,6 +217,7 @@ class _FakeLangChainLLM:
                 "上证指数当前跌破3400点，全A指数缩量震荡，情绪指标偏冷。"
                 "持仓方面，深科技进入预设减仓区36.9-37.5，建议控制仓位，等待板块共振。"
                 "进攻方向关注国产算力链扩散，防御方向保持现金流。"
+                "后续只在放量与板块承接同时确认时跟踪，失效条件与数据时点必须保留。"
             )
 
         # reviewer：模板固定前缀
@@ -321,6 +322,24 @@ def test_qing_agent_full_workflow_from_monitor_context(monkeypatch, tmp_path):
 
     monkeypatch.setattr(da_module, "DevilsAdvocateAgent", _FakeDevilsAdvocateAgent)
 
+    synthesize_contexts = []
+    actual_synthesize = builder_module.synthesize
+
+    def recording_synthesize(state_in):
+        synthesize_contexts.append(dict(state_in.get("market_context") or {}))
+        return actual_synthesize(state_in)
+
+    style_writer_calls = 0
+    actual_style_writer = builder_module.style_writer
+
+    def recording_style_writer(state_in):
+        nonlocal style_writer_calls
+        style_writer_calls += 1
+        return actual_style_writer(state_in)
+
+    monkeypatch.setattr(builder_module, "synthesize", recording_synthesize)
+    monkeypatch.setattr(builder_module, "style_writer", recording_style_writer)
+
     # 5) build + invoke graph（必须在 patch retrieve_knowledge 之后再 import build_graph，
     #    否则 graph 会持有原函数的引用）
     import asyncio
@@ -334,6 +353,11 @@ def test_qing_agent_full_workflow_from_monitor_context(monkeypatch, tmp_path):
     assert result["final_output"]
     assert "mock 早盘观察" in result["final_output"]
     assert result.get("review_passed") is True
+
+    assert len(synthesize_contexts) == 1
+    assert style_writer_calls == 1
+    assert synthesize_contexts[0]["market_phase"] == "磨底期"
+    assert synthesize_contexts[0]["opportunity_scan"][0]["code"] == "000021"
 
     # 验证多个节点确实调用了 LLM
     assert len(fake_llm.calls) >= 5
@@ -412,6 +436,21 @@ def test_qing_agent_internal_sharding(monkeypatch, tmp_path):
 
     monkeypatch.setattr(da_module, "DevilsAdvocateAgent", _FakeDevilsAdvocateAgent)
 
+    node_calls = {
+        "merge_scanner_results": 0,
+        "devils_advocate": 0,
+        "synthesize": 0,
+        "style_writer": 0,
+    }
+    for name in node_calls:
+        original = getattr(builder_module, name)
+
+        def recording(state_in, _original=original, _name=name):
+            node_calls[_name] += 1
+            return _original(state_in)
+
+        monkeypatch.setattr(builder_module, name, recording)
+
     import asyncio
     from qing_investment.agent.graph.builder import build_graph
 
@@ -420,6 +459,12 @@ def test_qing_agent_internal_sharding(monkeypatch, tmp_path):
 
     assert result["final_output"]
     assert result.get("review_passed") is True
+    assert node_calls == {
+        "merge_scanner_results": 1,
+        "devils_advocate": 1,
+        "synthesize": 1,
+        "style_writer": 1,
+    }
     # 至少调用了 market_summary + 多个 stock_scanner_shard + style + reviewer
     assert len(fake_llm.calls) >= 5
 
@@ -527,3 +572,64 @@ def test_qing_agent_graph_output_can_be_frozen_without_qing_current_input(
     assert gator["evidence"] == snapshot
     assert record["prompt_version"].startswith("sha256:")
     assert record["rules_version"].startswith("sha256:")
+
+
+def test_style_writer_adds_one_truthful_data_header_on_retry(monkeypatch):
+    import qing_investment.agent.graph.nodes as nodes_module
+
+    monkeypatch.setattr(
+        nodes_module, "_safe_llm_invoke", lambda *args, **kwargs: "真实正文"
+    )
+    state = {
+        "draft_analysis": "条件化草稿",
+        "data_as_of": "2026-11-12T10:00:00+08:00",
+        "market_snapshot": {
+            "timestamp": "2026-11-12T09:59:00+08:00",
+            "quotes": [{"code": "000001"}],
+        },
+        "external_sector_boards": {
+            "available": True,
+            "concept": {
+                "leaders": [{"name": "半导体", "pct_change": 1.2, "latest": 123.4, "amount": 1000}]
+            },
+        },
+        "claims": [{"id": "claim-1"}],
+        "wiki_snippets": [],
+        "market_context": {},
+    }
+
+    first = nodes_module.style_writer(state)
+
+    assert first["styled_output"].splitlines()[:3] == [
+        "【数据时点】2026-11-12T10:00:00+08:00",
+        "【实际可用数据来源】market_snapshot、external_sector_boards、claims",
+        "【缺失/降级数据来源】wiki",
+    ]
+    assert first["styled_output"].endswith("真实正文")
+
+    retry = nodes_module.style_writer(
+        {**state, "data_as_of": None, "styled_output": first["styled_output"], "review_notes": ["重试"]}
+    )
+
+    assert retry["styled_output"].count("【数据时点】") == 1
+    assert retry["styled_output"].count("【实际可用数据来源】") == 1
+    assert retry["styled_output"].startswith("【数据时点】2026-11-12T09:59:00+08:00\n")
+
+
+def test_style_writer_empty_output_does_not_fabricate_body_or_header(monkeypatch):
+    import qing_investment.agent.graph.nodes as nodes_module
+
+    monkeypatch.setattr(
+        nodes_module, "_safe_llm_invoke", lambda *args, **kwargs: ""
+    )
+
+    result = nodes_module.style_writer(
+        {
+            "draft_analysis": "",
+            "data_as_of": "2026-11-12T10:00:00+08:00",
+            "market_context": {},
+        }
+    )
+
+    assert result["styled_output"] == ""
+    assert result["_style_writer_failed"] is True
