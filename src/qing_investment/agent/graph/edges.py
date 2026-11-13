@@ -31,6 +31,17 @@ def review_router(state: AgentState) -> str:
     if passed:
         logger.info("review_router: passed → end")
         return "pass"
+    terminal_failure = any(
+        context.get(key)
+        for context in (
+            state.get("market_context") or {},
+            state.get("market_summary_context") or {},
+        )
+        for key in ("_validation_contract_errors", "_fallback_reason", "_scan_failed")
+    )
+    if terminal_failure:
+        logger.info("review_router: terminal generation failure → end without style retry")
+        return "pass"
     retry_count = state.get("_retry_count", 0)
     if retry_count >= 2:
         logger.info(f"review_router: retry={retry_count} max reached → force pass")

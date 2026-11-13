@@ -1,8 +1,8 @@
 # Qing-Agent 架构梳理文档
 
-> **版本**：v2026-11-12
+> **版本**：v2026-11-13
 > **对应仓库**：`learning-investment-strategies`  
-> **最后更新**：2026-11-12（修复并行分支汇合、provider 超时预算、审核评分门禁及市场输出契约/数据质量）
+> **最后更新**：2026-11-13（修复终止型降级路由、市场阶段冲突校验及 reviewer 重试口径）
 > **目标读者**：后续维护 Qing-Agent 与监控层的开发者  
 
 ---
@@ -129,7 +129,7 @@ SYN --> SW
 SW --> CV
 CV --> REV
 REV --> WX : final_output
-REV --> SW : fail (max 3)
+REV --> SW : fail (max 2)
 
 ' 知识库
 RAW --> CLAIMS : extract
@@ -596,8 +596,8 @@ package "内部控制" #FFEBEE {
 | `synthesize` | `graph/nodes.py:1971` | ❌ | 规则拼接 market + stock 分析，注入持仓计划、参考来源、反向质疑 |
 | `style_writer` | `graph/nodes.py:2106` | ✅ | 改写为 UP 口吻，周期自适应语气 |
 | `citation_validator` | `graph/nodes.py:2151` | ❌ | 纯规则校验数字 claim 是否有来源标注 |
-| `reviewer` | `graph/nodes.py:2245` | ✅ | 禁用词/claim 引用/风格合规检查，最多打回 3 次 |
-| `review_router` | `graph/edges.py:8` | ❌ | 根据 `review_passed` 和 `_retry_count` 路由 |
+| `reviewer` | `graph/nodes.py:2245` | ✅ | 禁用词/claim 引用/风格合规检查，最多打回 2 次 |
+| `review_router` | `graph/edges.py:8` | ❌ | 终止型降级直接结束；其余根据 `review_passed` 和 `_retry_count` 路由 |
 
 ### 4.4 检索层详解
 

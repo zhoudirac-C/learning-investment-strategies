@@ -139,6 +139,64 @@ def test_validation_errors_skip_style_and_review_llm_calls(monkeypatch):
     assert reviewed["final_output"] == styled["styled_output"]
 
 
+def test_terminal_validation_failure_finishes_full_graph_without_style_retry(monkeypatch):
+    import asyncio
+
+    import qing_investment.agent.graph.builder as builder
+
+    async def fake_retrieve_knowledge(state):
+        return {}
+
+    monkeypatch.setattr(builder, "parse_query", lambda state: {})
+    monkeypatch.setattr(builder, "retrieve_knowledge", fake_retrieve_knowledge)
+    monkeypatch.setattr(
+        builder,
+        "market_summary",
+        lambda state: {
+            "market_summary_context": {
+                "market_phase": "未配置",
+                "market_summary": "原始行情摘要",
+                "_fallback_reason": "llm_empty",
+            }
+        },
+    )
+    monkeypatch.setattr(
+        builder,
+        "stock_scanner_shard",
+        lambda state: {"stock_scanner_results": [{"market_context": {}}]},
+    )
+    monkeypatch.setattr(builder, "stock_analyst", lambda state: {})
+    monkeypatch.setattr(builder, "devils_advocate", lambda state: {})
+
+    style_calls = 0
+    actual_style_writer = builder.style_writer
+
+    def recording_style_writer(state):
+        nonlocal style_calls
+        style_calls += 1
+        return actual_style_writer(state)
+
+    monkeypatch.setattr(builder, "style_writer", recording_style_writer)
+
+    result = asyncio.run(
+        builder.build_graph().ainvoke(
+            {
+                "query": "终止型降级回归",
+                "trigger": {"id": "morning_confirm"},
+                "parsed_intent": {"analysis_type": "market"},
+                "market_snapshot": {"quotes": []},
+                "external_sector_boards": {},
+                "positions": [],
+                "watchlist": [],
+            }
+        )
+    )
+
+    assert style_calls == 1
+    assert result["review_passed"] is False
+    assert "market_summary:llm_empty" in result["final_output"]
+
+
 def test_reviewer_receives_empty_pool_and_zero_board_context(monkeypatch):
     prompts = []
     monkeypatch.setattr(

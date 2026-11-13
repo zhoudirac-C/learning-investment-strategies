@@ -24,6 +24,24 @@ def test_reviewer_llm_failure_never_passes_and_stops_at_retry_limit(monkeypatch)
     assert result["review_passed"] is False
 
 
+def test_terminal_generation_failures_skip_style_retry():
+    failures = (
+        {"_validation_contract_errors": ["bad schema"]},
+        {"_fallback_reason": "llm_empty"},
+        {"_scan_failed": True},
+    )
+    for context_key in ("market_context", "market_summary_context"):
+        for failure in failures:
+            state = {
+                "review_passed": False,
+                "_retry_count": 0,
+                "review_notes": ["包含无条件买入指令"],
+                context_key: failure,
+            }
+            assert review_router(state) == "pass"
+            assert state["review_passed"] is False
+
+
 class TestReviewRouter:
     def test_passes_when_review_passed(self):
         assert review_router({"review_passed": True}) == "pass"

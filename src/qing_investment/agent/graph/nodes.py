@@ -2486,6 +2486,9 @@ def _attach_market_validation_contract(
         dict(direction) for direction in raw_directions if isinstance(direction, dict)
     ]
     market_phase = str(result.get("market_phase") or "").strip()
+    judgment_stage = str(judgment.get("market_stage") or "").strip()
+    if market_phase and judgment_stage and market_phase != judgment_stage:
+        errors.append("market_phase and final_judgment.market_stage must match")
     if result["directions"] and (
         market_phase in {"未配置", "数据不可用"} or result.get("_fallback_reason")
     ):

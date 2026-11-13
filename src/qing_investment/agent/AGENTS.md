@@ -404,7 +404,7 @@ POST /analyze/trigger
 | `claims_cited` | list[string] | 引用的 claim IDs（用于追溯来源） |
 | `data_sources` | list[string] | 数据来源列表 |
 | `confidence` | string | 置信度：`"high"` / `"medium"` / `"low"` |
-| `review_passed` | bool | 事实核查是否通过（reviewer 最多打回 3 次） |
+| `review_passed` | bool | 事实核查是否通过（reviewer 最多打回 2 次） |
 | `reasoning_steps` | list[string] | 分析思考步骤 |
 | `record_id` | string/null | 成功冻结的验证记录 ID；留痕失败时为 `null` |
 | `record_status` | string/null | 已冻结状态：`pending_maturity` / `error` / `missing`；留痕失败时为 `null`。普通内容审核未通过仍保留记录，但所有评分资格均为 false；reviewer LLM 自身失败记 `error` |

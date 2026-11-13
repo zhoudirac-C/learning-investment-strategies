@@ -123,6 +123,28 @@ def test_llm_gator_view_is_still_rejected():
     assert result["expert_views"][0]["source"] == "deterministic_rules"
 
 
+def test_market_phase_conflict_is_a_validation_contract_error():
+    normalized, _ = nodes._normalize_market_summary_result(
+        {
+            "market_phase": "回暖期",
+            "final_judgment": {"market_stage": "退潮期"},
+        },
+        {},
+    )
+
+    result = nodes._attach_market_validation_contract(
+        normalized,
+        reasoning_patterns=[],
+        gator_rules_snapshot={},
+        school_conflicts="",
+        prompt_material="test",
+    )
+
+    assert "market_phase and final_judgment.market_stage must match" in result[
+        "_validation_contract_errors"
+    ]
+
+
 def test_market_summary_normalizes_cron_output_end_to_end(monkeypatch):
     import json
 

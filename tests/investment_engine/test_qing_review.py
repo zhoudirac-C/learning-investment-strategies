@@ -17,6 +17,7 @@ class TestNormalizeStage:
         assert normalize_stage("高位震荡尾期→调整预警") == "震荡"
         assert normalize_stage("退潮末期→修复试探期") == "震荡"
         assert normalize_stage("回暖期（底部结构确认中，未获中阳验证）") == "震荡"
+        assert normalize_stage("分歧期（结构性虹吸修复）") == "震荡"
         assert normalize_stage("退潮期") == "调整"
         assert normalize_stage("磨底期") == "调整"
         assert normalize_stage("调整期/恐慌冰点") == "恐慌"
