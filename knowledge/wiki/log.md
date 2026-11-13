@@ -1,4 +1,12 @@
 # 操作日志
+## 2026-11-13 | qing-learning ingest | 鳄鱼派 11/11 B站视频 提取（8 条，011~018）
+
+- 来源：B站动态「鳄鱼派」11/11 09:27（美联储加息影响，BV11CWj6nEwJ）；C2 raw：`sources/original/bilibili/2026-11-11-0927-视频-美联储加息影响 -.md`
+- ASR：已完成（模型：xiaomi/mimo-v2.5，时长 07:47，转写时间 2026-11-11T09:34）
+- 拆分写入 `knowledge/claims/claim-20261111-011.yaml` ~ `knowledge/claims/claim-20261111-018.yaml`（8 条）：market-cycle×7、operation×1
+- 核心：加息≠加息周期；强如2022年激进加息也不影响 B浪反弹；A股货币政策不同步汇率管制；老美不会无限加息；怀疑华尔街但别作对；A股多板块海外脱敏；不必因加息过度担心反弹；反弹可能曲折但不会结束
+- 无具体个股标注，related_stocks 全空；Gate 1/2/3 全过；wiki 已建 `knowledge/wiki/每日复盘/2026-11-11-鳄鱼派-美联储加息影响 B站视频.md`；claims/wiki 索引已更新
+
 ## 2026-11-12 | qing-learning ingest | 鳄鱼派 11/12 公众号 提取（9 条，001~009）
 
 - 来源：公众号「像鳄鱼一样思考」11/12 18:00（网上又不笑了，好事）；C2 raw：`sources/original/wechat/2026-11-12-股市：网上又不笑了，好事（2026.11.12）.md`
