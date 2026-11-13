@@ -22,6 +22,7 @@ class TriggerRequest(BaseModel):
     session_id: str = Field(default="default", description="会话ID")
     query: str = Field(default="", description="用户原始问题")
     analysis_type: str = Field(default="market", description="分析类型：market/stock/portfolio")
+    stock_code: str = Field(default="", description="个股分析标的代码")
     data_as_of: str | None = Field(default=None, description="输入数据的明确截止时间（ISO 8601）")
 
 

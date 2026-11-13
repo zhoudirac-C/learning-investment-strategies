@@ -26,7 +26,7 @@ from .state import AgentState
 
 def build_graph():
     logger.info("[build_graph] starting with %d nodes", 11)
-    logger.info("[build_graph] topology: parse_query → retrieve_knowledge → (market_summary → [stock_scanner_shard] → merge_scanner_results) + stock_analyst → devils_advocate → synthesize → style_writer → citation_validator → reviewer → END")
+    logger.info("[build_graph] topology: parse_query → retrieve_knowledge → market_summary → ([stock_scanner_shard] → merge_scanner_results + stock_analyst) → devils_advocate → synthesize → style_writer → citation_validator → reviewer → END")
     builder = StateGraph(AgentState)
 
     builder.add_node("parse_query", parse_query)
@@ -44,7 +44,7 @@ def build_graph():
     builder.set_entry_point("parse_query")
     builder.add_edge("parse_query", "retrieve_knowledge")
     builder.add_edge("retrieve_knowledge", "market_summary")
-    builder.add_edge("retrieve_knowledge", "stock_analyst")
+    builder.add_edge("market_summary", "stock_analyst")
 
     # market_summary 后内部分片并行扫描
     builder.add_conditional_edges(

@@ -174,3 +174,45 @@ class TestDualSchoolContract:
         # 两个双学派键不在截断白名单里，必须存活
         assert truncated.get("school_conflicts"), "冲突卡被误截断"
         assert truncated.get("gator_rules_snapshot"), "gator 快照被误截断"
+
+
+def test_dual_school_views_and_conflicts_reach_synthesis():
+    from qing_investment.agent.graph import nodes
+
+    market = nodes._attach_market_validation_contract(
+        {
+            "market_phase": "震荡",
+            "market_summary": "Qing 主分析：指数仍需确认",
+            "expert_views": [
+                {"school": "qing", "view": "等待放量确认", "evidence": []}
+            ],
+        },
+        reasoning_patterns=[],
+        gator_rules_snapshot={
+            "available": True,
+            "stop_falling": {"stance": "GATOR_RULE_STANCE"},
+        },
+        school_conflicts="【CF-001】底部判断分歧；多专家分歧，长期并列，不得自行选边",
+        prompt_material="test",
+    )
+
+    draft = nodes.synthesize(
+        {"market_context": market, "positions": [], "watchlist": []}
+    )["draft_analysis"]
+
+    assert "【共识区】" in draft
+    assert "[qing]" in draft
+    assert "[gator] GATOR_RULE_STANCE" in draft
+    assert "CF-001" in draft
+    assert "长期并列" in draft
+
+
+def test_style_writer_prompt_preserves_dual_school_blocks():
+    from qing_investment.agent.graph import nodes
+
+    prompt = nodes._load_prompt("style_writer")
+
+    assert "双学派" in prompt
+    assert "[qing]" in prompt
+    assert "[gator]" in prompt
+    assert "不得选边" in prompt

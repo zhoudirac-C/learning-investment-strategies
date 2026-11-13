@@ -21,6 +21,7 @@ class TestNormalizeStage:
         assert normalize_stage("退潮期") == "调整"
         assert normalize_stage("磨底期") == "调整"
         assert normalize_stage("调整期/恐慌冰点") == "恐慌"
+        assert normalize_stage("调整期/恐慌接近冰点") == "恐慌"
 
     def test_excluded_and_unmapped(self):
         assert normalize_stage("未判断") is None

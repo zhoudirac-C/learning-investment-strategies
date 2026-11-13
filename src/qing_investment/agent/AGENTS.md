@@ -371,7 +371,7 @@ PYTHONUNBUFFERED=1 .venv/bin/python scripts/index_documents_to_qdrant.py
 | 调用方 | Hermes cron（`stock_monitor.py --agent-json-context` 提供输入数据） | 用户直接对话 |
 | 输入 | 结构化行情快照 + 持仓 + 板块数据（由 `stock_monitor.py` 采集） | 自然语言文本（`message`），Agent 自行检索知识库 |
 | 记忆 | 无（不查询 mem0 用户记忆） | 有（mem0 检索 + Neo4j 图遍历） |
-| 工作流 | 完整 7 节点 LangGraph 流水线 | 同样走 LangGraph，但输入是纯文本 |
+| 工作流 | 完整 LangGraph 流水线 | 独立检索 + 六步 prompt + LLM，不走 LangGraph |
 | daily_state | 写入 `daily_state.json`（`market_analyst` 节点返回后自动持久化） | 不写入 |
 
 ```python
@@ -384,6 +384,7 @@ POST /analyze/trigger
 |------|------|------|------|
 | `query` | string | ✅ | 分析标题，例如 "每日收盘复盘"；若为空则从 `trigger.title` + `trigger.reason` 拼接 |
 | `analysis_type` | string | ❌ | 分析类型：`market`（默认）/ `stock` / `portfolio` |
+| `stock_code` | string | ❌ | 个股分析标的代码；wrapper 从监控上下文顶层透传，兼容从 `market_snapshot.stock_code` 回退读取 |
 | `data_as_of` | string | ❌ | 输入数据的明确截止时间（ISO 8601）；wrapper 从监控上下文 `timestamp` 传入，缺失时记录不得进入预测评分 |
 | `session_id` | string | ❌ | 会话 ID，默认 `"default"`；Hermes 传入为 `"hermes-{timestamp}"` |
 | `trigger` | dict | ✅ | 触发信息：`{title, reason, type, time_frame, urgency}` — 控制分析标题和紧急度 |
@@ -392,9 +393,9 @@ POST /analyze/trigger
 | `positions` | list[dict] | ❌ | 当前持仓：`[{code, name, shares, cost, current_price, profit_pct, position_ratio, ...}]` |
 | `watchlist` | list[dict] | ❌ | 观察池标的：`[{code, name, theme, role, priority, latest, pct_change, watch_reason, entry_price_range, entry_hard_stop, lifecycle_stage, reduce_zone_desc, risk_zone_desc, up_sentiment, ...}]` — 监控输入仍可含 `up_sentiment`，但 Qing-Agent 的 LLM 输入投影会移除该字段 |
 | `sector_strengths` | list[dict] | ❌ | 板块强弱数据（内部样本）：`[{sector_name, strength, top_stocks, ...}]` |
-| `external_sector_boards` | dict | ✅ | **外部全量板块数据**（东财/新浪双源）：`{available: bool, concept: {...}, industry: {...}}`。`market`/`portfolio` 分析时 `available` 必须为 `true`，否则 `market_analyst` 返回「数据不可用」拒绝生成分析 |
+| `external_sector_boards` | dict | ✅ | **外部全量板块数据**（东财/新浪双源）：`{available: bool, concept: {...}, industry: {...}}`。除 `available=true` 外还须包含有效非零行情；全零或空数据按不可用/降级处理，不得进入预测评分 |
 
-**必填约束**：`query` + `external_sector_boards`（`market`/`portfolio` 分析时 `available=true`）
+**必填约束**：`query` + 有效实时输入；市场/持仓分析可来自有效 quote、sentiment 或非零 `external_sector_boards`。缺失数据时留痕为 `missing`，不得进入预测评分
 
 **响应体**（`TriggerResponse`）：
 
@@ -414,7 +415,8 @@ POST /analyze/trigger
 **LangGraph 工作流**：
 
 ```
-parse_query → retrieve_knowledge → market_summary + stock_analyst
+parse_query → retrieve_knowledge → market_summary
+market_summary → stock_analyst
 market_summary → stock_scanner_shard（可分片并行）→ merge_scanner_results
 （merge_scanner_results + stock_analyst 均完成）→ devils_advocate
 → synthesize → style_writer → citation_validator → reviewer → 返回 final_output
@@ -422,26 +424,28 @@ market_summary → stock_scanner_shard（可分片并行）→ merge_scanner_res
 
 关键路径说明：
 
-1. **`parse_query`** — 解析 `query` + `analysis_type` 为结构化意图
-2. **`retrieve_knowledge`** — Qdrant 召回 claims(12条) + wiki(10条)，mem0 用户记忆(2条)，sector_ctx 板块上下文(3条)；检测 claim 时效性和冲突
-3. **`market_summary` / `stock_analyst`** — 并行生成市场与个股分析；市场节点加载推理模式和 framework 片段
+1. **`parse_query`** — 解析 `query` + `analysis_type` 为结构化意图；显式 `analysis_type` 与已有 `stock_code` 不被 LLM 冲突结果覆盖，未显式指定类型时仍允许推断；失败时保留调用方已有意图，非法类型回退
+2. **`retrieve_knowledge`** — Qdrant 召回 claims(12条) + wiki(10条)，mem0 用户记忆(2条)，sector_ctx 板块上下文(3条)；检测 claim 时效性和冲突，保留扁平 Neo4j 记录的学派/强度/演化字段
+3. **`market_summary`** — 先生成市场阶段与技术面结论，再把 `market_summary_context` 提供给 `stock_analyst`；个股与 scanner 分支可并行
 4. **`stock_scanner_shard` / `merge_scanner_results`** — 分片扫描观察池并合并机会与持仓计划
 5. **`devils_advocate`** — 必须等待扫描合并与个股分析都完成后只执行一次，反向质疑主分析结论
-6. **`synthesize` / `style_writer`** — 汇合完整草稿后再风格化，不得在合并前提前执行
-7. **`citation_validator` / `reviewer`** — 规则引用校验与事实核查；reviewer 最多打回 2 次
+6. **`synthesize` / `style_writer`** — 汇合完整草稿后再风格化；双学派视图和 standing 冲突必须保留，不得选边
+7. **`citation_validator` / `reviewer`** — 规则引用校验与事实核查；reviewer 最多打回 2 次，非布尔 `passed` 或异常字段按审核失败处理
 8. 返回 `TriggerResponse`
 
 **daily_state 持久化**（2026-06-10 新增）：
 
 `market_summary` 和扫描节点返回后，从 `market_context` 提取大盘阶段判断等结构化字段，持久化到 `config/stock_monitor/daily_state.json`。此文件被 `stock_monitor.py` 用于位置条件驱动轮询（见陷阱 13）。
 
-**输出契约与数据质量**（2026-11-12）：
+**输出契约与数据质量**（2026-11-13 更新）：
 
 - cron 专属字段先规范化为通用市场 schema；`daily_state` 使用顶层 JSON 对象，旧 Markdown 代码块仅作兼容输入。
 - `open_confirm` 使用 `cron_open_confirm`，不得复用 09:26 的 `cron_opening`。
-- 风格化头部、风格化 prompt 和 reviewer 共享同一数据质量视图；全零板块按不可用/降级处理，不得进入 gator 确定性判断。
+- 风格化头部、风格化 prompt 和 reviewer 共享同一数据质量视图；quote 必须含有效非零 `price/latest/pct_change/amount`，sentiment 必须含已知字段的有限正数指标；空对象、errors-only、全零及 NaN/inf 均不可用。`/chat` 与 trigger 共用 quote/board 门禁，gator 指数快照同样清洗非有限值并拒绝整体全零，无效数据不得进入确定性判断或预测评分。
 - 空持仓与空观察池是合法输入，scanner 必须丢弃 LLM 生成的机会与持仓计划，正文明确“未执行全市场扫描”，reviewer 不得强迫补造机会、价格或赔率。
-- `_validation_contract_errors`、`_fallback_reason` 或 `_scan_failed` 时，跳过 LLM 风格化与审核，输出确定性降级正文并保留 `error`，不得继续扩写矛盾内容。
+- `_validation_contract_errors`、`_fallback_reason`、`_scan_failed` 或 `_stock_analysis_failed` 时，跳过 LLM 风格化与审核，输出确定性降级正文并保留 `error`，不得继续扩写矛盾内容。
+- 验证记录一旦提供 review，必须 `passed=true` 才允许评分；非布尔值不得绕过门禁。
+- 双学派 `expert_views`、gator 确定性快照与 standing 冲突卡在 `synthesize` 进入正文；`/chat` 按学派分区展示历史材料，并在双学派场景注入六段输出契约。
 
 **调用示例**：
 

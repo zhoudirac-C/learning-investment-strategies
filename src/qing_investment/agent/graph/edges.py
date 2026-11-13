@@ -31,7 +31,7 @@ def review_router(state: AgentState) -> str:
     if passed:
         logger.info("review_router: passed → end")
         return "pass"
-    terminal_failure = any(
+    terminal_failure = state.get("_stock_analysis_failed") or any(
         context.get(key)
         for context in (
             state.get("market_context") or {},

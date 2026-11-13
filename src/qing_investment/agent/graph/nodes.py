@@ -6,6 +6,7 @@ import hashlib
 import inspect
 import json
 import logging
+import math
 import os
 import re
 import time
@@ -129,11 +130,12 @@ def _load_gator_rules_snapshot() -> dict:
         for key, code in index_codes.items():
             q = by_code.get(code) or {}
             try:
-                market[key] = float(q.get("change_pct"))
+                value = float(q.get("change_pct"))
+                market[key] = value if math.isfinite(value) else None
             except (TypeError, ValueError):
                 market[key] = None
 
-        if all(v is None for v in market.values()):
+        if not any(value is not None and value != 0 for value in market.values()):
             return {"available": False, "reason": "指数数据不可用"}
 
         # ── Phase 1 补全：火车头板块（新浪 sector_data）────────────────────
@@ -1647,6 +1649,13 @@ def _safe_llm_invoke(
 
 def parse_query(state: AgentState) -> AgentState:
     query = state.get("query", "")
+    existing = dict(state.get("parsed_intent") or {})
+    fallback = {
+        "stock_code": existing.get("stock_code"),
+        "analysis_type": existing.get("analysis_type") or "stock",
+        "urgency": existing.get("urgency") or "scheduled",
+        "focus": existing.get("focus") or query,
+    }
     prompt = f"""从以下输入中提取信息，返回严格JSON格式（不要markdown代码块）：
 - stock_code: 股票代码（如有，如 300394）
 - analysis_type: stock(个股) / market(市场) / portfolio(持仓复盘)
@@ -1656,15 +1665,13 @@ def parse_query(state: AgentState) -> AgentState:
 输入：{query}
 """
     content = _safe_llm_invoke(prompt, json_mode=True)
-    parsed = _parse_llm_json_content(content)
-
-    if not parsed:
-        parsed = {
-            "stock_code": None,
-            "analysis_type": "stock",
-            "urgency": "scheduled",
-            "focus": query,
-        }
+    parsed = {**fallback, **_parse_llm_json_content(content)}
+    if state.get("_explicit_analysis_type", bool(existing.get("analysis_type"))) or (
+        parsed.get("analysis_type") not in {"stock", "market", "portfolio"}
+    ):
+        parsed["analysis_type"] = fallback["analysis_type"]
+    if fallback["stock_code"] or not parsed.get("stock_code"):
+        parsed["stock_code"] = fallback["stock_code"]
 
     return {
 
@@ -1882,15 +1889,10 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
                         if c:
                             # get_claim_evolution returns list of dicts, take first
                             first = c[0] if isinstance(c, list) else c
-                            node = first.get("c", {})
-                            claims.append({
-                                "id": cid,
-                                "statement": node.get("statement", ""),
-                                "confidence": node.get("confidence", ""),
-                                "source_date": node.get("source_date", ""),
-                                "status": node.get("status", ""),
-                                "subject": node.get("subject", ""),
-                            })
+                            if isinstance(first, dict):
+                                claim = dict(first)
+                                claim["id"] = claim.get("id") or cid
+                                claims.append(claim)
             else:
                 # Fallback to keyword search if embedding model unavailable
                 keywords = _extract_sector_keywords(query)
@@ -2463,6 +2465,7 @@ def _attach_market_validation_contract(
     pattern_refs = [copy.deepcopy(project_pattern(p)) for p in reasoning_patterns]
     result["pattern_refs"] = pattern_refs
     result["gator_rules_snapshot"] = copy.deepcopy(gator_rules_snapshot)
+    result["school_conflicts"] = school_conflicts
 
     raw_judgment = result.get("final_judgment")
     if raw_judgment is not None and not isinstance(raw_judgment, dict):
@@ -2574,8 +2577,20 @@ def market_summary(state: AgentState) -> AgentState:
     em = state.get("external_market", {})
 
     # 实时数据不可用时只允许整理历史方法论，不能由历史观点补出当前结论。
+    from qing_investment.agent.tools.sector_data import (
+        boards_have_market_data,
+        quotes_have_market_data,
+        sentiment_has_market_data,
+    )
+
     has_realtime_data = bool(
-        esb.get("available") or market_snapshot.get("quotes") or em.get("available")
+        (
+            esb.get("available") is not False
+            and boards_have_market_data(esb)
+        )
+        or quotes_have_market_data(market_snapshot.get("quotes"))
+        or sentiment_has_market_data(market_snapshot.get("sentiment"))
+        or em.get("available")
     )
     _data_missing_note = ""
     if analysis_type in ("market", "portfolio") and not has_realtime_data:
@@ -3607,13 +3622,14 @@ def stock_analyst(state: AgentState) -> AgentState:
         "stock_code": stock_code,
         "stock_name": stock_name,
         "external_validation": external_validation,
+        "market_snapshot": market_snapshot,
         "positions": state.get("positions", []),
         "watchlist": [
             {k: v for k, v in item.items() if k != "up_sentiment"}
             for item in _normalize_watchlist(watchlist)
         ],
         "claims": _project_stock_claims_for_prompt(claims),
-        "market_context": state.get("market_context", {}),
+        "market_context": state.get("market_context") or state.get("market_summary_context") or {},
         "sector_positioning": sector_positioning,
         "stock_context": current_stock_ctx,
         "trigger_kind": trigger.get("kind", ""),
@@ -3635,8 +3651,9 @@ def stock_analyst(state: AgentState) -> AgentState:
 
     # 清洗 ```daily_state / ```json 围栏，避免 JSON 解析失败（k3 间歇性围栏包裹，2026-10-12）
     result = _parse_llm_json_content(content)
+    stock_analysis_failed = not result
 
-    if not result:
+    if stock_analysis_failed:
         result = {
             "stock_code": stock_code or "N/A",
             "stock_name": "N/A",
@@ -3652,6 +3669,7 @@ def stock_analyst(state: AgentState) -> AgentState:
 
     return {
         "stock_analysis": result,
+        "_stock_analysis_failed": stock_analysis_failed,
         "reasoning_steps": [
             f"个股地位: {result.get('stock_role', 'N/A')}"
         ],
@@ -3794,6 +3812,50 @@ def _format_source_block(state: AgentState) -> str:
     return "\n\n【参考来源】\n" + "\n".join(f"- {s}" for s in sources)
 
 
+def _format_dual_school_block(state: AgentState) -> str:
+    market = state.get("market_context") or state.get("market_summary_context") or {}
+    views = [
+        view for view in (market.get("expert_views") or [])
+        if isinstance(view, dict)
+    ]
+    conflicts = market.get("school_conflicts") or ""
+    snapshot = market.get("gator_rules_snapshot") or {}
+    if not views and not conflicts and not snapshot.get("available"):
+        return ""
+
+    qing_views = [v for v in views if str(v.get("school") or "").lower() == "qing"]
+    gator_views = [v for v in views if str(v.get("school") or "").lower() == "gator"]
+    other_views = [v for v in views if v not in qing_views and v not in gator_views]
+    lines = [
+        "",
+        "【双学派分析】",
+        "【共识区】",
+        "本轮未提供可核验的两派共识，不强行归纳。",
+        "【青枫浦上Q视角】",
+    ]
+    if qing_views:
+        lines.extend(f"[qing] {v.get('view', '')}" for v in qing_views)
+    else:
+        lines.append(f"[qing] {market.get('market_summary') or '当前无明确判断'}")
+
+    lines.append("【鳄鱼派视角】")
+    if gator_views:
+        lines.extend(f"[gator] {v.get('view', '')}" for v in gator_views)
+    elif snapshot.get("available"):
+        stance = (snapshot.get("stop_falling") or {}).get("stance") or "见确定性规则快照"
+        lines.append(f"[gator] {stance}")
+    else:
+        lines.append("[gator] 当前无可用确定性规则快照")
+
+    for view in other_views:
+        school = str(view.get("school") or "unknown").lower()
+        lines.append(f"[{school}] {view.get('view', '')}")
+
+    lines.append("【矛盾与分歧】")
+    lines.append(conflicts or "本问题无已登记冲突")
+    return "\n".join(lines)
+
+
 def _build_position_plan_lines(market_context: dict, positions: list[dict]) -> list[str]:
     """Build structured position plan lines from market_context.position_plans.
 
@@ -3852,15 +3914,23 @@ def _validation_issues(state: AgentState) -> list[str]:
                 issues.append(item)
         if context.get("_scan_failed") and "stock_scanner_failed" not in issues:
             issues.append("stock_scanner_failed")
+    if state.get("_stock_analysis_failed") and "stock_analysis_failed" not in issues:
+        issues.append("stock_analysis_failed")
     return issues
 
 
 def _build_data_quality_view(state: AgentState) -> dict:
-    from qing_investment.agent.tools.sector_data import boards_have_market_data
+    from qing_investment.agent.tools.sector_data import (
+        boards_have_market_data,
+        quotes_have_market_data,
+        sentiment_has_market_data,
+    )
 
     snapshot = state.get("market_snapshot") or {}
     quotes = snapshot.get("quotes") or []
     sentiment = snapshot.get("sentiment") or {}
+    sentiment_usable = sentiment_has_market_data(sentiment)
+    snapshot_usable = quotes_have_market_data(quotes) or sentiment_usable
     boards = state.get("external_sector_boards") or {}
     boards_usable = (
         boards.get("available") is not False and boards_have_market_data(boards)
@@ -3872,7 +3942,7 @@ def _build_data_quality_view(state: AgentState) -> dict:
 
     available_sources = []
     degraded_sources = []
-    if quotes or sentiment:
+    if snapshot_usable:
         available_sources.append("market_snapshot")
     else:
         degraded_sources.append("market_snapshot")
@@ -3888,8 +3958,9 @@ def _build_data_quality_view(state: AgentState) -> dict:
     errors = _validation_issues(state)
     lines = [
         (
-            f"market_snapshot: {'可用' if quotes or sentiment else '不可用'}"
-            f"（quotes={len(quotes)}，sentiment={'已提供' if sentiment else '未提供'}）"
+            f"market_snapshot: {'可用' if snapshot_usable else '不可用'}"
+            f"（quotes={len(quotes)}，"
+            f"sentiment={'有效' if sentiment_usable else '无效/缺失'}）"
         ),
         (
             "external_sector_boards: 可用（含非零行情）"
@@ -3965,6 +4036,7 @@ def synthesize(state: AgentState) -> AgentState:
         # Append position plans for any held positions even in stock mode
         draft += "\n".join(_build_position_plan_lines(market, positions))
         draft += _format_devils_advocate_block(state)
+        draft += _format_dual_school_block(state)
         draft += _format_source_block(state)
     else:
         sector_map = market.get("sector_map", {})
@@ -4063,6 +4135,7 @@ def synthesize(state: AgentState) -> AgentState:
 {position_joined}
 """
         draft += _format_devils_advocate_block(state)
+        draft += _format_dual_school_block(state)
         draft += _format_source_block(state)
 
     return {
@@ -4286,12 +4359,20 @@ def reviewer(state: AgentState) -> AgentState:
 
     result = _parse_llm_json_content(content)
     reviewer_llm_failed = not result
+    verified_claims = result.get("verified_claims", [])
+    reviewer_contract_failed = bool(result) and (
+        type(result.get("passed")) is not bool
+        or not isinstance(result.get("issues", []), list)
+        or not isinstance(verified_claims, list)
+        or not all(isinstance(item, str) for item in verified_claims)
+    )
 
-    if reviewer_llm_failed:
+    if reviewer_llm_failed or reviewer_contract_failed:
         has_forbidden = any(w in output for w in ["无条件买入", "无条件卖出", "一定涨", "一定跌"])
+        failure_note = "reviewer_llm_failed" if reviewer_llm_failed else "reviewer_contract_error"
         result = {
             "passed": False,
-            "issues": ["reviewer_llm_failed"] + (["检测到禁用词汇"] if has_forbidden else []),
+            "issues": [failure_note] + (["检测到禁用词汇"] if has_forbidden else []),
             "verified_claims": [],
         }
 
@@ -4323,14 +4404,14 @@ def reviewer(state: AgentState) -> AgentState:
 
     return {
         "review_passed": passed,
-        "_reviewer_error": reviewer_llm_failed,
+        "_reviewer_error": reviewer_llm_failed or reviewer_contract_failed,
         "review_notes": review_notes,
         "claims_cited": result.get("verified_claims", []),
         "data_sources": [],
-        "confidence": "high" if result.get("passed") else "low",
+        "confidence": "high" if passed else "low",
         "final_output": output,
         "reasoning_steps": [
-            f"事实核查: {'通过' if result.get('passed') else '未通过'}"
+            f"事实核查: {'通过' if passed else '未通过'}"
         ],
         "cost_tracking": [_rv_cost],
         "_retry_count": retry_count + 1 if not passed else retry_count,

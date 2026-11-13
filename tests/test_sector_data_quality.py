@@ -161,6 +161,68 @@ def test_boards_have_market_data_ignores_zero_missing_and_invalid_values() -> No
     assert sector_data.boards_have_market_data(None) is False
 
 
+@pytest.mark.parametrize(
+    "quotes",
+    [
+        None,
+        [],
+        [{}],
+        [{"price": 0, "latest": 0, "pct_change": 0, "amount": 0}],
+        [{"price": "nan"}],
+        [{"latest": "inf"}],
+    ],
+)
+def test_quotes_have_market_data_rejects_empty_zero_and_invalid(quotes) -> None:
+    assert sector_data.quotes_have_market_data(quotes) is False
+
+
+@pytest.mark.parametrize("field", ["price", "latest", "pct_change", "amount"])
+def test_quotes_have_market_data_accepts_nonzero_numeric_fields(field: str) -> None:
+    assert sector_data.quotes_have_market_data([{field: "3.5"}]) is True
+
+
+@pytest.mark.parametrize(
+    "sentiment",
+    [
+        None,
+        [],
+        {},
+        {"errors": ["all providers failed"]},
+        {"up_count": None, "down_count": "--"},
+        {"limit_up_count": True},
+        {"limit_up_count": "nan"},
+        {"up_count": "inf", "down_count": "-inf"},
+        {
+            "up_count": 0,
+            "down_count": 0,
+            "limit_up_count": 0,
+            "limit_down_count": 0,
+            "consecutive_height": 0,
+            "first_board_count": 0,
+            "broken_board_rate": 0,
+        },
+    ],
+)
+def test_sentiment_has_market_data_rejects_missing_zero_and_invalid(sentiment) -> None:
+    assert sector_data.sentiment_has_market_data(sentiment) is False
+
+
+@pytest.mark.parametrize(
+    "field",
+    [
+        "up_count",
+        "down_count",
+        "limit_up_count",
+        "limit_down_count",
+        "consecutive_height",
+        "first_board_count",
+        "broken_board_rate",
+    ],
+)
+def test_sentiment_has_market_data_accepts_positive_observed_metrics(field: str) -> None:
+    assert sector_data.sentiment_has_market_data({field: "3.5"}) is True
+
+
 def test_gator_ignores_unavailable_zero_board(monkeypatch: pytest.MonkeyPatch) -> None:
     from qing_investment.agent.graph import nodes
 
@@ -187,4 +249,54 @@ def test_gator_ignores_unavailable_zero_board(monkeypatch: pytest.MonkeyPatch) -
         "top_sector_name": None,
         "top_sector_pct": None,
         "top_sector_red_ratio": None,
+    }
+
+
+def _patch_gator_index_data(monkeypatch: pytest.MonkeyPatch, values):
+    from qing_investment import marketdata
+    from qing_investment.agent.graph import nodes
+    from qing_investment.monitor.rules import gator_rules
+
+    codes = ("sh000001", "sz399006", "sh000300", "sh000852")
+    quotes = [{"code": code, "change_pct": value} for code, value in zip(codes, values)]
+    monkeypatch.setattr(marketdata, "get_quotes", lambda requested: {"quotes": quotes})
+    monkeypatch.setattr(nodes, "_gator_sector_snapshot", lambda: {})
+    monkeypatch.setattr(nodes, "_gator_broker_limit_up", lambda: {})
+    monkeypatch.setattr(nodes, "_gator_fund_snapshot", lambda: {})
+    monkeypatch.setattr(nodes, "_gator_basis_snapshot", lambda market: {})
+    unknown = Mock(level=Mock(value="unknown"), detail="")
+    monkeypatch.setattr(nodes, "_gator_emotion_ice", lambda market: unknown)
+    monkeypatch.setattr(
+        nodes, "_gator_hedge_assessment", lambda: (unknown, Mock(value="unknown"))
+    )
+    monkeypatch.setattr(
+        gator_rules,
+        "assess_stop_falling",
+        lambda **kwargs: Mock(met_count=0, total_count=0, stance="继续观望", signals=[]),
+    )
+    monkeypatch.setattr(gator_rules, "assess_scissors", lambda *args: unknown)
+    return nodes
+
+
+@pytest.mark.parametrize("change_pct", [0, "nan", "inf", "-inf"])
+def test_gator_rejects_unusable_index_data(monkeypatch: pytest.MonkeyPatch, change_pct) -> None:
+    nodes = _patch_gator_index_data(monkeypatch, (change_pct,) * 4)
+
+    assert nodes._load_gator_rules_snapshot() == {
+        "available": False,
+        "reason": "指数数据不可用",
+    }
+
+
+def test_gator_normalizes_nonfinite_index_data(monkeypatch: pytest.MonkeyPatch) -> None:
+    nodes = _patch_gator_index_data(monkeypatch, (1.2, "nan", 0, 0))
+
+    snapshot = nodes._load_gator_rules_snapshot()
+
+    assert snapshot["available"] is True
+    assert snapshot["market_pct"] == {
+        "sh_pct": 1.2,
+        "cyb_pct": None,
+        "hs300_pct": 0.0,
+        "zz2000_pct": 0.0,
     }

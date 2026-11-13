@@ -66,10 +66,14 @@ class AgentState(TypedDict, total=False):
     # 【新增】并行 stock_scanner 分片结果累加器
     stock_scanner_results: Annotated[list[dict], operator.add]
 
+    # 调用方显式指定的分析类型不被 LLM 覆盖
+    _explicit_analysis_type: bool
+
     # 【新增】数据降级标记
     _data_missing_note: str     # 实时数据缺失时的降级说明
     _style_writer_failed: bool
     _reviewer_error: bool
+    _stock_analysis_failed: bool
 
     # 分析层
     market_context: dict

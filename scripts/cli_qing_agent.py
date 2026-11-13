@@ -68,6 +68,7 @@ def _default_state(query: str, stock_code: str | None, json_input: dict | None) 
         "confidence": "medium",
         "review_passed": False,
         "reasoning_steps": [],
+        "_explicit_analysis_type": bool(stock_code),
         "parsed_intent": {
             "stock_code": stock_code,
             "analysis_type": "stock",

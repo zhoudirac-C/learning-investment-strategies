@@ -75,6 +75,36 @@ def test_shared_data_quality_view_distinguishes_real_data_and_zero_boards():
     assert "全零" in view["text"]
 
 
+def test_empty_quote_objects_are_not_reported_as_realtime_data():
+    state = _quality_state()
+    state["market_snapshot"] = {"quotes": [{}], "sentiment": {}}
+
+    view = nodes._build_data_quality_view(state)
+
+    assert "market_snapshot" in view["degraded_sources"]
+    assert "market_snapshot: 不可用" in view["text"]
+
+
+@pytest.mark.parametrize(
+    "sentiment",
+    [
+        {"errors": ["all providers failed"]},
+        {"up_count": None, "limit_up_count": 0},
+        {"up_count": "nan"},
+        {"up_count": "inf"},
+    ],
+)
+def test_invalid_sentiment_is_not_reported_as_realtime_data(sentiment):
+    state = _quality_state()
+    state["market_snapshot"] = {"quotes": [], "sentiment": sentiment}
+
+    view = nodes._build_data_quality_view(state)
+
+    assert "market_snapshot" in view["degraded_sources"]
+    assert "market_snapshot: 不可用" in view["text"]
+    assert "sentiment=无效/缺失" in view["text"]
+
+
 def test_empty_candidate_pool_has_explicit_scan_and_position_sections():
     state = _quality_state()
     state["market_context"] = {

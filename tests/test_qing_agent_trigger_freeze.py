@@ -139,10 +139,40 @@ async def test_freeze_failure_is_logged_without_blocking_response(
     assert not list((tmp_path / "records").rglob("*.json"))
 
 
+@pytest.mark.asyncio
+async def test_analyze_trigger_preserves_top_level_stock_code(monkeypatch):
+    from qing_investment.agent import main as agent_main
+    from qing_investment.agent.graph import nodes
+
+    captured = {}
+
+    async def fake_ainvoke(state):
+        captured.update(nodes.parse_query(state))
+        return _graph_result()
+
+    monkeypatch.setattr(
+        nodes,
+        "_safe_llm_invoke",
+        lambda *args, **kwargs: '{"analysis_type":"market","stock_code":"000021"}',
+    )
+    monkeypatch.setattr(agent_main.graph, "ainvoke", fake_ainvoke)
+    monkeypatch.setattr(agent_main, "_freeze_trigger_result", lambda *args: None)
+    payload = _request().model_dump()
+    payload.update(analysis_type="stock", stock_code="600000")
+    request = TriggerRequest(**payload)
+
+    await agent_main.analyze_trigger(request)
+
+    assert captured["parsed_intent"]["analysis_type"] == "stock"
+    assert captured["parsed_intent"]["stock_code"] == "600000"
+
+
 def test_wrapper_passes_explicit_data_as_of(monkeypatch):
     captured = {}
     data = {
         "timestamp": "2026-11-02T10:00:00+08:00",
+        "stock_code": "600000",
+        "analysis_type": "stock",
         "trigger": {"id": "morning_confirm", "title": "十点确认", "reason": "测试"},
         "positions": {"accounts": []},
         "watchlist": {"themes": []},
@@ -168,6 +198,7 @@ def test_wrapper_passes_explicit_data_as_of(monkeypatch):
 
     assert response == {"final_output": "ok"}
     assert captured["data_as_of"] == "2026-11-02T10:00:00+08:00"
+    assert captured["stock_code"] == "600000"
 
 
 def test_wrapper_fallback_records_error_not_pending_prediction(
@@ -371,6 +402,47 @@ async def test_missing_input_snapshot_is_missing_not_pending(monkeypatch, tmp_pa
     assert record["directions"][0]["score_eligible"] is False
 
 
+def test_record_status_requires_actual_market_data():
+    from qing_investment.agent import main as agent_main
+
+    zero_boards = {
+        "available": True,
+        "concept": {
+            "leaders": [{"name": "农业", "pct_change": 0, "latest": 0, "amount": 0}]
+        },
+    }
+    valid_boards = {
+        "available": True,
+        "concept": {
+            "leaders": [{"name": "半导体", "pct_change": 1.2, "latest": 123, "amount": 1000}]
+        },
+    }
+    cases = [
+        ([{}], {}, {"available": False}, "missing"),
+        ([], {}, zero_boards, "missing"),
+        ([{"price": 0, "latest": 0, "amount": 0}], {}, {"available": False}, "missing"),
+        ([{"price": 3000}], {}, {"available": False}, "pending_maturity"),
+        ([], {"limit_up_count": 0}, {"available": False}, "missing"),
+        ([], {"errors": ["all providers failed"]}, {"available": False}, "missing"),
+        ([], {"up_count": "nan"}, {"available": False}, "missing"),
+        ([], {"up_count": "inf"}, {"available": False}, "missing"),
+        ([], {"limit_up_count": 11}, {"available": False}, "pending_maturity"),
+        ([], {}, valid_boards, "pending_maturity"),
+    ]
+    for quotes, sentiment, boards, expected in cases:
+        request = _request()
+        request.market_snapshot = {
+            "timestamp": "2026-11-02T09:00:00+08:00",
+            "quotes": quotes,
+            "sentiment": sentiment,
+        }
+        request.external_sector_boards = boards
+        result = _graph_result()
+        assert agent_main._trigger_record_status(
+            request, result, result["final_output"]
+        ) == expected
+
+
 @pytest.mark.asyncio
 async def test_same_request_retry_creates_linked_version(monkeypatch, tmp_path):
     root = tmp_path / "records"
@@ -453,7 +525,9 @@ def test_wrapper_failure_preserves_error_details_and_sent_payload_hash(
 
 
 @pytest.mark.asyncio
-@pytest.mark.parametrize("failure_key", ["_scan_failed", "_style_writer_failed"])
+@pytest.mark.parametrize(
+    "failure_key", ["_scan_failed", "_style_writer_failed", "_stock_analysis_failed"]
+)
 async def test_downstream_generation_failures_are_error_not_pending(
     monkeypatch, tmp_path, failure_key
 ):

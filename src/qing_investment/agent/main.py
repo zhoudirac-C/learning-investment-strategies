@@ -101,10 +101,22 @@ _SECTOR_KEYWORDS: dict[str, list[str]] = {
 }
 
 
+def _claim_school(claim: dict) -> str:
+    school = str(claim.get("school") or "").strip().lower()
+    if school:
+        return school
+    up_id = str(claim.get("up_id") or "")
+    if up_id:
+        from qing_investment.schools import school_of_up
+
+        return school_of_up(up_id) or "unknown"
+    return "unknown"
+
+
 def _format_claim_line(c: dict) -> str:
-    """把 qing claim 格式化为带日期的历史材料，而非当前观点。"""
+    """把 claim 格式化为带日期和学派的历史材料，而非当前观点。"""
     claim_id = c.get("id", "N/A")
-    parts = [f"[{claim_id}]"]
+    parts = [f"[{claim_id}]", f" [{_claim_school(c)}]"]
     parts.append(f" ({c.get('source_date','') or '日期未知'})")
     if c.get("claim_type"):
         parts.append(f" [{c.get('claim_type')}]")
@@ -169,14 +181,28 @@ def _final_validation_summary(result: dict) -> dict:
     return result.get("market_context") or result.get("market_summary_context") or {}
 
 
+def _trigger_input_availability(req: TriggerRequest) -> tuple[bool, bool]:
+    from qing_investment.agent.tools.sector_data import (
+        boards_have_market_data,
+        quotes_have_market_data,
+        sentiment_has_market_data,
+    )
+
+    snapshot = req.market_snapshot or {}
+    snapshot_usable = quotes_have_market_data(
+        snapshot.get("quotes")
+    ) or sentiment_has_market_data(snapshot.get("sentiment"))
+    boards = req.external_sector_boards or {}
+    boards_usable = boards.get("available") is True and boards_have_market_data(boards)
+    return snapshot_usable, boards_usable
+
+
 def _trigger_record_status(req: TriggerRequest, result: dict, final_output: str) -> str:
     from qing_investment.agent.validators.output_guard import is_hallucinated_output
 
     data_as_of = req.data_as_of or str(req.market_snapshot.get("timestamp") or "")
-    has_market_data = bool(req.market_snapshot.get("quotes")) or (
-        req.external_sector_boards.get("available") is True
-    )
-    if not data_as_of or not has_market_data:
+    snapshot_usable, boards_usable = _trigger_input_availability(req)
+    if not data_as_of or not (snapshot_usable or boards_usable):
         return "missing"
     if not final_output:
         return "error"
@@ -186,6 +212,7 @@ def _trigger_record_status(req: TriggerRequest, result: dict, final_output: str)
         or summary.get("_validation_contract_errors")
         or summary.get("_scan_failed")
         or result.get("_style_writer_failed")
+        or result.get("_stock_analysis_failed")
         or result.get("_reviewer_error")
     ):
         return "error"
@@ -211,6 +238,8 @@ def _trigger_record_error(
         return {"type": "generation_fallback", "message": "stock_scanner_failed"}
     if result.get("_style_writer_failed"):
         return {"type": "generation_fallback", "message": "style_writer_failed"}
+    if result.get("_stock_analysis_failed"):
+        return {"type": "generation_fallback", "message": "stock_analysis_failed"}
     if result.get("_reviewer_error"):
         return {"type": "generation_fallback", "message": "reviewer_llm_failed"}
     if summary.get("_validation_contract_errors"):
@@ -268,6 +297,7 @@ def _freeze_trigger_result(
         data_as_of = req.data_as_of or str(req.market_snapshot.get("timestamp") or "")
         summary = _final_validation_summary(result)
         status = _trigger_record_status(req, result, final_output)
+        snapshot_usable, boards_usable = _trigger_input_availability(req)
         prompt_version, rules_version = _pipeline_versions(summary)
         gaps = []
         if not data_as_of:
@@ -294,8 +324,8 @@ def _freeze_trigger_result(
             raw_output=final_output,
             status=status,
             input_availability={
-                "market_snapshot": bool(req.market_snapshot.get("quotes")),
-                "external_sector_boards": req.external_sector_boards.get("available") is True,
+                "market_snapshot": snapshot_usable,
+                "external_sector_boards": boards_usable,
                 "positions_provided": bool(req.positions),
                 "position_snapshot_stored": False,
                 "watchlist_count": len(req.watchlist),
@@ -365,9 +395,10 @@ async def analyze_trigger(req: TriggerRequest):
         "confidence": "medium",
         "review_passed": False,
         "reasoning_steps": [],
+        "_explicit_analysis_type": "analysis_type" in req.model_fields_set,
         "parsed_intent": {
             "analysis_type": req.analysis_type,
-            "stock_code": req.market_snapshot.get("stock_code", ""),
+            "stock_code": req.stock_code or req.market_snapshot.get("stock_code", ""),
         },
     }
 
@@ -460,6 +491,10 @@ async def chat(req: ChatRequest):
                     "source_date": payload.get("source_date", ""),
                     "confidence": payload.get("confidence", ""),
                     "claim_type": payload.get("claim_type", ""),
+                    "intensity": payload.get("intensity", "medium"),
+                    "status": payload.get("status", ""),
+                    "school": payload.get("school", ""),
+                    "up_id": payload.get("up_id", ""),
                     "score": r.get("score", 0),
                 })
     except Exception as e:
@@ -541,6 +576,7 @@ async def chat(req: ChatRequest):
 
     market_snapshot: dict = {"quotes": []}
     external_sector_boards: dict = {"available": False}
+    external_market = getattr(req, "external_market", {}) or {}
 
     # 1. 检测查询类型（同时尊重 trigger.analysis_type）
     query_lower = req.message.lower()
@@ -754,12 +790,29 @@ async def chat(req: ChatRequest):
     context_parts = []
 
     # 实时数据部分
-    has_realtime_data = bool(market_snapshot.get("quotes")) or external_sector_boards.get("available") or req.external_market.get("available")
+    from qing_investment.agent.tools.sector_data import (
+        boards_have_market_data,
+        quotes_have_market_data,
+    )
+
+    valid_quotes = [
+        quote
+        for quote in market_snapshot.get("quotes") or []
+        if quotes_have_market_data([quote])
+    ]
+    quotes_usable = bool(valid_quotes)
+    boards_usable = (
+        external_sector_boards.get("available") is True
+        and boards_have_market_data(external_sector_boards)
+    )
+    has_realtime_data = bool(
+        quotes_usable or boards_usable or external_market.get("available")
+    )
     if has_realtime_data:
         context_parts.append("【实时行情数据】（✅ 主要分析依据）")
-        if market_snapshot.get("quotes"):
+        if quotes_usable:
             context_parts.append("- 个股/指数行情:")
-            for q in market_snapshot["quotes"]:
+            for q in valid_quotes:
                 name = q.get("name", "")
                 code = q.get("code", "")
                 price = q.get("price", "")
@@ -780,34 +833,34 @@ async def chat(req: ChatRequest):
             from qing_investment.agent.tools.stock_data import format_intraday_for_prompt
             # 找到昨收价
             prev_close = None
-            for q in market_snapshot.get("quotes", []):
+            for q in valid_quotes:
                 if not q.get("is_index"):
                     prev_close = q.get("prev_close")
                     break
             context_parts.append("\n- 个股当日分时:")
             context_parts.append(format_intraday_for_prompt(stock_intraday, prev_close))
         
-        if external_sector_boards.get("available"):
+        if boards_usable:
             context_parts.append("\n- 板块数据:")
             concept_leaders = external_sector_boards.get("concept", {}).get("leaders", [])
             for item in concept_leaders[:5]:
                 context_parts.append(f"  {item['name']}: {item['pct_change']}%")
 
-        if req.external_market.get("available"):
+        if external_market.get("available"):
             context_parts.append("\n- 外围市场数据:")
-            gm = req.external_market.get("global_macro") or {}
+            gm = external_market.get("global_macro") or {}
             if gm:
                 us_idx = gm.get("美股三指数", {})
                 for idx in ["^IXIC", "^DJI", "^GSPC"]:
                     if idx in us_idx:
                         d = us_idx[idx]
                         context_parts.append(f"  美股{d.get('name', idx)}: {d.get('pct_change', 'N/A')}%")
-            ov = req.external_market.get("overnight_us") or {}
+            ov = external_market.get("overnight_us") or {}
             if ov:
                 themes = ov.get("themes", [])
                 for t in themes[:3]:
                     context_parts.append(f"  映射股主题: {t.get('name', '')} ({t.get('pct_change', 'N/A')}%)")
-            pmb = req.external_market.get("pre_market_brief") or {}
+            pmb = external_market.get("pre_market_brief") or {}
             if pmb:
                 ca = pmb.get("core_assumption", "")
                 if ca:
@@ -842,18 +895,30 @@ async def chat(req: ChatRequest):
         ]
 
         # 方法论只指导分析步骤，不提供当前市场结论。
-        if method_claims:
+        qing_methods = [c for c in method_claims if _claim_school(c) == "qing"]
+        other_methods = [c for c in method_claims if _claim_school(c) != "qing"]
+        if qing_methods:
             context_parts.append("\n【Qing历史方法论/操作框架】（仅作方法论指导，必须与实时数据配合）")
-            for c in method_claims[:5]:
+            for c in qing_methods[:5]:
+                context_parts.append(_format_claim_line(c))
+        if other_methods:
+            context_parts.append("\n【其他学派历史方法论/操作框架】（仅作方法论指导，逐条标注学派）")
+            for c in other_methods[:5]:
                 context_parts.append(_format_claim_line(c))
 
         # 青枫浦上Q停止新增实时输入；所有观点统一按带日期的历史证据呈现。
         if fetched_stock_code:
             view_claims = [c for c in view_claims if c.get("intensity") != "low"]
 
-        if view_claims:
+        qing_views = [c for c in view_claims if _claim_school(c) == "qing"]
+        other_views = [c for c in view_claims if _claim_school(c) != "qing"]
+        if qing_views:
             context_parts.append("\n【Qing历史观点】（带日期的历史证据，不是当前信号；实时数据与证据等级优先）")
-            for c in view_claims[:12]:
+            for c in qing_views[:12]:
+                context_parts.append(_format_claim_line(c))
+        if other_views:
+            context_parts.append("\n【其他学派历史观点】（带日期并逐条标注学派，不是当前信号）")
+            for c in other_views[:12]:
                 context_parts.append(_format_claim_line(c))
 
     # 注入持仓数据
@@ -874,6 +939,13 @@ async def chat(req: ChatRequest):
         for m in memories:
             content = m.get("content", "") if isinstance(m, dict) else str(m)
             context_parts.append(f"- {content}")
+
+    dual_school_contract = ""
+    has_gator = any(_claim_school(c) == "gator" for c in all_claims)
+    if has_gator or any(term in query_lower for term in ("两派", "双学派", "鳄鱼", "gator")):
+        from qing_investment.agent.graph.nodes import _load_prompt
+
+        dual_school_contract = _load_prompt("dual_school_output")
 
     prompt_lines = [
         "你是青枫浦上Q的助手，风格犀利但不劝赌，不用机构研报腔。",
@@ -928,6 +1000,7 @@ async def chat(req: ChatRequest):
         "9. 分析必须按上述六步框架执行，不能跳过步骤\n"
         "10. intensity只描述历史材料的分析深度，不代表UP当前推荐强度\n",
         "",
+        dual_school_contract,
         *context_parts,
         f"\n用户：{req.message}\n",
         "请按上述六步框架直接回复：",

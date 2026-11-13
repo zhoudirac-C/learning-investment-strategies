@@ -211,8 +211,9 @@ def build_record(
     frozen_directions = copy.deepcopy(directions) if directions is not None else []
     frozen_expert_views = copy.deepcopy(expert_views) if expert_views is not None else []
     status_allows_scoring = status not in {"error", "missing"} and (
-        review or {}
-    ).get("passed") is not False
+        review is None
+        or (isinstance(review, dict) and review.get("passed") is True)
+    )
 
     _score_direction_items(
         frozen_directions,

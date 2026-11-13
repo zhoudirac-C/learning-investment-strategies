@@ -184,6 +184,18 @@ def test_failed_review_disables_scoring_without_changing_lifecycle_status():
     _assert_all_score_gates_false(record)
 
 
+@pytest.mark.parametrize("passed", ["false", 1, None])
+def test_non_boolean_review_result_disables_scoring(passed):
+    record = _record(
+        final_judgment=_final_judgment(),
+        directions=[_direction()],
+        expert_views=[_direction(school="gator")],
+        review={"passed": passed},
+    )
+
+    _assert_all_score_gates_false(record)
+
+
 def test_error_and_missing_are_independent_and_never_score_eligible():
     final_judgment = {"market_stage": "震荡", "score_eligible": True}
     error = _record(

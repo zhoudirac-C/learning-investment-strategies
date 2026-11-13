@@ -175,6 +175,45 @@ def _items_have_market_data(items: object) -> bool:
     return False
 
 
+def quotes_have_market_data(quotes: object) -> bool:
+    """Return whether quote rows contain a finite, nonzero market field."""
+    if not isinstance(quotes, list | tuple):
+        return False
+    for quote in quotes:
+        if not isinstance(quote, dict):
+            continue
+        for key in ("price", "latest", "pct_change", "amount"):
+            value = quote.get(key)
+            if isinstance(value, bool):
+                continue
+            number = _to_float(value)
+            if number is not None and math.isfinite(number) and number != 0:
+                return True
+    return False
+
+
+def sentiment_has_market_data(sentiment: object) -> bool:
+    """Return whether sentiment contains a finite, positive observed metric."""
+    if not isinstance(sentiment, dict):
+        return False
+    for key in (
+        "up_count",
+        "down_count",
+        "limit_up_count",
+        "limit_down_count",
+        "consecutive_height",
+        "first_board_count",
+        "broken_board_rate",
+    ):
+        value = sentiment.get(key)
+        if isinstance(value, bool):
+            continue
+        number = _to_float(value)
+        if number is not None and math.isfinite(number) and number > 0:
+            return True
+    return False
+
+
 def boards_have_market_data(boards: object) -> bool:
     """Return whether agent-formatted boards contain any valid nonzero quote."""
     if not isinstance(boards, dict):

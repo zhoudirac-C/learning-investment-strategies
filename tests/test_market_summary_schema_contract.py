@@ -219,3 +219,77 @@ def test_market_summary_normalizes_cron_output_end_to_end(monkeypatch):
         ],
     }
     assert "_validation_contract_errors" not in result
+
+
+def test_parse_failure_preserves_existing_market_intent(monkeypatch):
+    monkeypatch.setattr(nodes, "_safe_llm_invoke", lambda *args, **kwargs: "")
+
+    result = nodes.parse_query(
+        {
+            "query": "每日市场复盘",
+            "parsed_intent": {"analysis_type": "market", "stock_code": ""},
+        }
+    )
+
+    assert result["parsed_intent"]["analysis_type"] == "market"
+
+
+def test_parse_rejects_unknown_analysis_type(monkeypatch):
+    monkeypatch.setattr(
+        nodes,
+        "_safe_llm_invoke",
+        lambda *args, **kwargs: '{"analysis_type":"unknown-type"}',
+    )
+
+    result = nodes.parse_query(
+        {"query": "每日市场复盘", "parsed_intent": {"analysis_type": "market"}}
+    )
+
+    assert result["parsed_intent"]["analysis_type"] == "market"
+
+
+def test_parse_still_accepts_valid_stock_inference(monkeypatch):
+    monkeypatch.setattr(
+        nodes,
+        "_safe_llm_invoke",
+        lambda *args, **kwargs: '{"analysis_type":"stock","stock_code":"600000"}',
+    )
+
+    result = nodes.parse_query({"query": "分析浦发银行", "parsed_intent": {}})
+
+    assert result["parsed_intent"]["analysis_type"] == "stock"
+    assert result["parsed_intent"]["stock_code"] == "600000"
+
+
+def test_parse_allows_type_inference_when_caller_type_is_not_explicit(monkeypatch):
+    monkeypatch.setattr(
+        nodes,
+        "_safe_llm_invoke",
+        lambda *args, **kwargs: '{"analysis_type":"stock","stock_code":"600000"}',
+    )
+
+    result = nodes.parse_query(
+        {
+            "query": "分析浦发银行",
+            "parsed_intent": {"analysis_type": "market", "stock_code": ""},
+            "_explicit_analysis_type": False,
+        }
+    )
+
+    assert result["parsed_intent"]["analysis_type"] == "stock"
+    assert result["parsed_intent"]["stock_code"] == "600000"
+
+
+def test_cli_market_query_keeps_default_type_inferable(monkeypatch):
+    from scripts.cli_qing_agent import _default_state
+
+    monkeypatch.setattr(
+        nodes,
+        "_safe_llm_invoke",
+        lambda *args, **kwargs: '{"analysis_type":"market","stock_code":null}',
+    )
+    state = _default_state("今天大盘怎么看", None, None)
+
+    result = nodes.parse_query(state)
+
+    assert result["parsed_intent"]["analysis_type"] == "market"

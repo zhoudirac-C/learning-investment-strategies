@@ -2,7 +2,7 @@
 
 > **版本**：v2026-11-13
 > **对应仓库**：`learning-investment-strategies`  
-> **最后更新**：2026-11-13（修复终止型降级路由、市场阶段冲突校验及 reviewer 重试口径）
+> **最后更新**：2026-11-13（修复审核评分门禁、检索契约、个股输入时序、有效行情判断及双学派输出）
 > **目标读者**：后续维护 Qing-Agent 与监控层的开发者  
 
 ---
@@ -121,7 +121,7 @@ KLINE --> RULES : MA20 / volume
 API --> PQ
 PQ --> RK
 RK --> MA
-RK --> SA
+MA --> SA : 市场结论供个股分析
 MA --> DA
 SA --> DA
 DA --> SYN
@@ -466,7 +466,7 @@ title Qing-Agent LangGraph 节点拓扑
 [*] --> parse_query
 parse_query --> retrieve_knowledge
 retrieve_knowledge --> market_summary
-retrieve_knowledge --> stock_analyst
+market_summary --> stock_analyst : 提供市场阶段与技术面结论
 market_summary --> stock_scanner_shard : 分片 fan-out
 stock_scanner_shard --> merge_scanner_results
 merge_scanner_results --> devils_advocate
@@ -1074,6 +1074,16 @@ end note
 - 风格化头部、风格化 prompt 和 reviewer 共用 `_build_data_quality_view()`；全零板块在抓取、缓存、Agent 格式和 gator 快照中均视为不可用。
 - scanner 在空持仓/空观察池时仍保留指数白名单，但丢弃 LLM 生成的机会与持仓计划；合成明确标注“未执行全市场扫描”和“当前无持仓”，reviewer 不强迫补造机会。
 - `_validation_contract_errors`、`_fallback_reason`、`_scan_failed` 触发确定性降级，跳过 LLM 风格化与审核，避免将契约错误扩写为长文。
+
+### 9.11 高优先级契约修复（2026-11-13）
+
+- reviewer 仅接受布尔 `passed` 及合法列表字段；验证记录一旦提供 review，必须 `passed=true` 才能评分。
+- 主图按 Neo4j 真实扁平结构读取 claim，并保留学派、UP、类型、强度和演化字段。
+- `stock_analyst` 改为在 market_summary 后执行，接收实时 market_snapshot 与已完成的市场结论；`_stock_analysis_failed` 走终止型降级并记 `error`。
+- `TriggerRequest` 保留 wrapper 传入的顶层 `stock_code`；parse_query 不覆盖调用方显式 `analysis_type` 与已有股票代码，未显式指定类型时仍允许推断，LLM 失败或类型非法时保留调用方意图。
+- quote、sentiment、board 使用统一有效数据门禁；空对象、全零和 NaN/inf 不得伪装成可用数据或进入预测评分，sentiment 仅接受已知字段中的有限正数指标；`/chat` 使用同一 quote/board 门禁。
+- gator 指数快照将 NaN/inf 清洗为缺失值，四指数全零、全部缺失或仅含非有限值时不得进入确定性规则。
+- 双学派视图和 standing 冲突在 synthesize 进入正文；`/chat` 分学派展示历史材料并注入六段输出契约。
 
 ---
 

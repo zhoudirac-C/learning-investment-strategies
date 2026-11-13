@@ -585,7 +585,7 @@ def test_style_writer_adds_one_truthful_data_header_on_retry(monkeypatch):
         "data_as_of": "2026-11-12T10:00:00+08:00",
         "market_snapshot": {
             "timestamp": "2026-11-12T09:59:00+08:00",
-            "quotes": [{"code": "000001"}],
+            "quotes": [{"code": "000001", "latest": 3673.06}],
         },
         "external_sector_boards": {
             "available": True,

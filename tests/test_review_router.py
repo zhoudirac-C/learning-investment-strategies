@@ -24,6 +24,41 @@ def test_reviewer_llm_failure_never_passes_and_stops_at_retry_limit(monkeypatch)
     assert result["review_passed"] is False
 
 
+def test_reviewer_rejects_non_boolean_and_malformed_fields(monkeypatch):
+    payloads = (
+        '{"passed":"false","issues":[],"verified_claims":[]}',
+        '{"passed":true,"issues":"not-a-list","verified_claims":[]}',
+        '{"passed":true,"issues":[],"verified_claims":"claim-1"}',
+    )
+    for payload in payloads:
+        monkeypatch.setattr(
+            "qing_investment.agent.graph.nodes._safe_llm_invoke",
+            lambda *args, **kwargs: payload,
+        )
+        result = reviewer(
+            {
+                "styled_output": "正常条件化分析，触发与失效条件齐全。" * 8,
+                "claims": [],
+            }
+        )
+        assert result["review_passed"] is False
+        assert result["_reviewer_error"] is True
+        assert "reviewer_contract_error" in result["review_notes"]
+
+
+def test_short_output_review_uses_effective_failure_status(monkeypatch):
+    monkeypatch.setattr(
+        "qing_investment.agent.graph.nodes._safe_llm_invoke",
+        lambda *args, **kwargs: '{"passed":true,"issues":[],"verified_claims":[]}',
+    )
+
+    result = reviewer({"styled_output": "短输出", "claims": []})
+
+    assert result["review_passed"] is False
+    assert result["confidence"] == "low"
+    assert result["reasoning_steps"] == ["事实核查: 未通过"]
+
+
 def test_terminal_generation_failures_skip_style_retry():
     failures = (
         {"_validation_contract_errors": ["bad schema"]},
@@ -40,6 +75,14 @@ def test_terminal_generation_failures_skip_style_retry():
             }
             assert review_router(state) == "pass"
             assert state["review_passed"] is False
+
+    stock_failure = {
+        "review_passed": False,
+        "_retry_count": 0,
+        "review_notes": ["stock_analysis_failed"],
+        "_stock_analysis_failed": True,
+    }
+    assert review_router(stock_failure) == "pass"
 
 
 class TestReviewRouter:
