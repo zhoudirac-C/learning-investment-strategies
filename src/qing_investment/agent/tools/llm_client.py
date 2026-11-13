@@ -15,6 +15,7 @@ from qing_investment.agent.config import settings
 
 _MODEL_DEFAULT_MAX_TOKENS = {
     "gpt-4o": 16384,
+    "nvidia/nemotron-3.5-super-vl:free": 32768,
 }
 
 

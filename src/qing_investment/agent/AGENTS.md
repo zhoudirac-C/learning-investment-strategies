@@ -440,7 +440,7 @@ market_summary → stock_scanner_shard（可分片并行）→ merge_scanner_res
 - cron 专属字段先规范化为通用市场 schema；`daily_state` 使用顶层 JSON 对象，旧 Markdown 代码块仅作兼容输入。
 - `open_confirm` 使用 `cron_open_confirm`，不得复用 09:26 的 `cron_opening`。
 - 风格化头部、风格化 prompt 和 reviewer 共享同一数据质量视图；全零板块按不可用/降级处理，不得进入 gator 确定性判断。
-- 空持仓与空观察池是合法输入，正文明确“未执行全市场扫描”，reviewer 不得强迫补造机会、价格或赔率。
+- 空持仓与空观察池是合法输入，scanner 必须丢弃 LLM 生成的机会与持仓计划，正文明确“未执行全市场扫描”，reviewer 不得强迫补造机会、价格或赔率。
 - `_validation_contract_errors`、`_fallback_reason` 或 `_scan_failed` 时，跳过 LLM 风格化与审核，输出确定性降级正文并保留 `error`，不得继续扩写矛盾内容。
 
 **调用示例**：

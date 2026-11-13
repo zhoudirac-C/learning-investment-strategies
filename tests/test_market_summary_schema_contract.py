@@ -123,17 +123,47 @@ def test_llm_gator_view_is_still_rejected():
     assert result["expert_views"][0]["source"] == "deterministic_rules"
 
 
-def test_market_phase_conflict_is_a_validation_contract_error():
+def test_market_phase_allows_same_stage_with_qualifier():
+    result = nodes._attach_market_validation_contract(
+        {
+            "market_phase": "修复早期",
+            "final_judgment": {"market_stage": "修复早期/震荡"},
+        },
+        reasoning_patterns=[],
+        gator_rules_snapshot={},
+        school_conflicts="",
+        prompt_material="test",
+    )
+
+    assert "_validation_contract_errors" not in result
+
+
+def test_normalization_unifies_conflicting_judgment_to_market_phase():
     normalized, _ = nodes._normalize_market_summary_result(
         {
-            "market_phase": "回暖期",
-            "final_judgment": {"market_stage": "退潮期"},
+            "market_phase": "退潮/冰点边缘（调整末端）",
+            "final_judgment": {"market_stage": "调整末端/底部磨砂区"},
         },
         {},
     )
 
+    assert normalized["final_judgment"]["market_stage"] == "退潮/冰点边缘（调整末端）"
     result = nodes._attach_market_validation_contract(
         normalized,
+        reasoning_patterns=[],
+        gator_rules_snapshot={},
+        school_conflicts="",
+        prompt_material="test",
+    )
+    assert "_validation_contract_errors" not in result
+
+
+def test_market_phase_conflict_is_a_validation_contract_error():
+    result = nodes._attach_market_validation_contract(
+        {
+            "market_phase": "回暖期",
+            "final_judgment": {"market_stage": "退潮期"},
+        },
         reasoning_patterns=[],
         gator_rules_snapshot={},
         school_conflicts="",

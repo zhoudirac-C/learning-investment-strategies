@@ -44,6 +44,29 @@ def test_llm_client_max_tokens_defaults_and_explicit_override(
     assert captured[-1]["max_retries"] == 0
 
 
+def test_nemotron_reasoning_model_has_larger_output_budget(monkeypatch):
+    captured = {}
+
+    class FakeChatOpenAI:
+        def __init__(self, **kwargs):
+            captured.update(kwargs)
+
+    monkeypatch.setattr(llm_client, "ChatOpenAI", FakeChatOpenAI)
+    monkeypatch.setattr(
+        llm_client,
+        "_resolve_hermes_global",
+        lambda: {
+            "model": "nvidia/nemotron-3.5-super-vl:free",
+            "api_key": "test-key",
+            "base_url": "https://openrouter.ai/api/v1",
+        },
+    )
+
+    llm_client.get_llm_client(provider="hermes_global")
+
+    assert captured["max_tokens"] == 32768
+
+
 @pytest.mark.parametrize(
     ("provider", "client_class"),
     [

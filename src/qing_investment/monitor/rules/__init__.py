@@ -539,7 +539,7 @@ class BuySignalRuleEngine(BaseRuleEngine):
                 "MA20上方": above_key_ma,
             }
             matched = [k for k, v in conditions.items() if v]
-            is_candidate = len(matched) >= 4
+            is_candidate = price_in_zone and len(matched) >= 4
 
             # P1: pre_condition 检查（stock_pool 级代码拦截）
             pre_cond = entry.get("pre_condition", {}) or {}

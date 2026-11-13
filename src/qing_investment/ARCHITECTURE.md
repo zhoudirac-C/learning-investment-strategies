@@ -1050,7 +1050,7 @@ end note
 - `_safe_llm_invoke()` 与 `devils_advocate()` 每次调用本地 Kimi Code CLI 或远端 provider 时记录 attempt / success / failed / fallback。
 - `/analyze/trigger` 请求结束时把轨迹摘要写入日志，并拼接到 `final_output` 顶部（如 `[模型路由：最终走 远端 deepseek]`）。
 - `hermes_stock_monitor_agent.py` fallback 路径输出 `[模型路由：未调用 Qing-Agent，走本地规则 fallback]`。
-- 通用默认 `max_tokens=10000`（`gpt-4o` 为 16384），长输出任务必须显式覆盖，避免把上下文窗口误当输出上限。
+- 通用默认 `max_tokens=10000`（`gpt-4o` 为 16384；`nvidia/nemotron-3.5-super-vl:free` 为 32768，避免推理耗尽后无正文），长输出任务必须显式覆盖，避免把上下文窗口误当输出上限。
 - `_safe_llm_invoke()` 支持 `QING_AGENT_FALLBACK_PROVIDERS` 跨 provider 降级，并以 `QING_AGENT_LLM_CHAIN_TIMEOUT=300s` 作为单次调用的共享时间预算；后续 client 只获得剩余 request timeout。ChatOpenAI 显式 `max_retries=0`，ACP/Kimi Coding 同样接收剩余 timeout，避免 client 内部重试绕过预算。
 - wrapper 对连接错误/5xx 有限重试，但读超时不重复 POST，避免服务端仍在执行时产生重复分析与留痕。
 
@@ -1072,7 +1072,7 @@ end note
 - cron 专属输出先经 `_normalize_market_summary_result()` 映射为通用市场 schema，统一 `market_phase` 与 `final_judgment.market_stage`；`daily_state` 采用顶层 JSON 对象，兼容旧 Markdown 输入。
 - `open_confirm` 路由至 `cron_open_confirm`，不再复用竞价节点 prompt。
 - 风格化头部、风格化 prompt 和 reviewer 共用 `_build_data_quality_view()`；全零板块在抓取、缓存、Agent 格式和 gator 快照中均视为不可用。
-- scanner 在空持仓/空观察池时仍保留指数白名单；合成明确标注“未执行全市场扫描”和“当前无持仓”，reviewer 不强迫补造机会。
+- scanner 在空持仓/空观察池时仍保留指数白名单，但丢弃 LLM 生成的机会与持仓计划；合成明确标注“未执行全市场扫描”和“当前无持仓”，reviewer 不强迫补造机会。
 - `_validation_contract_errors`、`_fallback_reason`、`_scan_failed` 触发确定性降级，跳过 LLM 风格化与审核，避免将契约错误扩写为长文。
 
 ---

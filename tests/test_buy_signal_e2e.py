@@ -145,8 +145,18 @@ class TestBuySignalE2E:
         assert "价格进入区间" in c.matched_conditions
         assert c.entry_zone == (10.0, 11.0)
 
-    def test_evaluate_buy_signal_candidates_rejects_when_price_out_of_zone(self):
-        """候选检测：价格不在区间内 → 不是候选。"""
+    def test_evaluate_buy_signal_candidates_rejects_when_price_out_of_zone(self, monkeypatch):
+        """价格越界是硬门槛，其他五项条件全部满足也不能成为候选。"""
+        monkeypatch.setattr(
+            "qing_investment.kline_cache.get_klines",
+            lambda code, days: [
+                {"volume": 100, "close": 10.0},
+                {"volume": 100, "close": 10.0},
+                {"volume": 200, "close": 10.0},
+                {"volume": 300, "close": 12.0},
+            ],
+        )
+        monkeypatch.setattr("qing_investment.kline_cache.get_ma", lambda code, days: 10.0)
         config = self._make_config()
         # 显式关闭前置条件，确保价格不在区间时总满足条件 < 5
         config.stock_pool = {

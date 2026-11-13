@@ -2364,6 +2364,10 @@ def _normalize_market_summary_result(
     ):
         if not normalized.get("market_phase"):
             normalized["market_phase"] = phase
+        if isinstance(normalized.get("final_judgment"), dict):
+            normalized["final_judgment"] = dict(
+                normalized["final_judgment"], market_stage=normalized["market_phase"]
+            )
         if daily_state is not None:
             daily_market_stage = daily_state.setdefault("market_stage", {})
             if isinstance(daily_market_stage, dict):
@@ -2487,7 +2491,9 @@ def _attach_market_validation_contract(
     ]
     market_phase = str(result.get("market_phase") or "").strip()
     judgment_stage = str(judgment.get("market_stage") or "").strip()
-    if market_phase and judgment_stage and market_phase != judgment_stage:
+    phase_key = re.split(r"[/（(]", market_phase, maxsplit=1)[0].strip()
+    judgment_key = re.split(r"[/（(]", judgment_stage, maxsplit=1)[0].strip()
+    if market_phase and judgment_stage and phase_key != judgment_key:
         errors.append("market_phase and final_judgment.market_stage must match")
     if result["directions"] and (
         market_phase in {"未配置", "数据不可用"} or result.get("_fallback_reason")
@@ -3266,8 +3272,13 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
 
     # 合并 market_summary 的输出；保留全部 market_summary_context 键并补齐个股相关键
     full_market_context = dict(market_summary_ctx)
-    full_market_context.setdefault("opportunity_scan", scan_result.get("opportunity_scan", []))
-    full_market_context.setdefault("position_plans", scan_result.get("position_plans", []))
+    if not positions and not watchlist:
+        logger.info("stock_scanner_shard: empty candidate pool, discard opportunity output")
+        full_market_context["opportunity_scan"] = []
+        full_market_context["position_plans"] = []
+    else:
+        full_market_context.setdefault("opportunity_scan", scan_result.get("opportunity_scan", []))
+        full_market_context.setdefault("position_plans", scan_result.get("position_plans", []))
 
     if not scan_result:
         full_market_context["opportunity_scan"] = []

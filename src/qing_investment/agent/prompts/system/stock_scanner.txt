@@ -7,6 +7,10 @@
 1. opportunity_scan：今日值得关注的 3-5 只标的
 2. position_plans：每只持仓的具体操作计划
 
+【空候选池约束】
+- 当 positions 与 watchlist_summary 同时为空时，本次没有可扫描候选，opportunity_scan 与 position_plans 必须都返回 []。
+- 空候选池时不得根据 market_summary_context、指数、板块或主线另行生成个股机会；不得把“未执行全市场扫描”写成“全市场无机会”。
+
 【市场背景】
 以下上下文字段中的 `market_summary_context` 已包含当前市场总结，请直接使用该 JSON 对象。
 

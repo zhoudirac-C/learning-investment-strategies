@@ -226,3 +226,26 @@ def test_style_prompt_has_no_leakable_numeric_examples():
     assert "19元" not in prompt
     assert "18.5元" not in prompt
     assert "[未找到来源]" not in prompt
+
+
+def test_scanner_discards_llm_opportunities_when_candidate_pool_is_empty(monkeypatch):
+    monkeypatch.setattr(
+        nodes,
+        "_safe_llm_invoke",
+        lambda *args, **kwargs: (
+            '{"opportunity_scan":[{"stock":"中际旭创","code":"300308",'
+            '"trigger":"待企稳","odds":"2:1"}],"position_plans":[]}'
+        ),
+    )
+    state = _quality_state()
+    state.update(
+        parsed_intent={"analysis_type": "market"},
+        trigger={"id": "afternoon_risk"},
+        market_summary_context={"market_phase": "震荡", "main_themes": ["光互连"]},
+    )
+
+    result = nodes.stock_scanner_shard(state)
+
+    scan = result["stock_scanner_results"][0]["market_context"]
+    assert scan["opportunity_scan"] == []
+    assert scan["position_plans"] == []
