@@ -1,4 +1,11 @@
 # 操作日志
+## 2026-11-14 | qing-learning ingest | 鳄鱼派 11/13 公众号 提取（7 条，001~007）
+
+- 来源：公众号「像鳄鱼一样思考」11/13 18:00（同样的套路，但管用）；C2 raw：`sources/original/wechat/2026-11-13-股市：同样的套路，但管用（2026.11.13）.md`
+- 拆分写入 `knowledge/claims/claim-20261113-001.yaml` ~ `knowledge/claims/claim-20261113-007.yaml`（7 条）：market-cycle×5、operation×2
+- 核心：大涨别追高恐慌杀跌别割肉；市场急涨急跌是短线大资金狙击网红大V；低点仓位建好后不追不割耐心等行情；散户认知易中天=科技=A股；4号后已走右侧但人们认为右侧没来；先看填坑填坑是恐慌情绪修正；趋势空头等B浪反弹多头重新聚集
+- 无具体个股标注，related_stocks 全空；Gate 1/2/3 全过；wiki 已建 `knowledge/wiki/每日复盘/2026-11-13-鳄鱼派-同样的套路但管用公众号.md`；claims/wiki 索引已更新
+
 ## 2026-11-13 | qing-learning ingest | 鳄鱼派 11/11 B站视频 提取（8 条，011~018）
 
 - 来源：B站动态「鳄鱼派」11/11 09:27（美联储加息影响，BV11CWj6nEwJ）；C2 raw：`sources/original/bilibili/2026-11-11-0927-视频-美联储加息影响 -.md`
