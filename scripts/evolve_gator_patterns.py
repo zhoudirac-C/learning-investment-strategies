@@ -7,8 +7,8 @@
 P2 上线：2026-10-22（用户拍板「做P2」）
 
 P2 范围：
-  Step 1  增量筛选：扫描 knowledge/claims/claim-*.yaml 中 school==gator 的
-          claim，结合 state.json 只取未处理的新增；
+  Step 1  增量筛选：扫描 knowledge/claims/claim-*.yaml 中 school==gator 或
+          up_id==gator-ecyu-0001 的 claim，结合 state.json 只取未处理或未分类的；
   Step 1b 候选召回：每条 claim 与 reasoning-patterns-gator.yaml 的 pattern
           做 embedding 相似度，取 top-K 候选；
   Step 2  LLM 五分类：reinforce/refine/contradict/new_theme/irrelevant。
@@ -42,6 +42,8 @@ from pathlib import Path
 
 import numpy as np
 import yaml
+
+from investment_engine.pattern_eval.gator_evolution import load_gator_claims
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CLAIMS_DIR = REPO_ROOT / "knowledge" / "claims"
@@ -79,36 +81,20 @@ def save_state(state: dict) -> None:
 
 
 def iter_gator_claims() -> list[dict]:
-    """扫描全部 claim 文件，返回 school==gator 的 claim（带来源文件）。"""
-    out: list[dict] = []
-    for path in sorted(CLAIMS_DIR.glob("claim-*.yaml")):
-        try:
-            data = yaml.safe_load(path.read_text(encoding="utf-8"))
-        except Exception as e:
-            logger.warning("跳过无法解析的 claim 文件 %s: %s", path.name, e)
-            continue
-        if isinstance(data, dict):
-            claims = data.get("claims", [])
-        elif isinstance(data, list):
-            claims = data  # 部分文件根节点直接是 claim 列表
-        else:
-            continue
-        for c in claims:
-            if isinstance(c, dict) and c.get("school") == "gator":
-                c["_claim_file"] = path.name
-                out.append(c)
-    return out
+    """扫描全部 claim 文件，返回鳄鱼学派的 claim（带来源文件）。"""
+    return load_gator_claims(CLAIMS_DIR)
 
 
 def filter_new_claims(
     claims: list[dict],
     processed_ids: set[str],
+    classified_ids: set[str],
     since: date | None,
 ) -> list[dict]:
     out = []
     for c in claims:
         cid = c.get("id")
-        if not cid or cid in processed_ids:
+        if not cid or (cid in processed_ids and cid in classified_ids):
             continue
         if since is not None:
             sd = str(c.get("source_date", ""))
@@ -251,7 +237,7 @@ def classify_claims(
     for c in enriched:
         cid = c.get("id")
         if cid in existing:
-            c["_classification"] = existing[cid]
+            c["_classification"] = dict(existing[cid])
             c["_classification"]["_from_state"] = True
             results.append(c)
             continue
@@ -327,7 +313,7 @@ def render_report(
         "",
         f"> 阶段：P2 影子模式（LLM 五分类已接入，{llm_note}）",
         f"> 窗口：{window_desc} ｜ gator claims 总数：{total_gator} ｜ "
-        f"本周新增：{len(enriched)}",
+        f"本次处理：{len(enriched)}",
         "> ⚠️ 影子期约束：本报告不改任何 framework yaml，所有归类需人工复核；"
         "contradict/refine 不自动裁决。",
         "",
@@ -481,9 +467,11 @@ def main() -> int:
 
     if args.reclassify_since:
         # reclassify 模式：忽略 processed 过滤（但 LLM 分类仍读 state 幂等）
-        new_claims = filter_new_claims(all_gator, set(), since)
+        new_claims = filter_new_claims(all_gator, set(), set(classifications), since)
     else:
-        new_claims = filter_new_claims(all_gator, processed_ids, since)
+        new_claims = filter_new_claims(
+            all_gator, processed_ids, set(classifications), since
+        )
     logger.info("窗口内新增: %d", len(new_claims))
 
     patterns = load_patterns()

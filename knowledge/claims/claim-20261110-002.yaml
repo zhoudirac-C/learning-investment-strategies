@@ -14,8 +14,11 @@ interpretation: 当前行情特征是游资活跃但机构谨慎，如果机构�
 confidence: medium
 status: active
 intensity: medium
-supersedes: []
-contradicts: []
+supersedes: ["claim-20261022-005-e"]
+contradicts: ["claim-20261028-001"]
+disagrees_with: ["claim-20260722-013"]
+supplements: []
+last_discovered: 2026-11-14
 links: {}
 topic: 资金博弈
 stance: market-regime

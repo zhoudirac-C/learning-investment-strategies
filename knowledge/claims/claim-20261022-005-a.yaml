@@ -1,0 +1,40 @@
+id: claim-20261022-005-a
+source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
+source_date: '2026-10-22'
+source_type: 复盘
+up_id: gator-ecyu-0001
+up_name: 获得信息差
+extracted_at: '2026-10-22'
+claim_type: market-cycle
+subject: 护盘资金先买再卖尾盘通吃扫货
+timeframe: intraday
+statement: 护盘资金的日内操作细节：先买再卖把前几天进的货交给市场，尾盘最后几分钟市场没成交量时直接通吃扫货又进几十亿，最后触发量化给砸下来——白给的流动性让量化如鱼得水。
+evidence_quote: 我只能说上面有高人，蓝色的是资金趋势，不难看出今天的走法是先买再卖，把昨天甚至前几天进的货又给交给市场，尾盘最后几分钟，市场没啥成交量的时候直接通吃扫货，又进了几十亿，不过最后触发量化给砸下来了。毕竟白给的流动性，量化如鱼得水
+interpretation: 鳄鱼派拆解护盘资金的完整日内路径：盘中先买再卖做T（把旧仓倒给市场），尾盘低成交量时集中扫货（冲击成本最小）——与10-21的『一夜持股法做T套利』互为印证，但本篇更进一步给出『尾盘低成交量通吃』的具体时点选择逻辑。量化资金则借护盘的流动性反向套利。
+confidence: medium
+status: active
+intensity: high
+supersedes: []
+contradicts: []
+supplements:
+- claim-20261022-004-e
+- claim-20260819-070
+last_discovered: 2026-10-22
+links:
+- claim-20261021-009-a
+topic: 护盘机制-日内路径
+stance: market-regime
+related_stocks: []
+tags:
+- 护盘资金
+- 先买再卖
+- 尾盘扫货
+- 量化套利
+school: gator
+direction:
+  value: neutral
+  basis_kind: index
+  basis_code: sh000300
+  rationale: 拆解护盘资金日内操作与量化套利机制，无方向判断
+  annotated_at: 2026-10-24
+  annotator: m3-direction-v1

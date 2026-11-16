@@ -1,0 +1,47 @@
+id: claim-20261020-005-a
+source_path: sources/original/bilibili/2026-10-20-2326-视频-【右侧行情要看融资余额】 -.md
+source_date: '2026-10-20'
+source_type: 视频
+up_id: gator-ecyu-0001
+up_name: 像鳄鱼一样思考
+extracted_at: '2026-10-21T12:50:00+08:00'
+claim_type: market-cycle
+subject: 市场情绪钟摆
+timeframe: short-term
+statement: 市场情绪已经从我做空时的「大家说我太悲观」（四千一四千二）切换到「现在大家悲观」——钟摆已从贪婪端摆到恐惧端
+evidence_quote: 哎，都比较悲观啊，对吧？四千一、四千二，我做空的时候，对吧？大家都说我太悲观了，现在换到大家悲观了。
+interpretation: 鳄鱼派用自身位置作市场情绪的温度计：他做空时市场狂热（四千一二），现在市场悲观。这句话的落点是情绪钟摆已经摆到另一端，为「我现在是大多头」提供背景。
+confidence: medium
+status: active
+intensity: medium
+supersedes: []
+contradicts: []
+supplements:
+- claim-20260518-002
+last_discovered: 2026-10-21
+links:
+  wiki_pages: []
+  methodology_pages: []
+  cases: []
+topic: 情绪钟摆从贪婪到恐惧
+stance: market-regime
+related_stocks: []
+tags:
+- 情绪钟摆
+- 多空切换
+school: gator
+direction:
+  value: bullish
+  basis_kind: index
+  basis_code: sh000300
+  rationale: 情绪钟摆摆向恐惧端，作者转为大多头，看多市场
+  annotated_at: 2026-10-24
+  annotator: m3-direction-v1
+outcome:
+  result: pending_data
+  reason: 第 5 交易日未到（最新 2026-10-23）
+  evaluated_at: 2026-10-24
+  window_days: 5
+  basis_code: sh000300
+  t0_date: 2026-10-20
+  t0_close: 4152.11

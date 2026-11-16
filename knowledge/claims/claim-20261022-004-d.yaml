@@ -1,0 +1,54 @@
+id: claim-20261022-004-d
+source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
+source_date: '2026-10-22'
+source_type: 视频
+up_id: gator-ecyu-0001
+up_name: 像鳄鱼一样思考
+extracted_at: '2026-10-22T16:10:00+08:00'
+claim_type: sector-theme
+subject: 宁德时代与锂电拐点
+timeframe: trend
+statement: 当前价位的宁德时代处于恐慌情绪宣泄的末尾：不是"马上起"，但也没什么可恐慌；锂电拐点的确认必须靠实地调研（企业订单、排产、下游需求），而不是听故事——宁德和
+  AI 一样，几万亿市值阶段都在讲故事
+evidence_quote: 但这个价位的宁德，哎，说实话也没啥恐慌的，对吧？当然也不是说马上就要起来哈……你要去实地调研，实地去看企业的订单、排产以及下游的需求情况。
+interpretation: 对"宁德业绩雷→锂电崩盘"的恐慌叙事降温：价格层面（恐慌末尾）与基本面验证方式（实地调研三件套：订单/排产/下游需求）分开表述，既不喊抄底也不接飞刀。其"故事
+  vs 调研"的区分同样适用于 AI 权重股，是对白马闪崩的通用处理框架。
+confidence: medium
+status: active
+intensity: medium
+supersedes: []
+contradicts: []
+supplements:
+- claim-20260706-002-j
+last_discovered: 2026-10-22
+links:
+  wiki_pages: []
+  methodology_pages: []
+  cases: []
+topic: 宁德价位定性与锂电拐点验证
+stance: view
+related_stocks:
+- code: '300750'
+  name: 宁德时代
+  role: 锂电权重-本轮赎回潮情绪触发器
+tags:
+- 宁德时代
+- 锂电
+- 实地调研
+- 白马闪崩
+school: gator
+direction:
+  value: bullish
+  basis_kind: stock
+  basis_code: 300750.SZ
+  rationale: 恐慌宣泄末尾、下行有限，倾向关注但非抄底信号
+  annotated_at: 2026-10-24
+  annotator: m3-direction-v1
+outcome:
+  result: pending_data
+  reason: 第 5 交易日未到（最新 2026-10-23）
+  evaluated_at: 2026-10-24
+  window_days: 5
+  basis_code: 300750.SZ
+  t0_date: 2026-10-22
+  t0_close: 220.41

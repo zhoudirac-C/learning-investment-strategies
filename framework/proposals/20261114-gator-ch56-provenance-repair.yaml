@@ -1,0 +1,30 @@
+proposal_id: 20261114-gator-ch56-provenance-repair
+school: gator
+status: applied
+source_report: reports/gator-pattern-evolution-20261022.md
+generated_at: '2026-11-15T01:00:32+08:00'
+approved_by: user
+approved_at: '2026-11-15T01:08:28+08:00'
+decisions:
+- action: repair_provenance
+  pattern_id: gator-ch56-2026-10-16-10-22
+  reason: broken-source-path
+  provenance: local-gator-evolution（2026-10-22用户批准第56章；2026-11-15仅修复失效来源）
+  claim_ids:
+  - claim-20261016-004-d
+  - claim-20261016-004-h
+  - claim-20261019-003-k
+  - claim-20261020-006
+  - claim-20261020-007
+  - claim-20261021-008-a
+  - claim-20261021-008-c
+  - claim-20261021-008-d
+  - claim-20261021-008-e
+  - claim-20261021-008-f
+  - claim-20261021-008-g
+  - claim-20261021-008-h
+  - claim-20261021-009-d
+  - claim-20261022-005
+  note: 只删除失效第三方source_path并补真实claims证据，不改变第56章规则内容。state已有applied记录但生产规则未修，二者不一致；本提案已于2026-11-15由用户批准，仅执行上述来源修复，不扩展为语义变更。
+applied_at: '2026-11-15T01:24:15+08:00'
+applied_pattern_version: 1.2-draft

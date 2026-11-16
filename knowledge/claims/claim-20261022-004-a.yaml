@@ -1,0 +1,50 @@
+id: claim-20261022-004-a
+source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
+source_date: '2026-10-22'
+source_type: 视频
+up_id: gator-ecyu-0001
+up_name: 像鳄鱼一样思考
+extracted_at: '2026-10-22T16:10:00+08:00'
+claim_type: market-cycle
+subject: 本轮下跌归因与流程定位
+timeframe: short-term
+statement: 本轮调整定性为基民赎回引发的机构被动砍仓：按"先杀杠杆、后杀基民"的流程，当前已进入杀基民阶段，对应一波加速杀跌和一个阶段寻底过程，而非基本面驱动的下跌起点；直接诱因是宁德时代业绩大甩卖引发的恐慌传染
+evidence_quote: 这种就是遇到基民赎回了……先杀杠杆，然后杀基民。……那基民赎回之后会带来一波的，就我们说的加速杀跌，啊，就是说一个阶段寻底的一个过程。
+interpretation: 鳄鱼派把下跌放进一个固定的多杀多流程里定位：杠杆盘→基民赎回→加速杀跌→寻底。这个框架的价值在于把"跌"翻译成"流程第几段"：杀基民段意味着卖方是被动的、有尽头的（基民赎回有物理极限），所以对应寻底而非续跌。与"业绩雷→价值重估"的解释不同，他明确把宁德业绩甩卖只当情绪触发器。
+confidence: high
+status: superseded
+intensity: high
+supersedes: []
+contradicts: []
+supplements: []
+last_discovered: 2026-10-22
+links:
+  wiki_pages: []
+  methodology_pages: []
+  cases: []
+topic: 基民赎回引发的阶段寻底
+stance: market-regime
+related_stocks:
+- code: '300750'
+  name: 宁德时代
+  role: 本轮赎回潮情绪触发器（业绩大甩卖）
+tags:
+- 基民赎回
+- 被动砍仓
+- 寻底流程
+school: gator
+direction:
+  value: bullish
+  basis_kind: index
+  basis_code: sh000300
+  rationale: 定性寻底而非续跌，卖压有尽头，隐含止跌看多
+  annotated_at: 2026-10-24
+  annotator: m3-direction-v1
+outcome:
+  result: pending_data
+  reason: 第 5 交易日未到（最新 2026-10-23）
+  evaluated_at: 2026-10-24
+  window_days: 5
+  basis_code: sh000300
+  t0_date: 2026-10-22
+  t0_close: 4036.3

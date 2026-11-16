@@ -220,6 +220,59 @@ def test_only_actually_recalled_gator_pattern_triggers_contract(
 
 
 _REAL_FRAMEWORK_DIR = Path(__file__).resolve().parents[1] / "framework"
+GATOR_BASELINE_IDS = [
+    "gator-ch01-stop-falling-5-signals",
+    "gator-ch02-mainline-3-buy-points",
+    "gator-ch03-mainline-horse-race",
+    "gator-ch04-position-sizing",
+    "gator-ch05-take-profit",
+    "gator-ch06-long-short-response",
+    "gator-ch07-defense-vs-offense",
+    "gator-ch08-scissors-divergence",
+    "gator-ch09-offense-defense-sectors",
+    "gator-ch10-bull-4-taboos",
+    "gator-ch11-secondary-pullback-6-steps",
+    "gator-ch12-hedge-3-levels",
+    "gator-ch13-four-buy-points",
+    "gator-ch14-decline-depth-left-buy",
+    "gator-ch15-false-bottom-rules",
+    "gator-ch16-decision-6-steps",
+    "gator-ch17-three-kinds-of-money",
+    "gator-ch18-trading-system-3-investors",
+    "gator-ch19-stop-profit-loss-winrate",
+    "gator-ch20-emotion-cycle-themes",
+    "gator-ch21-industry-cycle-3-turns",
+    "gator-ch22-fundamental-framework",
+    "gator-ch23-liquidity-fund-behavior",
+    "gator-ch24-blackswan-response",
+    "gator-ch25-three-kills-defense",
+    "gator-ch26-ta-core-thresholds",
+    "gator-ch27-longterm-allocation",
+    "gator-ch28-five-system-articles",
+    "gator-ch29-shortterm-cash-defense",
+    "gator-ch30-shortterm-stock-picking",
+    "gator-ch31-dog-walking-gap",
+    "gator-ch32-longterm-trapped-3-steps",
+    "gator-ch33-weak-band-2-styles",
+    "gator-ch37-shortterm-leader-system",
+    "gator-ch38-margin-stock-picking",
+    "gator-ch39-herd-collapse-bull-end",
+    "gator-ch40-market-echelon-decline-4types",
+    "gator-ch41-longge-behavior-3-states",
+    "gator-ch42-main-contradiction-ai-bubble",
+    "gator-ch43-emotion-rhythm-3-waves",
+    "gator-ch44-insight-soul-sector",
+    "gator-ch45-index-sector-mismatch",
+    "gator-ch46-signal-two-faces",
+    "gator-ch47-longge-3-axes",
+    "gator-ch48-pig-cycle-3-signals",
+    "gator-ch49-bottom-structure-2-types",
+    "gator-ch50-mainline-replacement",
+    "gator-ch51-usbond-asset-choice",
+    "gator-ch52-risk-appetite-self",
+    "gator-ch53-ai-market-reading-module",
+    "gator-ch56-2026-10-16-10-22",
+]
 
 
 def _load_real_patterns(filename: str) -> list[dict]:
@@ -230,12 +283,16 @@ def _load_real_patterns(filename: str) -> list[dict]:
 def test_real_gator_patterns_keep_ids_order_and_validation():
     patterns = _load_real_patterns("reasoning-patterns-gator.yaml")
     original_validations = deepcopy([p.get("validation") for p in patterns])
-    assert len(patterns) == 51
+    current_ids = [p["pattern_id"] for p in patterns]
+    assert len(patterns) >= 51
+    assert len(current_ids) == len(set(current_ids))
+    assert current_ids[: len(GATOR_BASELINE_IDS)] == GATOR_BASELINE_IDS
 
     admitted = filter_production_patterns(patterns)
 
-    assert len(admitted) == 51
-    assert [p["pattern_id"] for p in admitted] == [p["pattern_id"] for p in patterns]
+    assert len(admitted) == len(patterns)
+    assert admitted == patterns
+    assert [p["pattern_id"] for p in admitted] == current_ids
     for pattern, original_validation in zip(admitted, original_validations):
         assert pattern["school"] == "gator"
         assert pattern.get("validation") == original_validation
@@ -244,6 +301,20 @@ def test_real_gator_patterns_keep_ids_order_and_validation():
         assert projected["validation"] == original_validation
         assert "historical_hit_rate" not in original_validation
         assert "historical_hit_rate" not in projected["validation"]
+
+
+def test_gator_pattern_filter_allows_additive_pattern():
+    patterns = _load_real_patterns("reasoning-patterns-gator.yaml")
+    additive = deepcopy(patterns[-1])
+    additive["pattern_id"] = "gator-ch57-test-additive"
+    extended = [*patterns, additive]
+
+    admitted = filter_production_patterns(extended)
+
+    assert admitted == extended
+    current_ids = [p["pattern_id"] for p in admitted]
+    assert current_ids[: len(GATOR_BASELINE_IDS)] == GATOR_BASELINE_IDS
+    assert current_ids[-1] == "gator-ch57-test-additive"
 
 
 def test_real_qing_patterns_default_to_qing_and_match_numeric_validation_gate(

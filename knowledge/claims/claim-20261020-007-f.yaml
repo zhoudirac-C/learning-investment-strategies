@@ -1,0 +1,48 @@
+id: claim-20261020-007-f
+source_path: sources/original/wechat/2026-10-20-10.20利好如大雨般落下.md
+source_date: '2026-10-20'
+source_type: 复盘
+up_id: gator-ecyu-0001
+up_name: 获得信息差
+extracted_at: '2026-10-22'
+claim_type: market-cycle
+subject: ETF持续流入既托底又提前卡位
+timeframe: short-term
+statement: 最近ETF持续流入有双重作用：一方面托住市场不跌提供流动性，另一方面一旦市场确认政策到位、信号枪响了能提前在跑道上。
+evidence_quote: 最近ETF持续流入，一方面可以托住市场不跌提供流动性，另一方面是一旦市场确认政策到位，信号枪响了能提前在跑道上。
+interpretation: 鳄鱼派解读ETF资金流入的双重功能：既是当前的『托底流动性』，也是右侧行情启动时的『先手仓位』——大资金通过ETF提前布局，等政策信号确认时已经在场内。这意味着ETF流入数据是右侧信号的先行指标。
+confidence: medium
+status: active
+intensity: medium
+supersedes: []
+contradicts: []
+supplements:
+- claim-20261012-001-k
+- claim-20260820-011
+last_discovered: 2026-10-22
+links:
+- claim-20261019-004-a
+- claim-20261019-003-i
+topic: ETF资金-托底卡位
+stance: market-regime
+related_stocks: []
+tags:
+- ETF流入
+- 托底
+- 先手仓位
+school: gator
+direction:
+  value: bullish
+  basis_kind: index
+  basis_code: sh000300
+  rationale: ETF流入托底并提前布局，预期市场右侧上行
+  annotated_at: 2026-10-24
+  annotator: m3-direction-v1
+outcome:
+  result: pending_data
+  reason: 第 5 交易日未到（最新 2026-10-23）
+  evaluated_at: 2026-10-24
+  window_days: 5
+  basis_code: sh000300
+  t0_date: 2026-10-20
+  t0_close: 4152.11

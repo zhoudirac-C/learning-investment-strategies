@@ -1,7 +1,8 @@
 # 技术方案：gator pattern 演进管线 —— 每周推理模型驱动的规则库更新
 
-> 状态：**P1 已完成并上线（2026-10-17）**——影子期运行中，至 2026-10-31 复核
-> 拍板结果：D1 批准 ✅ / D2 跟随 Hermes 全局模型（hermes_global）✅ /
+> 状态：P2 分类能力保留；主库单 claim/up_id 兼容、P4 审批写回与 backlog 已于2026-11-15由 `src/investment_engine/pattern_eval/gator_evolution.py` 和 `scripts/apply_gator_pattern_evolution.py` 落地。
+> 写回纪律：第三方镜像只读；生产写回须用户明确批准并先通过 dry-run。薄 Skill 与后续计划见 `docs/superpowers/specs/2026-11-14-gator-pattern-evolution-design.md`，不据此宣称全部计划已完成。
+> 原拍板结果：D1 批准 ✅ / D2 跟随 Hermes 全局模型（hermes_global）✅ /
 >           D3 每周五 20:00 ✅ / D4 新主题提案门槛 ≥2 个来源日期 ✅ /
 >           D5 影子期 2 周 ✅ / D6 与 A2/A2b 并行 ✅
 > P1 落地：`scripts/evolve_gator_patterns.py`（增量筛选 + ONNX embedding

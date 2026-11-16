@@ -1,0 +1,170 @@
+proposal_id: 20261116-gator-241-review-evidence
+school: gator
+status: applied
+source_report: reports/gator-pattern-evolution-20261115.md
+generated_at: '2026-11-16T00:06:23+08:00'
+approved_by: user
+approved_at: '2026-11-16T10:55:22+08:00'
+decisions:
+- action: reinforce
+  claim_id: claim-20261020-005-i
+  pattern_id: gator-ch56-2026-10-16-10-22
+  rationale: raw以六月砸盘为实例，直接说明回收空间和资金是为后续护盘预留弹药，支持ch56既有的冲高回收资金不是不看好、而是储备弹药规则。原文没有给出独立可执行的降温信号阈值，不据此新增做空条件。
+  evidence_quote: 它为什么要砸，因为未来为了以后救啊，我不砸点空间不砸点资金出来，以后拿啥救
+- action: reinforce
+  claim_id: claim-20261109-016
+  pattern_id: gator-ch27-longterm-allocation
+  rationale: ch27 已有“看多大级别的周期，就做多大级别的周期、两套周期不混用”及“方法没有对错，只有适配”的规则。raw 第49行是作者将较长配置周期落实到红利ETF周K的具体例证；第50行又允许希望安全垫更薄、逐步配置者看日K，说明它并非新增“红利ETF一律只能看周K”的条件，因此只 reinforce，不 refine。
+  evidence_quote: 那比如说这个红利ETF，啊，那之前我给大家聊的就是我基本上不看日K，我看周K，那能够踩着这个周K线就是一下比较好的配置节点。
+- action: reinforce
+  claim_id: claim-20261015-002-a
+  pattern_id: gator-ch49-bottom-structure-2-types
+  rationale: raw 总结称市场底正在形成、仍以震荡磨底推进，右侧信号未出前仅开始试多，直接印证第49章市场需自行磨底、市场底未完成时只打底仓的既有规则，没有新增阈值或改变加仓条件。
+  evidence_quote: 总结：市场底正在形成，时间还不够，往下空间有限，震荡磨底，可以开始试多，右侧信号尚未出现。
+- action: reinforce
+  claim_id: claim-20261015-002-h
+  pattern_id: gator-ch29-shortterm-cash-defense
+  rationale: raw 对银行、煤炭当日下跌的解释是部分高股息再涨会触发大资金抛售，直接印证第29章高股息上涨后会因股息率下降而失去防御光环并遭遇抛售的既有说明；本例没有增加新的数值阈值或适用条件。
+  evidence_quote: 今天银行煤炭为什么跌，昨天复盘已经写了，有些高股息再涨，就会触发大资金的抛售。
+- action: reinforce
+  claim_id: claim-20261015-002-i
+  pattern_id: gator-ch47-longge-3-axes
+  rationale: raw 所列买大金融和中字头、买宽基指数 ETF、开会发利好，直接支持第47章既有三板斧类别及后续利好步骤，没有修改其顺序细节、阈值或失守条件。ETF 两侧的差异仅为 raw 的换行和空白。
+  evidence_quote: 隔壁韩股已经在开会研究救市了，我们继续走三板斧的流程：买大金融、中字头；买宽基指数ETF、开会发利好。
+- action: reinforce
+  claim_id: claim-20261016-004-b
+  pattern_id: gator-ch23-liquidity-fund-behavior
+  rationale: raw 的“融资余额五连跌=杀杠杆”是 ch23“融资余额连续3–4天减少需警惕资金撤离”的同向实例，“大涨需要杠杆哥贡献”也直接支持上涨需要增量资金的既有描述；它没有新增或修改触发条件。
+  evidence_quote: 融资余额五连跌，这一整周都是在杀杠杆，下周多留意，要出现大涨，杠杆哥的贡献必不可少。杠杆哥，属于市场里最纯粹的投机客，只看情绪和趋势。
+- action: reinforce
+  claim_id: claim-20261019-003-a
+  pattern_id: gator-ch56-2026-10-16-10-22
+  rationale: raw 第20至28行记录护盘见效、指数止血及资金开始点火的阶段应用，可作为 ch56 护盘机制与底部判断链的实例证据，不修改既有规则。‘连续两天没继续打新低’是本次止血的事实依据，不与既有‘破位后等2天确认’条款混同为同一阈值。
+  evidence_quote: 如果以上证指数为主心骨，那么血已经止住了，连续两天没继续打新低，龙哥的护盘开始见效。市场正在2-3阶段之间，之前的总熊头，都有油资开始点火了，这是市场嗅觉最敏锐的一波人
+- action: reinforce
+  claim_id: claim-20261019-003-b
+  pattern_id: gator-ch56-2026-10-16-10-22
+  rationale: raw 第20行与第30至32行分别给出上证已止血、创业板或科创板未止血的对照，并明确结构性行情及持仓对应的主心骨；ch56 的 steps 已有‘结构性行情的主心骨选择’，因此不是新主题，也不需增加条件。
+  evidence_quote: 如果以上证指数为主心骨，那么血已经止住了，连续两天没继续打新低，龙哥的护盘开始见效。……如果以创业板或科创板指数为主心骨，那么血还没止住，易中天也只有一个是红盘。
+- action: reinforce
+  claim_id: claim-20261019-003-c
+  pattern_id: gator-ch56-2026-10-16-10-22
+  rationale: raw 第34行的‘资金敢做科技=情绪开始回暖’与 ch56 既有右侧确认条件‘有资金敢拉科技’及其科技强度观察直接对应。原关联 ch20 只含情绪周期的一般框架，未包含这一科技观察条件；改挂 ch56 仅补证据，不写入新规则。
+  evidence_quote: 资金敢做科技了，代表情绪开始回暖。操作上不一定做科技，但要看科技的情况，是情绪的风向标。
+- action: reinforce
+  claim_id: claim-20261019-003-f
+  pattern_id: gator-ch56-2026-10-16-10-22
+  rationale: raw 第56至70行以两段实例直接说明优质资产到平台或新低时按自身价值锚买入，与大盘点位、科技叙事和海外风险无关，逐层呼应 ch56 既有的‘进入捡便宜窗口，心中那杆称与大盘点位无关’，未要求改动阈值或步骤。
+  evidence_quote: 现在也一样，又有其他优质资产跌到平台了，甚至新低了，我也会去买，跟什么海外暴雷，大盘3700，也毫无关系。股市短期是投票机，长期是称重机。
+- action: reinforce
+  claim_id: claim-20261019-003-i
+  pattern_id: gator-ch56-2026-10-16-10-22
+  rationale: raw 第106至126行列出的多指数尾盘涨幅大于2%、融资余额连增和有资金敢拉科技，与 ch56 既有保守右侧确认组合逐项一致，没有新增或放宽条件。
+  evidence_quote: 右侧信号包括指数的涨幅（50、300、500、1000、科创、创业，多个尾盘涨幅大于2%），还有融资余额连增、市场风偏回升（有资金敢拉科技）。
+- action: reinforce
+  claim_id: claim-20261019-003-j
+  pattern_id: gator-ch56-2026-10-16-10-22
+  rationale: raw 第128至136行以融资余额6连降和杠杆资金后续连续点火描述底部到右侧的资金过程，直接支持 ch56 既有的融资余额连续下降尚未止跌、融资余额连增参与右侧确认两条规则；‘连续几天’未形成新的固定阈值。
+  evidence_quote: 先知先觉的杠杆哥9月撤离了，在等机会进场。后知后觉的杠杆哥已经成了炮灰，余额6连降。等艺高人胆大的杠杆哥进场点火，连续点几天，右侧行情就走出来了。
+- action: reinforce
+  claim_id: claim-20261020-007-c
+  pattern_id: gator-ch56-2026-10-16-10-22
+  rationale: raw 明确将大跌踩踏后的“愣神几分钟”、短线精灵变慢与护盘资金效率联系起来；ch56 steps 已有“恐慌愣神资金效率（护盘为何能精准抄底）”，该条是对既有机制的直接例证，100亿/1000亿为效果说明而非新增触发条件。
+  evidence_quote: 只要市场大跌踩踏恐慌过后愣神的那几分钟，当你的短线精灵跳的异常慢的时候，人家只需要用可能100亿的资金就能干以前1000亿资金才能达到的效果。
+- action: reinforce
+  claim_id: claim-20261020-006-a
+  pattern_id: gator-ch47-longge-3-axes
+  rationale: raw 仅以换行拆分科创ETF/上证50，实质明确护盘买入科创ETF与上证50，直接对应 ch47 第③步宽基ETF覆盖科创/创业板及上证50的品种范围；本条只作品种覆盖例证，不据此主张完整买卖先后顺序，也未新增条件。
+  evidence_quote: 关于科技前两天也说了，当下拉一拉不是坏事，今天龙哥扫货科创ETF如约而至。为了照顾非科技，尾盘也扫货了一些上证50，这一轮龙哥护盘，已经不错了，雨露均沾，大的小的，科技非科技，都照顾到了。
+- action: reinforce
+  claim_id: claim-20261020-006-d
+  pattern_id: gator-ch47-longge-3-axes
+  rationale: raw 描述发利好/买入、市场好后松绳、过热后卖出降温的循环，直接支持 ch47 既有“跌多→镇静剂→牛回→嗨完降温”及“还不得劲→发利好”规则；未增加新的触发条件。
+  evidence_quote: 后面继续看龙哥溜A股，利好发了，买东西，买了东西，发利好。市场好了，把绳子松一松，让它自己跑，跑的太嗨了，收一收绳子，卖点东西降降温，如此循环，直到绳子断了，或者狗累趴为止。
+- action: reinforce
+  claim_id: claim-20261020-006-e
+  pattern_id: gator-ch49-bottom-structure-2-types
+  rationale: raw 明确“市场底正在形成”“震荡磨底”“可以开始试多”“右侧信号尚未出现”，与 ch49 护盘后市场自行磨底、完成前仅打底仓而非确认加仓的两阶段规则一致，是既有规则的新日期例证。
+  evidence_quote: 总结：市场底正在形成，往下空间有限，震荡磨底，可以开始试多，右侧信号尚未出现。
+- action: reinforce
+  claim_id: claim-20261022-005-a
+  pattern_id: gator-ch56-2026-10-16-10-22
+  rationale: raw 对先买再卖、把旧仓交给市场、尾盘低成交量时通吃扫货并进几十亿的描述，逐项命中 ch56 既有护盘日内路径条款，没有增加新的触发或操作条件。
+  evidence_quote: 不难看出今天的走法是先买再卖，把昨天甚至前几天进的货又给交给市场，尾盘最后几分钟，市场没啥成交量的时候直接通吃扫货，又进了几十亿
+- action: reinforce
+  claim_id: claim-20261022-005-b
+  pattern_id: gator-ch56-2026-10-16-10-22
+  rationale: raw 将蓝筹白马被卖、外资争夺核心资产定价权和上证50ETF放量连成同一解释，直接命中 ch56 已有的‘蓝筹白马下跌→定价权争夺→上证50ETF护盘’条款，不新增条件；ch47 的三板斧完整顺序并未被原文验证，故将关联纠正为 ch56。
+  evidence_quote: 不管是移动、腾讯，甚至福耀玻璃和格力这种，全都是爆杀，宁王今天一口气跌十几个点，拖累创业板指数41个点，这分明是有外资趁宁王业绩不佳顺势杀盘来的。不知道各位伙计有没有发现，跌都是蓝筹白马，这一定程度上代表了中国核心资产的定价权，这就不难看出为什么近期放量的ETF几乎上证50占大头了。
+- action: reinforce
+  claim_id: claim-20261106-011
+  pattern_id: gator-ch10-bull-4-taboos
+  rationale: 独立复核纠偏：本条只直接支持受外部叙事影响而大涨追高、大跌割肉并反复受损，命中ch10既有情绪化交易与道听途说禁忌；不含分时或更高周期确认内容，仅作既有规则证据。
+  evidence_quote: 现在，我又看到了接下来会发生的第三个悲剧：很多股民，会在马后炮、大喇叭的忽悠下，大涨追高，大跌割肉，如此反复，亏着度过整个反弹行情。
+- action: reinforce
+  claim_id: claim-20261109-003
+  pattern_id: gator-ch09-offense-defense-sectors
+  rationale: raw 第20行将高股息概括为“长寿”“平平淡淡”，直接印证目标 pattern description 中高股息的防御板块属性，不增加新的领涨—资金情绪触发条件。目标完整规则还把领涨方向映射到资金态度；本条不支持该映射，因此证据仅取高股息连续句，不纳入其后非科技板块的相对弹性描述。
+  evidence_quote: 高股息不用多讲，就跟精灵一样长寿，平平淡淡的幸福。
+- action: reinforce
+  claim_id: claim-20261110-005
+  pattern_id: gator-ch06-long-short-response
+  rationale: raw 原文明确说未来三年的指数配置规划不会因短期杀杠杆而暂停，直接印证 ch06 既有的长线选手严格执行既定策略、不受短期情绪或波动干扰规则；没有增加新的触发、阈值或退出条件。
+  evidence_quote: 当然继续，这是我未来三年指数配置的规划，不会因为市场杀个杠杆，就暂停。
+- action: reinforce
+  claim_id: claim-20261111-006
+  pattern_id: gator-ch45-index-sector-mismatch
+  rationale: ch45 已规定‘只有个别指数独亮、其他全跌’属于危险错位，并包含短期错位后中期补涨或补跌共振的规则。raw 第26行以6月科技吸血为对照，明确本轮并非科技独强、许多板块也在填坑修复，为该既有错位识别及后续修复判断提供对照例证，没有增加新阈值或条件。
+  evidence_quote: 这波科技上涨，并没有像之前6月那样吸血，很多板块都在填坑的路上，甚至早已填坑。
+- action: reinforce
+  claim_id: claim-20261111-007
+  pattern_id: gator-ch14-decline-depth-left-buy
+  rationale: ch14 的既有 trigger 是‘情绪已杀到冰点 THEN 机会大于风险’，并要求仓位不要上得太急。raw 第28行回顾市场哀鸿遍野、几乎全网看空时坚持看反弹，直接为冰点情绪下机会大于风险提供实际例证，未添加新的入场条件或修改仓位要求。
+  evidence_quote: 市场哀鸿遍野，我们这里坚持看反弹，告诉大家散户绝望行情起，当时几乎是全网看空
+- action: reinforce
+  claim_id: claim-20261112-005
+  pattern_id: gator-ch10-bull-4-taboos
+  rationale: 独立复核一致性纠偏：低位不买、大涨追高、下跌割肉、如此反复与11-06同属ch10“激动/恐慌、两头挨打”的直接新日期例证；不新增独立规则，也不再判为irrelevant。
+  evidence_quote: 第三个悲剧还在继续上演，低位不买，大涨追高，下跌割肉，如此反复。
+- action: reinforce
+  claim_id: claim-20261020-003
+  pattern_id: gator-ch47-longge-3-axes
+  rationale: raw 第43行明确给出“一般都是先买上证50，然后沪深300、500、1000……然后科创”，直接印证目标 pattern description 第③项“上证50 → 沪深300 → 中证500 → 中证1000 → 科创/创业板”的宽基 ETF 顺序，没有增加新的触发条件或修改既有规则。
+  evidence_quote: 一般都是先买上证50，然后沪深300、500、1000啊，然后科创嘛
+- action: reinforce
+  claim_id: claim-20261020-010
+  pattern_id: gator-ch39-herd-collapse-bull-end
+  rationale: raw 第24行将924后“没得走了”归因于“人们都朝东走”，直接对应 target_pattern 既有“板块抱团到独食→增量枯竭”规则，仅提供同机制的历史例证，没有增加新的期限、阈值或退出条件。
+  evidence_quote: 924怎么来的？就是人们都朝东走了，然后就没得走了
+- action: reinforce
+  claim_id: claim-20261022-014
+  pattern_id: gator-ch07-defense-vs-offense
+  rationale: raw把“安全度过”与“等不牛末尾……真正干活”直接对置，体现条件未成熟时防御、阶段成熟后再进攻，契合ch07既有攻防切换；这里只作新例证，不把单次的“两年”预期写成固定期限。
+  evidence_quote: 这两年如果说没有赚到太多钱，那么未来两年也不要预期要求太高，安全度过安全度过，等这不牛的末尾，对吧？啊哈，那才是干活儿，真正干活儿的时候。
+- action: reinforce
+  claim_id: claim-20261027-027
+  pattern_id: gator-ch26-ta-core-thresholds
+  rationale: raw 同时给出“权重稳住则资金回小票”和“上证50晃动则大小票同跌”，直接支持 ch26 已有的“权重稳住，题材可继续炒；大跌则题材炒作难以为继”规则。这里只是当日实例，没有提出新的1.5%以外阈值或附加条件。
+  evidence_quote: 另一点，就是讲权重稳住的情况下，下午油资还是会回来继续玩儿小票。这是没有预料到的一点，下午上证50这个定海神针也开始产生了晃动，然后就是大票小票一起加速下跌到收盘。
+- action: reinforce
+  claim_id: claim-20261027-017
+  pattern_id: gator-ch52-risk-appetite-self
+  rationale: raw 明确说操作要看自己的风偏和安全垫、不要一味图弹性，直接支持 ch52 按自身风偏选择适合体系的既有原则；原文还以往期科技反弹经验说明能力匹配，未增加新的量化条件或修改规则。
+  evidence_quote: 大家的操作一定要看自己的风偏，啊，一定要看安全垫，不要一味图弹性。
+- action: reinforce
+  claim_id: claim-20261027-023
+  pattern_id: gator-ch52-risk-appetite-self
+  rationale: raw 以电信的低弹性持有体验与机器人、宇树等高弹性品种作对照，并明确‘你玩得转你可以继续玩’，直接支持 ch52 按自身风偏与能力选择适合方式，而不是盲目提升风偏；未提出新阈值或规则修正。
+  evidence_quote: 你说高弹性品种，啊，那机器人也是高弹性品种呀，啊，玩得转吗？比如宇树这些你玩得转吗？
+- action: reinforce
+  claim_id: claim-20261102-005
+  pattern_id: gator-ch47-longge-3-axes
+  rationale: 汇总复核：2026-11-02官方扫货宽基指数ETF是ch47宽基ETF护盘工具的新日期证据；只补证据，不把“赢面大”当成已验证胜率或无条件买入指令。
+  evidence_quote: 会议有没有出超预期的东西目前未知，但是，裁判今天有扫货宽基指数 ETF，跟裁判站一边，赢面还是大。
+- action: reinforce
+  claim_id: claim-20261103-002
+  pattern_id: gator-ch45-index-sector-mismatch
+  rationale: raw 在早上普涨、下午普跌及指数大跌背景下，明确称上证50愈发稳健且ETF放量增加，直接对应 ch45 的“50/300守住”及指数与板块错位场景，只新增证据，不改变规则条件。
+  evidence_quote: 定海神针上证50，愈发稳健，ETF放量明显增加。
+applied_at: '2026-11-16T10:58:29+08:00'
+applied_pattern_version: 1.5-draft

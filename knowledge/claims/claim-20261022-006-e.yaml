@@ -1,0 +1,48 @@
+id: claim-20261022-006-e
+source_path: sources/original/wechat/2026-10-22-股市：绝望出拐点（2026.10.22）.md
+source_date: '2026-10-22'
+source_type: 复盘
+up_id: gator-ecyu-0001
+school: gator
+up_name: 像鳄鱼一样思考
+extracted_at: '2026-10-22'
+claim_type: market-cycle
+subject: 群体情绪从嘲讽做空到劝做空的钟摆证据
+timeframe: trend
+statement: 6 月大盘 4100 多点我做空时像过街老鼠人人喊打，现在人们开始劝网络大 V 们去做空了——真正的交易者注定是孤独的。
+evidence_quote: 与之前6月大盘4100多点，我做空的时候完全相反。现在已经出现，人们开始劝网络大V们去做空了，怎么我做空的时候，像个过街老鼠似的人人喊打？真应了那句老话：真正的交易者，注定是孤独的。
+interpretation: 鳄鱼派用自身遭遇记录情绪钟摆的两个极点：4100 点做空被群嘲（贪婪端）→ 现在劝大 V 做空（恐惧端）。群体对做空态度的 180
+  度翻转是钟摆从贪婪摆到恐惧的微观证据，与 B站视频「钟摆已从贪婪端摆到恐惧端」（claim-20261020-005-a）互为印证。
+confidence: medium
+status: active
+intensity: medium
+supersedes: []
+contradicts: []
+disagrees_with:
+- qing-2026-06-08-market-shanghai-bottom-near-001
+supplements: []
+last_discovered: 2026-10-22
+links:
+- claim-20261020-005-a
+topic: 市场周期-情绪钟摆
+stance: market-regime
+related_stocks: []
+tags:
+- 情绪钟摆
+- 做空态度翻转
+- 孤独交易者
+direction:
+  value: bearish
+  basis_kind: index
+  basis_code: sh000001
+  rationale: 钟摆摆至恐惧端佐证看空；大盘4100点指上证
+  annotated_at: 2026-10-24
+  annotator: m3-direction-v1
+outcome:
+  result: pending_data
+  reason: 第 5 交易日未到（最新 2026-10-23）
+  evaluated_at: 2026-10-24
+  window_days: 5
+  basis_code: sh000001
+  t0_date: 2026-10-22
+  t0_close: 3658.03
