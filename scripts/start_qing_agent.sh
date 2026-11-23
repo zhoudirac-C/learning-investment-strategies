@@ -25,12 +25,9 @@ set -a
 source .env
 set +a
 
-# 默认所有 Qing-Agent LLM 调用优先走本地 Kimi Code ACP（kimi acp）。
-# ACP 通过 stdio JSON-RPC 与 Kimi Code 通信，每次请求新建 session，避免 kimi -p 的 argv 长度限制。
-# 强制覆盖 .env 中的设置，确保切换生效；如需关闭可注释下面这行。
-export KIMI_CODE_ACP_FIRST=1
-# 大 context 下本地 ACP 可能耗时 5-10 分钟；给足单节点超时
-export KIMI_CODE_ACP_TIMEOUT=600
+# [DEPRECATED] 本地 Kimi Code ACP 已禁用，Qing-Agent 直接使用远端 provider 链。
+# export KIMI_CODE_ACP_FIRST=1
+# export KIMI_CODE_ACP_TIMEOUT=600
 # 看盘定时任务 wrapper 与 qing-agent HTTP 客户端超时对齐
 # 大 context + reviewer 多轮 retry 实测可达 23 分钟，给足余量
 export QING_AGENT_TIMEOUT=1800

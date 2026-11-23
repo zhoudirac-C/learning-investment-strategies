@@ -12,15 +12,15 @@ def _fake_response(content: str):
     return _R(content)
 
 
-def test_safe_llm_invoke_falls_back_on_short_local_output(monkeypatch):
-    """本地 Kimi Code ACP 返回过短内容时，应 fallback 到配置 provider。"""
+def test_safe_llm_invoke_ignores_local_output_when_acp_disabled(monkeypatch):
+    """ACP 环境变量不再触发本地调用，直接使用配置 provider。"""
     monkeypatch.setenv("KIMI_CODE_ACP_FIRST", "1")
     from qing_investment.agent.graph import nodes
 
     local = MagicMock()
     local.invoke.return_value = _fake_response("{}")
     remote = MagicMock()
-    remote.invoke.return_value = _fake_response("fallback remote content")
+    remote.invoke.return_value = _fake_response("configured remote content")
 
     def fake_get_llm_client(provider=None):
         if provider == "kimi-code-acp":
@@ -30,20 +30,20 @@ def test_safe_llm_invoke_falls_back_on_short_local_output(monkeypatch):
     monkeypatch.setattr(nodes, "get_llm_client", fake_get_llm_client)
 
     result = nodes._safe_llm_invoke("prompt", min_length=20)
-    assert result == "fallback remote content"
-    local.invoke.assert_called_once()
+    assert result == "configured remote content"
+    local.invoke.assert_not_called()
     remote.invoke.assert_called_once()
 
 
-def test_safe_llm_invoke_keeps_short_local_output_when_no_min_length(monkeypatch):
-    """未设置 min_length 时，即使本地返回很短也不应 fallback。"""
+def test_safe_llm_invoke_uses_remote_output_when_no_min_length(monkeypatch):
+    """未设置 min_length 时也不启用本地 ACP。"""
     monkeypatch.setenv("KIMI_CODE_ACP_FIRST", "1")
     from qing_investment.agent.graph import nodes
 
     local = MagicMock()
     local.invoke.return_value = _fake_response("{}")
     remote = MagicMock()
-    remote.invoke.return_value = _fake_response("fallback remote content")
+    remote.invoke.return_value = _fake_response("configured remote content")
 
     def fake_get_llm_client(provider=None):
         if provider == "kimi-code-acp":
@@ -53,8 +53,9 @@ def test_safe_llm_invoke_keeps_short_local_output_when_no_min_length(monkeypatch
     monkeypatch.setattr(nodes, "get_llm_client", fake_get_llm_client)
 
     result = nodes._safe_llm_invoke("prompt", min_length=0)
-    assert result == "{}"
-    remote.invoke.assert_not_called()
+    assert result == "configured remote content"
+    local.invoke.assert_not_called()
+    remote.invoke.assert_called_once()
 
 
 def test_invoke_logs_short_raw(caplog, monkeypatch):

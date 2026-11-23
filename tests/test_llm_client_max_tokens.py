@@ -67,16 +67,7 @@ def test_nemotron_reasoning_model_has_larger_output_budget(monkeypatch):
     assert captured["max_tokens"] == 32768
 
 
-@pytest.mark.parametrize(
-    ("provider", "client_class"),
-    [
-        ("kimi-coding", "KimiCodingClient"),
-        ("kimi-code-acp", "KimiCodeAcpClient"),
-    ],
-)
-def test_specialized_clients_receive_request_timeout(
-    monkeypatch, provider, client_class
-):
+def test_kimi_coding_client_receives_request_timeout(monkeypatch):
     captured = {}
 
     class FakeClient:
@@ -84,14 +75,14 @@ def test_specialized_clients_receive_request_timeout(
             captured.update(kwargs)
 
     monkeypatch.setattr(
-        f"qing_investment.agent.tools.{ 'kimi_coding_client' if provider == 'kimi-coding' else 'kimi_code_acp_client' }.{client_class}",
+        "qing_investment.agent.tools.kimi_coding_client.KimiCodingClient",
         FakeClient,
     )
     monkeypatch.setattr(
         llm_client, "_get_provider_api_key", lambda *_args: "test-key"
     )
 
-    llm_client.get_llm_client(provider=provider, request_timeout=37)
+    llm_client.get_llm_client(provider="kimi-coding", request_timeout=37)
 
     assert captured["timeout"] == 37
 

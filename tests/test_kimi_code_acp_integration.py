@@ -12,14 +12,14 @@ def _fake_response(content: str):
     return _R(content)
 
 
-def test_safe_llm_invoke_acp_first_with_fallback(monkeypatch):
-    """When KIMI_CODE_ACP_FIRST=1 and ACP returns too-short output, fall back to provider."""
+def test_safe_llm_invoke_ignores_acp_first(monkeypatch):
+    """KIMI_CODE_ACP_FIRST=1 也不再调用 ACP，直接使用配置 provider。"""
     monkeypatch.setenv("KIMI_CODE_ACP_FIRST", "1")
 
     acp = MagicMock()
     acp.invoke.return_value = _fake_response("short")
     remote = MagicMock()
-    remote.invoke.return_value = _fake_response("fallback remote content")
+    remote.invoke.return_value = _fake_response("configured remote content")
 
     def fake_get_llm_client(provider=None):
         if provider == "kimi-code-acp":
@@ -29,16 +29,15 @@ def test_safe_llm_invoke_acp_first_with_fallback(monkeypatch):
     monkeypatch.setattr(nodes, "get_llm_client", fake_get_llm_client)
 
     result = nodes._safe_llm_invoke("prompt", min_length=20)
-    assert result == "fallback remote content"
-    acp.invoke.assert_called_once_with("prompt")
+    assert result == "configured remote content"
+    acp.invoke.assert_not_called()
     remote.invoke.assert_called_once()
 
 
-def test_acp_fallback_is_deduplicated_and_every_client_is_stopped(
+def test_disabled_acp_first_preserves_remote_fallback_and_stops_clients(
     monkeypatch, tmp_path
 ):
     local = MagicMock()
-    local.invoke.return_value = _fake_response("")
     configured = MagicMock()
     configured.invoke.side_effect = RuntimeError("configured failed")
     fallback = MagicMock()
@@ -47,8 +46,9 @@ def test_acp_fallback_is_deduplicated_and_every_client_is_stopped(
 
     def fake_get_llm_client(provider=None):
         client_calls.append(provider)
+        if provider == "kimi-code-acp":
+            raise ValueError("ACP disabled")
         return {
-            "kimi-code-acp": local,
             None: configured,
             "zhipu": fallback,
         }[provider]
@@ -61,13 +61,14 @@ def test_acp_fallback_is_deduplicated_and_every_client_is_stopped(
     result = nodes._safe_llm_invoke("prompt", use_acp_first=True)
 
     assert result == "fallback remote content"
-    assert client_calls == ["kimi-code-acp", None, "zhipu"]
-    assert local.stop.call_count == 1
+    assert client_calls == [None, "kimi-code-acp", "zhipu"]
+    local.invoke.assert_not_called()
+    local.stop.assert_not_called()
     assert configured.stop.call_count == 1
     assert fallback.stop.call_count == 1
 
 
-def test_acp_constructor_failure_falls_back_to_configured_provider(
+def test_acp_constructor_is_not_called_when_acp_first_enabled(
     monkeypatch, tmp_path
 ):
     remote = MagicMock()
@@ -77,7 +78,7 @@ def test_acp_constructor_failure_falls_back_to_configured_provider(
     def fake_get_llm_client(provider=None):
         client_calls.append(provider)
         if provider == "kimi-code-acp":
-            raise ValueError("invalid ACP timeout")
+            raise ValueError("ACP disabled")
         return remote
 
     monkeypatch.setenv("KIMI_CODE_ACP_FIRST", "1")
@@ -88,5 +89,5 @@ def test_acp_constructor_failure_falls_back_to_configured_provider(
     result = nodes._safe_llm_invoke("prompt")
 
     assert result == "configured remote content"
-    assert client_calls == ["kimi-code-acp", None]
+    assert client_calls == [None]
     remote.invoke.assert_called_once_with("prompt")

@@ -1,8 +1,8 @@
 # Qing-Agent 架构梳理文档
 
-> **版本**：v2026-11-13
+> **版本**：v2026-11-23
 > **对应仓库**：`learning-investment-strategies`  
-> **最后更新**：2026-11-13（修复审核评分门禁、检索契约、个股输入时序、有效行情判断及双学派输出）
+> **最后更新**：2026-11-23（禁用本地 Kimi Code ACP，统一使用远端 provider 链）
 > **目标读者**：后续维护 Qing-Agent 与监控层的开发者  
 
 ---
@@ -1043,15 +1043,16 @@ end note
 - 关键节点（market_analyst、style_writer、reviewer 等）记录结构化日志。
 - 环境变量 `QING_AGENT_LOG_LEVEL=DEBUG` 开启模块级 DEBUG。
 
-### 9.7 Provider 路由可观测性与超时治理（2026-06-30；2026-11-12 更新）
+### 9.7 Provider 路由可观测性与超时治理（2026-06-30；2026-11-23 更新）
 
 - `llm_client.py` 新增 `contextvars` 隔离的 provider 使用轨迹跟踪：
   - `reset_provider_usage()` / `record_provider_usage()` / `format_provider_usage_summary()`
-- `_safe_llm_invoke()` 与 `devils_advocate()` 每次调用本地 Kimi Code CLI 或远端 provider 时记录 attempt / success / failed / fallback。
+- `_safe_llm_invoke()` 与 `devils_advocate()` 每次调用远端 provider 时记录 attempt / success / failed / fallback。
+- 本地 Kimi Code CLI/ACP 已禁用；`_safe_llm_invoke()` 的 ACP 优先路由、`get_llm_client()` 的 ACP 客户端创建及启动脚本中的 ACP 环境变量均已注释，`KIMI_CODE_ACP_FIRST=1` 不再生效。
 - `/analyze/trigger` 请求结束时把轨迹摘要写入日志，并拼接到 `final_output` 顶部（如 `[模型路由：最终走 远端 deepseek]`）。
 - `hermes_stock_monitor_agent.py` fallback 路径输出 `[模型路由：未调用 Qing-Agent，走本地规则 fallback]`。
 - 通用默认 `max_tokens=10000`（`gpt-4o` 为 16384；`nvidia/nemotron-3.5-super-vl:free` 为 32768，避免推理耗尽后无正文），长输出任务必须显式覆盖，避免把上下文窗口误当输出上限。
-- `_safe_llm_invoke()` 支持 `QING_AGENT_FALLBACK_PROVIDERS` 跨 provider 降级，并以 `QING_AGENT_LLM_CHAIN_TIMEOUT=300s` 作为单次调用的共享时间预算；后续 client 只获得剩余 request timeout。ChatOpenAI 显式 `max_retries=0`，ACP/Kimi Coding 同样接收剩余 timeout，避免 client 内部重试绕过预算。
+- `_safe_llm_invoke()` 支持 `QING_AGENT_FALLBACK_PROVIDERS` 跨 provider 降级，并以 `QING_AGENT_LLM_CHAIN_TIMEOUT=300s` 作为单次调用的共享时间预算；后续 client 只获得剩余 request timeout。ChatOpenAI 显式 `max_retries=0`，Kimi Coding 同样接收剩余 timeout，避免 client 内部重试绕过预算。
 - wrapper 对连接错误/5xx 有限重试，但读超时不重复 POST，避免服务端仍在执行时产生重复分析与留痕。
 
 ### 9.8 大盘技术面分析框架注入修复（2026-06-30）

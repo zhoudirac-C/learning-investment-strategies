@@ -372,11 +372,10 @@ def get_llm_client(
     max_tokens: int | None = None,
     request_timeout: float = 120,
 ) -> Any:
-    """根据配置的 provider 返回对应的 LLM 客户端。
+    """根据配置的 provider 返回对应的远端 LLM 客户端。
 
     Args:
-        provider: 目标 provider，如 'kimi', 'deepseek', 'kimi-code-cli', 'kimi-code-acp'。
-            None 则使用 settings.llm_provider。
+        provider: 目标 provider，如 'kimi', 'deepseek'；None 则使用 settings.llm_provider。
         max_tokens: 覆盖按模型解析的默认输出上限（一般为 10000，gpt-4o 为 16384）；
             仅对标准 OpenAI 协议 provider 生效。
         request_timeout: 标准 OpenAI 协议 client 的请求超时秒数，默认 120。
@@ -384,8 +383,6 @@ def get_llm_client(
     Returns:
         ChatOpenAI — 标准 OpenAI 协议 provider
         KimiCodingClient — Kimi Coding Plan（Anthropic 协议）
-        KimiCodeCLIClient — 本地 Kimi Code CLI（子进程）
-        KimiCodeAcpClient — 本地 Kimi Code ACP（JSON-RPC 子进程）
     """
     target = (provider or settings.llm_provider).lower()
     logger.info("[get_llm_client] target=%s (requested=%s, default=%s)", target, provider, settings.llm_provider)
@@ -401,16 +398,17 @@ def get_llm_client(
     #         timeout=int(os.environ.get("KIMI_CODE_CLI_TIMEOUT", "300")),
     #     )
 
-    if target == _KIMI_CODE_ACP_PROVIDER:
-        from .kimi_code_acp_client import KimiCodeAcpClient
-
-        logger.info("[get_llm_client] using local Kimi Code ACP")
-        return KimiCodeAcpClient(timeout=max(1, int(request_timeout)))
+    # [DEPRECATED] 本地 Kimi Code ACP 已禁用，不再创建 JSON-RPC 子进程。
+    # if target == _KIMI_CODE_ACP_PROVIDER:
+    #     from .kimi_code_acp_client import KimiCodeAcpClient
+    #
+    #     logger.info("[get_llm_client] using local Kimi Code ACP")
+    #     return KimiCodeAcpClient(timeout=max(1, int(request_timeout)))
 
     if target not in LLM_PROVIDERS:
         raise ValueError(
             f"Unknown LLM provider: {target}. "
-            f"Supported: {', '.join(LLM_PROVIDERS.keys())}, {_KIMI_CODE_ACP_PROVIDER}"
+            f"Supported: {', '.join(LLM_PROVIDERS.keys())}"
         )
 
     # 2026-09-03：hermes_global provider——优先解析 Hermes 全局模型配置，

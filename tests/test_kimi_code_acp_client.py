@@ -92,14 +92,12 @@ def test_send_request_receives_response(fake_acp_factory):
         client.stop()
 
 
-def test_get_llm_client_returns_acp_client(monkeypatch):
-    """get_llm_client(provider='kimi-code-acp') returns a KimiCodeAcpClient."""
+def test_get_llm_client_rejects_acp_client():
+    """Qing-Agent 不再通过统一工厂创建 ACP 子进程客户端。"""
     from qing_investment.agent.tools.llm_client import get_llm_client, _KIMI_CODE_ACP_PROVIDER
-    from qing_investment.agent.tools.kimi_code_acp_client import KimiCodeAcpClient
 
-    monkeypatch.setenv("KIMI_CODE_ACP_COMMAND", "echo")
-    client = get_llm_client(provider=_KIMI_CODE_ACP_PROVIDER)
-    assert isinstance(client, KimiCodeAcpClient)
+    with pytest.raises(ValueError, match="Unknown LLM provider: kimi-code-acp"):
+        get_llm_client(provider=_KIMI_CODE_ACP_PROVIDER)
 
 
 def test_invoke_aggregates_text_and_returns_response(fake_acp_factory_with_notifications):

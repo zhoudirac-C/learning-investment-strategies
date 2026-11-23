@@ -17,8 +17,8 @@ logger = logging.getLogger(__name__)
 
 _DEFAULT_CLI_PATH = "/home/ubuntu/.kimi-code/bin/kimi"
 _DEFAULT_CWD = "/home/ubuntu/learning-investment-strategies"
-# 大 context（看盘数据 40k+ 字符）在本地 ACP 上实测可能耗时 5-10 分钟；
-# 默认 300s 频繁触发 timeout，改为 600s 与 start_qing_agent.sh 对齐。
+# 历史 ACP 客户端保留作参考；Qing-Agent 已不再通过统一工厂实例化该类。
+# 大 context（看盘数据 40k+ 字符）实测可能耗时 5-10 分钟，因此保留 600s 默认值。
 _DEFAULT_TIMEOUT = 600
 
 # ANSI escape sequences may appear in stdout even with TERM=dumb; strip them
